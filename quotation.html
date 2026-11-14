@@ -1,0 +1,953 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request for Quotation | M&M Logistics (SL) Ltd.</title>
+
+<style>
+:root {
+    --blue: #395BA2;
+    --green: #12B94B;
+    --navy: #17243D;
+    --light: #F4F7FC;
+    --text: #263449;
+    --muted: #718096;
+    --border: #E2E8F0;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 65px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text {
+    line-height: 1.25;
+}
+
+.logo-text strong {
+    display: block;
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.logo-text span {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.nav-quote {
+    background: var(--blue);
+    color: white !important;
+    padding: 11px 18px;
+    border-radius: 6px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #17243D, #395BA2);
+    color: white;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #E3EAF7;
+    font-size: 15px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+.page-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-intro h2 {
+    font-size: 25px;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.page-intro p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.quote-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.5fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.product-panel,
+.form-panel {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 30px rgba(23, 36, 61, 0.05);
+}
+
+.product-panel {
+    padding: 25px;
+    position: sticky;
+    top: 100px;
+}
+
+.panel-label {
+    display: inline-block;
+    background: #EAF0FC;
+    color: var(--blue);
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    margin-bottom: 17px;
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    background: #F4F6FA;
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.no-image {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.product-panel h3 {
+    color: var(--navy);
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.product-model {
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.product-info {
+    border-top: 1px solid var(--border);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #F0F2F6;
+    font-size: 13px;
+}
+
+.info-row span:first-child {
+    color: var(--muted);
+}
+
+.info-row strong {
+    color: var(--navy);
+    text-align: right;
+}
+
+.support-box {
+    margin-top: 22px;
+    padding: 15px;
+    background: #F1F8F3;
+    border-radius: 8px;
+    border-left: 4px solid var(--green);
+}
+
+.support-box strong {
+    display: block;
+    color: var(--navy);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.support-box p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.form-panel {
+    padding: 30px;
+}
+
+.form-heading {
+    margin-bottom: 25px;
+}
+
+.form-heading h2 {
+    color: var(--navy);
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.form-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.form-section {
+    margin-bottom: 25px;
+}
+
+.form-section h3 {
+    color: var(--navy);
+    font-size: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 17px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: #344258;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+label .required {
+    color: #E04444;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #DCE2EC;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(57, 91, 162, 0.09);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 105px;
+}
+
+input[readonly] {
+    background: #F5F7FA;
+    color: #5B6575;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--green);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.submit-btn:hover {
+    background: #0DA640;
+    transform: translateY(-1px);
+}
+
+/* SUCCESS CONFIRMATION SCREEN */
+
+.success-screen {
+    display: none;
+    max-width: 760px;
+    margin: 45px auto;
+    padding: 48px 30px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(23, 36, 61, 0.08);
+    text-align: center;
+}
+
+.success-screen.show {
+    display: block;
+}
+
+.success-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E9F9EF;
+    color: var(--green);
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.success-screen h2 {
+    color: var(--navy);
+    font-size: clamp(25px, 4vw, 34px);
+    margin-bottom: 12px;
+}
+
+.success-screen p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 560px;
+    margin: 0 auto 12px;
+}
+
+.success-screen .response-time {
+    color: var(--blue);
+    font-weight: 700;
+    margin: 18px auto 25px;
+}
+
+.success-reference {
+    display: inline-block;
+    background: #F1F8F3;
+    color: #287746;
+    border-radius: 7px;
+    padding: 12px 17px;
+    font-size: 13px;
+    margin: 5px 0 24px;
+}
+
+.home-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 13px 25px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.home-btn:hover {
+    background: var(--navy);
+}
+
+footer {
+    background: var(--navy);
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #CBD5E1;
+}
+
+footer a {
+    color: #7FE2A0;
+}
+
+@media (max-width: 850px) {
+    .quote-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .product-panel {
+        position: static;
+    }
+
+    .product-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 15px;
+    }
+
+    .logo img {
+        width: 52px;
+        height: 45px;
+    }
+
+    .logo-text strong {
+        font-size: 14px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-quote {
+        padding: 9px 11px;
+    }
+
+    .hero {
+        padding: 40px 18px;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 0 13px;
+    }
+
+    .form-panel,
+    .product-panel {
+        padding: 20px 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .success-screen {
+        margin: 25px auto;
+        padding: 35px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="company logo.png.jpg" alt="M&M Logistics Logo">
+            <div class="logo-text">
+                <strong>M&M LOGISTICS</strong>
+                <span>(SL) LIMITED</span>
+            </div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="automotive.html">Automotive</a>
+            <a href="contact.html" class="nav-quote">Contact Us</a>
+        </nav>
+
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Request a Quotation</h1>
+    <p>
+        Tell us what you need. Our team will review your requirements
+        and contact you with a quotation for sourcing and logistics.
+    </p>
+</section>
+
+<main class="container">
+
+    <div class="page-intro">
+        <h2>Let's Get Your Order Moving</h2>
+        <p>
+            Complete the form below to request pricing and further information.
+        </p>
+    </div>
+
+    <div class="quote-layout">
+
+        <!-- PRODUCT INFORMATION -->
+        <aside class="product-panel">
+
+            <span class="panel-label">SELECTED PRODUCT</span>
+
+            <div class="product-image" id="productImageContainer">
+                <img id="productImage" src="Automotive.png" alt="Selected Product">
+            </div>
+
+            <h3 id="productName">Product Name</h3>
+            <p class="product-model" id="productModel">Model: Not specified</p>
+
+            <div class="product-info">
+
+                <div class="info-row">
+                    <span>Company</span>
+                    <strong>M&M Logistics</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Origin</span>
+                    <strong>China</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Service</span>
+                    <strong>Sourcing & Logistics</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Quotation</span>
+                    <strong>On Request</strong>
+                </div>
+
+            </div>
+
+            <div class="support-box">
+                <strong>Need assistance?</strong>
+                <p>
+                    Contact our team if you need help with product sourcing,
+                    shipping or your quotation request.
+                </p>
+            </div>
+
+        </aside>
+
+        <!-- QUOTATION FORM -->
+        <section class="form-panel">
+
+            <div class="form-heading">
+                <h2>Quotation Details</h2>
+                <p>Enter your information and product requirements below.</p>
+            </div>
+
+            <form id="quotationForm">
+
+                <!-- CUSTOMER INFORMATION -->
+                <div class="form-section">
+
+                    <h3>01. Customer Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="fullName">
+                                Full Name <span class="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                Phone / WhatsApp Number <span class="required">*</span>
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="e.g. +232 30 172 868"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email address"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input
+                                type="text"
+                                id="company"
+                                placeholder="Enter company name (if applicable)"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT INFORMATION -->
+                <div class="form-section">
+
+                    <h3>02. Product Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="product">
+                                Product Name <span class="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="product"
+                                placeholder="Product name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="model">Model / Specification</label>
+                            <input
+                                type="text"
+                                id="model"
+                                placeholder="Enter product model"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity">
+                                Required Quantity <span class="required">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="quantity"
+                                min="1"
+                                placeholder="Enter quantity"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget</label>
+                            <input
+                                type="text"
+                                id="budget"
+                                placeholder="e.g. USD 15,000"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SHIPPING INFORMATION -->
+                <div class="form-section">
+
+                    <h3>03. Shipping & Destination</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="destination">
+                                Destination Country <span class="required">*</span>
+                            </label>
+                            <select id="destination" required>
+                                <option value="">Select destination</option>
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shippingMethod">
+                                Preferred Shipping Method <span class="required">*</span>
+                            </label>
+                            <select id="shippingMethod" required>
+                                <option value="">Select shipping method</option>
+                                <option value="Sea Freight">Sea Freight</option>
+                                <option value="Air Freight">Air Freight</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Not Sure - Recommend for Me">
+                                    Not Sure - Recommend for Me
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="deliveryAddress">Delivery Location / Address</label>
+                            <input
+                                type="text"
+                                id="deliveryAddress"
+                                placeholder="Enter city, port or delivery address"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ADDITIONAL INFORMATION -->
+                <div class="form-section">
+
+                    <h3>04. Additional Requirements</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+                            <label for="requirements">
+                                Additional Information
+                            </label>
+                            <textarea
+                                id="requirements"
+                                placeholder="Tell us more about your requirements, preferred specifications, delivery timeline or any other information..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Submit Quotation
+                </button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+    <section class="success-screen" id="successScreen" aria-live="polite">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Your Quotation Has Been Submitted!</h2>
+
+        <p>
+            Thank you for choosing M&amp;M Logistics (SL) Ltd.
+            We have received your quotation request.
+        </p>
+
+        <p class="response-time">
+            We will send you a response within the next 24 hours.
+        </p>
+
+        <div class="success-reference" id="successReference"></div>
+
+        <p>
+            We appreciate your interest and look forward to assisting you.
+        </p>
+
+        <a href="index.html" class="home-btn">
+            Return to Home
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        &copy; <span id="currentYear"></span>
+        M&M Logistics (SL) Ltd. All Rights Reserved.
+    </p>
+
+    <p style="margin-top: 7px;">
+        WhatsApp:
+        <a href="https://wa.me/23230172868" target="_blank">
+            +232 30 172 868
+        </a>
+    </p>
+</footer>
+
+<script>
+
+// ======================================
+// 1. GET PRODUCT DETAILS FROM URL
+// ======================================
+
+const params = new URLSearchParams(window.location.search);
+
+const selectedProduct = params.get("product") || "";
+const selectedModel = params.get("model") || "";
+const selectedImage = params.get("image") || "";
+
+// ======================================
+// 2. DISPLAY SELECTED PRODUCT
+// ======================================
+
+const productNameElement = document.getElementById("productName");
+const productModelElement = document.getElementById("productModel");
+const productInput = document.getElementById("product");
+const modelInput = document.getElementById("model");
+const productImage = document.getElementById("productImage");
+const productImageContainer = document.getElementById("productImageContainer");
+
+if (selectedProduct) {
+    productNameElement.textContent = selectedProduct;
+    productInput.value = selectedProduct;
+}
+
+if (selectedModel) {
+    productModelElement.textContent = "Model: " + selectedModel;
+    modelInput.value = selectedModel;
+}
+
+if (selectedImage) {
+    productImage.src = selectedImage;
+
+    productImage.onerror = function() {
+        productImageContainer.innerHTML =
+            '<span class="no-image">Product image unavailable</span>';
+    };
+} else {
+    productImageContainer.innerHTML =
+        '<span class="no-image">No product image selected</span>';
+}
+
+// ======================================
+// 3. CURRENT YEAR
+// ======================================
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+// ======================================
+// 4. SUBMIT QUOTATION
+// ======================================
+
+document.getElementById("quotationForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const form = this;
+
+    // Validate required fields.
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // Generate a reference for the confirmation screen.
+    const reference = "MMQ-" + Date.now().toString().slice(-8);
+
+    // Hide the form and product information.
+    document.querySelector(".quote-layout").style.display = "none";
+    document.querySelector(".page-intro").style.display = "none";
+
+    // Display the confirmation screen.
+    const successScreen = document.getElementById("successScreen");
+
+    document.getElementById("successReference").textContent =
+        "Your enquiry reference: " + reference;
+
+    successScreen.classList.add("show");
+
+    // Scroll to the confirmation message.
+    successScreen.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+</script>
+
+</body>
+</html>

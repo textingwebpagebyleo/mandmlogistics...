@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Account | M&M Logistics (SL) Ltd</title>
+
+<style>
+:root {
+    --blue: #395BA2;
+    --navy: #17243D;
+    --green: #12B94B;
+    --text: #172033;
+    --muted: #778197;
+    --border: #e5eaf2;
+    --light: #f5f7fb;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* MAIN LAYOUT */
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+/* LEFT BRAND PANEL */
+
+.brand-panel {
+    position: relative;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 32, 60, .97),
+            rgba(35, 73, 137, .90)
+        ),
+        url("hero-logistics.png") center/cover;
+    color: white;
+    padding: 42px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.brand-panel::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    right: -180px;
+    top: 18%;
+}
+
+.brand-panel::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 50%;
+    right: -100px;
+    top: 28%;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.brand-logo img {
+    width: 75px;
+    height: 65px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.brand-logo strong {
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+.brand-logo small {
+    display: block;
+    font-size: 10px;
+    color: #cbd8f0;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+    max-width: 490px;
+    margin: 55px 0;
+}
+
+.brand-tag {
+    display: inline-block;
+    background: rgba(18,185,75,.15);
+    border: 1px solid rgba(18,185,75,.45);
+    color: #68e88d;
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+}
+
+.brand-content h1 {
+    font-size: clamp(35px, 4.2vw, 57px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.brand-content h1 span {
+    color: #69df8c;
+}
+
+.brand-content p {
+    color: #d4deef;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 430px;
+}
+
+.brand-points {
+    display: grid;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.brand-point {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 13px;
+    color: #e8edf8;
+}
+
+.point-icon {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(255,255,255,.12);
+    font-size: 16px;
+}
+
+.brand-footer {
+    position: relative;
+    z-index: 2;
+    color: #c4cee1;
+    font-size: 11px;
+}
+
+/* RIGHT FORM PANEL */
+
+.form-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 6%;
+    background: #fff;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.mobile-logo {
+    display: none;
+    margin-bottom: 28px;
+}
+
+.form-heading {
+    margin-bottom: 25px;
+}
+
+.form-heading .welcome {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.form-heading h2 {
+    font-size: 31px;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.form-heading p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #39445a;
+    margin-bottom: 7px;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap input,
+.input-wrap select {
+    width: 100%;
+    height: 49px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fbfcfe;
+    padding: 0 14px;
+    outline: none;
+    font-size: 13px;
+    color: var(--text);
+    transition: .2s;
+}
+
+.input-wrap input:focus,
+.input-wrap select:focus {
+    border-color: var(--blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(57,91,162,.09);
+}
+
+.input-wrap input::placeholder {
+    color: #a2aabc;
+}
+
+.password-input {
+    padding-right: 58px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* TWO COLUMN INPUTS */
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+/* PASSWORD STRENGTH */
+
+.strength-area {
+    margin-top: 9px;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 5px;
+}
+
+.strength-bars span {
+    height: 4px;
+    flex: 1;
+    border-radius: 10px;
+    background: #e6eaf0;
+}
+
+.strength-bars span.active.weak {
+    background: #e04a4a;
+}
+
+.strength-bars span.active.medium {
+    background: #e5a52d;
+}
+
+.strength-bars span.active.strong {
+    background: var(--green);
+}
+
+.strength-text {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* PASSWORD CHECKLIST */
+
+.password-rules {
+    background: #f7f9fc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.rule {
+    color: #929bad;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rule::before {
+    content: "○";
+    font-size: 13px;
+}
+
+.rule.valid {
+    color: #159348;
+}
+
+.rule.valid::before {
+    content: "✓";
+    font-weight: 800;
+}
+
+/* CHECKBOX */
+
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 19px 0;
+}
+
+.checkbox-row input {
+    margin-top: 3px;
+    accent-color: var(--green);
+}
+
+.checkbox-row label {
+    font-size: 11px;
+    color: #657087;
+    line-height: 1.6;
+}
+
+.checkbox-row a {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    width: 100%;
+    height: 51px;
+    border: none;
+    border-radius: 8px;
+    background: var(--green);
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #0da640;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 18px rgba(18,185,75,.2);
+}
+
+.submit-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* LOGIN LINK */
+
+.login-link {
+    text-align: center;
+    margin-top: 23px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.login-link a {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+/* FORM FEEDBACK */
+
+.form-message {
+    display: none;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.form-message.error {
+    display: block;
+    background: #fff0f0;
+    color: #a52c2c;
+    border: 1px solid #ffd8d8;
+}
+
+.form-message.success {
+    display: block;
+    background: #eaf8ef;
+    color: #16733a;
+    border: 1px solid #c8efd5;
+}
+
+/* SUCCESS SCREEN */
+
+.success-screen {
+    display: none;
+    text-align: center;
+    padding: 35px 10px;
+}
+
+.success-icon {
+    width: 75px;
+    height: 75px;
+    background: #e8f8ee;
+    color: var(--green);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 36px;
+    margin: 0 auto 20px;
+}
+
+.success-screen h2 {
+    color: var(--navy);
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.success-screen p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.success-screen a {
+    display: inline-flex;
+    background: var(--green);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+    .page {
+        grid-template-columns: .8fr 1.2fr;
+    }
+
+    .brand-panel {
+        padding: 32px 7%;
+    }
+
+    .form-panel {
+        padding: 30px 5%;
+    }
+
+    .brand-content h1 {
+        font-size: 39px;
+    }
+}
+
+@media(max-width:700px) {
+    .page {
+        display: block;
+    }
+
+    .brand-panel {
+        display: none;
+    }
+
+    .form-panel {
+        min-height: 100vh;
+        padding: 35px 7%;
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mobile-logo img {
+        width: 65px;
+        height: 55px;
+        object-fit: contain;
+    }
+
+    .mobile-logo strong {
+        color: var(--blue);
+        font-size: 15px;
+    }
+}
+
+@media(max-width:430px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-heading h2 {
+        font-size: 27px;
+    }
+
+    .password-rules {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- LEFT BRANDING PANEL -->
+
+    <section class="brand-panel">
+
+        <a href="index.html" class="brand-logo">
+            <img src="company logo.png.jpg" alt="M&M Logistics Logo">
+
+            <strong>
+                M&amp;M Logistics (SL) Ltd
+                <small>GLOBAL SOURCING · PROCUREMENT · LOGISTICS</small>
+            </strong>
+        </a>
+
+        <div class="brand-content">
+
+            <span class="brand-tag">YOUR LOGISTICS PARTNER</span>
+
+            <h1>
+                Your journey to
+                <span>smarter logistics</span>
+                starts here.
+            </h1>
+
+            <p>
+                Create your customer account and enjoy a more organised
+                way to manage your sourcing, shipments and logistics
+                requests from China to West Africa.
+            </p>
+
+            <div class="brand-points">
+
+                <div class="brand-point">
+                    <span class="point-icon">📦</span>
+                    Track your shipments in one place
+                </div>
+
+                <div class="brand-point">
+                    <span class="point-icon">🌍</span>
+                    Connect with our logistics team
+                </div>
+
+                <div class="brand-point">
+                    <span class="point-icon">📄</span>
+                    Manage quotations and documents
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="brand-footer">
+            © 2026 M&amp;M Logistics (SL) Ltd. All rights reserved.
+        </div>
+
+    </section>
+
+    <!-- RIGHT SIGNUP PANEL -->
+
+    <section class="form-panel">
+
+        <div class="form-container">
+
+            <!-- MOBILE LOGO -->
+
+            <a href="index.html" class="mobile-logo">
+
+                <img src="company logo.png.jpg" alt="M&M Logistics Logo">
+
+                <strong>
+                    M&amp;M Logistics (SL) Ltd
+                </strong>
+
+            </a>
+
+            <!-- REGISTRATION FORM -->
+
+            <div id="registrationArea">
+
+                <div class="form-heading">
+
+                    <div class="welcome">WELCOME TO M&amp;M LOGISTICS</div>
+
+                    <h2>Create your account</h2>
+
+                    <p>
+                        Register below to access your personal logistics
+                        dashboard. It only takes a few minutes.
+                    </p>
+
+                </div>
+
+                <div id="formMessage" class="form-message"></div>
+
+                <form id="signupForm" novalidate>
+
+                    <!-- FULL NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">Full Name *</label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- EMAIL AND PHONE -->
+
+                    <div class="two-columns">
+
+                        <div class="form-group">
+
+                            <label for="email">Email Address *</label>
+
+                            <div class="input-wrap">
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="phone">Phone Number *</label>
+
+                            <div class="input-wrap">
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="+232..."
+                                    autocomplete="tel"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- COUNTRY -->
+
+                    <div class="form-group">
+
+                        <label for="country">Country *</label>
+
+                        <div class="input-wrap">
+
+                            <select id="country" required>
+
+                                <option value="">Select your country</option>
+
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="China">China</option>
+                                <option value="Liberia">Liberia</option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="The Gambia">The Gambia</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Other">Other</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">Create Password *</label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="password"
+                                id="password"
+                                class="password-input"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="password"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <div class="strength-area">
+
+                            <div class="strength-bars">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="strength-text" id="strengthText">
+                                Password strength: Not entered
+                            </div>
+
+                        </div>
+
+                        <div class="password-rules">
+
+                            <div class="rule" id="ruleLength">
+                                At least 8 characters
+                            </div>
+
+                            <div class="rule" id="ruleUpper">
+                                One uppercase letter
+                            </div>
+
+                            <div class="rule" id="ruleLower">
+                                One lowercase letter
+                            </div>
+
+                            <div class="rule" id="ruleNumber">
+                                One number
+                            </div>
+
+                            <div class="rule" id="ruleSpecial">
+                                One special character
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">Confirm Password *</label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                class="password-input"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="confirmPassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <div
+                            class="strength-text"
+                            id="matchText"
+                        ></div>
+
+                    </div>
+
+                    <!-- TERMS -->
+
+                    <div class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <label for="terms">
+                            I agree to the
+                            <a href="terms.html" target="_blank">Terms and Conditions</a>
+                            and
+                            <a href="privacy.html" target="_blank">Privacy Policy</a>
+                            of M&amp;M Logistics (SL) Ltd.
+                        </label>
+
+                    </div>
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                        id="submitBtn"
+                    >
+                        Create My Account
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+                <div class="login-link">
+
+                    Already have an account?
+
+                    <a href="login.html">Sign in here</a>
+
+                </div>
+
+            </div>
+
+            <!-- SUCCESS SCREEN -->
+
+            <div class="success-screen" id="successScreen">
+
+                <div class="success-icon">✓</div>
+
+                <h2>Account Created!</h2>
+
+                <p>
+                    Welcome to M&amp;M Logistics. Your customer registration
+                    has been saved on this device.
+
+                    You can now proceed to the login page to access
+                    your customer account.
+                </p>
+
+                <a href="login.html">
+                    Continue to Login →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+/* ELEMENT REFERENCES */
+
+const signupForm = document.getElementById("signupForm");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const formMessage = document.getElementById("formMessage");
+const submitBtn = document.getElementById("submitBtn");
+
+/* PASSWORD VISIBILITY */
+
+document.querySelectorAll(".toggle-password").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const target = document.getElementById(button.dataset.target);
+
+        if (target.type === "password") {
+            target.type = "text";
+            button.textContent = "Hide";
+        } else {
+            target.type = "password";
+            button.textContent = "Show";
+        }
+
+    });
+
+});
+
+/* PASSWORD VALIDATION */
+
+function getPasswordRules(value) {
+
+    return {
+        length: value.length >= 8,
+        upper: /[A-Z]/.test(value),
+        lower: /[a-z]/.test(value),
+        number: /[0-9]/.test(value),
+        special: /[^A-Za-z0-9]/.test(value)
+    };
+
+}
+
+function updateRule(id, valid) {
+
+    document.getElementById(id).classList.toggle("valid", valid);
+
+}
+
+/* LIVE PASSWORD STRENGTH */
+
+password.addEventListener("input", () => {
+
+    const value = password.value;
+
+    const rules = getPasswordRules(value);
+
+    updateRule("ruleLength", rules.length);
+    updateRule("ruleUpper", rules.upper);
+    updateRule("ruleLower", rules.lower);
+    updateRule("ruleNumber", rules.number);
+    updateRule("ruleSpecial", rules.special);
+
+    const score = Object.values(rules).filter(Boolean).length;
+
+    const bars = document.querySelectorAll(".strength-bars span");
+
+    bars.forEach((bar, index) => {
+
+        bar.className = "";
+
+        if (index < score) {
+
+            bar.classList.add("active");
+
+            if (score <= 2) {
+                bar.classList.add("weak");
+            } else if (score <= 4) {
+                bar.classList.add("medium");
+            } else {
+                bar.classList.add("strong");
+            }
+
+        }
+
+    });
+
+    const strengthText = document.getElementById("strengthText");
+
+    if (!value) {
+        strengthText.textContent = "Password strength: Not entered";
+    } else if (score <= 2) {
+        strengthText.textContent = "Password strength: Weak";
+    } else if (score <= 4) {
+        strengthText.textContent = "Password strength: Medium";
+    } else {
+        strengthText.textContent = "Password strength: Strong";
+    }
+
+    checkPasswordMatch();
+
+});
+
+/* CONFIRM PASSWORD CHECK */
+
+function checkPasswordMatch() {
+
+    const matchText = document.getElementById("matchText");
+
+    if (!confirmPassword.value) {
+        matchText.textContent = "";
+        matchText.style.color = "";
+        return false;
+    }
+
+    if (password.value === confirmPassword.value) {
+
+        matchText.textContent = "✓ Passwords match";
+        matchText.style.color = "#159348";
+
+        return true;
+
+    }
+
+    matchText.textContent = "✕ Passwords do not match";
+    matchText.style.color = "#d43c3c";
+
+    return false;
+
+}
+
+confirmPassword.addEventListener("input", checkPasswordMatch);
+
+/* SHOW FORM MESSAGE */
+
+function showError(message) {
+
+    formMessage.className = "form-message error";
+    formMessage.textContent = message;
+
+    formMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+function clearMessage() {
+
+    formMessage.className = "form-message";
+    formMessage.textContent = "";
+
+}
+
+/* EMAIL VALIDATION */
+
+function validEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+}
+
+/* SIGNUP FORM SUBMISSION */
+
+signupForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    clearMessage();
+
+    const fullName =
+        document.getElementById("fullName").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim().toLowerCase();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const country =
+        document.getElementById("country").value;
+
+    const passwordValue = password.value;
+
+    const confirmValue = confirmPassword.value;
+
+    const termsAccepted =
+        document.getElementById("terms").checked;
+
+    /* REQUIRED FIELDS */
+
+    if (!fullName || !email || !phone || !country ||
+        !passwordValue || !confirmValue) {
+
+        showError("Please complete all required fields before continuing.");
+
+        return;
+
+    }
+
+    /* NAME VALIDATION */
+
+    if (fullName.length < 3) {
+
+        showError("Please enter your full name.");
+
+        return;
+
+    }
+
+    /* EMAIL VALIDATION */
+
+    if (!validEmail(email)) {
+
+        showError("Please enter a valid email address.");
+
+        return;
+
+    }
+
+    /* PHONE VALIDATION */
+
+    if (phone.replace(/\D/g, "").length < 7) {
+
+        showError("Please enter a valid phone number.");
+
+        return;
+
+    }
+
+    /* PASSWORD REQUIREMENTS */
+
+    const rules = getPasswordRules(passwordValue);
+
+    if (!Object.values(rules).every(Boolean)) {
+
+        showError(
+            "Your password must meet all the requirements displayed below the password field."
+        );
+
+        return;
+
+    }
+
+    /* CONFIRM PASSWORD */
+
+    if (passwordValue !== confirmValue) {
+
+        showError("Your passwords do not match. Please check and try again.");
+
+        return;
+
+    }
+
+    /* TERMS */
+
+    if (!termsAccepted) {
+
+        showError("Please agree to the Terms and Conditions before creating your account.");
+
+        return;
+
+    }
+
+    /* GET EXISTING CUSTOMERS */
+
+    let customers = [];
+
+    try {
+
+        customers = JSON.parse(
+            localStorage.getItem("mmLogisticsCustomers") || "[]"
+        );
+
+        if (!Array.isArray(customers)) {
+            customers = [];
+        }
+
+    } catch (error) {
+
+        showError(
+            "We could not access the registration information stored in this browser. Please check your browser settings and try again."
+        );
+
+        return;
+
+    }
+
+    /* DUPLICATE EMAIL CHECK */
+
+    const existingCustomer = customers.find(customer =>
+        customer.email &&
+        customer.email.toLowerCase() === email
+    );
+
+    if (existingCustomer) {
+
+        showError(
+            "An account with this email address already exists. Please sign in instead."
+        );
+
+        return;
+
+    }
+
+    /* CREATE CUSTOMER RECORD */
+
+    const newCustomer = {
+
+        id: "CUST-" + Date.now(),
+
+        fullName: fullName,
+
+        email: email,
+
+        phone: phone,
+
+        country: country,
+
+        password: passwordValue,
+
+        createdAt: new Date().toISOString()
+
+    };
+
+    /* SAVE CUSTOMER */
+
+    try {
+
+        customers.push(newCustomer);
+
+        localStorage.setItem(
+            "mmLogisticsCustomers",
+            JSON.stringify(customers)
+        );
+
+    } catch (error) {
+
+        showError(
+            "Your account could not be saved in this browser. Please check available storage and try again."
+        );
+
+        return;
+
+    }
+
+    /* SHOW SUCCESS SCREEN */
+
+    document.getElementById("registrationArea").style.display = "none";
+
+    document.getElementById("successScreen").style.display = "block";
+
+    document.getElementById("successScreen").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+</script>
+
+</body>
+</html>

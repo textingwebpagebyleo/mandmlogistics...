@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="M&M Logistics (SL) Ltd - Product sourcing, procurement and international shipping from China to West Africa.">
+<title>M&M Logistics (SL) Ltd | China to West Africa</title>
+
+<style>
+:root {
+    --primary: #395BA2;
+    --primary-dark: #24447f;
+    --green: #12B94B;
+    --dark: #172033;
+    --text: #586174;
+    --light: #f5f7fb;
+    --white: #ffffff;
+    --border: #e6eaf1;
+    --shadow: 0 12px 35px rgba(25,45,85,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img { max-width: 100%; }
+
+button, input, textarea, select { font: inherit; }
+
+.container {
+    width: min(1160px,92%);
+    margin: auto;
+}
+
+.section { padding: 85px 0; }
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading span {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px,4vw,38px);
+    color: var(--dark);
+    margin: 9px 0;
+}
+
+.section-heading p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--text);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0d9c3d;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-logo img {
+    width: 78px;
+    height: 68px;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-name {
+    color: var(--primary);
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.15;
+    white-space: nowrap;
+    letter-spacing: -.4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 700;
+    color: #39445a;
+    transition: .2s;
+}
+
+.nav-links a:hover { color: var(--green); }
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.signup-btn {
+    padding: 10px 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* THEME AND CUSTOMER ACCOUNT CONTROLS */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--light);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.theme-toggle:hover { border-color: var(--primary); }
+
+.account-area {
+    display: flex;
+    align-items: center;
+}
+
+.guest-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-wrapper { position: relative; }
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px 6px 6px;
+    background: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+    font-weight: 700;
+    max-width: 210px;
+}
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+}
+
+.profile-name {
+    max-width: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.profile-chevron { color: var(--text); }
+
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 1200;
+    width: 230px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.profile-menu-heading {
+    padding: 10px 9px 13px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6px;
+}
+
+.profile-menu-heading strong,
+.profile-menu-heading small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.profile-menu-heading strong {
+    color: var(--dark);
+    font-size: 14px;
+}
+
+.profile-menu-heading small {
+    color: var(--text);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.profile-menu a,
+.profile-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 9px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--dark);
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-menu a:hover,
+.profile-menu button:hover {
+    background: var(--light);
+    color: var(--primary);
+}
+
+[hidden] { display: none !important; }
+
+/* LANDING PAGE / HERO BACKGROUND IMAGE */
+
+.hero {
+    position: relative;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    background: #24447f;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(22,43,88,.78),
+        rgba(35,68,130,.42)
+    );
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 90px 0;
+}
+
+.hero h1 {
+    font-size: clamp(38px,6vw,62px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    max-width: 590px;
+    font-size: 18px;
+    color: #edf2ff;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+/* INTRODUCTION */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.intro-text h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    color: var(--text);
+    margin-bottom: 17px;
+}
+
+.check-list {
+    list-style: none;
+    margin: 20px 0 25px;
+}
+
+.check-list li {
+    margin: 12px 0;
+    font-weight: 600;
+}
+
+.check-list li::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+/* SHIPPING DESTINATIONS */
+
+.destinations { background: var(--light); }
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.destination-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.destination-card:hover { transform: translateY(-5px); }
+
+.destination-card img {
+    width: 90px;
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 14px;
+}
+
+.destination-card h3 {
+    color: var(--dark);
+    font-size: 18px;
+}
+
+/* PARTNERS */
+
+.partners {
+    padding: 65px 0;
+    overflow: hidden;
+}
+
+.partners .section-heading { margin-bottom: 30px; }
+
+.partner-marquee {
+    overflow: hidden;
+    width: 100%;
+}
+
+.partner-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: partnerScroll 32s linear infinite;
+}
+
+.partner-marquee:hover .partner-track {
+    animation-play-state: paused;
+}
+
+.partner-group {
+    display: flex;
+    align-items: center;
+    gap: 65px;
+    padding-right: 65px;
+}
+
+.partner-logo {
+    width: 150px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes partnerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* SERVICES */
+
+.services { background: var(--light); }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px 23px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #e8f8ee;
+    color: var(--green);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* PRODUCT CATEGORIES */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    min-height: 230px;
+    background: var(--primary);
+    color: white;
+}
+
+.product-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.product-card:hover img { transform: scale(1.08); }
+
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(12,25,53,.9),
+        rgba(12,25,53,.05)
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 22px;
+}
+
+.product-overlay h3 { font-size: 20px; }
+
+/* HOW IT WORKS */
+
+.steps { background: var(--light); }
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px 30px;
+}
+
+.step-card {
+    text-align: left;
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-height: 220px;
+    transition: .25s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 20px;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* SHIPMENT TRACKING */
+
+.tracking {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(30,58,111,.96),
+            rgba(57,91,162,.91)
+        ),
+        url("hero-logistics.png") center/cover;
+    color: white;
+}
+
+.tracking-content {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.tracking-content h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.tracking-content p {
+    color: #e4eafa;
+    margin-bottom: 25px;
+}
+
+.tracking-form {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.tracking-form input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: var(--dark);
+}
+
+.tracking-result {
+    margin-top: 18px;
+    font-size: 14px;
+    color: white;
+}
+
+/* ABOUT US */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+/* CALL TO ACTION */
+
+.cta {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.cta h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #e7edff;
+    margin-bottom: 25px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 45px;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: var(--text);
+    margin-bottom: 23px;
+}
+
+.contact-item { margin-bottom: 18px; }
+
+.contact-item strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 3px;
+}
+
+.contact-form {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.form-group { margin-bottom: 17px; }
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 13px;
+    background: white;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form .btn { width: 100%; }
+
+/* FOOTER */
+
+footer {
+    background: #101b32;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    width: 95px;
+    height: 78px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-about p {
+    color: #b8c3d8;
+    font-size: 14px;
+    max-width: 280px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.footer-column a {
+    display: block;
+    color: #b8c3d8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-column a:hover { color: var(--green); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #aeb9ce;
+    font-size: 13px;
+}
+
+/* MOBILE BOTTOM NAVIGATION */
+
+.mobile-bottom-nav { display: none; }
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width:1000px) {
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12px; }
+
+    .service-grid,
+    .product-grid,
+    .steps-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:760px) {
+    .navbar { min-height: 72px; }
+
+    .brand-logo img {
+        width: 68px;
+        height: 60px;
+    }
+
+    .brand-logo { gap: 8px; }
+
+    .brand-name { font-size: 17px; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--shadow);
+        gap: 18px;
+    }
+
+    .nav-links.active { display: flex; }
+    .nav-actions { display: none; }
+
+    .hero { min-height: 510px; }
+
+    .hero-background img { object-position: center; }
+
+    .hero-content { padding: 75px 0; }
+
+    .hero p { font-size: 16px; }
+
+    .section { padding: 65px 0; }
+
+    .intro-grid,
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .intro-image img,
+    .about-image img {
+        height: 280px;
+    }
+
+    .destination-grid { gap: 12px; }
+
+    .destination-card { padding: 23px 10px; }
+
+    .destination-card img {
+        width: 65px;
+        height: 50px;
+    }
+
+    .destination-card h3 { font-size: 14px; }
+
+    .partner-group {
+        gap: 35px;
+        padding-right: 35px;
+    }
+
+    .partner-logo {
+        width: 115px;
+        height: 75px;
+    }
+
+    .tracking-content h2,
+    .cta h2 {
+        font-size: 28px;
+    }
+
+    .tracking-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+    }
+
+    .tracking-form input {
+        border-radius: 6px;
+        padding: 15px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: white;
+        box-shadow: 0 -3px 15px rgba(0,0,0,.09);
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        padding: 9px 4px;
+    }
+
+    .mobile-bottom-nav a {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text);
+    }
+
+    .mobile-bottom-nav a span {
+        display: block;
+        font-size: 19px;
+        margin-bottom: 2px;
+    }
+
+    body { padding-bottom: 65px; }
+}
+
+@media (max-width:480px) {
+    .service-grid,
+    .product-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .footer-grid { grid-template-columns: 1fr; }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn { width: 100%; }
+
+    .contact-form { padding: 20px; }
+}
+
+/* DARK THEME */
+
+body[data-theme="dark"] {
+    --dark: #e8edf7;
+    --text: #b7c2d5;
+    --light: #172438;
+    --white: #111c2e;
+    --border: #2c3b52;
+    --shadow: 0 12px 35px rgba(0,0,0,.25);
+    background: #0d1727;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] header {
+    background: #111c2e;
+}
+
+body[data-theme="dark"] .nav-links a {
+    color: #d6deeb;
+}
+
+body[data-theme="dark"] .nav-links {
+    background: #111c2e;
+}
+
+body[data-theme="dark"] .brand-name {
+    color: #8eafff;
+}
+
+body[data-theme="dark"] .destination-card,
+body[data-theme="dark"] .service-card,
+body[data-theme="dark"] .step-card {
+    background: #172438;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] .destination-card h3,
+body[data-theme="dark"] .service-card h3,
+body[data-theme="dark"] .step-card h3,
+body[data-theme="dark"] .section-heading h2,
+body[data-theme="dark"] .intro-text h2,
+body[data-theme="dark"] .about-text h2,
+body[data-theme="dark"] .contact-info h2 {
+    color: var(--dark);
+}
+
+body[data-theme="dark"] .destinations,
+body[data-theme="dark"] .services,
+body[data-theme="dark"] .steps {
+    background: #121f32;
+}
+
+body[data-theme="dark"] .contact-form {
+    background: #172438;
+}
+
+body[data-theme="dark"] .form-group input,
+body[data-theme="dark"] .form-group textarea,
+body[data-theme="dark"] .form-group select {
+    background: #0f1b2d;
+    color: #e8edf7;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .profile-button {
+    background: #1c2b42;
+    color: #e8edf7;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .profile-menu {
+    background: #172438;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .profile-menu-heading strong,
+body[data-theme="dark"] .profile-menu a,
+body[data-theme="dark"] .profile-menu button {
+    color: #e8edf7;
+}
+
+body[data-theme="dark"] .profile-menu a:hover,
+body[data-theme="dark"] .profile-menu button:hover {
+    background: #243650;
+}
+
+body[data-theme="dark"] .mobile-bottom-nav {
+    background: #111c2e;
+}
+
+body[data-theme="dark"] .mobile-bottom-nav a {
+    color: #c5d0e2;
+}
+
+/* MOBILE HEADER CONTROLS */
+
+@media (max-width:760px) {
+    .nav-actions {
+        display: flex;
+        gap: 7px;
+    }
+
+    .theme-toggle {
+        padding: 8px;
+        font-size: 0;
+        min-width: 38px;
+    }
+
+    .theme-toggle span:first-child {
+        font-size: 17px;
+    }
+
+    .guest-actions { gap: 8px; }
+
+    .login-link { font-size: 12px; }
+
+    .signup-btn {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .profile-button {
+        padding: 4px;
+        gap: 5px;
+    }
+
+    .profile-name,
+    .profile-chevron {
+        display: none;
+    }
+
+    .profile-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-menu { right: -8px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="container navbar">
+
+        <a href="index.html" class="brand-logo">
+            <img
+                src="company logo.png.jpg"
+                alt="M&M Logistics (SL) Ltd Logo"
+            >
+            <span class="brand-name">M&amp;M Logistics</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="tracking.html">Track Shipping</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch to dark theme"
+                title="Switch theme"
+            >
+                <span id="themeIcon">🌙</span>
+                <span id="themeLabel">Dark Mode</span>
+            </button>
+
+            <div class="account-area" id="accountArea">
+
+                <!-- DISPLAYED WHEN CUSTOMER IS NOT LOGGED IN -->
+
+                <div class="guest-actions" id="guestActions">
+                    <a href="login.html" class="login-link">Login</a>
+                    <a href="signup.html" class="signup-btn">Sign up</a>
+                </div>
+
+                <!-- DISPLAYED WHEN CUSTOMER IS LOGGED IN -->
+
+                <div class="profile-wrapper" id="profileWrapper" hidden>
+
+                    <button
+                        class="profile-button"
+                        id="profileButton"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span class="profile-avatar" id="profileAvatar">C</span>
+                        <span class="profile-name" id="profileName">My Account</span>
+                        <span class="profile-chevron">▾</span>
+                    </button>
+
+                    <div class="profile-menu" id="profileMenu" hidden>
+
+                        <div class="profile-menu-heading">
+                            <strong id="profileMenuName">Customer</strong>
+                            <small id="profileMenuEmail"></small>
+                        </div>
+
+                        <a href="tracking.html">Customer Dashboard</a>
+                        <a href="tracking.html">My Shipments</a>
+
+                        <button type="button" id="signOutButton">
+                            Sign Out
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-background">
+        <img
+            src="hero-logistics.png"
+            alt="International logistics and shipping background"
+        >
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
+
+            <h1>Need to buy something in China?</h1>
+
+            <p>
+                Tell us what you need. We’ll source it, purchase it
+                and ship it to Sierra Leone, Ghana or Nigeria.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#contact" class="btn btn-primary">
+                    Request a Quote
+                </a>
+
+                <a href="#products" class="btn btn-outline">
+                    Explore Products
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- INTRODUCTION -->
+
+<section class="section">
+    <div class="container intro-grid">
+
+        <div class="intro-image">
+            <img
+                src="M&M Logistics Warehouse Operations.png"
+                alt="International logistics and warehouse operations"
+            >
+        </div>
+
+        <div class="intro-text">
+
+            <span style="color:var(--green);font-weight:800;">
+                YOUR LOGISTICS PARTNER
+            </span>
+
+            <h2>From China to your doorstep.</h2>
+
+            <p>
+                M&M Logistics (SL) Ltd helps individuals and businesses
+                source products, manage procurement and coordinate
+                international shipping from China to West Africa.
+            </p>
+
+            <p>
+                Whether you are purchasing one product or sourcing
+                commercial quantities, we help simplify the process
+                from supplier identification to delivery.
+            </p>
+
+            <ul class="check-list">
+                <li>Reliable product sourcing</li>
+                <li>Professional procurement support</li>
+                <li>International freight coordination</li>
+                <li>Shipping support across West Africa</li>
+            </ul>
+
+            <a href="#about" class="btn btn-primary">
+                Learn More About Us
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- SHIPPING DESTINATIONS -->
+
+<section class="section destinations">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>OUR SHIPPING DESTINATIONS</h2>
+        </div>
+
+        <div class="destination-grid">
+
+            <div class="destination-card">
+                <img src="sierra-leone.png" alt="Sierra Leone flag">
+                <h3>Sierra Leone</h3>
+            </div>
+
+            <div class="destination-card">
+                <img src="ghana.png" alt="Ghana flag">
+                <h3>Ghana</h3>
+            </div>
+
+            <div class="destination-card">
+                <img src="nigeria.png" alt="Nigeria flag">
+                <h3>Nigeria</h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PARTNERS -->
+
+<section class="partners">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>OUR NETWORK</span>
+            <h2>OUR PARTNERS</h2>
+        </div>
+
+    </div>
+
+    <div class="partner-marquee">
+        <div class="partner-track">
+
+            <div class="partner-group">
+
+                <div class="partner-logo">
+                    <img src="access-bank.png" alt="Access Bank">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="flot.png" alt="Flot">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="undp.png" alt="UNDP">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="starrtix.png" alt="StarrTix">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="amaris.png" alt="Amaris">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="ministry-youth.png" alt="Ministry of Youth">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="newpartner.png.jpeg" alt="New Partner">
+                </div>
+
+            </div>
+
+            <!-- DUPLICATED LOGOS FOR CONTINUOUS MARQUEE -->
+
+            <div class="partner-group" aria-hidden="true">
+
+                <div class="partner-logo">
+                    <img src="access-bank.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="flot.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="undp.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="starrtix.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="amaris.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="ministry-youth.png" alt="">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="new-partner-logo.png" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="section services" id="services">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>WHAT WE DO</span>
+            <h2>Our Services</h2>
+            <p>
+                We provide integrated sourcing, procurement and
+                international logistics solutions for individuals
+                and businesses.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-icon">⌕</div>
+                <h3>Product Sourcing</h3>
+                <p>
+                    We help identify reliable suppliers and suitable
+                    products in China based on your requirements.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▤</div>
+                <h3>Procurement</h3>
+                <p>
+                    We support purchasing, supplier communication
+                    and coordination of your orders.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚢</div>
+                <h3>Sea Freight</h3>
+                <p>
+                    Cost-effective shipping solutions for commercial
+                    goods and larger consignments.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✈</div>
+                <h3>Air Freight</h3>
+                <p>
+                    Air cargo coordination for shipments requiring
+                    faster international transportation.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+
+<section class="section" id="products">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>EXPLORE OUR CATEGORIES</span>
+            <h2>Products We Can Source</h2>
+            <p>
+                Tell us what you are looking for and our team can
+                assist with sourcing and procurement.
+            </p>
+        </div>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="Automotive.png" alt="Automotive products">
+                <div class="product-overlay">
+                    <h3>Automotive</h3>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="electronics.png" alt="Electronic products">
+                <div class="product-overlay">
+                    <h3>Electronics</h3>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="fashion.png" alt="Fashion and lifestyle products">
+                <div class="product-overlay">
+                    <h3>Fashion &amp; Lifestyle</h3>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="commercial.png" alt="Industrial and commercial products">
+                <div class="product-overlay">
+                    <h3>Industrial &amp; Commercial</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="section steps" id="how-it-works">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>OUR PROCESS</span>
+            <h2>How Our Services Work</h2>
+            <p>
+                From your initial enquiry to shipment coordination,
+                our process is organised around your requirements.
+            </p>
+        </div>
+
+        <div class="steps-grid">
+
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Submit Your Request</h3>
+                <p>
+                    Tell us the product you want to source, purchase or ship.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Receive a Quotation</h3>
+                <p>
+                    We review your requirements and provide relevant
+                    pricing and service information.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Confirm Your Order</h3>
+                <p>
+                    Review and confirm the purchasing and shipping
+                    arrangements.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">04</div>
+                <h3>Procurement</h3>
+                <p>
+                    The purchasing process is coordinated according
+                    to the confirmed order.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">05</div>
+                <h3>Shipping Coordination</h3>
+                <p>
+                    Your goods are prepared and arranged for the
+                    selected freight method.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">06</div>
+                <h3>Shipment Updates</h3>
+                <p>
+                    Follow up on your shipment through the available
+                    tracking arrangements.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SHIPMENT TRACKING -->
+
+<section class="section tracking" id="tracking">
+    <div class="container">
+
+        <div class="tracking-content">
+
+            <h2>Track Your Shipment</h2>
+
+            <p>
+                Enter your shipment tracking number to check
+                the status of your delivery.
+            </p>
+
+            <form class="tracking-form" id="trackingForm">
+
+                <input
+                    type="text"
+                    id="trackingNumber"
+                    placeholder="Enter your tracking number"
+                    required
+                >
+
+                <button type="submit" class="btn btn-primary">
+                    Track Shipment
+                </button>
+
+            </form>
+
+            <div class="tracking-result" id="trackingResult"></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT US -->
+
+<section class="section" id="about">
+    <div class="container about-grid">
+
+        <div class="about-text">
+
+            <span style="color:var(--green);font-weight:800;">
+                ABOUT M&amp;M LOGISTICS
+            </span>
+
+            <h2>
+                Connecting businesses through sourcing and logistics.
+            </h2>
+
+            <p>
+                M&amp;M Logistics (SL) Ltd is focused on simplifying
+                international sourcing, procurement and shipping
+                for customers across West Africa.
+            </p>
+
+            <p>
+                We understand the challenges individuals and
+                businesses face when purchasing products
+                internationally. Our goal is to make the process
+                more accessible, organised and convenient.
+            </p>
+
+            <p>
+                Through our sourcing and logistics network,
+                we aim to support customers in Sierra Leone,
+                Ghana and Nigeria.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Contact Our Team
+            </a>
+
+        </div>
+
+        <div class="about-image">
+            <img src="flow.png" alt="Logistics and international shipping">
+        </div>
+
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+    <div class="container">
+
+        <h2>Ready to Source Your Products from China?</h2>
+
+        <p>
+            Let us help you find, purchase and ship what you need.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+            Request a Quote Today
+        </a>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+    <div class="container contact-grid">
+
+        <div class="contact-info">
+
+            <span style="color:var(--green);font-weight:800;">
+                GET IN TOUCH
+            </span>
+
+            <h2>Let's Talk About Your Next Shipment</h2>
+
+            <p>
+                Have a product in mind or need assistance with
+                procurement and shipping? Contact our team.
+            </p>
+
+            <div class="contact-item">
+                <strong>WhatsApp / Sierra Leone</strong>
+                <a href="https://wa.me/23230172868">
+                    +232 30 172 868
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <strong>China Contact</strong>
+                <p>+86 131 5627 1080</p>
+                <p>+86 175 4399 5848</p>
+            </div>
+
+            <div class="contact-item">
+                <strong>Shipping Destinations</strong>
+                <p>Sierra Leone | Ghana | Nigeria</p>
+            </div>
+
+        </div>
+
+        <form class="contact-form" id="contactForm">
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Shipping Destination</label>
+                <select id="destination" required>
+                    <option value="">Select destination</option>
+                    <option>Sierra Leone</option>
+                    <option>Ghana</option>
+                    <option>Nigeria</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service Required</label>
+                <select id="service" required>
+                    <option value="">Select a service</option>
+                    <option>Product Sourcing</option>
+                    <option>Procurement</option>
+                    <option>Sea Freight</option>
+                    <option>Air Freight</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                    id="message"
+                    placeholder="Tell us what you need..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Submit Enquiry
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="footer-logo">
+                    <img
+                        src="company logo.png.jpg"
+                        alt="M&amp;M Logistics (SL) Ltd Logo"
+                    >
+                </a>
+
+                <p>
+                    M&amp;M Logistics (SL) Ltd provides product sourcing,
+                    procurement and international logistics solutions
+                    connecting China to West Africa.
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Our Services</a>
+                <a href="tracking.html">Track Shipping</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <a href="services.html#sourcing">Product Sourcing</a>
+                <a href="services.html#procurement">Procurement</a>
+                <a href="services.html#shipping">Sea Freight</a>
+                <a href="services.html#shipping">Air Freight</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <a href="https://wa.me/23230172868">
+                    WhatsApp: +232 30 172 868
+                </a>
+                <a href="tel:+8613156271080">
+                    China: +86 131 5627 1080
+                </a>
+                <a href="tel:+8617543995848">
+                    China: +86 175 4399 5848
+                </a>
+                <a href="#contact">Send an Enquiry</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="currentYear"></span>
+                M&amp;M Logistics (SL) Ltd. All rights reserved.
+            </p>
+
+            <p>
+                Designed for international sourcing and logistics.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+
+<nav class="mobile-bottom-nav">
+
+    <a href="#home">
+        <span>⌂</span>
+        Home
+    </a>
+
+    <a href="#services">
+        <span>▦</span>
+        Services
+    </a>
+
+    <a href="#tracking">
+        <span>⌕</span>
+        Track
+    </a>
+
+    <a href="login.html" id="mobileAccountLink">
+        <span id="mobileAccountIcon">♙</span>
+        <span id="mobileAccountLabel">Account</span>
+    </a>
+
+</nav>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+
+    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.contains("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.textContent = isOpen ? "×" : "☰";
+
+});
+
+// CLOSE MOBILE MENU AFTER SELECTING A LINK
+
+document.querySelectorAll("#navLinks a").forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.textContent = "☰";
+
+    });
+
+});
+
+// AUTOMATICALLY UPDATE FOOTER YEAR
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+// SHIPMENT TRACKING PREVIEW
+
+document.getElementById("trackingForm").addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        const trackingNumber =
+            document.getElementById("trackingNumber").value.trim();
+
+        document.getElementById("trackingResult").textContent =
+            "Tracking lookup for " + trackingNumber +
+            " is a preview only. Live tracking will be connected " +
+            "when the shipment management system is integrated.";
+
+    }
+);
+
+// CONTACT FORM PREVIEW
+
+document.getElementById("contactForm").addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you for your enquiry. This is a website preview. " +
+            "The contact form will be connected to the company email " +
+            "or database during development."
+        );
+
+        this.reset();
+
+    }
+);
+
+
+// LIGHT / DARK THEME
+
+const HOME_THEME_KEY = "mmHomeTheme";
+
+function applyHomeTheme(theme) {
+
+    const selectedTheme = theme === "dark" ? "dark" : "light";
+
+    document.body.setAttribute("data-theme", selectedTheme);
+
+    localStorage.setItem(HOME_THEME_KEY, selectedTheme);
+
+    const icon = document.getElementById("themeIcon");
+    const label = document.getElementById("themeLabel");
+    const button = document.getElementById("themeToggle");
+
+    if (selectedTheme === "dark") {
+
+        icon.textContent = "☀️";
+        label.textContent = "Light Mode";
+
+        button.setAttribute(
+            "aria-label",
+            "Switch to light theme"
+        );
+
+        button.title = "Switch to light theme";
+
+    } else {
+
+        icon.textContent = "🌙";
+        label.textContent = "Dark Mode";
+
+        button.setAttribute(
+            "aria-label",
+            "Switch to dark theme"
+        );
+
+        button.title = "Switch to dark theme";
+
+    }
+}
+
+document.getElementById("themeToggle").addEventListener(
+    "click",
+    function () {
+
+        const current =
+            document.body.getAttribute("data-theme") || "light";
+
+        applyHomeTheme(
+            current === "dark" ? "light" : "dark"
+        );
+
+    }
+);
+
+// RESTORE THE LAST SELECTED THEME
+
+applyHomeTheme(
+    localStorage.getItem(HOME_THEME_KEY) || "light"
+);
+
+
+// CUSTOMER PROFILE / LOGIN STATUS
+
+function getCurrentCustomer() {
+
+    try {
+
+        const customer = JSON.parse(
+            localStorage.getItem("mmCurrentCustomer") || "null"
+        );
+
+        return customer && (customer.fullName || customer.email)
+            ? customer
+            : null;
+
+    } catch (error) {
+
+        return null;
+
+    }
+}
+
+
+function renderHomeAccount() {
+
+    const customer = getCurrentCustomer();
+
+    const guestActions =
+        document.getElementById("guestActions");
+
+    const profileWrapper =
+        document.getElementById("profileWrapper");
+
+    const mobileLink =
+        document.getElementById("mobileAccountLink");
+
+
+    if (customer) {
+
+        const name = customer.fullName || "Customer";
+
+        const email = customer.email || "";
+
+        const initials = name
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(part => part[0])
+            .join("")
+            .toUpperCase();
+
+
+        // Hide Login and Sign Up
+
+        guestActions.hidden = true;
+
+        // Show the customer's profile
+
+        profileWrapper.hidden = false;
+
+        document.getElementById("profileName").textContent = name;
+
+        document.getElementById("profileAvatar").textContent =
+            initials || "C";
+
+        document.getElementById("profileMenuName").textContent =
+            name;
+
+        document.getElementById("profileMenuEmail").textContent =
+            email;
+
+
+        // Update mobile account link
+
+        mobileLink.href = "tracking.html";
+
+        document.getElementById("mobileAccountIcon").textContent = "♙";
+
+        document.getElementById("mobileAccountLabel").textContent =
+            "Profile";
+
+    } else {
+
+        // Show Login and Sign Up
+
+        guestActions.hidden = false;
+
+        // Hide the profile
+
+        profileWrapper.hidden = true;
+
+        document.getElementById("profileMenu").hidden = true;
+
+        document.getElementById("profileButton").setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+        // Update mobile account link
+
+        mobileLink.href = "login.html";
+
+        document.getElementById("mobileAccountIcon").textContent = "♙";
+
+        document.getElementById("mobileAccountLabel").textContent =
+            "Account";
+
+    }
+}
+
+
+// OPEN AND CLOSE PROFILE MENU
+
+document.getElementById("profileButton").addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        const menu = document.getElementById("profileMenu");
+
+        menu.hidden = !menu.hidden;
+
+        this.setAttribute(
+            "aria-expanded",
+            String(!menu.hidden)
+        );
+
+    }
+);
+
+
+// CLOSE PROFILE MENU WHEN CLICKING OUTSIDE
+
+document.addEventListener("click", function (event) {
+
+    const wrapper = document.getElementById("profileWrapper");
+
+    if (!wrapper.contains(event.target)) {
+
+        document.getElementById("profileMenu").hidden = true;
+
+        document.getElementById("profileButton").setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+
+// SIGN OUT
+
+document.getElementById("signOutButton").addEventListener(
+    "click",
+    function () {
+
+        localStorage.removeItem("mmCurrentCustomer");
+
+        renderHomeAccount();
+
+        document.getElementById("profileMenu").hidden = true;
+
+    }
+);
+
+
+// CHECK CUSTOMER LOGIN STATUS WHEN HOMEPAGE LOADS
+
+renderHomeAccount();
+
+
+// UPDATE PROFILE IF LOGIN STATUS CHANGES IN ANOTHER TAB
+
+window.addEventListener("storage", function (event) {
+
+    if (event.key === "mmCurrentCustomer") {
+
+        renderHomeAccount();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

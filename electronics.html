@@ -1,0 +1,2135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore computers, smartphones, tablets and home and office electronics available through M&M Logistics (SL) Ltd.">
+<title>Electronics | M&M Logistics (SL) Ltd</title>
+
+<style>
+:root {
+    --primary: #395BA2;
+    --green: #12B94B;
+    --dark: #17243b;
+    --text: #657086;
+    --light: #f5f7fb;
+    --white: #ffffff;
+    --border: #e5eaf2;
+    --shadow: 0 8px 25px rgba(25,45,85,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+button, input, select { font: inherit; }
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 17px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #294982;
+    transform: translateY(-2px);
+}
+
+.btn-green {
+    background: var(--green);
+    color: white;
+}
+
+.btn-green:hover {
+    background: #0d9d3d;
+    transform: translateY(-2px);
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 72px;
+    height: 62px;
+    object-fit: contain;
+}
+
+.brand strong {
+    color: var(--primary);
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: #39445a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--light);
+    color: var(--dark);
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.guest-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-link {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.signup-btn {
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+    padding: 9px 13px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 27px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* CUSTOMER PROFILE */
+
+.profile-wrapper { position: relative; }
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 6px 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+    max-width: 190px;
+}
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+}
+
+.profile-name {
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 1200;
+    width: 230px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+.profile-menu-heading {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 5px;
+}
+
+.profile-menu-heading strong,
+.profile-menu-heading small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.profile-menu-heading strong { font-size: 13px; }
+.profile-menu-heading small { font-size: 11px; color: var(--text); }
+
+.profile-menu a,
+.profile-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--dark);
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.profile-menu a:hover,
+.profile-menu button:hover {
+    background: var(--light);
+    color: var(--primary);
+}
+
+[hidden] { display: none !important; }
+
+/* HERO */
+
+.hero {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+        linear-gradient(90deg, rgba(17,31,59,.94), rgba(37,70,130,.72)),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 720px;
+    padding: 75px 0;
+}
+
+.eyebrow {
+    color: #7df0a1;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    line-height: 1.12;
+    margin: 14px 0 18px;
+}
+
+.hero p {
+    max-width: 620px;
+    color: #e6ecf8;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-outline {
+    color: white;
+    border: 1px solid white;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* INTRODUCTION */
+
+.intro {
+    padding: 55px 0;
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 30px;
+    margin: 8px 0 12px;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: auto;
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* CATEGORIES */
+
+.catalogue-section {
+    padding: 70px 0 85px;
+    background: var(--light);
+}
+
+.section-heading {
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto 35px;
+}
+
+.section-heading span {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 8px 0;
+}
+
+.section-heading p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.catalogue-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    color: var(--dark);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.search-box {
+    width: 250px;
+    max-width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    outline: none;
+}
+
+.search-box:focus { border-color: var(--primary); }
+
+.category-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 38px 0 18px;
+}
+
+.category-heading h3 { font-size: 23px; }
+
+.category-heading span {
+    color: var(--text);
+    font-size: 12px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(25,45,85,.13);
+}
+
+.product-image {
+    height: 220px;
+    background: #edf1f7;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-category-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 4px;
+    padding: 5px 9px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.product-content { padding: 20px; }
+
+.product-content h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+.product-description {
+    color: var(--text);
+    font-size: 13px;
+    min-height: 42px;
+    margin-bottom: 13px;
+}
+
+.feature-heading {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 18px;
+}
+
+.feature-list li {
+    font-size: 12px;
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.feature-list li::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+    margin-right: 7px;
+}
+
+.product-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.product-actions button {
+    width: 100%;
+    min-height: 43px;
+    font-size: 11px;
+    padding: 9px 7px;
+}
+
+/* CATEGORY INTRO CARDS */
+
+.category-overview {
+    padding: 70px 0;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.overview-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 25px;
+    background: white;
+}
+
+.overview-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: #e9f7ee;
+    color: var(--green);
+    border-radius: 9px;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.overview-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.overview-card p {
+    color: var(--text);
+    font-size: 13px;
+}
+
+/* CTA */
+
+.cta {
+    padding: 65px 0;
+    background: linear-gradient(110deg, #172b51, #395BA2);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    color: #e0e8f6;
+    max-width: 650px;
+    margin: 0 auto 23px;
+    font-size: 14px;
+}
+
+/* PRODUCT MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(8,17,34,.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-overlay.show { display: flex; }
+
+.product-modal {
+    width: min(850px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    position: relative;
+    color: var(--dark);
+}
+
+.modal-close {
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    z-index: 2;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #17243b;
+    font-size: 23px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+
+.modal-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-image {
+    min-height: 390px;
+    background: #edf1f7;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+    object-fit: cover;
+}
+
+.modal-content { padding: 35px 28px; }
+
+.modal-content h2 {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.modal-content p {
+    color: var(--text);
+    font-size: 13px;
+    margin-bottom: 17px;
+}
+
+.modal-content h4 {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.modal-content li {
+    color: var(--text);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.modal-content li::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.modal-actions .btn { flex: 1; }
+
+/* FOOTER */
+
+footer {
+    background: #101b32;
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.footer-logo img {
+    width: 95px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.footer-about p {
+    color: #b8c3d8;
+    font-size: 13px;
+    max-width: 280px;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    display: block;
+    color: #b8c3d8;
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+.footer-column a:hover { color: var(--green); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #b8c3d8;
+    font-size: 12px;
+}
+
+/* MOBILE NAV */
+
+.mobile-bottom-nav { display: none; }
+
+/* DARK MODE */
+
+body[data-theme="dark"] {
+    --dark: #e8edf7;
+    --text: #b7c2d5;
+    --light: #121f32;
+    --white: #172438;
+    --border: #2d3d54;
+    --shadow: 0 8px 25px rgba(0,0,0,.22);
+    background: #0d1727;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] header,
+body[data-theme="dark"] .product-card,
+body[data-theme="dark"] .overview-card,
+body[data-theme="dark"] .product-modal {
+    background: #172438;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] .nav-links a { color: #d6deeb; }
+
+body[data-theme="dark"] .nav-links a:hover,
+body[data-theme="dark"] .nav-links a.active {
+    color: var(--green);
+}
+
+body[data-theme="dark"] .catalogue-section {
+    background: #121f32;
+}
+
+body[data-theme="dark"] .filter-btn,
+body[data-theme="dark"] .search-box,
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .profile-button {
+    background: #1c2b42;
+    color: #e8edf7;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .filter-btn.active {
+    background: var(--primary);
+}
+
+body[data-theme="dark"] .profile-menu {
+    background: #172438;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .profile-menu a,
+body[data-theme="dark"] .profile-menu button {
+    color: #e8edf7;
+}
+
+body[data-theme="dark"] .profile-menu a:hover,
+body[data-theme="dark"] .profile-menu button:hover {
+    background: #263750;
+}
+
+body[data-theme="dark"] .product-modal {
+    background: #172438;
+}
+
+body[data-theme="dark"] .modal-content h4 { color: #e8edf7; }
+
+/* RESPONSIVE */
+
+@media(max-width: 1050px) {
+    .nav-links { gap: 13px; }
+    .nav-links a { font-size: 11px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 760px) {
+    .navbar { min-height: 72px; }
+
+    .brand img {
+        width: 62px;
+        height: 55px;
+    }
+
+    .brand strong { font-size: 16px; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: white;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 17px;
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-actions { gap: 6px; }
+
+    .theme-toggle {
+        padding: 8px;
+        font-size: 0;
+    }
+
+    .guest-actions { gap: 7px; }
+    .login-link { font-size: 11px; }
+    .signup-btn { padding: 8px; font-size: 10px; }
+
+    .profile-button { padding: 4px; }
+    .profile-name,
+    .profile-chevron { display: none; }
+
+    .hero { min-height: 380px; }
+    .hero-content { padding: 60px 0; }
+
+    .catalogue-section,
+    .category-overview { padding: 55px 0; }
+
+    .overview-grid { grid-template-columns: 1fr; }
+
+    .catalogue-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-box { width: 100%; }
+
+    .modal-layout { grid-template-columns: 1fr; }
+
+    .modal-image,
+    .modal-image img {
+        min-height: 220px;
+        height: 220px;
+    }
+
+    .modal-content { padding: 25px 20px; }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background: white;
+        box-shadow: 0 -3px 15px rgba(0,0,0,.09);
+        padding: 9px 4px;
+    }
+
+    .mobile-bottom-nav a {
+        text-align: center;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--text);
+    }
+
+    .mobile-bottom-nav a span {
+        display: block;
+        font-size: 19px;
+    }
+
+    body { padding-bottom: 65px; }
+}
+
+@media(max-width: 480px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .product-image { height: 230px; }
+
+    .product-actions button {
+        font-size: 11px;
+    }
+
+    .category-filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filter-btn { padding: 10px 6px; }
+
+    .footer-grid { grid-template-columns: 1fr; }
+
+    .hero h1 { font-size: 37px; }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn { width: 100%; }
+
+    .footer-bottom { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+<div class="container navbar">
+
+    <a href="index.html" class="brand">
+        <img src="company logo.png.jpg" alt="M&M Logistics logo">
+        <strong>M&amp;M Logistics</strong>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="automotive.html">Automotive</a>
+        <a href="electronics.html" class="active">Electronics</a>
+        <a href="tracking.html">Track Shipping</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button class="theme-toggle" id="themeToggle" type="button">
+            <span id="themeIcon">🌙</span>
+            <span id="themeLabel">Dark Mode</span>
+        </button>
+
+        <div class="guest-actions" id="guestActions">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+
+        <div class="profile-wrapper" id="profileWrapper" hidden>
+            <button class="profile-button" id="profileButton"
+                    type="button" aria-expanded="false">
+                <span class="profile-avatar" id="profileAvatar">C</span>
+                <span class="profile-name" id="profileName">My Account</span>
+                <span class="profile-chevron">▾</span>
+            </button>
+
+            <div class="profile-menu" id="profileMenu" hidden>
+                <div class="profile-menu-heading">
+                    <strong id="profileMenuName">Customer</strong>
+                    <small id="profileMenuEmail"></small>
+                </div>
+                <a href="tracking.html">Customer Dashboard</a>
+                <a href="tracking.html">My Shipments</a>
+                <a href="quotation.html">My Quotations</a>
+                <a href="contact.html">Contact Support</a>
+                <button type="button" id="signOutButton">Sign Out</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+<div class="container">
+    <div class="hero-content">
+
+    
+
+        <h1>Electronics &amp; Technology</h1>
+
+        <p>
+            Explore a wide range of computers, smartphones,
+            tablets and home and office electronics. Let us help
+            you source the right technology products from China
+            for your personal or business needs.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#catalogue" class="btn btn-green">
+                Explore Products
+            </a>
+            <a href="contact.html" class="btn btn-outline">
+                Contact Our Team
+            </a>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="intro">
+<div class="container">
+
+    <span class="eyebrow">OUR ELECTRONICS RANGE</span>
+
+    <h2>Technology for Every Need</h2>
+
+    <p>
+        Whether you are purchasing for personal use, a growing
+        business or a commercial project, M&amp;M Logistics can
+        assist with sourcing electronics from China. Browse
+        our product categories, review key features and send
+        us your quotation or purchase enquiry.
+    </p>
+
+</div>
+</section>
+
+
+<!-- PRODUCT CATALOGUE -->
+
+<section class="catalogue-section" id="catalogue">
+<div class="container">
+
+    <div class="section-heading">
+        <span>EXPLORE OUR CATALOGUE</span>
+        <h2>Browse Electronics Products</h2>
+        <p>
+            Explore 18 selected products across three categories.
+            Select a product to view more information and available
+            features.
+        </p>
+    </div>
+
+    <div class="catalogue-controls">
+
+        <div class="category-filters">
+            <button class="filter-btn active" data-filter="all">
+                All Products (18)
+            </button>
+
+            <button class="filter-btn" data-filter="computers">
+                Computers (6)
+            </button>
+
+            <button class="filter-btn" data-filter="phones">
+                Phones &amp; Tablets (6)
+            </button>
+
+            <button class="filter-btn" data-filter="home">
+                Home &amp; Office (6)
+            </button>
+        </div>
+
+        <input
+            type="search"
+            class="search-box"
+            id="productSearch"
+            placeholder="Search electronics..."
+            aria-label="Search products"
+        >
+
+    </div>
+
+    <div id="catalogueProducts"></div>
+
+</div>
+</section>
+
+
+<!-- CATEGORY OVERVIEW -->
+
+<section class="category-overview">
+<div class="container">
+
+    <div class="section-heading">
+        <span>OUR PRODUCT CATEGORIES</span>
+        <h2>What You Can Source</h2>
+        <p>
+            Our electronics catalogue is organised into three
+            convenient categories.
+        </p>
+    </div>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+            <div class="overview-icon">💻</div>
+            <h3>Computers</h3>
+            <p>
+                Laptops, desktop computers, monitors,
+                printers, keyboards and computer accessories
+                for personal and professional use.
+            </p>
+        </div>
+
+        <div class="overview-card">
+            <div class="overview-icon">📱</div>
+            <h3>Phones &amp; Tablets</h3>
+            <p>
+                Smartphones, tablets, smartwatches,
+                wireless earbuds, headphones and mobile
+                accessories.
+            </p>
+        </div>
+
+        <div class="overview-card">
+            <div class="overview-icon">📺</div>
+            <h3>Home &amp; Office Electronics</h3>
+            <p>
+                Smart televisions, refrigerators, air
+                conditioners, microwave ovens, washing
+                machines and office equipment.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+<div class="container">
+
+    <h2>Can't Find the Product You Need?</h2>
+
+    <p>
+        We can assist with sourcing products beyond the items
+        displayed in this catalogue. Send us the product name,
+        model, image or supplier link and tell us what you need.
+    </p>
+
+    <a href="contact.html" class="btn btn-green">
+        Make a Product Enquiry
+    </a>
+
+</div>
+</section>
+
+
+<!-- PRODUCT DETAILS MODAL -->
+
+<div class="modal-overlay" id="productModal">
+    <div class="product-modal">
+
+        <button class="modal-close" id="modalClose"
+                aria-label="Close product details">&times;</button>
+
+        <div class="modal-layout">
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Product image">
+            </div>
+
+            <div class="modal-content">
+
+                <span class="eyebrow" id="modalCategory"></span>
+
+                <h2 id="modalTitle">Product Name</h2>
+
+                <p id="modalDescription"></p>
+
+                <h4>Key Features &amp; Specifications</h4>
+
+                <ul id="modalFeatures"></ul>
+
+                <div class="modal-actions">
+                    <button class="btn btn-primary"
+                            id="modalQuoteButton">
+                        Request Quotation
+                    </button>
+
+                    <button class="btn btn-green"
+                            id="modalBuyButton">
+                        Buy Now
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+            <a href="index.html" class="footer-logo">
+                <img src="company logo.png.jpg"
+                     alt="M&M Logistics logo">
+            </a>
+
+            <p>
+                M&amp;M Logistics (SL) Ltd provides product sourcing,
+                procurement and international logistics solutions
+                connecting China to West Africa.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="tracking.html">Track Shipping</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Product Categories</h3>
+            <a href="automotive.html">Automotive</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="fashion.html">Fashion &amp; Lifestyle</a>
+            <a href="industrial.html">Industrial &amp; Commercial</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <a href="https://wa.me/23230172868">
+                WhatsApp: +232 30 172 868
+            </a>
+            <a href="tel:+8613156271080">
+                China: +86 131 5627 1080
+            </a>
+            <a href="tel:+8617543995848">
+                China: +86 175 4399 5848
+            </a>
+            <a href="contact.html">Send an Enquiry</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © <span id="currentYear"></span>
+            M&amp;M Logistics (SL) Ltd. All rights reserved.
+        </p>
+        <p>Connecting China to West Africa.</p>
+    </div>
+
+</div>
+</footer>
+
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+
+<nav class="mobile-bottom-nav">
+    <a href="index.html"><span>⌂</span>Home</a>
+    <a href="services.html"><span>▦</span>Services</a>
+    <a href="tracking.html"><span>⌕</span>Track</a>
+    <a href="contact.html"><span>♙</span>Contact</a>
+</nav>
+
+
+<script>
+
+/* PRODUCT CATALOGUE DATA */
+
+const products = [
+
+    // COMPUTERS - 6 PRODUCTS
+
+    {
+        id: 1,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Business Laptop",
+        model: "Business Laptop",
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=85",
+        description: "A versatile laptop suitable for business, office productivity and everyday computing.",
+        features: [
+            "Intel Core i5 / i7 processor options",
+            "8GB / 16GB RAM options",
+            "256GB / 512GB SSD storage",
+            "Full HD display options",
+            "Windows operating system options"
+        ]
+    },
+
+    {
+        id: 2,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Gaming Laptop",
+        model: "Gaming Laptop",
+        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=85",
+        description: "A performance-focused laptop designed for gaming, graphics work and demanding applications.",
+        features: [
+            "High-performance Intel or AMD processors",
+            "Dedicated NVIDIA / AMD graphics options",
+            "16GB / 32GB RAM options",
+            "High-refresh-rate display options",
+            "SSD storage"
+        ]
+    },
+
+    {
+        id: 3,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Desktop Computer",
+        model: "Desktop Computer",
+        image: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=1000&q=85",
+        description: "A desktop computing solution for offices, businesses, education and home use.",
+        features: [
+            "Intel Core / AMD Ryzen processor options",
+            "8GB / 16GB RAM options",
+            "SSD and HDD storage options",
+            "Multiple connectivity ports",
+            "Upgradeable configurations"
+        ]
+    },
+
+    {
+        id: 4,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Computer Monitor",
+        model: "Computer Monitor",
+        image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=85",
+        description: "Display monitors for desktop workstations, offices, design and entertainment.",
+        features: [
+            "24-inch / 27-inch / 32-inch options",
+            "Full HD and 4K resolution options",
+            "LED display technology",
+            "HDMI and DisplayPort connectivity",
+            "Adjustable stand options"
+        ]
+    },
+
+    {
+        id: 5,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Multifunction Printer",
+        model: "Multifunction Printer",
+        image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=1000&q=85",
+        description: "An office printing solution for documents, scanning and everyday business requirements.",
+        features: [
+            "Print, scan and copy functions",
+            "Inkjet and laser options",
+            "USB and wireless connectivity options",
+            "Colour and monochrome models",
+            "Suitable for office and home use"
+        ]
+    },
+
+    {
+        id: 6,
+        category: "computers",
+        categoryName: "Computers",
+        name: "Computer Accessories Set",
+        model: "Computer Accessories Set",
+        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1000&q=85",
+        description: "Essential accessories for computer users, offices and workstation setups.",
+        features: [
+            "Keyboard and mouse combinations",
+            "Wired and wireless options",
+            "USB connectivity",
+            "Ergonomic designs",
+            "Suitable for office and home workstations"
+        ]
+    },
+
+
+    // PHONES AND TABLETS - 6 PRODUCTS
+
+    {
+        id: 7,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Android Smartphone",
+        model: "Android Smartphone",
+        image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1000&q=85",
+        description: "A modern smartphone for communication, productivity, entertainment and everyday use.",
+        features: [
+            "Android operating system",
+            "6.5-inch display options",
+            "128GB / 256GB storage options",
+            "Multi-camera system",
+            "Fast-charging options"
+        ]
+    },
+
+    {
+        id: 8,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Premium Smartphone",
+        model: "Premium Smartphone",
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=85",
+        description: "A premium mobile device with advanced display, camera and performance options.",
+        features: [
+            "High-performance mobile processor",
+            "AMOLED / OLED display options",
+            "Advanced multi-camera system",
+            "128GB to 512GB storage options",
+            "Fast charging and wireless charging options"
+        ]
+    },
+
+    {
+        id: 9,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Business Tablet",
+        model: "Business Tablet",
+        image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=1000&q=85",
+        description: "A portable tablet for business operations, education, presentations and entertainment.",
+        features: [
+            "10-inch to 12-inch display options",
+            "Wi-Fi and cellular options",
+            "64GB / 128GB / 256GB storage",
+            "Front and rear cameras",
+            "Keyboard and stylus compatibility options"
+        ]
+    },
+
+    {
+        id: 10,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Smartwatch",
+        model: "Smartwatch",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85",
+        description: "A wearable smart device for notifications, activity tracking and everyday convenience.",
+        features: [
+            "Digital touchscreen display",
+            "Bluetooth connectivity",
+            "Activity and fitness tracking",
+            "Call and notification support on compatible models",
+            "Multiple strap and design options"
+        ]
+    },
+
+    {
+        id: 11,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Wireless Earbuds",
+        model: "Wireless Earbuds",
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1000&q=85",
+        description: "Compact wireless audio accessories for calls, music and everyday listening.",
+        features: [
+            "Bluetooth wireless connectivity",
+            "Charging case included",
+            "Built-in microphone",
+            "Touch control options",
+            "Noise reduction options on selected models"
+        ]
+    },
+
+    {
+        id: 12,
+        category: "phones",
+        categoryName: "Phones & Tablets",
+        name: "Wireless Headphones",
+        model: "Wireless Headphones",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=85",
+        description: "Wireless headphones designed for music, entertainment, calls and work.",
+        features: [
+            "Bluetooth connectivity",
+            "Over-ear and on-ear options",
+            "Rechargeable battery",
+            "Built-in microphone options",
+            "Noise cancellation options on selected models"
+        ]
+    },
+
+
+    // HOME AND OFFICE ELECTRONICS - 6 PRODUCTS
+
+    {
+        id: 13,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Smart LED Television",
+        model: "Smart LED Television",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85",
+        description: "Smart television options for home entertainment, offices and hospitality businesses.",
+        features: [
+            "32-inch / 43-inch / 55-inch / 65-inch options",
+            "Full HD and 4K resolution options",
+            "Smart TV operating system options",
+            "HDMI and USB connectivity",
+            "Wi-Fi connectivity"
+        ]
+    },
+
+    {
+        id: 14,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Refrigerator",
+        model: "Refrigerator",
+        image: "https://images.unsplash.com/photo-1571175443880-49e1dfeec9a8?auto=format&fit=crop&w=1000&q=85",
+        description: "Refrigeration appliances for households, offices and commercial settings.",
+        features: [
+            "Single-door and double-door options",
+            "Different storage capacities",
+            "Adjustable temperature control",
+            "Energy-efficient model options",
+            "Suitable for home and commercial use"
+        ]
+    },
+
+    {
+        id: 15,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Split Air Conditioner",
+        model: "Split Air Conditioner",
+        image: "https://images.unsplash.com/photo-1631545806609-8f7b5a2a7c0c?auto=format&fit=crop&w=1000&q=85",
+        description: "Air conditioning solutions for homes, offices and commercial spaces.",
+        features: [
+            "1HP / 1.5HP / 2HP capacity options",
+            "Inverter and non-inverter options",
+            "Cooling and temperature control",
+            "Remote control operation",
+            "Wall-mounted split system"
+        ]
+    },
+
+    {
+        id: 16,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Microwave Oven",
+        model: "Microwave Oven",
+        image: "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=1000&q=85",
+        description: "Practical kitchen appliances for heating, cooking and food preparation.",
+        features: [
+            "20L / 25L / 30L capacity options",
+            "Digital and manual controls",
+            "Multiple power settings",
+            "Timer and cooking functions",
+            "Countertop designs"
+        ]
+    },
+
+    {
+        id: 17,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Washing Machine",
+        model: "Washing Machine",
+        image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1000&q=85",
+        description: "Laundry appliances for residential, office and accommodation facilities.",
+        features: [
+            "Front-load and top-load options",
+            "7kg to 12kg capacity options",
+            "Multiple wash programmes",
+            "Digital control options",
+            "Energy-efficient model options"
+        ]
+    },
+
+    {
+        id: 18,
+        category: "home",
+        categoryName: "Home & Office Electronics",
+        name: "Office Projector",
+        model: "Office Projector",
+        image: "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=1000&q=85",
+        description: "Projection equipment for meetings, classrooms, presentations and business use.",
+        features: [
+            "HD and Full HD model options",
+            "LED and LCD projector options",
+            "HDMI and USB connectivity",
+            "Portable and fixed installation options",
+            "Suitable for office and educational use"
+        ]
+    }
+
+];
+
+
+/* RENDER PRODUCT CARDS */
+
+const catalogueProducts = document.getElementById("catalogueProducts");
+
+function renderProducts(filter = "all", search = "") {
+
+    const searchTerm = search.trim().toLowerCase();
+
+    const filteredProducts = products.filter(product => {
+
+        const matchesCategory =
+            filter === "all" || product.category === filter;
+
+        const matchesSearch =
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.categoryName.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    if (filteredProducts.length === 0) {
+        catalogueProducts.innerHTML = `
+            <div style="text-align:center;padding:50px 15px;">
+                <h3>No products found</h3>
+                <p style="color:var(--text);margin-top:8px;">
+                    Try another product name or category.
+                </p>
+            </div>
+        `;
+        return;
+    }
+
+    const groups = [
+        {
+            key: "computers",
+            title: "Computers & Accessories"
+        },
+        {
+            key: "phones",
+            title: "Phones & Tablets"
+        },
+        {
+            key: "home",
+            title: "Home & Office Electronics"
+        }
+    ];
+
+    let html = "";
+
+    groups.forEach(group => {
+
+        const groupProducts = filteredProducts.filter(
+            product => product.category === group.key
+        );
+
+        if (groupProducts.length === 0) return;
+
+        html += `
+            <div class="category-heading">
+                <h3>${group.title}</h3>
+                <span>${groupProducts.length} product(s)</span>
+            </div>
+
+            <div class="product-grid">
+        `;
+
+        groupProducts.forEach(product => {
+
+            const featurePreview = product.features.slice(0, 3)
+                .map(feature => `<li>${feature}</li>`)
+                .join("");
+
+            html += `
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            loading="lazy"
+                        >
+
+                        <span class="product-category-label">
+                            ${product.categoryName}
+                        </span>
+                    </div>
+
+                    <div class="product-content">
+
+                        <h4>${product.name}</h4>
+
+                        <p class="product-description">
+                            ${product.description}
+                        </p>
+
+                        <div class="feature-heading">
+                            Key Features
+                        </div>
+
+                        <ul class="feature-list">
+                            ${featurePreview}
+                        </ul>
+
+                        <div class="product-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="requestQuotation(${product.id})"
+                            >
+                                Request Quote
+                            </button>
+
+                            <button
+                                class="btn btn-green"
+                                onclick="buyProduct(${product.id})"
+                            >
+                                Buy Now
+                            </button>
+
+                        </div>
+
+                        <button
+                            class="text-link"
+                            style="margin-top:14px;border:0;background:none;cursor:pointer;"
+                            onclick="openProductDetails(${product.id})"
+                        >
+                            View Full Specifications →
+                        </button>
+
+                    </div>
+
+                </article>
+            `;
+        });
+
+        html += `</div>`;
+    });
+
+    catalogueProducts.innerHTML = html;
+}
+
+
+/* FILTER BUTTONS */
+
+let activeFilter = "all";
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        activeFilter = this.dataset.filter;
+
+        renderProducts(
+            activeFilter,
+            document.getElementById("productSearch").value
+        );
+
+    });
+
+});
+
+
+/* PRODUCT SEARCH */
+
+document.getElementById("productSearch")
+    .addEventListener("input", function() {
+
+        renderProducts(activeFilter, this.value);
+
+    });
+
+
+/* INITIAL CATALOGUE */
+
+renderProducts();
+
+
+/* PRODUCT DETAILS MODAL */
+
+const productModal = document.getElementById("productModal");
+
+let selectedProduct = null;
+
+function openProductDetails(productId) {
+
+    selectedProduct = products.find(
+        product => product.id === productId
+    );
+
+    if (!selectedProduct) return;
+
+    document.getElementById("modalImage").src =
+        selectedProduct.image;
+
+    document.getElementById("modalImage").alt =
+        selectedProduct.name;
+
+    document.getElementById("modalCategory").textContent =
+        selectedProduct.categoryName;
+
+    document.getElementById("modalTitle").textContent =
+        selectedProduct.name;
+
+    document.getElementById("modalDescription").textContent =
+        selectedProduct.description;
+
+    document.getElementById("modalFeatures").innerHTML =
+        selectedProduct.features.map(
+            feature => `<li>${feature}</li>`
+        ).join("");
+
+    productModal.classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function closeProductDetails() {
+    productModal.classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose")
+    .addEventListener("click", closeProductDetails);
+
+productModal.addEventListener("click", function(event) {
+    if (event.target === productModal) {
+        closeProductDetails();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeProductDetails();
+    }
+});
+
+
+/* REQUEST FOR QUOTATION */
+
+function requestQuotation(productId) {
+
+    const product = products.find(
+        item => item.id === productId
+    );
+
+    if (!product) return;
+
+    const url =
+        "quotation.html?product=" +
+        encodeURIComponent(product.name) +
+        "&model=" +
+        encodeURIComponent(product.model) +
+        "&image=" +
+        encodeURIComponent(product.image);
+
+    window.location.href = url;
+}
+
+document.getElementById("modalQuoteButton")
+    .addEventListener("click", function() {
+
+        if (selectedProduct) {
+            requestQuotation(selectedProduct.id);
+        }
+
+    });
+
+
+/* BUY NOW - WHATSAPP ENQUIRY */
+
+function buyProduct(productId) {
+
+    const product = products.find(
+        item => item.id === productId
+    );
+
+    if (!product) return;
+
+    const message =
+        "Hello M&M Logistics, I am interested in purchasing the following electronics product:\n\n" +
+        "Product: " + product.name + "\n" +
+        "Category: " + product.categoryName + "\n" +
+        "Model: " + product.model + "\n\n" +
+        "Please provide the available options, price, shipping cost and purchasing process.";
+
+    const whatsappURL =
+        "https://wa.me/23230172868?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+
+}
+
+document.getElementById("modalBuyButton")
+    .addEventListener("click", function() {
+
+        if (selectedProduct) {
+            buyProduct(selectedProduct.id);
+        }
+
+    });
+
+
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.contains("active");
+
+    menuToggle.textContent = isOpen ? "×" : "☰";
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+});
+
+
+/* FOOTER YEAR */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+
+/* SHARED WEBSITE THEME */
+
+const WEBSITE_THEME_KEY = "mmHomeTheme";
+
+function applyWebsiteTheme(theme) {
+
+    const selectedTheme =
+        theme === "dark" ? "dark" : "light";
+
+    document.body.setAttribute("data-theme", selectedTheme);
+
+    localStorage.setItem(WEBSITE_THEME_KEY, selectedTheme);
+
+    const icon = document.getElementById("themeIcon");
+    const label = document.getElementById("themeLabel");
+
+    if (selectedTheme === "dark") {
+        icon.textContent = "☀️";
+        label.textContent = "Light Mode";
+    } else {
+        icon.textContent = "🌙";
+        label.textContent = "Dark Mode";
+    }
+
+}
+
+document.getElementById("themeToggle")
+    .addEventListener("click", function() {
+
+        const current =
+            document.body.getAttribute("data-theme") || "light";
+
+        applyWebsiteTheme(
+            current === "dark" ? "light" : "dark"
+        );
+
+    });
+
+applyWebsiteTheme(
+    localStorage.getItem(WEBSITE_THEME_KEY) || "light"
+);
+
+
+/* CUSTOMER PROFILE */
+
+function getCurrentCustomer() {
+
+    try {
+
+        const customer = JSON.parse(
+            localStorage.getItem("mmCurrentCustomer") || "null"
+        );
+
+        return customer && (customer.fullName || customer.email)
+            ? customer
+            : null;
+
+    } catch (error) {
+
+        return null;
+
+    }
+
+}
+
+function renderCustomerProfile() {
+
+    const customer = getCurrentCustomer();
+
+    const guestActions =
+        document.getElementById("guestActions");
+
+    const profileWrapper =
+        document.getElementById("profileWrapper");
+
+    if (customer) {
+
+        const name = customer.fullName || "Customer";
+        const email = customer.email || "";
+
+        const initials = name.trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(part => part.charAt(0))
+            .join("")
+            .toUpperCase();
+
+        guestActions.hidden = true;
+        profileWrapper.hidden = false;
+
+        document.getElementById("profileName").textContent = name;
+        document.getElementById("profileAvatar").textContent =
+            initials || "C";
+
+        document.getElementById("profileMenuName").textContent = name;
+        document.getElementById("profileMenuEmail").textContent = email;
+
+    } else {
+
+        guestActions.hidden = false;
+        profileWrapper.hidden = true;
+
+        document.getElementById("profileMenu").hidden = true;
+
+    }
+
+}
+
+document.getElementById("profileButton")
+    .addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        const menu = document.getElementById("profileMenu");
+
+        menu.hidden = !menu.hidden;
+
+        this.setAttribute(
+            "aria-expanded",
+            String(!menu.hidden)
+        );
+
+    });
+
+document.addEventListener("click", function(event) {
+
+    const wrapper = document.getElementById("profileWrapper");
+
+    if (!wrapper.contains(event.target)) {
+
+        document.getElementById("profileMenu").hidden = true;
+
+        document.getElementById("profileButton")
+            .setAttribute("aria-expanded", "false");
+
+    }
+
+});
+
+document.getElementById("signOutButton")
+    .addEventListener("click", function() {
+
+        localStorage.removeItem("mmCurrentCustomer");
+
+        renderCustomerProfile();
+
+    });
+
+renderCustomerProfile();
+
+window.addEventListener("storage", function(event) {
+
+    if (event.key === "mmCurrentCustomer") {
+        renderCustomerProfile();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

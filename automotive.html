@@ -1,0 +1,1991 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore vehicles, commercial trucks and automotive spare parts sourced through M&M Logistics.">
+<title>Automotive Products | M&M Logistics (SL) Ltd</title>
+
+<style>
+:root {
+    --blue: #395BA2;
+    --blue-dark: #24447f;
+    --green: #12B94B;
+    --ink: #172033;
+    --muted: #657086;
+    --light: #f5f7fb;
+    --line: #e4e9f1;
+    --white: #ffffff;
+    --shadow: 0 12px 32px rgba(24,43,82,.09);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+    background: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1160px, 92%);
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 3px 18px rgba(0,0,0,.06);
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 65px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.brand strong {
+    font-size: 20px;
+    color: var(--blue);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 700;
+    color: #39445a;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.signup {
+    background: var(--blue);
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--blue);
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 19px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .2s;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0da13e;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: #fff;
+}
+
+.btn-outline:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+/* HERO */
+
+.hero {
+    background:
+        linear-gradient(90deg, rgba(18,35,70,.91), rgba(36,68,127,.68)),
+        url("hero-logistics.png") center/cover no-repeat;
+    color: #fff;
+    padding: 85px 0 80px;
+}
+
+.hero-inner {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 54px);
+    line-height: 1.12;
+    margin-bottom: 17px;
+}
+
+.hero p {
+    max-width: 680px;
+    color: #edf2ff;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero .btn-outline {
+    border-color: #fff;
+    color: #fff;
+    background: transparent;
+}
+
+.hero .btn-outline:hover {
+    background: #fff;
+    color: var(--blue);
+}
+
+/* CATEGORY NAVIGATION */
+
+.category-nav-wrap {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 78px;
+    z-index: 900;
+}
+
+.category-nav {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px 0;
+}
+
+.category-nav a {
+    white-space: nowrap;
+    padding: 9px 15px;
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #46536b;
+}
+
+.category-nav a:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    background: var(--light);
+    padding: 70px 0;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 38px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.intro h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 10px 0 15px;
+}
+
+.intro p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.intro-panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.intro-panel h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.check-list {
+    list-style: none;
+}
+
+.check-list li {
+    font-size: 14px;
+    color: #46536b;
+    margin: 10px 0;
+}
+
+.check-list li:before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+/* PRODUCT CATEGORIES */
+
+.product-section {
+    padding: 75px 0;
+    scroll-margin-top: 150px;
+}
+
+.product-section.alt {
+    background: var(--light);
+}
+
+.category-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.category-title h2 {
+    font-size: 29px;
+    line-height: 1.2;
+    margin-top: 7px;
+}
+
+.category-title p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 520px;
+    margin-top: 7px;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: .25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(24,43,82,.14);
+}
+
+.product-image {
+    height: 215px;
+    background: #edf1f7;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.product-tag {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: #fff;
+    color: var(--blue);
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.product-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-body h3 {
+    font-size: 19px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+}
+
+.product-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 13px;
+}
+
+.specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin: 5px 0 16px;
+}
+
+.spec {
+    background: #f6f8fb;
+    padding: 9px 10px;
+    border-radius: 6px;
+}
+
+.spec small {
+    display: block;
+    color: #778197;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.spec strong {
+    font-size: 12px;
+    color: #26344d;
+}
+
+.price-row {
+    border-top: 1px solid var(--line);
+    padding-top: 13px;
+    margin-top: auto;
+    margin-bottom: 14px;
+}
+
+.price-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.price-note {
+    font-size: 11px;
+    color: #7a8497;
+}
+
+.card-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.card-actions .btn {
+    flex: 1;
+    min-height: 43px;
+    padding: 10px 8px;
+    font-size: 12px;
+}
+
+/* IMAGE FALLBACK */
+
+.image-fallback {
+    display: none;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    color: var(--muted);
+    font-size: 13px;
+    background: #edf1f7;
+}
+
+/* KEY FEATURES MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(10,20,40,.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.features-modal {
+    background: #fff;
+    width: min(650px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    animation: modalIn .2s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: var(--blue);
+    color: #fff;
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.modal-header h2 {
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.modal-header p {
+    font-size: 13px;
+    color: #e1e9fa;
+    margin-top: 5px;
+}
+
+.modal-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-content {
+    padding: 25px;
+}
+
+.modal-image-wrap {
+    height: 210px;
+    background: var(--light);
+    border-radius: 9px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.modal-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.modal-content h3 {
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.feature-item {
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: #f8f9fc;
+    border-radius: 7px;
+}
+
+.feature-item small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.feature-item strong {
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.modal-actions .btn {
+    flex: 1;
+}
+
+/* CALL TO ACTION */
+
+.cta {
+    background: linear-gradient(115deg, #1e3b72, #395BA2);
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.cta h2 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin-bottom: 10px;
+}
+
+.cta p {
+    color: #e3eaf7;
+    max-width: 700px;
+    margin: 0 auto 23px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #101b32;
+    color: #fff;
+    padding: 48px 0 18px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+
+.footer-logo img {
+    width: 90px;
+    height: 72px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.footer-about p {
+    max-width: 270px;
+    color: #b8c3d8;
+    font-size: 13px;
+}
+
+.footer-col h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    color: #b8c3d8;
+    font-size: 13px;
+    margin: 9px 0;
+}
+
+.footer-col a:hover {
+    color: var(--green);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.13);
+    padding-top: 17px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: #aeb9ce;
+    font-size: 12px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 1000px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 760px) {
+    .navbar {
+        min-height: 70px;
+    }
+
+    .brand img {
+        width: 58px;
+        height: 52px;
+    }
+
+    .brand strong {
+        font-size: 17px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px 5%;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .category-nav-wrap {
+        top: 70px;
+    }
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-title {
+        display: block;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .product-image {
+        height: 170px;
+    }
+
+    .product-body {
+        padding: 14px;
+    }
+
+    .product-body h3 {
+        font-size: 16px;
+    }
+
+    .specs {
+        gap: 6px;
+    }
+
+    .spec {
+        padding: 7px;
+    }
+
+    .spec strong {
+        font-size: 11px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .card-actions {
+        flex-direction: row;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="container navbar">
+
+        <a class="brand" href="index.html">
+            <img src="company logo.png.jpg" alt="M&M Logistics logo">
+            <strong>M&amp;M Logistics</strong>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open menu" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="tracking.html">Track Shipping</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a class="login" href="login.html">Login</a>
+            <a class="signup" href="signup.html">Sign up</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="container hero-inner">
+
+        <h1>Vehicles &amp; Automotive Products</h1>
+
+        <p>
+            Explore SUVs, passenger cars, heavy-duty trucks,
+            commercial vehicles and spare parts available for
+            sourcing through M&amp;M Logistics.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#suvs-cars">
+                Browse Vehicles
+            </a>
+
+            <a class="btn btn-outline" href="#spare-parts">
+                Explore Spare Parts
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CATEGORY NAVIGATION -->
+
+<div class="category-nav-wrap">
+    <nav class="container category-nav">
+        <a href="#suvs-cars">SUVs &amp; Cars</a>
+        <a href="#heavy-trucks">Heavy Trucks</a>
+        <a href="#commercial-vehicles">Commercial Vehicles</a>
+        <a href="#spare-parts">Spare Parts</a>
+    </nav>
+</div>
+
+<!-- INTRODUCTION -->
+
+<section class="intro">
+    <div class="container intro-grid">
+
+        <div>
+            <span class="eyebrow">SOURCE FROM CHINA</span>
+
+            <h2>Find the Right Vehicle for Your Needs</h2>
+
+            <p>
+                Whether you are purchasing a personal vehicle,
+                expanding a transport fleet or sourcing replacement
+                parts, our automotive catalogue gives you a starting
+                point for your enquiry.
+            </p>
+
+            <p>
+                Select a product to review its key features and contact
+                our team for a current supplier quotation, availability
+                and shipping options.
+            </p>
+        </div>
+
+        <div class="intro-panel">
+            <h3>What You Can Request</h3>
+
+            <ul class="check-list">
+                <li>New vehicles and selected models</li>
+                <li>Commercial and heavy-duty trucks</li>
+                <li>Vehicle configurations and specifications</li>
+                <li>Genuine and compatible spare parts</li>
+                <li>Supplier pricing and shipping quotations</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRODUCTS ARE GENERATED HERE -->
+
+<main id="catalogue"></main>
+
+<!-- KEY FEATURES MODAL -->
+
+<div class="modal-overlay" id="featuresModal"
+     role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="features-modal">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalTitle">Product Key Features</h2>
+                <p id="modalSubtitle">Product specifications</p>
+            </div>
+
+            <button class="modal-close" id="closeModal"
+                    aria-label="Close key features">&times;</button>
+        </div>
+
+        <div class="modal-content">
+
+            <div class="modal-image-wrap">
+                <img id="modalImage" class="modal-product-image"
+                     src="" alt="Product image">
+            </div>
+
+            <h3>Key Specifications</h3>
+
+            <div class="feature-grid" id="featureGrid"></div>
+
+            <div class="modal-actions">
+                <a href="#" class="btn btn-primary" id="modalQuote">
+                    Request for Quotation
+                </a>
+
+                <button type="button" class="btn btn-outline"
+                        id="modalCloseBottom">
+                    Close
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- FINAL CALL TO ACTION -->
+
+<section class="cta" id="quote">
+    <div class="container">
+
+        <h2>Looking for a Specific Vehicle or Part?</h2>
+
+        <p>
+            Let M&amp;M Logistics help you source the right automotive
+            products from China. Contact our team for product
+            availability, supplier pricing and shipping arrangements
+            to Sierra Leone, Ghana and Nigeria.
+        </p>
+
+        <a class="btn btn-primary"
+           href="https://wa.me/23230172868?text=Hello%20M%26M%20Logistics%2C%20I%20would%20like%20to%20enquire%20about%20automotive%20products."
+           target="_blank" rel="noopener">
+            Contact Us on WhatsApp
+        </a>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="company logo.png.jpg"
+                         alt="M&M Logistics logo">
+                </div>
+
+                <p>
+                    M&amp;M Logistics (SL) Ltd provides sourcing,
+                    procurement and international logistics solutions
+                    connecting China with West Africa.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="tracking.html">Track Shipping</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Product Categories</h3>
+                <a href="#suvs-cars">SUVs &amp; Cars</a>
+                <a href="#heavy-trucks">Heavy Trucks</a>
+                <a href="#commercial-vehicles">Commercial Vehicles</a>
+                <a href="#spare-parts">Spare Parts</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+
+                <a href="https://wa.me/23230172868"
+                   target="_blank" rel="noopener">
+                    WhatsApp: +232 30 172 868
+                </a>
+
+                <a href="tel:+8613156271080">
+                    China: +86 131 5627 1080
+                </a>
+
+                <a href="tel:+8617543995848">
+                    China: +86 175 4399 5848
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>
+                © <span id="currentYear"></span>
+                M&amp;M Logistics (SL) Ltd. All Rights Reserved.
+            </span>
+
+            <span>
+                Connecting China to West Africa.
+            </span>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    navLinks.classList.toggle("open");
+
+    const isOpen = navLinks.classList.contains("open");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+
+/* =========================================
+   FOOTER YEAR
+========================================= */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================
+   PRODUCT DATABASE / IMAGE MANAGEMENT
+
+   EDIT YOUR PRODUCT IMAGES HERE.
+
+   Example:
+   image: "Jetour X70 Plus.png"
+
+   To change the image, replace the filename.
+   All product images should be in the same
+   folder as this HTML file.
+========================================= */
+
+const categories = [
+
+/* CATEGORY 01: SUVs & CARS */
+
+{
+    id: "suvs-cars",
+    number: "CATEGORY 01",
+    title: "SUVs & Cars",
+    description: "Passenger vehicles for personal, family and executive use.",
+
+    products: [
+
+        {
+            name: "Jetour X70 Plus",
+            image: "Jetour X70 Plus.png",
+            model: "2026 Jetour X70 Plus 1.5T",
+            tag: "Family SUV",
+            subtitle: "Mid-size family SUV",
+            specs: [
+                ["Engine", "1.5L Turbo Petrol"],
+                ["Power", "Approx. 156 hp"],
+                ["Torque", "Approx. 230 Nm"],
+                ["Transmission", "6-speed DCT"],
+                ["Seating", "5 / 7 seats"],
+                ["Fuel consumption", "Approx. 7.8 L/100 km"],
+                ["Length", "Approx. 4,724–4,749 mm"],
+                ["Width", "Approx. 1,900 mm"],
+                ["Height", "Approx. 1,720 mm"],
+                ["Vehicle type", "Mid-size SUV"]
+            ]
+        },
+
+        {
+            name: "Jetour T2",
+            image: "Jetour T2.png",
+            model: "2026 Jetour T2 2.0T",
+            tag: "Adventure SUV",
+            subtitle: "Rugged-style SUV",
+            specs: [
+                ["Engine", "2.0L Turbo Petrol"],
+                ["Power", "Approx. 254 hp"],
+                ["Torque", "Approx. 390 Nm"],
+                ["Transmission", "7-speed DCT"],
+                ["Drive system", "4WD"],
+                ["Seating", "5 passengers"],
+                ["Body style", "5-door SUV"],
+                ["Fuel type", "Petrol"],
+                ["Infotainment", "Touchscreen system"],
+                ["Application", "Adventure / family"]
+            ]
+        },
+
+        {
+            name: "Range Rover Sport",
+            image: "Range Rover Sport.png",
+            model: "Range Rover Sport 3.0L",
+            tag: "Luxury SUV",
+            subtitle: "Luxury performance SUV",
+            specs: [
+                ["Engine", "3.0L Inline-6"],
+                ["Power", "Approx. 355 hp"],
+                ["Torque", "Approx. 500 Nm"],
+                ["Transmission", "8-speed automatic"],
+                ["Drive system", "All-wheel drive"],
+                ["Seating", "5 passengers"],
+                ["Body style", "Luxury SUV"],
+                ["Suspension", "Adaptive air suspension"],
+                ["Infotainment", "Touchscreen system"],
+                ["Interior", "Premium leather options"]
+            ]
+        },
+
+        {
+            name: "Jetour Dashing",
+            image: "Jetour Dashing.png",
+            model: "2026 Jetour Dashing 1.5T",
+            tag: "Compact SUV",
+            subtitle: "Sporty urban SUV",
+            specs: [
+                ["Engine", "1.5L Turbo Petrol"],
+                ["Power", "Approx. 156 hp"],
+                ["Torque", "Approx. 230 Nm"],
+                ["Transmission", "6-speed DCT"],
+                ["Drive system", "Front-wheel drive"],
+                ["Seating", "5 passengers"],
+                ["Body style", "5-door SUV"],
+                ["Infotainment", "Dual-screen options"],
+                ["Fuel type", "Petrol"],
+                ["Application", "Urban / family"]
+            ]
+        },
+
+        {
+            name: "Toyota Land Cruiser Prado",
+            image: "Toyota Land Cruiser Prado.png",
+            model: "Land Cruiser Prado 2.4T",
+            tag: "4WD SUV",
+            subtitle: "Premium off-road and family SUV",
+            specs: [
+                ["Engine", "2.4L Turbo Petrol"],
+                ["Power", "Approx. 278 hp"],
+                ["Torque", "Approx. 430 Nm"],
+                ["Transmission", "8-speed automatic"],
+                ["Drive system", "Full-time 4WD"],
+                ["Seating", "5 / 7 seats"],
+                ["Chassis", "Body-on-frame"],
+                ["Terrain system", "Multi-terrain options"],
+                ["Fuel type", "Petrol"],
+                ["Application", "Off-road / utility"]
+            ]
+        },
+
+        {
+            name: "BYD Song Plus",
+            image: "BYD Song Plus.png",
+            model: "BYD Song Plus DM-i",
+            tag: "Plug-in Hybrid",
+            subtitle: "Hybrid family SUV",
+            specs: [
+                ["Powertrain", "Plug-in hybrid"],
+                ["Engine", "1.5L Petrol"],
+                ["Electric motor", "Hybrid drive motor"],
+                ["Transmission", "E-CVT type system"],
+                ["Drive system", "Front-wheel drive"],
+                ["Seating", "5 passengers"],
+                ["Battery", "Blade Battery"],
+                ["Fuel type", "Petrol / Electric"],
+                ["Body style", "5-door SUV"],
+                ["Application", "Family / urban"]
+            ]
+        }
+
+    ]
+},
+
+
+/* CATEGORY 02: HEAVY TRUCKS */
+
+{
+    id: "heavy-trucks",
+    number: "CATEGORY 02",
+    title: "Heavy Trucks",
+    description: "Heavy-duty vehicles for freight, construction, mining and industrial operations.",
+
+    products: [
+
+        {
+            name: "HOWO Tractor Head",
+            image: "HOWO Tractor Head.png",
+            model: "HOWO 6x4 Tractor Head",
+            tag: "Tractor Head",
+            subtitle: "Heavy-duty prime mover",
+            specs: [
+                ["Engine", "10.5L Diesel"],
+                ["Power", "Approx. 371 hp"],
+                ["Torque", "Approx. 1,500 Nm"],
+                ["Transmission", "Manual, 10-speed"],
+                ["Axle layout", "6×4"],
+                ["Fuel tank", "400 L"],
+                ["Cabin", "Sleeper cabin"],
+                ["Application", "Long-haul freight"],
+                ["Fuel type", "Diesel"],
+                ["Configuration", "Tractor head"]
+            ]
+        },
+
+        {
+            name: "HOWO Dump Truck",
+            image: "HOWO Dump Truck.png",
+            model: "HOWO 6x4 Dump Truck",
+            tag: "Dump Truck",
+            subtitle: "Construction and materials transport",
+            specs: [
+                ["Engine", "10.5L Diesel"],
+                ["Power", "Approx. 371 hp"],
+                ["Torque", "Approx. 1,500 Nm"],
+                ["Transmission", "Manual, 10-speed"],
+                ["Axle layout", "6×4"],
+                ["Body type", "Hydraulic tipper"],
+                ["Body capacity", "Approx. 20–25 m³"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Mining / construction"],
+                ["Drive system", "Rear-wheel drive"]
+            ]
+        },
+
+        {
+            name: "Shacman Heavy-Duty Truck",
+            image: "Shacman Heavy-Duty Truck.png",
+            model: "Shacman X3000 6x4",
+            tag: "Heavy Truck",
+            subtitle: "Fleet and industrial transport",
+            specs: [
+                ["Engine", "Weichai Diesel"],
+                ["Power", "Approx. 400 hp"],
+                ["Torque", "Approx. 1,900 Nm"],
+                ["Transmission", "Manual gearbox"],
+                ["Axle layout", "6×4"],
+                ["Cabin", "High-roof sleeper"],
+                ["Fuel tank", "Approx. 400 L"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Heavy freight"],
+                ["Chassis", "Heavy-duty"]
+            ]
+        },
+
+        {
+            name: "FAW J6 Tractor Head",
+            image: "FAW J6 Tractor Head.png",
+            model: "FAW J6P 6x4",
+            tag: "Tractor Head",
+            subtitle: "Heavy-duty prime mover",
+            specs: [
+                ["Engine", "Diesel, 11L class"],
+                ["Power", "Approx. 420 hp"],
+                ["Torque", "Approx. 1,900 Nm"],
+                ["Transmission", "Manual, 12-speed"],
+                ["Axle layout", "6×4"],
+                ["Cabin", "Sleeper cabin"],
+                ["Fuel tank", "Approx. 400 L"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Long-haul freight"],
+                ["Configuration", "Tractor head"]
+            ]
+        },
+
+        {
+            name: "HOWO Cargo Truck",
+            image: "HOWO Cargo Truck.png",
+            model: "HOWO 6x4 Cargo Truck",
+            tag: "Cargo Truck",
+            subtitle: "Heavy-duty goods transportation",
+            specs: [
+                ["Engine", "10.5L Diesel"],
+                ["Power", "Approx. 371 hp"],
+                ["Torque", "Approx. 1,500 Nm"],
+                ["Transmission", "Manual, 10-speed"],
+                ["Axle layout", "6×4"],
+                ["Body type", "Flatbed / cargo box"],
+                ["Fuel tank", "Approx. 300 L"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Goods transportation"],
+                ["Cabin", "Sleeper / day cab options"]
+            ]
+        },
+
+        {
+            name: "Foton Auman Heavy Truck",
+            image: "Foton Auman Heavy Truck.png",
+            model: "Foton Auman EST 6x4",
+            tag: "Heavy Truck",
+            subtitle: "Long-haul freight and fleet operations",
+            specs: [
+                ["Engine", "Cummins Diesel"],
+                ["Power", "Approx. 430 hp"],
+                ["Torque", "Approx. 2,000 Nm"],
+                ["Transmission", "Manual / AMT options"],
+                ["Axle layout", "6×4"],
+                ["Cabin", "High-roof sleeper"],
+                ["Fuel tank", "Approx. 400 L"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Freight / logistics"],
+                ["Braking", "Air brake system"]
+            ]
+        }
+
+    ]
+},
+
+
+/* CATEGORY 03: COMMERCIAL VEHICLES */
+
+{
+    id: "commercial-vehicles",
+    number: "CATEGORY 03",
+    title: "Commercial Vehicles",
+    description: "Vehicles for business transportation, deliveries and fleet operations.",
+
+    products: [
+
+        {
+            name: "Double-Cab Pickup",
+            image: "Double-Cab Pickup.png",
+            model: "Toyota Hilux Double Cab 2.8D",
+            tag: "Pickup",
+            subtitle: "Commercial and utility pickup",
+            specs: [
+                ["Engine", "2.8L Turbo Diesel"],
+                ["Power", "Approx. 204 hp"],
+                ["Torque", "Approx. 500 Nm"],
+                ["Transmission", "6-speed automatic"],
+                ["Drive system", "4WD"],
+                ["Seating", "5 passengers"],
+                ["Body type", "Double cab"],
+                ["Fuel tank", "Approx. 80 L"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Commercial / utility"]
+            ]
+        },
+
+        {
+            name: "Commercial Delivery Van",
+            image: "Commercial Delivery Van.png",
+            model: "JAC Sunray 2.8T Diesel",
+            tag: "Delivery Van",
+            subtitle: "Goods delivery and distribution",
+            specs: [
+                ["Engine", "2.8L Turbo Diesel"],
+                ["Power", "Approx. 150 hp"],
+                ["Torque", "Approx. 355 Nm"],
+                ["Transmission", "6-speed manual"],
+                ["Body type", "Enclosed cargo van"],
+                ["Drive system", "Rear-wheel drive"],
+                ["Fuel type", "Diesel"],
+                ["Seating", "2 / 3 seats"],
+                ["Cargo space", "Approx. 10–12 m³"],
+                ["Application", "Goods delivery"]
+            ]
+        },
+
+        {
+            name: "Commercial Minibus",
+            image: "Commercial Minibus_ Exterior and Interior Showcase.png",
+            model: "Toyota Hiace 2.8D",
+            tag: "Minibus",
+            subtitle: "Passenger transportation",
+            specs: [
+                ["Engine", "2.8L Turbo Diesel"],
+                ["Power", "Approx. 174 hp"],
+                ["Torque", "Approx. 450 Nm"],
+                ["Transmission", "6-speed automatic"],
+                ["Seating", "12–15 passengers"],
+                ["Body type", "Passenger minibus"],
+                ["Drive system", "Rear-wheel drive"],
+                ["Fuel type", "Diesel"],
+                ["Air conditioning", "Available"],
+                ["Application", "Passenger transport"]
+            ]
+        },
+
+        {
+            name: "Light-Duty Cargo Truck",
+            image: "Light-Duty Cargo Truck.png",
+            model: "JAC N-Series 4x2",
+            tag: "Cargo Truck",
+            subtitle: "Small and medium goods transportation",
+            specs: [
+                ["Engine", "3.0L Diesel"],
+                ["Power", "Approx. 150 hp"],
+                ["Torque", "Approx. 355 Nm"],
+                ["Transmission", "6-speed manual"],
+                ["Axle layout", "4×2"],
+                ["Payload", "Approx. 3–5 tonnes"],
+                ["Body type", "Flatbed / box options"],
+                ["Fuel type", "Diesel"],
+                ["Cabin", "Day cab"],
+                ["Application", "Urban distribution"]
+            ]
+        },
+
+        {
+            name: "Refrigerated Delivery Truck",
+            image: "Refrigerated Delivery Truck Showcase.png",
+            model: "Foton Aumark Refrigerated Truck",
+            tag: "Refrigerated",
+            subtitle: "Temperature-controlled goods transportation",
+            specs: [
+                ["Engine", "3.8L Diesel"],
+                ["Power", "Approx. 170 hp"],
+                ["Torque", "Approx. 500 Nm"],
+                ["Transmission", "6-speed manual"],
+                ["Axle layout", "4×2"],
+                ["Body type", "Insulated refrigerated box"],
+                ["Cooling range", "Approx. -18°C to +5°C"],
+                ["Payload", "Approx. 3–5 tonnes"],
+                ["Fuel type", "Diesel"],
+                ["Application", "Food / cold-chain delivery"]
+            ]
+        },
+
+        {
+            name: "Electric Commercial Van",
+            image: " Electric Van_ Power Meets Practicality.png ",
+            model: "Maxus eDeliver 3",
+            tag: "Electric Van",
+            subtitle: "Urban delivery and commercial transport",
+            specs: [
+                ["Powertrain", "Battery electric"],
+                ["Motor power", "Approx. 90 kW"],
+                ["Battery", "Approx. 50 kWh"],
+                ["Range", "Approx. 300 km"],
+                ["Transmission", "Single-speed"],
+                ["Drive system", "Front-wheel drive"],
+                ["Body type", "Electric cargo van"],
+                ["Charging", "AC / DC options"],
+                ["Seating", "2 / 3 seats"],
+                ["Application", "Urban delivery"]
+            ]
+        }
+
+    ]
+},
+
+
+/* CATEGORY 04: SPARE PARTS */
+
+{
+    id: "spare-parts",
+    number: "CATEGORY 04",
+    title: "Spare Parts",
+    description: "Automotive replacement parts and components for cars, SUVs, trucks and commercial vehicles.",
+
+    products: [
+
+        {
+            name: "Brake Pads & Components",
+            image: "Brake Pads and Components Showcase.png",
+            model: "Automotive Brake Pad Set",
+            tag: "Brake System",
+            subtitle: "Replacement braking components",
+            specs: [
+                ["Part type", "Brake pad set"],
+                ["Application", "Cars / SUVs / trucks"],
+                ["Material", "Ceramic / semi-metallic"],
+                ["Position", "Front / rear"],
+                ["Operating system", "Disc brake"],
+                ["Noise control", "Low-noise design"],
+                ["Heat resistance", "High-temperature type"],
+                ["Fitment", "Vehicle specific"],
+                ["Packaging", "Set / pair"],
+                ["Supply type", "Replacement component"]
+            ]
+        },
+
+        {
+            name: "Oil & Air Filters",
+            image: "Oil & Air Filter Collection.png",
+            model: "Engine Oil and Air Filter Set",
+            tag: "Filters",
+            subtitle: "Engine maintenance and filtration",
+            specs: [
+                ["Part type", "Oil / air filters"],
+                ["Application", "Cars / SUVs / trucks"],
+                ["Oil filter", "Spin-on / cartridge"],
+                ["Air filter", "Panel / cylindrical"],
+                ["Filter media", "Multi-layer media"],
+                ["Function", "Engine protection"],
+                ["Construction", "Automotive grade"],
+                ["Fitment", "Vehicle specific"],
+                ["Reference", "Part number"],
+                ["Supply type", "Individual / set"]
+            ]
+        },
+
+        {
+            name: "Vehicle & Truck Tyres",
+            image: "Vehicle & Truck Tyres Banner.png",
+            model: "Commercial and Passenger Tyres",
+            tag: "Tyres",
+            subtitle: "Replacement tyres for different vehicle types",
+            specs: [
+                ["Part type", "Pneumatic tyre"],
+                ["Application", "Cars / SUVs / trucks"],
+                ["Passenger size", "205/55 R16 example"],
+                ["Truck size", "12R22.5 example"],
+                ["Construction", "Radial"],
+                ["Load rating", "Size dependent"],
+                ["Tread type", "Highway / mixed terrain"],
+                ["Season", "All-season options"],
+                ["Brand", "Supplier dependent"],
+                ["Fitment", "Vehicle specific"]
+            ]
+        },
+
+        {
+            name: "Shock Absorbers",
+            image: "Shock Absorbers.png",
+            model: "Automotive Suspension Shock Absorber",
+            tag: "Suspension",
+            subtitle: "Suspension replacement components",
+            specs: [
+                ["Part type", "Shock absorber"],
+                ["Application", "Cars / SUVs / trucks"],
+                ["Position", "Front / rear"],
+                ["Design", "Twin-tube / monotube"],
+                ["Technology", "Hydraulic / gas charged"],
+                ["Function", "Suspension damping"],
+                ["Construction", "Steel housing"],
+                ["Mounting", "Vehicle specific"],
+                ["Fitment", "Model dependent"],
+                ["Supply type", "Single / pair"]
+            ]
+        },
+
+        {
+            name: "Vehicle Batteries",
+            image: "Vehicle Battery Power Showcase.png",
+            model: "12V Automotive Starting Battery",
+            tag: "Electrical",
+            subtitle: "Starting and deep-cycle batteries for vehicles",
+            specs: [
+                ["Part type", "Automotive battery"],
+                ["Voltage", "12V"],
+                ["Capacity", "70–100 Ah range"],
+                ["Technology", "Lead-acid / AGM"],
+                ["CCA", "Size dependent"],
+                ["Application", "Cars / SUVs"],
+                ["Terminal type", "Standard automotive"],
+                ["Maintenance", "Maintenance-free options"],
+                ["Polarity", "Vehicle dependent"],
+                ["Fitment", "Battery size specific"]
+            ]
+        },
+
+        {
+            name: "Clutch Kits & Components",
+            image: "Clutch Kits & Components Showcase.png",
+            model: "Automotive Clutch Kit Assembly",
+            tag: "Transmission",
+            subtitle: "Clutch assemblies and replacement components",
+            specs: [
+                ["Part type", "Clutch kit"],
+                ["Components", "Disc / pressure plate"],
+                ["Release bearing", "Included in selected kits"],
+                ["Application", "Cars / trucks"],
+                ["Disc material", "Organic / reinforced"],
+                ["Operation", "Manual transmission"],
+                ["Diameter", "Vehicle specific"],
+                ["Construction", "Heavy-duty options"],
+                ["Fitment", "Model dependent"],
+                ["Reference", "Part number"]
+            ]
+        }
+
+    ]
+}];
+
+
+/* =========================================
+   QUOTATION PAGE LINK
+
+   Passes product name, model and image.
+========================================= */
+
+function quotationLink(product) {
+
+    const params = new URLSearchParams({
+        product: product.name,
+        model: product.model,
+        image: product.image
+    });
+
+    return "quotation.html?" + params.toString();
+
+}
+
+
+/* =========================================
+   IMAGE ERROR HANDLING
+
+   If an image filename is incorrect, display
+   a clear placeholder instead of a broken icon.
+========================================= */
+
+function imageError(img) {
+
+    img.style.display = "none";
+
+    const fallback = img.parentElement.querySelector(".image-fallback");
+
+    if (fallback) {
+        fallback.style.display = "flex";
+        fallback.textContent = img.alt + " image unavailable";
+    }
+
+}
+
+
+/* =========================================
+   CREATE PRODUCT CARD
+========================================= */
+
+function createProductCard(product) {
+
+    const specsHTML = product.specs.slice(0, 4).map(spec => `
+        <div class="spec">
+            <small>${spec[0]}</small>
+            <strong>${spec[1]}</strong>
+        </div>
+    `).join("");
+
+    const quoteURL = quotationLink(product);
+
+    return `
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback"></div>
+
+                <span class="product-tag">
+                    ${product.tag}
+                </span>
+
+            </div>
+
+            <div class="product-body">
+
+                <h3>${product.name}</h3>
+
+                <p class="product-subtitle">
+                    ${product.model}
+                </p>
+
+                <div class="specs">
+                    ${specsHTML}
+                </div>
+
+                <div class="price-row">
+
+                    <div class="price-label">Price</div>
+
+                    <div class="price">
+                        Request Current Price
+                    </div>
+
+                    <div class="price-note">
+                        Supplier quotation required
+                    </div>
+
+                </div>
+
+                <div class="card-actions">
+
+                    <a
+                        class="btn btn-primary"
+                        href="${quoteURL}"
+                    >
+                        Request for Quotation
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline key-feature-btn"
+                        data-product="${encodeURIComponent(product.name)}"
+                    >
+                        Key Features
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
+
+}
+
+
+/* =========================================
+   DISPLAY ALL PRODUCT CATEGORIES
+========================================= */
+
+const catalogue = document.getElementById("catalogue");
+
+categories.forEach((category, index) => {
+
+    const productsHTML = category.products
+        .map(product => createProductCard(product))
+        .join("");
+
+    const section = document.createElement("section");
+
+    section.className =
+        index % 2 === 0
+        ? "product-section"
+        : "product-section alt";
+
+    section.id = category.id;
+
+    section.innerHTML = `
+
+        <div class="container">
+
+            <div class="category-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ${category.number}
+                    </span>
+
+                    <h2>${category.title}</h2>
+
+                    <p>${category.description}</p>
+
+                </div>
+
+            </div>
+
+            <div class="product-grid">
+                ${productsHTML}
+            </div>
+
+        </div>
+
+    `;
+
+    catalogue.appendChild(section);
+
+});
+
+
+/* =========================================
+   KEY FEATURES MODAL
+========================================= */
+
+const featuresModal = document.getElementById("featuresModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalSubtitle = document.getElementById("modalSubtitle");
+const modalImage = document.getElementById("modalImage");
+const featureGrid = document.getElementById("featureGrid");
+const modalQuote = document.getElementById("modalQuote");
+
+
+function openFeatures(product) {
+
+    modalTitle.textContent = product.name;
+    modalSubtitle.textContent = product.model;
+
+    modalImage.style.display = "block";
+    modalImage.src = product.image;
+    modalImage.alt = product.name;
+
+    modalImage.onerror = function() {
+        this.onerror = null;
+        this.style.display = "none";
+
+        const imageWrap = this.parentElement;
+        imageWrap.textContent = product.name + " image unavailable";
+        imageWrap.style.display = "flex";
+        imageWrap.style.alignItems = "center";
+        imageWrap.style.justifyContent = "center";
+    };
+
+    featureGrid.innerHTML = product.specs.map(spec => `
+        <div class="feature-item">
+            <small>${spec[0]}</small>
+            <strong>${spec[1]}</strong>
+        </div>
+    `).join("");
+
+    modalQuote.href = quotationLink(product);
+
+    featuresModal.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeFeatures() {
+
+    featuresModal.classList.remove("show");
+    document.body.style.overflow = "";
+
+    const imageWrap = modalImage.parentElement;
+    imageWrap.innerHTML = `
+        <img id="modalImage" class="modal-product-image" src="" alt="Product image">
+    `;
+
+}
+
+
+/* =========================================
+   FIND PRODUCT AND OPEN FEATURES
+========================================= */
+
+document.addEventListener("click", function(event) {
+
+    const button = event.target.closest(".key-feature-btn");
+
+    if (!button) return;
+
+    const productName = decodeURIComponent(button.dataset.product);
+
+    let selectedProduct = null;
+
+    categories.forEach(category => {
+
+        category.products.forEach(product => {
+
+            if (product.name === productName) {
+                selectedProduct = product;
+            }
+
+        });
+
+    });
+
+    if (selectedProduct) {
+        openFeatures(selectedProduct);
+    }
+
+});
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+document.getElementById("closeModal")
+    .addEventListener("click", closeFeatures);
+
+document.getElementById("modalCloseBottom")
+    .addEventListener("click", closeFeatures);
+
+featuresModal.addEventListener("click", function(event) {
+
+    if (event.target === featuresModal) {
+        closeFeatures();
+    }
+
+});
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeFeatures();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

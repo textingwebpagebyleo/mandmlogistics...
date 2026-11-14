@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="M&M Logistics services: product sourcing, procurement, sea freight and air freight from China to West Africa.">
+<title>Our Services | M&M Logistics (SL) Ltd</title>
+
+<style>
+:root {
+    --primary: #395BA2;
+    --primary-dark: #24447f;
+    --green: #12B94B;
+    --dark: #172033;
+    --text: #586174;
+    --light: #f5f7fb;
+    --white: #fff;
+    --border: #e6eaf1;
+    --shadow: 0 10px 30px rgba(25,45,85,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: var(--white);
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; }
+
+.container {
+    width: min(1160px, 92%);
+    margin: auto;
+}
+
+.section { padding: 85px 0; }
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.section-heading span {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.section-heading p {
+    color: var(--text);
+    font-size: 15px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0d9c3d;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.brand-logo img {
+    width: 75px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.brand-name {
+    color: var(--primary);
+    font-size: 21px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 700;
+    color: #39445a;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.login-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.signup-btn {
+    background: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* SERVICES HERO */
+
+.services-hero {
+    position: relative;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(20,40,80,.91), rgba(36,68,127,.65)),
+        url("hero-logistics.png") center/cover no-repeat;
+    color: white;
+}
+
+.services-hero-content {
+    max-width: 750px;
+    padding: 80px 0;
+}
+
+.services-hero .eyebrow {
+    display: inline-block;
+    color: #8ff0a9;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.services-hero h1 {
+    font-size: clamp(37px, 5vw, 57px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    max-width: 620px;
+    font-size: 17px;
+    color: #edf2ff;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+/* INTRODUCTION */
+
+.intro-section { padding: 70px 0; }
+
+.intro-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.intro-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.intro-content p {
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+/* CORE SERVICES */
+
+.core-services { background: var(--light); }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--green);
+}
+
+.service-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.service-card-content { padding: 23px; }
+
+.service-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--text);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.text-link {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.text-link:hover { color: var(--green); }
+
+/* EXPLORE PRODUCTS */
+
+.products-section { background: white; }
+
+.products-intro {
+    max-width: 720px;
+    margin: -25px auto 38px;
+    text-align: center;
+    color: var(--text);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.category-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--shadow);
+    transition: .3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(25,45,85,.13);
+}
+
+.category-image {
+    height: 260px;
+    overflow: hidden;
+    background: #edf1f7;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.category-card:hover .category-image img {
+    transform: scale(1.04);
+}
+
+.category-content { padding: 25px; }
+
+.category-content h3 {
+    color: var(--dark);
+    font-size: 22px;
+    margin-bottom: 9px;
+}
+
+.category-content p {
+    color: var(--text);
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.category-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.category-items span {
+    background: #f0f3f9;
+    color: #46536b;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.category-button {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.category-button:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+}
+
+/* PRODUCT INFORMATION */
+
+.product-info { background: var(--light); }
+
+.product-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.info-card {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 9px;
+    background: #e8f8ee;
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* DETAIL SECTIONS */
+
+.detail-grid,
+.warehouse-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.detail-image img,
+.warehouse-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.detail-content h2,
+.warehouse-content h2 {
+    font-size: 32px;
+    margin: 10px 0 17px;
+}
+
+.detail-content p,
+.warehouse-content p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.detail-list {
+    list-style: none;
+    margin: 18px 0 25px;
+}
+
+.detail-list li {
+    margin-bottom: 11px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.detail-list li::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+/* SHIPPING */
+
+.shipping-section { background: var(--light); }
+
+.shipping-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.shipping-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.shipping-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.shipping-card-content { padding: 28px; }
+
+.shipping-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.shipping-card p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* DESTINATIONS */
+
+.destinations-section { background: var(--light); }
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.destination-card {
+    background: white;
+    padding: 28px 18px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.destination-card img {
+    width: 85px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto 13px;
+}
+
+.destination-card h3 { font-size: 18px; }
+
+/* PROCESS */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.process-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+}
+
+.process-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 17px;
+}
+
+.process-card h3 {
+    margin-bottom: 9px;
+    font-size: 18px;
+}
+
+.process-card p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* FAQ */
+
+.faq-section { background: var(--light); }
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 18px 20px;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 20px 20px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.faq-item.active .faq-answer { display: block; }
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-arrow { transition: .2s; }
+
+/* QUOTATION */
+
+.quote-section {
+    background:
+        linear-gradient(110deg, rgba(25,48,94,.96), rgba(57,91,162,.90)),
+        url("flow.png") center/cover;
+    color: white;
+}
+
+.quote-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.quote-content h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.quote-content p {
+    color: #e5ebf8;
+    margin-bottom: 25px;
+}
+
+.quote-form {
+    background: white;
+    color: var(--dark);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full-width { grid-column: 1/-1; }
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    background: #f8f9fc;
+}
+
+.quote-form button {
+    grid-column: 1/-1;
+    width: 100%;
+}
+
+/* FOOTER */
+
+footer {
+    background: #101b32;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    width: 95px;
+    height: 78px;
+    object-fit: contain;
+}
+
+.footer-about p {
+    color: #b8c3d8;
+    font-size: 14px;
+    max-width: 280px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.footer-column a {
+    display: block;
+    color: #b8c3d8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-column a:hover { color: var(--green); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #aeb9ce;
+    font-size: 13px;
+}
+
+/* MOBILE NAV */
+
+.mobile-bottom-nav { display: none; }
+
+/* THEME CONTROL AND CUSTOMER PROFILE */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--light);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.theme-toggle:hover { border-color: var(--primary); }
+
+.guest-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.profile-wrapper { position: relative; }
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px 6px 6px;
+    background: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+    font-weight: 700;
+    max-width: 205px;
+}
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+}
+
+.profile-name {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 1200;
+    width: 235px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.profile-menu-heading {
+    padding: 10px 9px 13px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6px;
+}
+
+.profile-menu-heading strong,
+.profile-menu-heading small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.profile-menu-heading strong { font-size: 14px; color: var(--dark); }
+.profile-menu-heading small { font-size: 12px; color: var(--text); margin-top: 3px; }
+
+.profile-menu a,
+.profile-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 9px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--dark);
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-menu a:hover,
+.profile-menu button:hover {
+    background: var(--light);
+    color: var(--primary);
+}
+
+[hidden] { display: none !important; }
+
+/* SHARED DARK THEME */
+
+body[data-theme="dark"] {
+    --dark: #e8edf7;
+    --text: #b7c2d5;
+    --light: #172438;
+    --white: #111c2e;
+    --border: #2c3b52;
+    --shadow: 0 10px 30px rgba(0,0,0,.25);
+    background: #0d1727;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] header,
+body[data-theme="dark"] .nav-links,
+body[data-theme="dark"] .service-card,
+body[data-theme="dark"] .category-card,
+body[data-theme="dark"] .info-card,
+body[data-theme="dark"] .shipping-card,
+body[data-theme="dark"] .destination-card,
+body[data-theme="dark"] .process-card,
+body[data-theme="dark"] .faq-item,
+body[data-theme="dark"] .faq-question {
+    background: #172438;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] .nav-links a { color: #d6deeb; }
+body[data-theme="dark"] .nav-links a:hover,
+body[data-theme="dark"] .nav-links a.active { color: var(--green); }
+
+body[data-theme="dark"] .brand-name { color: #8eafff; }
+body[data-theme="dark"] .core-services,
+body[data-theme="dark"] .product-info,
+body[data-theme="dark"] .shipping-section,
+body[data-theme="dark"] .destinations-section,
+body[data-theme="dark"] .faq-section {
+    background: #121f32;
+}
+
+body[data-theme="dark"] .category-items span {
+    background: #263750;
+    color: #d5deed;
+}
+
+body[data-theme="dark"] .faq-question { color: var(--dark); }
+
+body[data-theme="dark"] .quote-form {
+    background: #172438;
+    color: var(--dark);
+}
+
+body[data-theme="dark"] .form-group input,
+body[data-theme="dark"] .form-group select,
+body[data-theme="dark"] .form-group textarea {
+    background: #0f1b2d;
+    color: #e8edf7;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .form-group input[type="file"] {
+    background: #0f1b2d;
+}
+
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .profile-button {
+    background: #1c2b42;
+    color: #e8edf7;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .profile-menu {
+    background: #172438;
+    border-color: #35445b;
+}
+
+body[data-theme="dark"] .profile-menu-heading strong,
+body[data-theme="dark"] .profile-menu a,
+body[data-theme="dark"] .profile-menu button { color: #e8edf7; }
+
+body[data-theme="dark"] .profile-menu a:hover,
+body[data-theme="dark"] .profile-menu button:hover { background: #243650; }
+
+body[data-theme="dark"] .mobile-bottom-nav {
+    background: #111c2e;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12px; }
+
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+    .navbar { min-height: 72px; }
+
+    .brand-logo img {
+        width: 65px;
+        height: 58px;
+    }
+
+    .brand-name { font-size: 17px; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--shadow);
+        gap: 18px;
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .theme-toggle {
+        padding: 8px;
+        min-width: 36px;
+        font-size: 0;
+    }
+
+    .theme-toggle span:first-child { font-size: 17px; }
+
+    .guest-actions { gap: 7px; }
+    .login-link { font-size: 11px; }
+    .signup-btn { padding: 8px 9px; font-size: 11px; }
+
+    .profile-button { padding: 4px; }
+    .profile-name, .profile-chevron { display: none; }
+    .profile-avatar { width: 32px; height: 32px; }
+
+    .services-hero { min-height: 450px; }
+
+    .services-hero-content { padding: 65px 0; }
+
+    .section { padding: 65px 0; }
+
+    .detail-grid,
+    .warehouse-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .product-info-grid { grid-template-columns: 1fr; }
+
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .category-grid { gap: 17px; }
+
+    .category-image { height: 200px; }
+
+    .category-content { padding: 18px; }
+
+    .category-content h3 { font-size: 18px; }
+
+    .shipping-card img { height: 210px; }
+
+    .destination-grid { gap: 12px; }
+
+    .destination-card { padding: 20px 10px; }
+
+    .destination-card img {
+        width: 65px;
+        height: 48px;
+    }
+
+    .destination-card h3 { font-size: 14px; }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: white;
+        box-shadow: 0 -3px 15px rgba(0,0,0,.09);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 9px 4px;
+    }
+
+    .mobile-bottom-nav a {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text);
+    }
+
+    .mobile-bottom-nav a span {
+        display: block;
+        font-size: 19px;
+        margin-bottom: 2px;
+    }
+
+    body { padding-bottom: 65px; }
+}
+
+@media (max-width: 480px) {
+    .service-grid,
+    .category-grid,
+    .shipping-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-grid { grid-template-columns: 1fr; }
+
+    .quote-form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .form-group.full-width { grid-column: auto; }
+
+    .services-hero h1 { font-size: 37px; }
+
+    .hero-buttons { flex-direction: column; }
+
+    .hero-buttons .btn { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+<div class="container navbar">
+
+    <a href="index.html" class="brand-logo">
+        <img src="company logo.png.jpg" alt="M&M Logistics logo">
+        <span class="brand-name">M&amp;M Logistics</span>
+    </a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+    >☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="tracking.html">Track Shipping</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button"
+                aria-label="Switch to dark theme" title="Switch theme">
+            <span id="themeIcon">🌙</span>
+            <span id="themeLabel">Dark Mode</span>
+        </button>
+
+        <div class="guest-actions" id="guestActions">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="signup.html" class="signup-btn">Sign up</a>
+        </div>
+
+        <div class="profile-wrapper" id="profileWrapper" hidden>
+            <button class="profile-button" id="profileButton" type="button"
+                    aria-expanded="false">
+                <span class="profile-avatar" id="profileAvatar">C</span>
+                <span class="profile-name" id="profileName">My Account</span>
+                <span class="profile-chevron">▾</span>
+            </button>
+
+            <div class="profile-menu" id="profileMenu" hidden>
+                <div class="profile-menu-heading">
+                    <strong id="profileMenuName">Customer</strong>
+                    <small id="profileMenuEmail"></small>
+                </div>
+                <a href="tracking.html">Customer Dashboard</a>
+                <a href="tracking.html">My Shipments</a>
+                <a href="quotation.html">Request a Quotation</a>
+                <a href="contact.html">Contact Support</a>
+                <button type="button" id="signOutButton">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</header>
+
+
+<!-- SERVICES HERO -->
+
+<section class="services-hero">
+<div class="container">
+    <div class="services-hero-content">
+
+        <h1>Comprehensive Sourcing &amp; Logistics Solutions</h1>
+
+        <p>
+            From identifying products and managing procurement
+            to coordinating international shipping, M&amp;M Logistics
+            helps connect customers in West Africa with suppliers
+            and products from China.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#quote" class="btn btn-primary">Request a Quote</a>
+            <a href="#products" class="btn btn-outline">Explore Products</a>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="intro-section">
+<div class="container">
+    <div class="intro-content">
+
+        <span style="color:var(--green);font-weight:800;">
+            WHAT WE OFFER
+        </span>
+
+        <h2>Your Partner in Sourcing, Procurement and Shipping</h2>
+
+        <p>
+            M&amp;M Logistics (SL) Ltd provides sourcing,
+            procurement and international freight coordination
+            services designed to make purchasing from China
+            more accessible to individuals and businesses.
+        </p>
+
+        <p>
+            Whether you are looking for vehicles, electronics,
+            fashion products, industrial machinery or commercial
+            supplies, our services help you navigate the process
+            from product enquiry to shipment.
+        </p>
+
+    </div>
+</div>
+</section>
+
+
+<!-- CORE SERVICES -->
+
+<section class="section core-services" id="core-services">
+<div class="container">
+
+    <div class="section-heading">
+        <span>OUR CORE SERVICES</span>
+        <h2>What We Do</h2>
+        <p>
+            Our services cover the key stages of international
+            product sourcing, purchasing and transportation.
+        </p>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <img src="M&M Logistics Warehouse Operations.png"
+                 alt="Product sourcing and warehouse operations">
+            <div class="service-card-content">
+                <h3>Product Sourcing</h3>
+                <p>
+                    We help customers identify products and
+                    suppliers in China based on their requirements,
+                    specifications and budgets.
+                </p>
+                <a href="#sourcing" class="text-link">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="M&M Logistics Warehouse Operations.png"
+                 alt="Procurement and purchasing operations">
+            <div class="service-card-content">
+                <h3>Procurement</h3>
+                <p>
+                    We coordinate product purchasing and supplier
+                    communication to help customers manage their orders.
+                </p>
+                <a href="#procurement" class="text-link">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="hero-logistics.png" alt="Sea freight shipping">
+            <div class="service-card-content">
+                <h3>Sea Freight</h3>
+                <p>
+                    We coordinate international sea freight solutions
+                    for larger consignments and commercial cargo.
+                </p>
+                <a href="#shipping" class="text-link">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="flow.png" alt="International freight logistics">
+            <div class="service-card-content">
+                <h3>Air Freight</h3>
+                <p>
+                    We coordinate air cargo solutions for suitable
+                    shipments requiring faster transportation.
+                </p>
+                <a href="#shipping" class="text-link">Learn More →</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- EXPLORE OUR PRODUCTS -->
+
+<section class="section products-section" id="products">
+<div class="container">
+
+    <div class="section-heading">
+        <span>PRODUCT CATALOGUE</span>
+        <h2>Explore Our Products</h2>
+        <p>
+            Discover a selection of products available for sourcing
+            and procurement through M&amp;M Logistics.
+        </p>
+    </div>
+
+    <p class="products-intro">
+        Browse our product categories to explore available items,
+        product specifications and indicative prices. Select a
+        category below to view its dedicated catalogue.
+    </p>
+
+    <div class="category-grid">
+
+        <!-- AUTOMOTIVE -->
+
+        <div class="category-card">
+            <div class="category-image">
+                <img src="Automotive.png"
+                     alt="Automotive products including SUVs and heavy trucks">
+            </div>
+
+            <div class="category-content">
+                <h3>Automotive</h3>
+                <p>
+                    Explore vehicles, commercial trucks,
+                    automotive components and spare parts
+                    available for sourcing.
+                </p>
+
+                <div class="category-items">
+                    <span>SUVs &amp; Cars</span>
+                    <span>Heavy Trucks</span>
+                    <span>Commercial Vehicles</span>
+                    <span>Spare Parts</span>
+                </div>
+
+                <a href="automotive.html" class="category-button">
+                    Explore Automotive Products →
+                </a>
+            </div>
+        </div>
+
+        <!-- ELECTRONICS -->
+
+        <div class="category-card">
+            <div class="category-image">
+                <img src="electronics.png"
+                     alt="Electronics including laptops smartphones and televisions">
+            </div>
+
+            <div class="category-content">
+                <h3>Electronics</h3>
+                <p>
+                    Browse electronic devices and equipment
+                    for personal, household and business use.
+                </p>
+
+                <div class="category-items">
+                    <span>Laptops</span>
+                    <span>Smartphones</span>
+                    <span>Smart TVs</span>
+                    <span>Accessories</span>
+                </div>
+
+                <a href="electronics.html" class="category-button">
+                    Explore Electronics →
+                </a>
+            </div>
+        </div>
+
+        <!-- FASHION AND LIFESTYLE -->
+
+        <div class="category-card">
+            <div class="category-image">
+                <img src="fashion.png"
+                     alt="Fashion clothing bags shoes and lifestyle products">
+            </div>
+
+            <div class="category-content">
+                <h3>Fashion &amp; Lifestyle</h3>
+                <p>
+                    Discover clothing, footwear, bags,
+                    accessories and other lifestyle products.
+                </p>
+
+                <div class="category-items">
+                    <span>Clothing</span>
+                    <span>Shoes</span>
+                    <span>Bags</span>
+                    <span>Accessories</span>
+                </div>
+
+                <a href="fashion.html" class="category-button">
+                    Explore Fashion &amp; Lifestyle →
+                </a>
+            </div>
+        </div>
+
+        <!-- INDUSTRIAL AND COMMERCIAL -->
+
+        <div class="category-card">
+            <div class="category-image">
+                <img src="commercial.png"
+                     alt="Industrial machinery commercial equipment and construction supplies">
+            </div>
+
+            <div class="category-content">
+                <h3>Industrial &amp; Commercial</h3>
+                <p>
+                    Explore industrial machinery, construction
+                    materials, electrical equipment and commercial
+                    supplies.
+                </p>
+
+                <div class="category-items">
+                    <span>Machinery</span>
+                    <span>Generators</span>
+                    <span>Construction Materials</span>
+                    <span>Electrical Supplies</span>
+                </div>
+
+                <a href="industrial.html" class="category-button">
+                    Explore Industrial Products →
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- PRODUCT INFORMATION -->
+
+<section class="section product-info">
+<div class="container">
+
+    <div class="section-heading">
+        <span>PRODUCT INFORMATION</span>
+        <h2>Know What You Are Purchasing</h2>
+        <p>
+            Our product catalogue is designed to help customers
+            compare available products and make informed enquiries.
+        </p>
+    </div>
+
+    <div class="product-info-grid">
+
+        <div class="info-card">
+            <div class="info-icon">▤</div>
+            <h3>Product Specifications</h3>
+            <p>
+                View important product details, models,
+                technical specifications and other relevant
+                information.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">$</div>
+            <h3>Indicative Pricing</h3>
+            <p>
+                View indicative supplier prices where available.
+                Final quotations may depend on supplier confirmation,
+                quantity and other purchasing requirements.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">✓</div>
+            <h3>Request a Quotation</h3>
+            <p>
+                Submit an enquiry about a product to receive
+                further information and a quotation from our team.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- PRODUCT SOURCING -->
+
+<section class="section" id="sourcing">
+<div class="container detail-grid">
+
+    <div class="detail-image">
+        <img src="M&M Logistics Warehouse Operations.png"
+             alt="Warehouse product sourcing and supplier operations">
+    </div>
+
+    <div class="detail-content">
+        <span style="color:var(--green);font-weight:800;">
+            SERVICE 01
+        </span>
+
+        <h2>Product Sourcing</h2>
+
+        <p>
+            Finding the right product and supplier is an important
+            part of international purchasing. M&amp;M Logistics helps
+            customers identify products from China according to
+            their needs.
+        </p>
+
+        <ul class="detail-list">
+            <li>Product identification and search</li>
+            <li>Supplier enquiries</li>
+            <li>Product specifications and model identification</li>
+            <li>Price enquiries and sourcing options</li>
+            <li>Product catalogue assistance</li>
+        </ul>
+
+        <a href="#quote" class="btn btn-primary">
+            Request Sourcing Assistance
+        </a>
+    </div>
+
+</div>
+</section>
+
+
+<!-- PROCUREMENT -->
+
+<section class="section core-services" id="procurement">
+<div class="container detail-grid">
+
+    <div class="detail-content">
+        <span style="color:var(--green);font-weight:800;">
+            SERVICE 02
+        </span>
+
+        <h2>Procurement &amp; Purchasing</h2>
+
+        <p>
+            Our procurement service helps customers coordinate
+            the purchasing of products from suppliers in China.
+            We support communication and order coordination
+            throughout the purchasing process.
+        </p>
+
+        <ul class="detail-list">
+            <li>Supplier communication and coordination</li>
+            <li>Product and quantity confirmation</li>
+            <li>Purchase order coordination</li>
+            <li>Order processing updates</li>
+            <li>Procurement assistance</li>
+        </ul>
+
+        <a href="#quote" class="btn btn-primary">
+            Discuss Your Procurement Needs
+        </a>
+    </div>
+
+    <div class="detail-image">
+        <img src="M&M Logistics Warehouse Operations.png"
+             alt="Procurement and purchasing operations">
+    </div>
+
+</div>
+</section>
+
+
+<!-- SEA AND AIR FREIGHT -->
+
+<section class="section shipping-section" id="shipping">
+<div class="container">
+
+    <div class="section-heading">
+        <span>SERVICE 03 &amp; 04</span>
+        <h2>International Shipping Solutions</h2>
+        <p>
+            We coordinate international freight options
+            to help move goods from China to their
+            intended destinations.
+        </p>
+    </div>
+
+    <div class="shipping-grid">
+
+        <div class="shipping-card">
+            <img src="hero-logistics.png"
+                 alt="International sea freight cargo">
+
+            <div class="shipping-card-content">
+                <h3>Sea Freight</h3>
+
+                <p>
+                    Sea freight is suitable for larger shipments,
+                    commercial cargo and bulk consignments.
+                    We assist customers with shipping enquiries
+                    and freight coordination.
+                </p>
+
+                <ul class="detail-list">
+                    <li>Commercial cargo</li>
+                    <li>Bulk consignments</li>
+                    <li>Container shipping enquiries</li>
+                    <li>Freight coordination</li>
+                </ul>
+
+                <a href="#quote" class="btn btn-primary">
+                    Request Sea Freight Quote
+                </a>
+            </div>
+        </div>
+
+        <div class="shipping-card">
+            <img src="flow.png"
+                 alt="International air freight logistics">
+
+            <div class="shipping-card-content">
+                <h3>Air Freight</h3>
+
+                <p>
+                    Air freight provides an alternative for customers
+                    whose shipments require faster transportation.
+                    Our team can assist with air cargo enquiries
+                    and coordination.
+                </p>
+
+                <ul class="detail-list">
+                    <li>Air cargo enquiries</li>
+                    <li>Suitable commercial shipments</li>
+                    <li>Shipping coordination</li>
+                    <li>Freight quotation assistance</li>
+                </ul>
+
+                <a href="#quote" class="btn btn-primary">
+                    Request Air Freight Quote
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- WAREHOUSE HANDLING -->
+
+<section class="section">
+<div class="container warehouse-grid">
+
+    <div class="warehouse-image">
+        <img src="M&M Logistics Warehouse Operations.png"
+             alt="Warehouse goods packing and container loading">
+    </div>
+
+    <div class="warehouse-content">
+        <span style="color:var(--green);font-weight:800;">
+            LOGISTICS SUPPORT
+        </span>
+
+        <h2>Warehouse Handling &amp; Cargo Preparation</h2>
+
+        <p>
+            Proper organisation and preparation of goods are
+            important in international logistics. Warehouse
+            handling supports the preparation of products
+            for transportation.
+        </p>
+
+        <p>
+            Depending on the shipment arrangement, goods can
+            be organised, packed and prepared for international
+            transportation.
+        </p>
+
+        <ul class="detail-list">
+            <li>Goods organisation</li>
+            <li>Packaging coordination</li>
+            <li>Cargo preparation</li>
+            <li>Shipment consolidation where applicable</li>
+        </ul>
+
+        <a href="#quote" class="btn btn-primary">
+            Make an Enquiry
+        </a>
+    </div>
+
+</div>
+</section>
+
+
+<!-- SHIPPING DESTINATIONS -->
+
+<section class="section destinations-section">
+<div class="container">
+
+    <div class="section-heading">
+        <span>OUR SHIPPING NETWORK</span>
+        <h2>Our Shipping Destinations</h2>
+        <p>
+            M&amp;M Logistics is focused on serving customers
+            across these West African markets.
+        </p>
+    </div>
+
+    <div class="destination-grid">
+
+        <div class="destination-card">
+            <img src="sierra-leone.png" alt="Sierra Leone flag">
+            <h3>Sierra Leone</h3>
+        </div>
+
+        <div class="destination-card">
+            <img src="ghana.png" alt="Ghana flag">
+            <h3>Ghana</h3>
+        </div>
+
+        <div class="destination-card">
+            <img src="nigeria.png" alt="Nigeria flag">
+            <h3>Nigeria</h3>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- HOW OUR SERVICES WORK -->
+
+<section class="section">
+<div class="container">
+
+    <div class="section-heading">
+        <span>OUR PROCESS</span>
+        <h2>How Our Services Work</h2>
+        <p>
+            From your initial enquiry to shipment coordination,
+            our process is organised around your requirements.
+        </p>
+    </div>
+
+    <div class="process-grid">
+
+        <div class="process-card">
+            <div class="process-number">01</div>
+            <h3>Submit Your Request</h3>
+            <p>
+                Tell us the product you want to source,
+                purchase or ship.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">02</div>
+            <h3>Receive a Quotation</h3>
+            <p>
+                We review your requirements and provide
+                relevant pricing and service information.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">03</div>
+            <h3>Confirm Your Order</h3>
+            <p>
+                Review and confirm the purchasing
+                and shipping arrangements.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">04</div>
+            <h3>Procurement</h3>
+            <p>
+                The purchasing process is coordinated
+                according to the confirmed order.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">05</div>
+            <h3>Shipping Coordination</h3>
+            <p>
+                Your goods are prepared and arranged
+                for the selected freight method.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">06</div>
+            <h3>Shipment Updates</h3>
+            <p>
+                Follow up on your shipment through
+                the available tracking arrangements.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- FAQ -->
+
+<section class="section faq-section">
+<div class="container">
+
+    <div class="section-heading">
+        <span>NEED MORE INFORMATION?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>
+            Find answers to some common questions
+            about our sourcing and logistics services.
+        </p>
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I source products that are not listed on the website?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                Yes. You can submit a product enquiry even if the
+                product is not currently displayed in our catalogue.
+                Include its name, specifications, image or supplier
+                link so our team can review your request.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I purchase in small or large quantities?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                You can submit your required quantity for assessment.
+                Minimum order quantities and supplier conditions may
+                vary depending on the product.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is the difference between air freight and sea freight?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                Air freight uses aircraft to transport cargo and is
+                generally suitable for shipments requiring faster
+                transportation. Sea freight uses cargo vessels and is
+                commonly considered for larger or bulk shipments.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I request a shipping quotation?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                Use the quotation enquiry form on this page.
+                Provide your contact details, destination, service
+                required and relevant shipment or product information.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Which countries do you serve?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                Our website currently highlights Sierra Leone,
+                Ghana and Nigeria as our intended shipping destinations.
+                Contact our team to confirm arrangements for your
+                particular shipment.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I check my shipment?
+                <span class="faq-arrow">⌄</span>
+            </button>
+            <div class="faq-answer">
+                Once shipment tracking is connected to the company's
+                logistics system, customers will be able to use their
+                tracking reference to check shipment progress.
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- REQUEST A QUOTE -->
+
+<section class="section quote-section" id="quote">
+<div class="container">
+
+    <div class="quote-content">
+
+        <h2>Tell Us What You Need</h2>
+
+        <p>
+            Whether you need product sourcing, procurement
+            or international shipping, send us your requirements
+            and our team can assist with your enquiry.
+        </p>
+
+        <form class="quote-form" id="quoteForm">
+
+            <div class="form-group">
+                <label for="customerName">Full Name</label>
+                <input type="text" id="customerName"
+                       placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customerEmail">Email Address</label>
+                <input type="email" id="customerEmail"
+                       placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customerPhone">WhatsApp / Phone Number</label>
+                <input type="tel" id="customerPhone"
+                       placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Destination Country</label>
+                <select id="country" required>
+                    <option value="">Select destination</option>
+                    <option>Sierra Leone</option>
+                    <option>Ghana</option>
+                    <option>Nigeria</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="serviceRequired">Service Required</label>
+                <select id="serviceRequired" required>
+                    <option value="">Select service</option>
+                    <option>Product Sourcing</option>
+                    <option>Procurement</option>
+                    <option>Sea Freight</option>
+                    <option>Air Freight</option>
+                    <option>Warehouse / Cargo Preparation</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Product Category</label>
+                <select id="category">
+                    <option value="">Select product category</option>
+                    <option>Automotive</option>
+                    <option>Electronics</option>
+                    <option>Fashion &amp; Lifestyle</option>
+                    <option>Industrial &amp; Commercial</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="productDetails">Product / Shipment Details</label>
+                <textarea id="productDetails"
+                          placeholder="Describe the product, specifications, quantity or shipping requirements..."
+                          required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="productImage">
+                    Upload Product Image or Specification (Optional)
+                </label>
+                <input type="file" id="productImage"
+                       accept="image/*,.pdf">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Submit Your Enquiry
+            </button>
+
+        </form>
+
+    </div>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+            <a href="index.html" class="footer-logo">
+                <img src="company logo.png.jpg"
+                     alt="M&M Logistics logo">
+            </a>
+
+            <p>
+                M&amp;M Logistics (SL) Ltd provides product sourcing,
+                procurement and international logistics solutions
+                connecting China to West Africa.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="tracking.html">Track Shipping</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Product Categories</h3>
+            <a href="automotive.html">Automotive</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="fashion.html">Fashion &amp; Lifestyle</a>
+            <a href="industrial.html">Industrial &amp; Commercial</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <a href="https://wa.me/23230172868">
+                WhatsApp: +232 30 172 868
+            </a>
+            <a href="tel:+8613156271080">
+                China: +86 131 5627 1080
+            </a>
+            <a href="tel:+8617543995848">
+                China: +86 175 4399 5848
+            </a>
+            <a href="contact.html">Send an Enquiry</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © <span id="currentYear"></span>
+            M&amp;M Logistics (SL) Ltd. All rights reserved.
+        </p>
+        <p>Connecting China to West Africa.</p>
+    </div>
+
+</div>
+</footer>
+
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+
+<nav class="mobile-bottom-nav">
+    <a href="index.html"><span>⌂</span>Home</a>
+    <a href="services.html"><span>▦</span>Services</a>
+    <a href="tracking.html"><span>⌕</span>Track</a>
+    <a href="#quote"><span>♙</span>Enquiry</a>
+</nav>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.contains("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+
+// AUTOMATIC FOOTER YEAR
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+
+// FAQ ACCORDION
+
+document.querySelectorAll(".faq-question").forEach(function(button) {
+    button.addEventListener("click", function() {
+        const currentItem = button.parentElement;
+        currentItem.classList.toggle("active");
+    });
+});
+
+
+// QUOTATION FORM PREVIEW
+
+document.getElementById("quoteForm").addEventListener(
+    "submit",
+    function(event) {
+        event.preventDefault();
+
+        alert(
+            "Thank you for your enquiry to M&M Logistics. " +
+            "This is currently a website preview. " +
+            "The quotation form will be connected to the company's " +
+            "email or database during backend development."
+        );
+
+        this.reset();
+    }
+);
+
+
+// SHARED WEBSITE THEME
+// Uses the same key as the contact page so the selected theme
+// remains consistent when customers move between main website pages.
+
+const WEBSITE_THEME_KEY = "mmHomeTheme";
+
+function applyWebsiteTheme(theme) {
+    const selectedTheme = theme === "dark" ? "dark" : "light";
+
+    document.body.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem(WEBSITE_THEME_KEY, selectedTheme);
+
+    const icon = document.getElementById("themeIcon");
+    const label = document.getElementById("themeLabel");
+    const button = document.getElementById("themeToggle");
+
+    if (selectedTheme === "dark") {
+        icon.textContent = "☀️";
+        label.textContent = "Light Mode";
+        button.title = "Switch to light theme";
+        button.setAttribute("aria-label", "Switch to light theme");
+    } else {
+        icon.textContent = "🌙";
+        label.textContent = "Dark Mode";
+        button.title = "Switch to dark theme";
+        button.setAttribute("aria-label", "Switch to dark theme");
+    }
+}
+
+document.getElementById("themeToggle").addEventListener("click", function() {
+    const current = document.body.getAttribute("data-theme") || "light";
+
+    applyWebsiteTheme(current === "dark" ? "light" : "dark");
+});
+
+applyWebsiteTheme(localStorage.getItem(WEBSITE_THEME_KEY) || "light");
+
+
+// CUSTOMER PROFILE - SHARED WITH LOGIN AND TRACKING PAGES
+
+function getCurrentCustomer() {
+    try {
+        const customer = JSON.parse(
+            localStorage.getItem("mmCurrentCustomer") || "null"
+        );
+
+        return customer && (customer.fullName || customer.email)
+            ? customer
+            : null;
+
+    } catch (error) {
+        return null;
+    }
+}
+
+function renderCustomerProfile() {
+    const customer = getCurrentCustomer();
+
+    const guestActions = document.getElementById("guestActions");
+    const profileWrapper = document.getElementById("profileWrapper");
+
+    if (customer) {
+        const name = customer.fullName || "Customer";
+        const email = customer.email || "";
+
+        const initials = name.trim().split(/\s+/).slice(0, 2)
+            .map(part => part.charAt(0)).join("").toUpperCase();
+
+        guestActions.hidden = true;
+        profileWrapper.hidden = false;
+
+        document.getElementById("profileName").textContent = name;
+        document.getElementById("profileAvatar").textContent = initials || "C";
+        document.getElementById("profileMenuName").textContent = name;
+        document.getElementById("profileMenuEmail").textContent = email;
+
+    } else {
+        guestActions.hidden = false;
+        profileWrapper.hidden = true;
+
+        document.getElementById("profileMenu").hidden = true;
+
+        document.getElementById("profileButton").setAttribute(
+            "aria-expanded", "false"
+        );
+    }
+}
+
+document.getElementById("profileButton").addEventListener("click", function(event) {
+    event.stopPropagation();
+
+    const menu = document.getElementById("profileMenu");
+
+    menu.hidden = !menu.hidden;
+
+    this.setAttribute("aria-expanded", String(!menu.hidden));
+});
+
+document.addEventListener("click", function(event) {
+    const wrapper = document.getElementById("profileWrapper");
+
+    if (!wrapper.contains(event.target)) {
+        document.getElementById("profileMenu").hidden = true;
+
+        document.getElementById("profileButton").setAttribute(
+            "aria-expanded", "false"
+        );
+    }
+});
+
+document.getElementById("signOutButton").addEventListener("click", function() {
+    localStorage.removeItem("mmCurrentCustomer");
+    renderCustomerProfile();
+});
+
+renderCustomerProfile();
+
+window.addEventListener("storage", function(event) {
+    if (event.key === "mmCurrentCustomer") {
+        renderCustomerProfile();
+    }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Portal | M&M Logistics (SL) Ltd.</title>
+
+<style>
+:root {
+    --blue: #395BA2;
+    --green: #12B94B;
+    --navy: #17243D;
+    --dark: #172033;
+    --text: #243047;
+    --muted: #718096;
+    --bg: #F4F6FA;
+    --white: #FFFFFF;
+    --border: #E5EAF1;
+    --shadow: 0 8px 28px rgba(23,36,61,.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 255px;
+    background: var(--navy);
+    color: white;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s ease;
+}
+
+.brand {
+    height: 82px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.brand img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    background: white;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.brand-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .3px;
+}
+
+.brand-sub {
+    font-size: 10px;
+    color: #AAB8CE;
+    margin-top: 4px;
+}
+
+.sidebar-content {
+    padding: 22px 13px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.menu-label {
+    font-size: 10px;
+    color: #8495B0;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 13px 12px 8px;
+}
+
+.nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin: 3px 0;
+    color: #C5D0E0;
+    background: transparent;
+    border: 0;
+    border-radius: 9px;
+    font-size: 13px;
+    text-align: left;
+    transition: .2s;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,.08);
+    color: white;
+}
+
+.nav-item.active {
+    background: var(--blue);
+    color: white;
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 20px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.nav-count {
+    margin-left: auto;
+    background: var(--green);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 7px;
+    font-size: 10px;
+}
+
+.sidebar-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 17px;
+}
+
+.sidebar-help {
+    background: rgba(255,255,255,.07);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.sidebar-help strong {
+    font-size: 12px;
+}
+
+.sidebar-help p {
+    font-size: 11px;
+    color: #AAB8CE;
+    line-height: 1.5;
+    margin: 7px 0 12px;
+}
+
+.sidebar-help a {
+    display: block;
+    background: var(--green);
+    padding: 9px;
+    text-align: center;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* MAIN */
+
+.main {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-width: 0;
+}
+
+.topbar {
+    height: 82px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.breadcrumb strong {
+    color: var(--text);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-button {
+    width: 39px;
+    height: 39px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 10px;
+    color: var(--blue);
+    font-size: 17px;
+    position: relative;
+}
+
+.notification-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border: 2px solid white;
+    border-radius: 50%;
+    right: 7px;
+    top: 6px;
+}
+
+.profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background: #E8EEFA;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.profile-mini strong {
+    display: block;
+    font-size: 12px;
+}
+
+.profile-mini small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    font-size: 23px;
+    color: var(--navy);
+}
+
+.content {
+    max-width: 1500px;
+    margin: auto;
+    padding: 30px 34px 55px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-heading {
+    margin-bottom: 24px;
+}
+
+.page-heading h1 {
+    font-size: 25px;
+    color: var(--navy);
+    margin-bottom: 7px;
+}
+
+.page-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* TOP BAR HOME AND THEME CONTROLS */
+
+.top-action-button {
+    min-height: 39px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.top-action-button:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-1px);
+}
+
+.home-button {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+}
+
+.home-button:hover {
+    background: #294982;
+    border-color: #294982;
+    color: white;
+}
+
+/* BUTTONS */
+
+.btn {
+    border: 0;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #294982;
+}
+
+.btn-green {
+    background: var(--green);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+}
+
+.btn-light {
+    background: #EEF2FA;
+    color: var(--blue);
+}
+
+.btn-danger {
+    background: #FFF0F0;
+    color: #C33D3D;
+}
+
+.btn-small {
+    padding: 8px 11px;
+    font-size: 11px;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(115deg, #17243D, #263F70);
+    border-radius: 16px;
+    padding: 30px 32px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50%;
+    right: 10%;
+    top: -140px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: #8CE5A9;
+    background: rgba(18,185,75,.15);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    margin-bottom: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #D2DBEA;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 550px;
+    margin-bottom: 19px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-graphic {
+    font-size: 90px;
+    opacity: .18;
+    padding: 0 20px;
+}
+
+/* STATS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #EDF2FC;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: #E8F9EE;
+    color: var(--green);
+}
+
+.stat-card:nth-child(5) .stat-icon {
+    background: #FFF3E5;
+    color: #C47A24;
+}
+
+.stat-card h2 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    color: var(--navy);
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* CARDS AND SECTIONS */
+
+.panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 21px;
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+    min-width: 0;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.panel-header h2 {
+    color: var(--navy);
+    font-size: 16px;
+}
+
+.panel-header p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+}
+
+.shipment-list {
+    display: grid;
+    gap: 13px;
+}
+
+.shipment-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    transition: .2s;
+}
+
+.shipment-card:hover {
+    border-color: #B8C8E6;
+    box-shadow: 0 5px 15px rgba(57,91,162,.07);
+}
+
+.shipment-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.shipment-ref {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.shipment-product {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.status {
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.status-green {
+    color: #138A3D;
+    background: #E8F8EE;
+}
+
+.status-blue {
+    color: #315B9E;
+    background: #EAF0FC;
+}
+
+.status-orange {
+    color: #A66A19;
+    background: #FFF3E1;
+}
+
+.status-red {
+    color: #B13B3B;
+    background: #FCEBEB;
+}
+
+.status-grey {
+    color: #657184;
+    background: #EEF1F5;
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.route-point {
+    flex: 1;
+    min-width: 0;
+}
+
+.route-point small {
+    color: var(--muted);
+    display: block;
+    font-size: 9px;
+    margin-bottom: 4px;
+}
+
+.route-point strong {
+    font-size: 11px;
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.route-line {
+    color: var(--green);
+    font-size: 18px;
+}
+
+.progress-track {
+    height: 6px;
+    background: #EDF0F5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0 7px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 10px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.shipment-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 13px;
+}
+
+.shipment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid var(--border);
+}
+
+.shipment-footer small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ACTIVITY */
+
+.activity-list {
+    display: grid;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.activity-item:last-child {
+    border-bottom: 0;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    background: #EDF2FC;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.activity-item strong {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.activity-item p {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.activity-item small {
+    display: block;
+    color: #9AA5B5;
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+/* FILTERS AND TABLES */
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 190px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 11px 13px 11px 35px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    font-size: 12px;
+}
+
+.search-box span {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    color: var(--muted);
+}
+
+.toolbar select {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--text);
+    font-size: 11px;
+    outline: none;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th {
+    background: #F7F9FC;
+    color: #78869A;
+    text-align: left;
+    padding: 13px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+td {
+    padding: 14px 13px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+}
+
+td strong {
+    color: var(--blue);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 42px 15px;
+    color: var(--muted);
+}
+
+.empty-state .empty-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    color: var(--navy);
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.empty-state p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* DOCUMENTS AND NOTIFICATIONS */
+
+.document-card,
+.notification-card,
+.quotation-card,
+.support-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 11px;
+}
+
+.file-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EDF2FC;
+    color: var(--blue);
+    border-radius: 9px;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.document-info,
+.notification-info,
+.quotation-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.document-info strong,
+.notification-info strong,
+.quotation-info strong {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.document-info small,
+.notification-info small,
+.quotation-info small {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.notification-card.unread {
+    background: #F7F9FE;
+    border-color: #D6E1F5;
+}
+
+.notification-card.unread::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.document-actions {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+/* FORMS */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4D5A6E;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 12px;
+    outline: none;
+    background: white;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(57,91,162,.08);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-note {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* PROFILE */
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 82px;
+    height: 82px;
+    background: #EAF0FC;
+    color: var(--blue);
+    border-radius: 50%;
+    margin: 0 auto 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.profile-card h2 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.profile-card p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* MODALS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,24,43,.65);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 750px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    padding: 25px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 17px;
+    top: 15px;
+    border: 0;
+    background: #F0F2F6;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.modal-title {
+    color: var(--navy);
+    font-size: 19px;
+    margin-bottom: 6px;
+    padding-right: 35px;
+}
+
+.modal-subtitle {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.detail-box {
+    background: #F7F9FC;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.detail-box small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.detail-box strong {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.timeline {
+    border-left: 2px solid #DCE5F3;
+    margin: 18px 0 10px 8px;
+    padding-left: 20px;
+}
+
+.timeline-event {
+    position: relative;
+    padding: 0 0 22px;
+}
+
+.timeline-event::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid #E4F7EB;
+}
+
+.timeline-event strong {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timeline-event p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.timeline-event small {
+    display: block;
+    color: #98A4B4;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 500;
+    background: var(--navy);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 9px;
+    font-size: 12px;
+    box-shadow: var(--shadow);
+    display: none;
+    max-width: 320px;
+}
+
+.toast.show {
+    display: block;
+}
+
+/* FOOTER */
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 34px;
+    color: var(--muted);
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* DARK THEME */
+
+body[data-theme="dark"] {
+    --text: #E7ECF5;
+    --muted: #A5B1C4;
+    --bg: #101827;
+    --white: #182438;
+    --border: #2B3A50;
+    --shadow: 0 8px 28px rgba(0,0,0,.22);
+    color: var(--text);
+    background: var(--bg);
+}
+
+body[data-theme="dark"] .topbar,
+body[data-theme="dark"] .panel,
+body[data-theme="dark"] .stat-card,
+body[data-theme="dark"] .modal-box,
+body[data-theme="dark"] .shipment-card,
+body[data-theme="dark"] .document-card,
+body[data-theme="dark"] .notification-card,
+body[data-theme="dark"] .quotation-card,
+body[data-theme="dark"] .support-card {
+    background: #182438;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+body[data-theme="dark"] .topbar {
+    background: #151F30;
+}
+
+body[data-theme="dark"] .page-heading h1,
+body[data-theme="dark"] .stat-card h2,
+body[data-theme="dark"] .panel-header h2,
+body[data-theme="dark"] .empty-state h3,
+body[data-theme="dark"] .modal-title,
+body[data-theme="dark"] .profile-card h2,
+body[data-theme="dark"] .shipment-product,
+body[data-theme="dark"] .activity-item strong,
+body[data-theme="dark"] .document-info strong,
+body[data-theme="dark"] .notification-info strong,
+body[data-theme="dark"] .quotation-info strong,
+body[data-theme="dark"] .detail-box strong,
+body[data-theme="dark"] .timeline-event strong {
+    color: #F0F4FA;
+}
+
+body[data-theme="dark"] .breadcrumb strong {
+    color: #F0F4FA;
+}
+
+body[data-theme="dark"] .top-action-button,
+body[data-theme="dark"] .icon-button,
+body[data-theme="dark"] .btn-outline {
+    background: #202E43;
+    border-color: #35465F;
+    color: #E7ECF5;
+}
+
+body[data-theme="dark"] .home-button {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+}
+
+body[data-theme="dark"] .form-group input,
+body[data-theme="dark"] .form-group select,
+body[data-theme="dark"] .form-group textarea,
+body[data-theme="dark"] .search-box input,
+body[data-theme="dark"] .toolbar select {
+    background: #111C2C;
+    color: #E7ECF5;
+    border-color: #35465F;
+}
+
+body[data-theme="dark"] .form-group label {
+    color: #C5D0E0;
+}
+
+body[data-theme="dark"] th {
+    background: #202E43;
+    color: #B5C1D2;
+}
+
+body[data-theme="dark"] td {
+    color: #DCE4EF;
+    border-color: var(--border);
+}
+
+body[data-theme="dark"] .detail-box {
+    background: #202E43;
+}
+
+body[data-theme="dark"] .progress-track {
+    background: #2B3A50;
+}
+
+body[data-theme="dark"] .activity-item,
+body[data-theme="dark"] .shipment-footer {
+    border-color: var(--border);
+}
+
+body[data-theme="dark"] .notification-card.unread {
+    background: #1D3045;
+    border-color: #385477;
+}
+
+body[data-theme="dark"] .status-grey {
+    background: #2B3A50;
+    color: #D0D9E6;
+}
+
+body[data-theme="dark"] .status-blue {
+    background: #233B60;
+    color: #BBD2FF;
+}
+
+body[data-theme="dark"] .status-green {
+    background: #173D2B;
+    color: #9BE7B4;
+}
+
+body[data-theme="dark"] .status-orange {
+    background: #49351D;
+    color: #F2CB8A;
+}
+
+body[data-theme="dark"] .status-red {
+    background: #482626;
+    color: #F2AAAA;
+}
+
+body[data-theme="dark"] .avatar,
+body[data-theme="dark"] .profile-avatar,
+body[data-theme="dark"] .file-icon,
+body[data-theme="dark"] .stat-icon,
+body[data-theme="dark"] .activity-icon {
+    background: #263B5A;
+    color: #BBD2FF;
+}
+
+body[data-theme="dark"] .btn-light {
+    background: #263B5A;
+    color: #D5E2FA;
+}
+
+body[data-theme="dark"] .modal-close {
+    background: #2B3A50;
+    color: #F0F4FA;
+}
+
+body[data-theme="dark"] .footer {
+    border-color: var(--border);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .content {
+        padding: 23px 18px 40px;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero-graphic {
+        display: none;
+    }
+
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    .topbar-actions {
+        gap: 6px;
+    }
+
+    .top-action-button {
+        min-height: 35px;
+        padding: 0 8px;
+        font-size: 10px;
+        gap: 4px;
+    }
+
+    .top-action-button span:first-child {
+        font-size: 13px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-card h2 {
+        font-size: 22px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .hero {
+        padding: 22px 18px;
+    }
+
+    .topbar {
+        height: 70px;
+    }
+
+    .profile-mini .profile-text {
+        display: none;
+    }
+
+    .content {
+        padding: 20px 13px 35px;
+    }
+
+    .panel {
+        padding: 15px;
+    }
+
+    .form-grid,
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-heading h1 {
+        font-size: 22px;
+    }
+
+    .shipment-top {
+        flex-direction: column;
+    }
+
+    .shipment-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .document-card,
+    .notification-card,
+    .quotation-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .document-actions {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <img src="company logo.png.jpg" alt="M&M Logistics Logo"
+             onerror="this.style.display='none'">
+        <div>
+            <div class="brand-name">M&M LOGISTICS</div>
+            <div class="brand-sub">CUSTOMER PORTAL</div>
+        </div>
+    </div>
+
+    <div class="sidebar-content">
+
+        <div class="menu-label">OVERVIEW</div>
+        <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">▦</span> Dashboard
+        </button>
+
+        <div class="menu-label">SHIPMENT MANAGEMENT</div>
+        <button class="nav-item" data-page="shipments">
+            <span class="nav-icon">▣</span> My Shipments
+        </button>
+        <button class="nav-item" data-page="track">
+            <span class="nav-icon">⌖</span> Track Shipment
+        </button>
+        <button class="nav-item" data-page="history">
+            <span class="nav-icon">◷</span> Tracking History
+        </button>
+        <button class="nav-item" data-page="documents">
+            <span class="nav-icon">▤</span> My Documents
+        </button>
+
+        <div class="menu-label">SERVICES</div>
+        <button class="nav-item" data-page="quotation">
+            <span class="nav-icon">＋</span> Request a Quotation
+        </button>
+        <button class="nav-item" data-page="quotationHistory">
+            <span class="nav-icon">▧</span> Quotation History
+        </button>
+
+        <div class="menu-label">COMMUNICATION</div>
+        <button class="nav-item" data-page="notifications">
+            <span class="nav-icon">♧</span> Notifications
+            <span class="nav-count" id="notificationCount" style="display:none">0</span>
+        </button>
+        <button class="nav-item" data-page="support">
+            <span class="nav-icon">☏</span> Customer Support
+        </button>
+
+        <div class="menu-label">ACCOUNT</div>
+        <button class="nav-item" data-page="profile">
+            <span class="nav-icon">◉</span> My Profile
+        </button>
+        <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙</span> Account Settings
+        </button>
+        <button class="nav-item" id="logoutButton">
+            <span class="nav-icon">↪</span> Sign Out
+        </button>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="sidebar-help">
+            <strong>Need assistance?</strong>
+            <p>Our team is ready to help with your shipment enquiries.</p>
+            <a href="https://wa.me/23230172868" target="_blank" rel="noopener">
+                Contact Support
+            </a>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+            <div class="breadcrumb">
+                Customer Portal / <strong id="breadcrumbTitle">Dashboard</strong>
+            </div>
+        </div>
+
+        <div class="topbar-actions">
+
+            <!-- HOME BUTTON -->
+            <a class="top-action-button home-button"
+               href="index.html"
+               title="Return to website home">
+                <span>⌂</span> Home
+            </a>
+
+            <!-- DARK / LIGHT THEME BUTTON -->
+            <button class="top-action-button"
+                    id="themeToggle"
+                    type="button"
+                    title="Switch to dark theme"
+                    aria-label="Switch to dark theme">
+                <span id="themeIcon">🌙</span>
+                <span id="themeLabel">Dark Mode</span>
+            </button>
+
+            <button class="icon-button" id="topNotificationButton"
+                    title="Notifications" aria-label="Notifications">
+                ♧
+                <span class="notification-dot" id="topNotificationDot" style="display:none"></span>
+            </button>
+
+            <div class="profile-mini">
+                <div class="avatar" id="topAvatar">C</div>
+                <div class="profile-text">
+                    <strong id="topCustomerName">Customer</strong>
+                    <small>Customer Account</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="page-dashboard">
+
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="hero-tag">M&M CUSTOMER PORTAL</span>
+                    <h1>Your Logistics, Connected.</h1>
+                    <p id="welcomeMessage">
+                        Welcome to your personal logistics dashboard.
+                        Manage your shipments, monitor deliveries and stay connected with M&M Logistics.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="btn btn-green" onclick="showPage('track')">
+                            Track My Shipment →
+                        </button>
+                        <button class="btn btn-outline" onclick="showPage('quotation')">
+                            Request a Quotation
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-graphic">✈</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">▣</div>
+                    </div>
+                    <h2 id="statTotal">0</h2>
+                    <p>Total Shipments</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">◷</div>
+                    </div>
+                    <h2 id="statPending">0</h2>
+                    <p>Pending / Processing</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">↗</div>
+                    </div>
+                    <h2 id="statTransit">0</h2>
+                    <p>In Transit</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">✓</div>
+                    </div>
+                    <h2 id="statDelivered">0</h2>
+                    <p>Delivered</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">!</div>
+                    </div>
+                    <h2 id="statExceptions">0</h2>
+                    <p>Exceptions / On Hold</p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Recent Shipments</h2>
+                            <p>Monitor your latest shipment activities.</p>
+                        </div>
+                        <button class="btn btn-light btn-small"
+                                onclick="showPage('shipments')">View All</button>
+                    </div>
+
+                    <div class="shipment-list" id="recentShipments"></div>
+                </div>
+
+                <div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <h2>Recent Activity</h2>
+                                <p>Your latest shipment updates.</p>
+                            </div>
+                        </div>
+                        <div class="activity-list" id="recentActivity"></div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <h2>Quick Services</h2>
+                                <p>What would you like to do today?</p>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;gap:10px">
+                            <button class="btn btn-light" onclick="showPage('quotation')">
+                                ＋ Request a New Quotation
+                            </button>
+                            <button class="btn btn-light" onclick="showPage('documents')">
+                                ▤ Access Shipment Documents
+                            </button>
+                            <button class="btn btn-light" onclick="showPage('support')">
+                                ☏ Contact Customer Support
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY SHIPMENTS -->
+        <section class="page" id="page-shipments">
+            <div class="page-heading">
+                <h1>My Shipments</h1>
+                <p>View and manage all shipments assigned to your customer account.</p>
+            </div>
+
+            <div class="panel">
+                <div class="toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input type="search" id="shipmentSearch"
+                               placeholder="Search tracking ID, product or destination...">
+                    </div>
+
+                    <select id="shipmentStatusFilter">
+                        <option value="">All Statuses</option>
+                        <option>Pending</option>
+                        <option>Registered</option>
+                        <option>Processing</option>
+                        <option>Received at Warehouse</option>
+                        <option>Dispatched</option>
+                        <option>In Transit</option>
+                        <option>Arrived at Destination</option>
+                        <option>Customs Clearance</option>
+                        <option>Ready for Collection</option>
+                        <option>Out for Delivery</option>
+                        <option>Delivered</option>
+                        <option>On Hold</option>
+                        <option>Delayed</option>
+                        <option>Exception</option>
+                        <option>Cancelled</option>
+                    </select>
+
+                    <select id="shipmentMethodFilter">
+                        <option value="">All Methods</option>
+                        <option>Sea Freight</option>
+                        <option>Air Freight</option>
+                        <option>Courier</option>
+                    </select>
+                </div>
+
+                <div class="shipment-list" id="allShipments"></div>
+            </div>
+        </section>
+
+        <!-- TRACK SHIPMENT -->
+        <section class="page" id="page-track">
+            <div class="page-heading">
+                <h1>Track Your Shipment</h1>
+                <p>Enter your M&M tracking reference to view its latest recorded progress.</p>
+            </div>
+
+            <div class="panel">
+                <form id="trackingSearchForm">
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label for="trackingSearchInput">M&M Tracking Reference</label>
+                            <input id="trackingSearchInput" type="text"
+                                   placeholder="Enter your M&M tracking reference"
+                                   required>
+                        </div>
+                        <div class="form-group full">
+                            <button class="btn btn-primary" type="submit">
+                                Search My Shipment →
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="form-note">
+                    This search only checks shipments assigned to your logged-in customer account.
+                    For an external carrier reference, contact M&M Logistics.
+                </p>
+            </div>
+
+            <div id="trackingResult"></div>
+        </section>
+
+        <!-- TRACKING HISTORY -->
+        <section class="page" id="page-history">
+            <div class="page-heading">
+                <h1>Tracking History</h1>
+                <p>Review shipments that have reached a completed or delivered status.</p>
+            </div>
+
+            <div class="panel">
+                <div id="historyContent"></div>
+            </div>
+        </section>
+
+        <!-- DOCUMENTS -->
+        <section class="page" id="page-documents">
+            <div class="page-heading">
+                <h1>My Documents</h1>
+                <p>Access documents associated with your shipments and submit supporting paperwork.</p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Shipment Documents</h2>
+                        <p>Documents available to your customer account.</p>
+                    </div>
+                    <button class="btn btn-primary btn-small"
+                            onclick="openDocumentUpload()">＋ Upload Document</button>
+                </div>
+
+                <div id="documentList"></div>
+            </div>
+
+            <div class="panel">
+                <h2 style="font-size:15px;margin-bottom:9px">Document Information</h2>
+                <p class="form-note">
+                    Documents uploaded by M&M Logistics staff will appear here once the
+                    company document system is connected. Documents you upload in this
+                    prototype are saved only in this browser. Do not upload sensitive
+                    or confidential documents to this demonstration version.
+                </p>
+            </div>
+        </section>
+
+        <!-- QUOTATION REQUEST -->
+        <section class="page" id="page-quotation">
+            <div class="page-heading">
+                <h1>Request a Quotation</h1>
+                <p>Tell us what you need to ship. Our team can review your requirements and prepare a quotation.</p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>New Quotation Request</h2>
+                        <p>Provide the information below to help us understand your shipment.</p>
+                    </div>
+                </div>
+
+                <form id="portalQuotationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="quoteName">Full Name</label>
+                            <input id="quoteName" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quotePhone">Phone Number</label>
+                            <input id="quotePhone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteEmail">Email Address</label>
+                            <input id="quoteEmail" name="email" type="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteCompany">Company Name (Optional)</label>
+                            <input id="quoteCompany" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteProduct">Product / Cargo Description</label>
+                            <input id="quoteProduct" name="product" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteQuantity">Quantity</label>
+                            <input id="quoteQuantity" name="quantity"
+                                   placeholder="e.g. 20 cartons" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteOrigin">Origin</label>
+                            <input id="quoteOrigin" name="origin"
+                                   placeholder="e.g. Guangzhou, China" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteDestination">Destination</label>
+                            <select id="quoteDestination" name="destination" required>
+                                <option value="">Select destination</option>
+                                <option>Sierra Leone</option>
+                                <option>Ghana</option>
+                                <option>Nigeria</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteMethod">Preferred Shipping Method</label>
+                            <select id="quoteMethod" name="method" required>
+                                <option value="">Select shipping method</option>
+                                <option>Sea Freight</option>
+                                <option>Air Freight</option>
+                                <option>Courier</option>
+                                <option>Not Sure / Need Advice</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteWeight">Estimated Weight (Optional)</label>
+                            <input id="quoteWeight" name="weight"
+                                   placeholder="e.g. 500 kg">
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="quoteRequirements">Additional Requirements</label>
+                            <textarea id="quoteRequirements" name="requirements"
+                                      placeholder="Provide any other information about your shipment..."></textarea>
+                        </div>
+
+                        <div class="form-group full">
+                            <button type="submit" class="btn btn-primary">
+                                Submit Quotation Request →
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="form-note">
+                    This prototype records quotation requests in this browser only.
+                    It does not yet submit them to M&M Logistics staff.
+                </p>
+            </div>
+        </section>
+
+        <!-- QUOTATION HISTORY -->
+        <section class="page" id="page-quotationHistory">
+            <div class="page-heading">
+                <h1>Quotation History</h1>
+                <p>Review the quotation requests submitted through this customer portal.</p>
+            </div>
+
+            <div class="panel">
+                <div id="quotationHistoryList"></div>
+            </div>
+        </section>
+
+        <!-- NOTIFICATIONS -->
+        <section class="page" id="page-notifications">
+            <div class="page-heading">
+                <h1>Notifications</h1>
+                <p>Stay informed about shipment activities and account updates.</p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Notification Centre</h2>
+                        <p>Your recorded shipment notifications.</p>
+                    </div>
+                    <button class="btn btn-light btn-small"
+                            onclick="markAllNotificationsRead()">Mark All as Read</button>
+                </div>
+                <div id="notificationList"></div>
+            </div>
+
+            <div class="panel">
+                <h2 style="font-size:14px;margin-bottom:8px">Notification Channels</h2>
+                <p class="form-note">
+                    This interface is prepared for dashboard, email and WhatsApp notifications.
+                    Email and WhatsApp delivery will become active after the notification
+                    services are connected to the backend.
+                </p>
+            </div>
+        </section>
+
+        <!-- SUPPORT -->
+        <section class="page" id="page-support">
+            <div class="page-heading">
+                <h1>Customer Support</h1>
+                <p>Need assistance? Contact our team or submit a shipment-related enquiry.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="panel">
+                    <h2 style="font-size:16px;margin-bottom:17px">Contact M&M Logistics</h2>
+
+                    <div class="support-card">
+                        <div class="file-icon">☏</div>
+                        <div class="document-info">
+                            <strong>WhatsApp Support</strong>
+                            <small>+232 30 172 868</small>
+                        </div>
+                        <a class="btn btn-green btn-small"
+                           href="https://wa.me/23230172868"
+                           target="_blank" rel="noopener">Chat</a>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="file-icon">☎</div>
+                        <div class="document-info">
+                            <strong>China Office</strong>
+                            <small>+86 131 5627 1080</small>
+                        </div>
+                        <a class="btn btn-light btn-small"
+                           href="tel:+8613156271080">Call</a>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="file-icon">☎</div>
+                        <div class="document-info">
+                            <strong>China Office</strong>
+                            <small>+86 175 4399 5848</small>
+                        </div>
+                        <a class="btn btn-light btn-small"
+                           href="tel:+8617543995848">Call</a>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 style="font-size:16px;margin-bottom:17px">Submit an Enquiry</h2>
+
+                    <form id="supportForm">
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label for="supportSubject">Enquiry Type</label>
+                                <select id="supportSubject" required>
+                                    <option value="">Select enquiry type</option>
+                                    <option>Shipment Tracking Update</option>
+                                    <option>Shipment Delay</option>
+                                    <option>Missing or Damaged Cargo</option>
+                                    <option>Shipping Documents</option>
+                                    <option>Quotation Enquiry</option>
+                                    <option>General Enquiry</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="supportShipment">Related Shipment (Optional)</label>
+                                <select id="supportShipment">
+                                    <option value="">Select shipment</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="supportMessage">Message</label>
+                                <textarea id="supportMessage"
+                                          placeholder="Describe how we can assist you..."
+                                          required></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <button type="submit" class="btn btn-primary">
+                                    Prepare Support Enquiry
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p class="form-note">
+                        This prototype prepares an enquiry for WhatsApp. It does not
+                        create a support ticket in a company database.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section class="page" id="page-profile">
+            <div class="page-heading">
+                <h1>My Profile</h1>
+                <p>View and update the personal information associated with your account.</p>
+            </div>
+
+            <div class="profile-layout">
+                <div class="panel profile-card">
+                    <div class="profile-avatar" id="profileAvatar">C</div>
+                    <h2 id="profileDisplayName">Customer</h2>
+                    <p id="profileDisplayEmail">customer@example.com</p>
+                    <p style="margin-top:10px">M&M Logistics Customer</p>
+                </div>
+
+                <div class="panel">
+                    <h2 style="font-size:16px;margin-bottom:18px">Personal Information</h2>
+
+                    <form id="profileForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="profileName">Full Name</label>
+                                <input id="profileName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profilePhone">Phone Number</label>
+                                <input id="profilePhone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileEmail">Email Address</label>
+                                <input id="profileEmail" type="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany">Company Name</label>
+                                <input id="profileCompany">
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="profileCountry">Country</label>
+                                <input id="profileCountry">
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="profileAddress">Delivery Address</label>
+                                <textarea id="profileAddress"></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <button class="btn btn-primary" type="submit">
+                                    Save Profile Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="page-settings">
+            <div class="page-heading">
+                <h1>Account Settings</h1>
+                <p>Manage your account preferences and notification choices.</p>
+            </div>
+
+            <div class="panel">
+                <h2 style="font-size:15px;margin-bottom:16px">Notification Preferences</h2>
+
+                <form id="preferencesForm">
+                    <div style="display:grid;gap:17px">
+                        <label style="display:flex;gap:10px;align-items:center;font-size:12px">
+                            <input type="checkbox" id="prefDashboard" checked>
+                            Dashboard notifications
+                        </label>
+
+                        <label style="display:flex;gap:10px;align-items:center;font-size:12px">
+                            <input type="checkbox" id="prefEmail" checked>
+                            Email notifications (when connected)
+                        </label>
+
+                        <label style="display:flex;gap:10px;align-items:center;font-size:12px">
+                            <input type="checkbox" id="prefWhatsapp" checked>
+                            WhatsApp notifications (when connected)
+                        </label>
+
+                        <button class="btn btn-primary" type="submit"
+                                style="width:max-content">Save Preferences</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="panel">
+                <h2 style="font-size:15px;margin-bottom:8px">Password and Security</h2>
+                <p class="form-note">
+                    Password changes and account recovery require the secure authentication
+                    service. They are not available in this localStorage prototype.
+                    Do not store real customer passwords in browser storage.
+                </p>
+            </div>
+
+            <div class="panel">
+                <h2 style="font-size:15px;margin-bottom:8px">Sign Out</h2>
+                <p class="form-note" style="margin-bottom:13px">
+                    Sign out of your M&M Logistics customer portal.
+                </p>
+                <button class="btn btn-danger" onclick="logout()">Sign Out</button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <span>© <span id="currentYear"></span> M&M Logistics (SL) Ltd. All rights reserved.</span>
+        <span>Your Logistics, Connected.</span>
+    </footer>
+</main>
+</div>
+
+<!-- SHIPMENT DETAILS MODAL -->
+<div class="modal" id="shipmentModal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('shipmentModal')">×</button>
+        <div id="shipmentModalContent"></div>
+    </div>
+</div>
+
+<!-- DOCUMENT UPLOAD MODAL -->
+<div class="modal" id="documentModal">
+    <div class="modal-box" style="max-width:550px">
+        <button class="modal-close" onclick="closeModal('documentModal')">×</button>
+
+        <h2 class="modal-title">Upload a Document</h2>
+        <p class="modal-subtitle">Submit supporting paperwork for one of your shipments.</p>
+
+        <form id="documentUploadForm">
+            <div class="form-grid">
+                <div class="form-group full">
+                    <label for="documentShipment">Related Shipment</label>
+                    <select id="documentShipment" required>
+                        <option value="">Select shipment</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="documentName">Document Name</label>
+                    <input id="documentName" placeholder="e.g. Purchase Invoice" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="documentFile">Choose File</label>
+                    <input id="documentFile" type="file"
+                           accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+                           required>
+                </div>
+
+                <div class="form-group full">
+                    <button type="submit" class="btn btn-primary">
+                        Upload Document
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <p class="form-note">
+            Prototype limitation: uploads are stored in this browser and are not
+            transmitted to M&M Logistics.
+        </p>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================
+   M&M LOGISTICS CUSTOMER PORTAL
+   Front-end prototype using localStorage.
+   ===================================================== */
+
+const CUSTOMER_KEY = "mmCurrentCustomer";
+const SHIPMENTS_KEY = "mmLogisticsShipments";
+const CUSTOMERS_KEY = "mmLogisticsCustomers";
+const DOCUMENTS_KEY = "mmCustomerDocuments";
+const QUOTATIONS_KEY = "mmCustomerQuotations";
+const NOTIFICATIONS_KEY = "mmCustomerNotifications";
+const PREFERENCES_KEY = "mmCustomerPreferences";
+
+let currentCustomer = null;
+let customerShipments = [];
+let customerDocuments = [];
+let customerQuotations = [];
+let customerNotifications = [];
+let customerPreferences = {};
+
+const pageTitles = {
+    dashboard: "Dashboard",
+    shipments: "My Shipments",
+    track: "Track Shipment",
+    history: "Tracking History",
+    documents: "My Documents",
+    quotation: "Request a Quotation",
+    quotationHistory: "Quotation History",
+    notifications: "Notifications",
+    support: "Customer Support",
+    profile: "My Profile",
+    settings: "Account Settings"
+};
+
+/* BASIC HELPERS */
+
+function readStorage(key, fallback = []) {
+    try {
+        const value = JSON.parse(localStorage.getItem(key));
+        return value ?? fallback;
+    } catch (error) {
+        return fallback;
+    }
+}
+
+function saveStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[char]);
+}
+
+function initials(name) {
+    return String(name || "Customer")
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(part => part[0] || "")
+        .join("")
+        .toUpperCase();
+}
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3500);
+}
+
+function formatDate(value) {
+    if (!value) return "Not provided";
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return String(value);
+
+    return date.toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+    });
+}
+
+function safeDateValue(value) {
+    if (!value) return null;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function getStatusClass(status) {
+    const value = String(status || "").toLowerCase();
+
+    if (value.includes("delivered")) return "status-green";
+    if (value.includes("transit") || value.includes("dispatch") ||
+        value.includes("arrived") || value.includes("out for delivery")) {
+        return "status-blue";
+    }
+    if (value.includes("delay") || value.includes("hold") ||
+        value.includes("pending") || value.includes("customs")) {
+        return "status-orange";
+    }
+    if (value.includes("exception") || value.includes("cancel")) {
+        return "status-red";
+    }
+    return "status-grey";
+}
+
+function getProgress(shipment) {
+    if (Number.isFinite(Number(shipment.progress))) {
+        return Math.max(0, Math.min(100, Number(shipment.progress)));
+    }
+
+    const status = String(shipment.status || "").toLowerCase();
+
+    const progressMap = {
+        "pending": 5,
+        "registered": 10,
+        "received at warehouse": 20,
+        "processing": 25,
+        "dispatched": 45,
+        "in transit": 60,
+        "arrived at destination": 75,
+        "customs clearance": 82,
+        "ready for collection": 90,
+        "out for delivery": 95,
+        "delivered": 100,
+        "on hold": 40,
+        "delayed": 40,
+        "exception": 40,
+        "cancelled": 0
+    };
+
+    return progressMap[status] ?? 0;
+}
+
+function isDelivered(shipment) {
+    return String(shipment.status || "").toLowerCase() === "delivered";
+}
+
+function isException(shipment) {
+    return ["exception", "on hold", "delayed"].includes(
+        String(shipment.status || "").toLowerCase()
+    );
+}
+
+function isPending(shipment) {
+    const status = String(shipment.status || "").toLowerCase();
+    return ["pending", "registered", "processing",
+        "received at warehouse"].includes(status);
+}
+
+function isInTransit(shipment) {
+    const status = String(shipment.status || "").toLowerCase();
+    return [
+        "dispatched",
+        "in transit",
+        "arrived at destination",
+        "customs clearance",
+        "ready for collection",
+        "out for delivery"
+    ].includes(status);
+}
+
+function shipmentReference(shipment) {
+    return shipment.trackingNumber || shipment.id || "Not assigned";
+}
+
+function shipmentEvents(shipment) {
+    const events = Array.isArray(shipment.events)
+        ? shipment.events
+        : Array.isArray(shipment.trackingHistory)
+            ? shipment.trackingHistory
+            : [];
+
+    return [...events].sort((a, b) => {
+        const dateA = safeDateValue(a.date || a.timestamp);
+        const dateB = safeDateValue(b.date || b.timestamp);
+
+        if (!dateA || !dateB) return 0;
+        return dateA - dateB;
+    });
+}
+
+/* AUTHENTICATION */
+
+function initialisePortal() {
+    currentCustomer = readStorage(CUSTOMER_KEY, null);
+
+    if (!currentCustomer || !currentCustomer.id) {
+        window.location.replace("login.html");
+        return false;
+    }
+
+    const allShipments = readStorage(SHIPMENTS_KEY, []);
+
+    customerShipments = Array.isArray(allShipments)
+        ? allShipments.filter(shipment =>
+            String(shipment.customerId) === String(currentCustomer.id)
+        )
+        : [];
+
+    customerDocuments = readStorage(DOCUMENTS_KEY, [])
+        .filter(document =>
+            String(document.customerId) === String(currentCustomer.id)
+        );
+
+    customerQuotations = readStorage(QUOTATIONS_KEY, [])
+        .filter(quotation =>
+            String(quotation.customerId) === String(currentCustomer.id)
+        );
+
+    customerNotifications = readStorage(NOTIFICATIONS_KEY, [])
+        .filter(notification =>
+            String(notification.customerId) === String(currentCustomer.id)
+        );
+
+    customerPreferences = readStorage(PREFERENCES_KEY, {})[
+        String(currentCustomer.id)
+    ] || {
+        dashboard: true,
+        email: true,
+        whatsapp: true
+    };
+
+    return true;
+}
+
+function logout() {
+    localStorage.removeItem(CUSTOMER_KEY);
+    localStorage.removeItem("mmRememberCustomer");
+    window.location.replace("login.html");
+}
+
+/* NAVIGATION */
+
+function showPage(pageName) {
+    if (!pageTitles[pageName]) return;
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    const selectedPage = document.getElementById("page-" + pageName);
+    if (selectedPage) selectedPage.classList.add("active");
+
+    document.querySelectorAll(".nav-item[data-page]").forEach(button => {
+        button.classList.toggle(
+            "active",
+            button.dataset.page === pageName
+        );
+    });
+
+    document.getElementById("breadcrumbTitle").textContent =
+        pageTitles[pageName];
+
+    document.getElementById("sidebar").classList.remove("open");
+
+    if (pageName === "dashboard") renderDashboard();
+    if (pageName === "shipments") renderShipments();
+    if (pageName === "history") renderHistory();
+    if (pageName === "documents") renderDocuments();
+    if (pageName === "quotationHistory") renderQuotationHistory();
+    if (pageName === "notifications") renderNotifications();
+    if (pageName === "profile") renderProfile();
+    if (pageName === "settings") renderSettings();
+    if (pageName === "support") populateShipmentSelects();
+}
+
+document.querySelectorAll(".nav-item[data-page]").forEach(button => {
+    button.addEventListener("click", () => showPage(button.dataset.page));
+});
+
+document.getElementById("logoutButton").addEventListener("click", logout);
+
+document.getElementById("menuToggle").addEventListener("click", () => {
+    document.getElementById("sidebar").classList.toggle("open");
+});
+
+document.getElementById("topNotificationButton").addEventListener("click", () => {
+    showPage("notifications");
+});
+
+/* CUSTOMER HEADER */
+
+function renderCustomerHeader() {
+    const name = currentCustomer.fullName || currentCustomer.name || "Customer";
+    const avatar = initials(name);
+
+    document.getElementById("topCustomerName").textContent = name;
+    document.getElementById("topAvatar").textContent = avatar;
+    document.getElementById("profileAvatar").textContent = avatar;
+    document.getElementById("welcomeMessage").textContent =
+        `Welcome back, ${name}. Manage your shipments, monitor deliveries and stay connected with M&M Logistics.`;
+
+    document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+}
+
+/* DASHBOARD */
+
+function renderDashboard() {
+    document.getElementById("statTotal").textContent =
+        customerShipments.length;
+
+    document.getElementById("statPending").textContent =
+        customerShipments.filter(isPending).length;
+
+    document.getElementById("statTransit").textContent =
+        customerShipments.filter(isInTransit).length;
+
+    document.getElementById("statDelivered").textContent =
+        customerShipments.filter(isDelivered).length;
+
+    document.getElementById("statExceptions").textContent =
+        customerShipments.filter(isException).length;
+
+    const recent = [...customerShipments].sort((a, b) => {
+        const dateA = safeDateValue(a.updatedAt || a.createdAt);
+        const dateB = safeDateValue(b.updatedAt || b.createdAt);
+
+        if (!dateA || !dateB) return 0;
+        return dateB - dateA;
+    }).slice(0, 4);
+
+    const recentContainer = document.getElementById("recentShipments");
+
+    if (!recent.length) {
+        recentContainer.innerHTML = emptyState(
+            "▣",
+            "No shipments yet",
+            "Your shipments will appear here once M&M Logistics assigns them to your account.",
+            "Request a Quotation",
+            "showPage('quotation')"
+        );
+    } else {
+        recentContainer.innerHTML = recent.map(shipmentCard).join("");
+    }
+
+    renderRecentActivity();
+    updateNotificationIndicators();
+}
+
+function renderRecentActivity() {
+    const activities = [];
+
+    customerShipments.forEach(shipment => {
+        shipmentEvents(shipment).forEach(event => {
+            activities.push({
+                reference: shipmentReference(shipment),
+                title: event.title || event.status || "Shipment update",
+                description: event.description || "",
+                date: event.date || event.timestamp || "",
+                shipmentId: shipment.id
+            });
+        });
+    });
+
+    activities.sort((a, b) => {
+        const dateA = safeDateValue(a.date);
+        const dateB = safeDateValue(b.date);
+
+        if (!dateA || !dateB) return 0;
+        return dateB - dateA;
+    });
+
+    const container = document.getElementById("recentActivity");
+
+    if (!activities.length) {
+        container.innerHTML = emptyState(
+            "◷",
+            "No recent activity",
+            "Shipment updates will appear here when they are recorded."
+        );
+        return;
+    }
+
+    container.innerHTML = activities.slice(0, 5).map(activity => `
+        <div class="activity-item">
+            <div class="activity-icon">↗</div>
+            <div>
+                <strong>${escapeHTML(activity.title)}</strong>
+                <p>${escapeHTML(activity.description || activity.reference)}</p>
+                <small>${escapeHTML(formatDate(activity.date))} · ${escapeHTML(activity.reference)}</small>
+            </div>
+        </div>
+    `).join("");
+}
+
+function emptyState(icon, title, description, buttonText, action) {
+    return `
+        <div class="empty-state">
+            <div class="empty-icon">${icon}</div>
+            <h3>${escapeHTML(title)}</h3>
+            <p>${escapeHTML(description)}</p>
+            ${buttonText ? `
+                <button class="btn btn-primary"
+                        onclick="${action}">${escapeHTML(buttonText)}</button>
+            ` : ""}
+        </div>
+    `;
+}
+
+/* SHIPMENT CARDS */
+
+function shipmentCard(shipment) {
+    const progress = getProgress(shipment);
+    const status = shipment.status || "Pending";
+
+    return `
+        <div class="shipment-card">
+            <div class="shipment-top">
+                <div>
+                    <div class="shipment-ref">${escapeHTML(shipmentReference(shipment))}</div>
+                    <div class="shipment-product">
+                        ${escapeHTML(shipment.cargoDescription || shipment.product || "Cargo shipment")}
+                    </div>
+                </div>
+                <span class="status ${getStatusClass(status)}">
+                    ${escapeHTML(status)}
+                </span>
+            </div>
+
+            <div class="route">
+                <div class="route-point">
+                    <small>ORIGIN</small>
+                    <strong>${escapeHTML(shipment.origin || "Not provided")}</strong>
+                </div>
+                <div class="route-line">→</div>
+                <div class="route-point">
+                    <small>DESTINATION</small>
+                    <strong>${escapeHTML(shipment.destination || "Not provided")}</strong>
+                </div>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" style="width:${progress}%"></div>
+            </div>
+
+            <div class="progress-label">
+                <span>Recorded progress</span>
+                <strong>${progress}%</strong>
+            </div>
+
+            <div class="shipment-meta">
+                <span>▣ ${escapeHTML(shipment.shippingMethod || "Shipping method not specified")}</span>
+                <span>⚖ ${escapeHTML(shipment.weight || "Weight not provided")}</span>
+                <span>▤ ${escapeHTML(shipment.quantity || "Quantity not provided")}</span>
+            </div>
+
+            <div class="shipment-footer">
+                <small>Estimated arrival: ${escapeHTML(shipment.estimatedArrival || "Not provided")}</small>
+                <button class="btn btn-light btn-small"
+                        onclick="openShipment('${escapeHTML(String(shipment.id))}')">
+                    View Details →
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+/* SHIPMENT TABLE */
+
+function renderShipments() {
+    const search = (
+        document.getElementById("shipmentSearch").value || ""
+    ).toLowerCase();
+
+    const statusFilter =
+        document.getElementById("shipmentStatusFilter").value;
+
+    const methodFilter =
+        document.getElementById("shipmentMethodFilter").value;
+
+    const filtered = customerShipments.filter(shipment => {
+        const searchable = [
+            shipmentReference(shipment),
+            shipment.cargoDescription,
+            shipment.product,
+            shipment.origin,
+            shipment.destination
+        ].join(" ").toLowerCase();
+
+        const matchesSearch = searchable.includes(search);
+        const matchesStatus = !statusFilter ||
+            shipment.status === statusFilter;
+        const matchesMethod = !methodFilter ||
+            shipment.shippingMethod === methodFilter;
+
+        return matchesSearch && matchesStatus && matchesMethod;
+    });
+
+    const container = document.getElementById("allShipments");
+
+    if (!filtered.length) {
+        container.innerHTML = emptyState(
+            "▣",
+            customerShipments.length ? "No matching shipments" : "No shipments assigned",
+            customerShipments.length
+                ? "Try changing your search or filter options."
+                : "Your assigned shipments will appear here when M&M Logistics registers them.",
+            customerShipments.length ? "" : "Request a Quotation",
+            "showPage('quotation')"
+        );
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tracking Reference</th>
+                        <th>Cargo</th>
+                        <th>Route</th>
+                        <th>Method</th>
+                        <th>Status</th>
+                        <th>Arrival</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${filtered.map(shipment => `
+                        <tr>
+                            <td><strong>${escapeHTML(shipmentReference(shipment))}</strong></td>
+                            <td>${escapeHTML(shipment.cargoDescription || shipment.product || "Cargo")}</td>
+                            <td>${escapeHTML(shipment.origin || "—")} → ${escapeHTML(shipment.destination || "—")}</td>
+                            <td>${escapeHTML(shipment.shippingMethod || "—")}</td>
+                            <td><span class="status ${getStatusClass(shipment.status)}">${escapeHTML(shipment.status || "Pending")}</span></td>
+                            <td>${escapeHTML(shipment.estimatedArrival || "—")}</td>
+                            <td>
+                                <button class="btn btn-light btn-small"
+                                    onclick="openShipment('${escapeHTML(String(shipment.id))}')">
+                                    Details
+                                </button>
+                            </td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+document.getElementById("shipmentSearch").addEventListener("input", renderShipments);
+document.getElementById("shipmentStatusFilter").addEventListener("change", renderShipments);
+document.getElementById("shipmentMethodFilter").addEventListener("change", renderShipments);
+
+/* SHIPMENT DETAILS */
+
+function openShipment(id) {
+    const shipment = customerShipments.find(item =>
+        String(item.id) === String(id)
+    );
+
+    if (!shipment) {
+        showToast("Shipment could not be found.");
+        return;
+    }
+
+    const events = shipmentEvents(shipment);
+    const progress = getProgress(shipment);
+
+    document.getElementById("shipmentModalContent").innerHTML = `
+        <h2 class="modal-title">Shipment Details</h2>
+        <p class="modal-subtitle">${escapeHTML(shipmentReference(shipment))}</p>
+
+        <div class="shipment-top">
+            <div>
+                <div class="shipment-product">
+                    ${escapeHTML(shipment.cargoDescription || shipment.product || "Cargo shipment")}
+                </div>
+                <small style="color:var(--muted);font-size:10px">
+                    ${escapeHTML(shipment.shippingMethod || "Shipping method not specified")}
+                </small>
+            </div>
+            <span class="status ${getStatusClass(shipment.status)}">
+                ${escapeHTML(shipment.status || "Pending")}
+            </span>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" style="width:${progress}%"></div>
+        </div>
+        <div class="progress-label">
+            <span>Recorded shipment progress</span>
+            <strong>${progress}%</strong>
+        </div>
+
+        <div class="details-grid">
+            ${detailBox("Origin", shipment.origin)}
+            ${detailBox("Destination", shipment.destination)}
+            ${detailBox("Quantity", shipment.quantity)}
+            ${detailBox("Weight", shipment.weight)}
+            ${detailBox("Volume", shipment.volume)}
+            ${detailBox("Estimated Arrival", shipment.estimatedArrival)}
+            ${detailBox("Carrier", shipment.carrier)}
+            ${detailBox("External Tracking ID", shipment.carrierTrackingNumber)}
+            ${detailBox("Registration Date", shipment.createdAt)}
+            ${detailBox("Actual Delivery Date", shipment.deliveredAt)}
+        </div>
+
+        <h3 style="font-size:14px;margin:23px 0 12px">Shipment Journey</h3>
+
+        <div class="timeline">
+            ${events.length ? events.map(event => `
+                <div class="timeline-event">
+                    <strong>${escapeHTML(event.title || event.status || "Shipment update")}</strong>
+                    <p>${escapeHTML(event.description || "No additional details provided.")}</p>
+                    <small>${escapeHTML(formatDate(event.date || event.timestamp))}</small>
+                </div>
+            `).join("") : `
+                <p style="font-size:11px;color:var(--muted)">
+                    No tracking events have been recorded for this shipment yet.
+                </p>
+            `}
+        </div>
+
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:15px">
+            <button class="btn btn-light btn-small"
+                onclick="showShipmentDocuments('${escapeHTML(String(shipment.id))}')">
+                View Shipment Documents
+            </button>
+            <button class="btn btn-primary btn-small"
+                onclick="reportShipmentIssue('${escapeHTML(String(shipment.id))}')">
+                Report an Issue
+            </button>
+        </div>
+    `;
+
+    document.getElementById("shipmentModal").classList.add("show");
+}
+
+function detailBox(label, value) {
+    return `
+        <div class="detail-box">
+            <small>${escapeHTML(label)}</small>
+            <strong>${escapeHTML(value || "Not provided")}</strong>
+        </div>
+    `;
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.remove("show");
+}
+
+document.querySelectorAll(".modal").forEach(modal => {
+    modal.addEventListener("click", event => {
+        if (event.target === modal) modal.classList.remove("show");
+    });
+});
+
+/* TRACKING SEARCH */
+
+document.getElementById("trackingSearchForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const reference = document.getElementById("trackingSearchInput")
+        .value.trim().toLowerCase();
+
+    const shipment = customerShipments.find(item =>
+        shipmentReference(item).toLowerCase() === reference
+    );
+
+    const result = document.getElementById("trackingResult");
+
+    if (!shipment) {
+        result.innerHTML = `
+            <div class="panel">
+                ${emptyState(
+                    "⌕",
+                    "Shipment not found",
+                    "We could not find that reference among the shipments assigned to your account. Please check the reference or contact support."
+                )}
+            </div>
+        `;
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Tracking Result</h2>
+                    <p>${escapeHTML(shipmentReference(shipment))}</p>
+                </div>
+                <span class="status ${getStatusClass(shipment.status)}">
+                    ${escapeHTML(shipment.status || "Pending")}
+                </span>
+            </div>
+            ${shipmentCard(shipment)}
+        </div>
+    `;
+});
+
+/* TRACKING HISTORY */
+
+function renderHistory() {
+    const completed = customerShipments.filter(isDelivered);
+    const container = document.getElementById("historyContent");
+
+    if (!completed.length) {
+        container.innerHTML = emptyState(
+            "◷",
+            "No completed shipments",
+            "Your delivered shipments will appear here."
+        );
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tracking Reference</th>
+                        <th>Cargo</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Shipping Method</th>
+                        <th>Delivered</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${completed.map(shipment => `
+                        <tr>
+                            <td><strong>${escapeHTML(shipmentReference(shipment))}</strong></td>
+                            <td>${escapeHTML(shipment.cargoDescription || shipment.product || "Cargo")}</td>
+                            <td>${escapeHTML(shipment.origin || "—")}</td>
+                            <td>${escapeHTML(shipment.destination || "—")}</td>
+                            <td>${escapeHTML(shipment.shippingMethod || "—")}</td>
+                            <td>${escapeHTML(shipment.deliveredAt || "Not provided")}</td>
+                            <td>
+                                <button class="btn btn-light btn-small"
+                                    onclick="openShipment('${escapeHTML(String(shipment.id))}')">
+                                    View
+                                </button>
+                            </td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+/* DOCUMENTS */
+
+function allVisibleDocuments() {
+    const shipmentDocuments = [];
+
+    customerShipments.forEach(shipment => {
+        (Array.isArray(shipment.documents) ? shipment.documents : [])
+            .forEach(document => {
+                shipmentDocuments.push({
+                    ...document,
+                    shipmentId: shipment.id,
+                    shipmentReference: shipmentReference(shipment),
+                    customerId: currentCustomer.id,
+                    source: "shipment"
+                });
+            });
+    });
+
+    return [
+        ...shipmentDocuments,
+        ...customerDocuments.map(document => ({
+            ...document,
+            source: "customer"
+        }))
+    ];
+}
+
+function renderDocuments() {
+    const documents = allVisibleDocuments();
+    const container = document.getElementById("documentList");
+
+    if (!documents.length) {
+        container.innerHTML = emptyState(
+            "▤",
+            "No documents available",
+            "Documents uploaded by M&M Logistics or submitted by you will appear here."
+        );
+        return;
+    }
+
+    container.innerHTML = documents.map((document, index) => `
+        <div class="document-card">
+            <div class="file-icon">▤</div>
+            <div class="document-info">
+                <strong>${escapeHTML(document.name || document.fileName || "Shipment document")}</strong>
+                <small>
+                    ${escapeHTML(document.shipmentReference || "Shipment document")}
+                    · ${escapeHTML(document.type || "Document")}
+                    · ${escapeHTML(formatDate(document.uploadedAt || document.date))}
+                </small>
+            </div>
+            <div class="document-actions">
+                ${document.dataUrl ? `
+                    <button class="btn btn-light btn-small"
+                        onclick="viewCustomerDocument(${index})">View</button>
+                    <button class="btn btn-outline btn-small"
+                        onclick="downloadCustomerDocument(${index})">Download</button>
+                ` : `
+                    <span class="status status-grey">File link unavailable</span>
+                `}
+            </div>
+        </div>
+    `).join("");
+}
+
+function openDocumentUpload() {
+    if (!customerShipments.length) {
+        showToast("You need an assigned shipment before uploading a shipment document.");
+        return;
+    }
+
+    populateShipmentSelects();
+    document.getElementById("documentModal").classList.add("show");
+}
+
+function populateShipmentSelects() {
+    const supportSelect = document.getElementById("supportShipment");
+    const documentSelect = document.getElementById("documentShipment");
+
+    const options = customerShipments.map(shipment => `
+        <option value="${escapeHTML(String(shipment.id))}">
+            ${escapeHTML(shipmentReference(shipment))} — ${escapeHTML(shipment.cargoDescription || shipment.product || "Cargo")}
+        </option>
+    `).join("");
+
+    supportSelect.innerHTML = `<option value="">Select shipment</option>${options}`;
+    documentSelect.innerHTML = `<option value="">Select shipment</option>${options}`;
+}
+
+document.getElementById("documentUploadForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const shipmentId = document.getElementById("documentShipment").value;
+    const name = document.getElementById("documentName").value.trim();
+    const file = document.getElementById("documentFile").files[0];
+
+    if (!shipmentId || !file || !name) {
+        showToast("Please complete all required document fields.");
+        return;
+    }
+
+    const allowedTypes = [
+        "application/pdf",
+        "image/png",
+        "image/jpeg",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+        showToast("Please select a PDF, image or Word document.");
+        return;
+    }
+
+    if (file.size > 1024 * 1024) {
+        showToast("For this browser prototype, files must be 1 MB or smaller.");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        const shipment = customerShipments.find(item =>
+            String(item.id) === String(shipmentId)
+        );
+
+        if (!shipment) {
+            showToast("Shipment could not be found.");
+            return;
+        }
+
+        const documentRecord = {
+            id: "DOC-" + Date.now(),
+            customerId: currentCustomer.id,
+            shipmentId: shipment.id,
+            shipmentReference: shipmentReference(shipment),
+            name,
+            fileName: file.name,
+            type: file.type,
+            size: file.size,
+            dataUrl: reader.result,
+            uploadedAt: new Date().toISOString(),
+            uploadedBy: "Customer",
+            reviewStatus: "Pending Review"
+        };
+
+        customerDocuments.push(documentRecord);
+        saveStorage(DOCUMENTS_KEY, mergeCustomerRecords(
+            DOCUMENTS_KEY,
+            customerDocuments
+        ));
+
+        document.getElementById("documentUploadForm").reset();
+        closeModal("documentModal");
+        renderDocuments();
+        showToast("Document saved in this browser prototype.");
+    };
+
+    reader.onerror = () => showToast("Unable to read this file.");
+
+    reader.readAsDataURL(file);
+});
+
+function mergeCustomerRecords(key, customerRecords) {
+    const all = readStorage(key, []);
+    const otherCustomers = all.filter(item =>
+        String(item.customerId) !== String(currentCustomer.id)
+    );
+    return [...otherCustomers, ...customerRecords];
+}
+
+function getDocumentByVisibleIndex(index) {
+    return allVisibleDocuments()[index];
+}
+
+function viewCustomerDocument(index) {
+    const document = getDocumentByVisibleIndex(index);
+    if (!document || !document.dataUrl) return;
+
+    window.open(document.dataUrl, "_blank", "noopener");
+}
+
+function downloadCustomerDocument(index) {
+    const document = getDocumentByVisibleIndex(index);
+    if (!document || !document.dataUrl) return;
+
+    const link = document.createElement("a");
+    link.href = document.dataUrl;
+    link.download = document.fileName || "shipment-document";
+    link.click();
+}
+
+function showShipmentDocuments(shipmentId) {
+    closeModal("shipmentModal");
+    showPage("documents");
+    const shipmentDocuments = allVisibleDocuments().filter(document =>
+        String(document.shipmentId) === String(shipmentId)
+    );
+
+    if (!shipmentDocuments.length) {
+        showToast("No documents have been attached to this shipment.");
+    }
+}
+
+function reportShipmentIssue(shipmentId) {
+    closeModal("shipmentModal");
+    showPage("support");
+    document.getElementById("supportShipment").value = shipmentId;
+    document.getElementById("supportSubject").value = "Shipment Tracking Update";
+    document.getElementById("supportMessage").focus();
+}
+
+/* QUOTATIONS */
+
+document.getElementById("portalQuotationForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const quotation = {
+        id: "MMQ-" + Date.now().toString().slice(-8),
+        customerId: currentCustomer.id,
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        company: formData.get("company"),
+        product: formData.get("product"),
+        quantity: formData.get("quantity"),
+        origin: formData.get("origin"),
+        destination: formData.get("destination"),
+        method: formData.get("method"),
+        weight: formData.get("weight"),
+        requirements: formData.get("requirements"),
+        status: "Submitted",
+        submittedAt: new Date().toISOString()
+    };
+
+    customerQuotations.push(quotation);
+
+    saveStorage(QUOTATIONS_KEY, mergeCustomerRecords(
+        QUOTATIONS_KEY,
+        customerQuotations
+    ));
+
+    form.reset();
+    showToast("Quotation request saved in this browser prototype.");
+    showPage("quotationHistory");
+});
+
+function renderQuotationHistory() {
+    const container = document.getElementById("quotationHistoryList");
+
+    if (!customerQuotations.length) {
+        container.innerHTML = emptyState(
+            "▧",
+            "No quotation requests yet",
+            "Your quotation requests will appear here after submission.",
+            "Request a Quotation",
+            "showPage('quotation')"
+        );
+        return;
+    }
+
+    container.innerHTML = [...customerQuotations].reverse().map(quotation => `
+        <div class="quotation-card">
+            <div class="file-icon">▧</div>
+            <div class="quotation-info">
+                <strong>${escapeHTML(quotation.id)}</strong>
+                <small>
+                    ${escapeHTML(quotation.product || "Product request")}
+                    · ${escapeHTML(quotation.destination || "Destination not specified")}
+                    · ${escapeHTML(formatDate(quotation.submittedAt))}
+                </small>
+                <small style="display:block;margin-top:5px">
+                    Shipping: ${escapeHTML(quotation.method || "Not specified")}
+                    · Quantity: ${escapeHTML(quotation.quantity || "Not specified")}
+                </small>
+            </div>
+            <span class="status ${getStatusClass(quotation.status)}">
+                ${escapeHTML(quotation.status || "Submitted")}
+            </span>
+        </div>
+    `).join("");
+}
+
+/* NOTIFICATIONS */
+
+function updateNotificationIndicators() {
+    const unread = customerNotifications.filter(
+        notification => !notification.read
+    ).length;
+
+    const count = document.getElementById("notificationCount");
+    const dot = document.getElementById("topNotificationDot");
+
+    count.textContent = unread;
+    count.style.display = unread ? "inline-block" : "none";
+    dot.style.display = unread ? "block" : "none";
+}
+
+function renderNotifications() {
+    const container = document.getElementById("notificationList");
+
+    if (!customerNotifications.length) {
+        container.innerHTML = emptyState(
+            "♧",
+            "No notifications yet",
+            "Shipment updates and account notifications will appear here."
+        );
+        updateNotificationIndicators();
+        return;
+    }
+
+    container.innerHTML = [...customerNotifications].reverse().map(notification => `
+        <div class="notification-card ${notification.read ? "" : "unread"}">
+            <div class="file-icon">♧</div>
+            <div class="notification-info">
+                <strong>${escapeHTML(notification.title || "Notification")}</strong>
+                <small>${escapeHTML(notification.message || notification.description || "")}</small>
+                <small style="display:block;margin-top:5px">
+                    ${escapeHTML(formatDate(notification.createdAt || notification.date))}
+                </small>
+            </div>
+            ${notification.read ? `
+                <span class="status status-grey">Read</span>
+            ` : `
+                <button class="btn btn-light btn-small"
+                    onclick="markNotificationRead('${escapeHTML(String(notification.id))}')">
+                    Mark Read
+                </button>
+            `}
+        </div>
+    `).join("");
+
+    updateNotificationIndicators();
+}
+
+function markNotificationRead(id) {
+    customerNotifications = customerNotifications.map(notification =>
+        String(notification.id) === String(id)
+            ? { ...notification, read: true }
+            : notification
+    );
+
+    saveStorage(NOTIFICATIONS_KEY, mergeCustomerRecords(
+        NOTIFICATIONS_KEY,
+        customerNotifications
+    ));
+
+    renderNotifications();
+}
+
+function markAllNotificationsRead() {
+    customerNotifications = customerNotifications.map(notification => ({
+        ...notification,
+        read: true
+    }));
+
+    saveStorage(NOTIFICATIONS_KEY, mergeCustomerRecords(
+        NOTIFICATIONS_KEY,
+        customerNotifications
+    ));
+
+    renderNotifications();
+    showToast("Notifications marked as read.");
+}
+
+/* SUPPORT */
+
+document.getElementById("supportForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const subject = document.getElementById("supportSubject").value;
+    const shipmentId = document.getElementById("supportShipment").value;
+    const message = document.getElementById("supportMessage").value.trim();
+
+    const shipment = customerShipments.find(item =>
+        String(item.id) === String(shipmentId)
+    );
+
+    const customerName =
+        currentCustomer.fullName || currentCustomer.name || "Customer";
+
+    const enquiry = [
+        "M&M LOGISTICS CUSTOMER ENQUIRY",
+        "",
+        "Customer: " + customerName,
+        "Email: " + (currentCustomer.email || ""),
+        "Phone: " + (currentCustomer.phone || ""),
+        "Enquiry: " + subject,
+        "Shipment Reference: " + (shipment ? shipmentReference(shipment) : "Not specified"),
+        "",
+        "Message:",
+        message
+    ].join("\n");
+
+    const whatsappUrl =
+        "https://wa.me/23230172868?text=" + encodeURIComponent(enquiry);
+
+    window.open(whatsappUrl, "_blank", "noopener");
+    showToast("Your enquiry has been prepared for WhatsApp.");
+});
+
+/* PROFILE */
+
+function renderProfile() {
+    const customer = currentCustomer;
+
+    const name = customer.fullName || customer.name || "Customer";
+
+    document.getElementById("profileDisplayName").textContent = name;
+    document.getElementById("profileDisplayEmail").textContent =
+        customer.email || "Email not provided";
+
+    document.getElementById("profileName").value = name;
+    document.getElementById("profilePhone").value = customer.phone || "";
+    document.getElementById("profileEmail").value = customer.email || "";
+    document.getElementById("profileCompany").value = customer.company || "";
+    document.getElementById("profileCountry").value = customer.country || "";
+    document.getElementById("profileAddress").value = customer.address || "";
+}
+
+document.getElementById("profileForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const updated = {
+        ...currentCustomer,
+        fullName: document.getElementById("profileName").value.trim(),
+        phone: document.getElementById("profilePhone").value.trim(),
+        email: document.getElementById("profileEmail").value.trim(),
+        company: document.getElementById("profileCompany").value.trim(),
+        country: document.getElementById("profileCountry").value.trim(),
+        address: document.getElementById("profileAddress").value.trim()
+    };
+
+    currentCustomer = updated;
+    saveStorage(CUSTOMER_KEY, updated);
+
+    const customers = readStorage(CUSTOMERS_KEY, []);
+    const updatedCustomers = customers.map(customer =>
+        String(customer.id) === String(updated.id)
+            ? { ...customer, ...updated }
+            : customer
+    );
+
+    saveStorage(CUSTOMERS_KEY, updatedCustomers);
+
+    renderCustomerHeader();
+    renderProfile();
+    showToast("Profile updated in this browser.");
+});
+
+/* PREFERENCES */
+
+function renderSettings() {
+    document.getElementById("prefDashboard").checked =
+        customerPreferences.dashboard !== false;
+
+    document.getElementById("prefEmail").checked =
+        customerPreferences.email !== false;
+
+    document.getElementById("prefWhatsapp").checked =
+        customerPreferences.whatsapp !== false;
+}
+
+document.getElementById("preferencesForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    customerPreferences = {
+        dashboard: document.getElementById("prefDashboard").checked,
+        email: document.getElementById("prefEmail").checked,
+        whatsapp: document.getElementById("prefWhatsapp").checked
+    };
+
+    const allPreferences = readStorage(PREFERENCES_KEY, {});
+    allPreferences[String(currentCustomer.id)] = customerPreferences;
+
+    saveStorage(PREFERENCES_KEY, allPreferences);
+    showToast("Notification preferences saved in this browser.");
+});
+
+/* THEME SWITCHER */
+
+const THEME_KEY = "mmTrackingPortalTheme";
+
+function applyPortalTheme(theme) {
+    const selectedTheme = theme === "dark" ? "dark" : "light";
+
+    document.body.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem(THEME_KEY, selectedTheme);
+
+    const themeIcon = document.getElementById("themeIcon");
+    const themeLabel = document.getElementById("themeLabel");
+    const themeButton = document.getElementById("themeToggle");
+
+    if (selectedTheme === "dark") {
+        themeIcon.textContent = "☀️";
+        themeLabel.textContent = "Light Mode";
+        themeButton.title = "Switch to light theme";
+        themeButton.setAttribute("aria-label", "Switch to light theme");
+    } else {
+        themeIcon.textContent = "🌙";
+        themeLabel.textContent = "Dark Mode";
+        themeButton.title = "Switch to dark theme";
+        themeButton.setAttribute("aria-label", "Switch to dark theme");
+    }
+}
+
+function togglePortalTheme() {
+    const currentTheme = document.body.getAttribute("data-theme") || "light";
+
+    applyPortalTheme(currentTheme === "dark" ? "light" : "dark");
+}
+
+document.getElementById("themeToggle").addEventListener("click", togglePortalTheme);
+
+// Restore the customer's previously selected theme.
+applyPortalTheme(localStorage.getItem(THEME_KEY) || "light");
+
+/* STARTUP */
+
+if (initialisePortal()) {
+    renderCustomerHeader();
+    populateShipmentSelects();
+    renderDashboard();
+    renderProfile();
+    renderSettings();
+    updateNotificationIndicators();
+}
+</script>
+
+</body>
+</html>

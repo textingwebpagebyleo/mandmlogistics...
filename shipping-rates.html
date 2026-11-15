@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Rates from China | M&M Logistics</title>
+<meta name="description" content="View M&M Logistics air freight and sea freight rates from China to West Africa.">
+
+<style>
+:root{
+ --primary:#395BA2;--green:#12B94B;--dark:#172033;--text:#586174;
+ --light:#f5f7fb;--white:#fff;--card:#fff;--border:#e5eaf1;
+ --header:rgba(255,255,255,.97);--shadow:0 10px 30px rgba(25,45,85,.08);
+}
+body[data-theme="dark"]{
+ --dark:#f2f5fb;--text:#b8c2d4;--light:#111a2b;--white:#172238;
+ --card:#1c2a41;--border:#2b3a54;--header:rgba(19,30,49,.97);
+ --shadow:0 10px 30px rgba(0,0,0,.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Arial,sans-serif;background:var(--white);color:var(--dark);line-height:1.65}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.section{padding:75px 0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:var(--green);text-transform:uppercase}
+.heading{text-align:center;max-width:750px;margin:0 auto 40px}
+.heading h2{font-size:clamp(28px,4vw,39px);line-height:1.2;margin:10px 0}
+.heading p{font-size:14px;color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:7px;font-weight:700;border:0;cursor:pointer}
+.btn-primary{background:var(--primary);color:white}
+.btn-green{background:var(--green);color:white}
+.btn-outline{border:1px solid var(--border);color:var(--dark);background:var(--card)}
+.site-header{position:sticky;top:0;z-index:100;background:var(--header);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.header-inner{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800}
+.brand img{width:45px;height:45px;object-fit:contain}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:13px;font-weight:700}
+.nav a:hover{color:var(--primary)}
+.theme-toggle{padding:9px 11px;border:1px solid var(--border);background:var(--card);color:var(--dark);border-radius:7px;font-size:12px;font-weight:700}
+.hero{padding:65px 0 75px;text-align:center;color:white;background:linear-gradient(120deg,rgba(18,34,64,.96),rgba(42,77,139,.93)),url("hero-logistics.png") center/cover}
+.hero-logo{width:105px;height:105px;object-fit:contain;margin:0 auto 18px;background:white;border-radius:50%;padding:5px}
+.hero h1{font-size:clamp(35px,5vw,55px);line-height:1.1;margin:8px 0}
+.hero p{max-width:700px;margin:14px auto;color:#e8edf6}
+.rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.rate-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:var(--shadow)}
+.rate-card img{width:100%;height:220px;object-fit:cover;background:#f2f4f8}
+.rate-content{padding:25px}
+.rate-content h2{font-size:24px}
+.rate-value{font-size:38px;font-weight:900;color:var(--green);margin:10px 0 0}
+.rate-time{font-weight:700;font-size:14px;color:var(--text)}
+.rate-content p{font-size:14px;color:var(--text);margin:12px 0}
+.rate-content .btn{margin-top:10px}
+.info-panel{background:var(--light);border-radius:12px;padding:25px;margin-top:25px}
+.info-panel h3{font-size:20px;margin-bottom:10px}
+.info-panel p,.info-panel li{font-size:14px;color:var(--text)}
+.info-panel ul{padding-left:20px;margin-top:10px}
+.calculator{background:var(--card);border:1px solid var(--border);border-radius:13px;box-shadow:var(--shadow);padding:28px}
+.calculator-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
+.field input{width:100%;padding:12px;border:1px solid var(--border);border-radius:7px;background:var(--white);color:var(--dark);outline:none}
+.field input:focus{border-color:var(--primary)}
+.calculator-result{margin-top:22px;padding:20px;background:var(--light);border-radius:9px}
+.result-line{display:flex;justify-content:space-between;gap:15px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+.result-line span{color:var(--text)}
+.result-total{font-size:23px;font-weight:900;color:var(--green);margin-top:13px}
+.formula{background:rgba(18,185,75,.08);border-left:4px solid var(--green);padding:14px 17px;border-radius:0 7px 7px 0;margin:18px 0;color:var(--text);font-size:14px}
+.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.example{border:1px solid var(--border);background:var(--card);padding:18px;border-radius:9px}
+.example strong{display:block;font-size:18px;color:var(--primary)}
+.example span{font-size:13px;color:var(--text)}
+.notes{background:#20386f;color:white;padding:30px 0}
+.notes h2{text-align:center;font-size:23px;margin-bottom:12px}
+.notes p{text-align:center;color:#e4eafa;font-size:14px;margin:5px 0}
+.cta{text-align:center;padding:70px 0;background:var(--light)}
+.cta h2{font-size:clamp(28px,4vw,38px);margin:10px 0}
+.cta p{max-width:680px;margin:0 auto 22px;color:var(--text)}
+.footer{background:#111c30;color:white;padding:35px 0;text-align:center}
+.footer p{font-size:12px;color:#bdc7d7}
+.footer a{color:white}
+@media(max-width:750px){
+ .nav{gap:12px}.nav a{font-size:12px}
+ .rate-grid{grid-template-columns:1fr}
+ .example-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .header-inner{flex-wrap:wrap;padding:10px 0}
+ .brand{font-size:15px}.brand img{width:38px;height:38px}
+ .nav{order:3;width:100%;justify-content:center;padding-bottom:8px}
+ .nav a{font-size:11px}
+ .theme-toggle{font-size:11px}
+ .section{padding:55px 0}
+ .calculator{padding:19px}
+ .calculator-grid{grid-template-columns:1fr}
+ .rate-card img{height:185px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+ <div class="container header-inner">
+  <a class="brand" href="index.html"><img src="company logo.png.jpg" alt="M&M Logistics logo"><span>M&amp;M Logistics</span></a>
+  <nav class="nav"><a href="index.html">Home</a><a href="service.html">Services</a><a href="#air">Air Freight</a><a href="#sea">Sea Freight</a></nav>
+  <button class="theme-toggle" id="themeToggle" type="button"><span id="themeIcon">🌙</span> <span id="themeLabel">Dark Mode</span></button>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <span class="eyebrow">TRANSPARENT &amp; COMPETITIVE PRICING</span>
+  <h1>Shipping Rates from China</h1>
+  <p>Understand our air freight and sea freight rates, estimated delivery periods and how shipping charges are calculated.</p>
+  <a href="#rates" class="btn btn-green">Explore Shipping Rates</a>
+ </div>
+</section>
+
+<!-- RATE OVERVIEW -->
+<section class="section" id="rates">
+ <div class="container">
+  <div class="heading"><span class="eyebrow">OUR SHIPPING OPTIONS</span><h2>Choose Your Shipping Method</h2><p>Select the shipping option that best suits your cargo, budget and delivery requirements.</p></div>
+
+  <div class="rate-grid">
+   <article class="rate-card" id="air">
+    <img src="air-freight.png" alt="Air freight cargo" onerror="this.src='hero-logistics.png'">
+    <div class="rate-content">
+     <h2>Air Freight</h2>
+     <div class="rate-value">$15 / KG</div>
+     <div class="rate-time">Estimated transit: 7–15 days</div>
+     <p>Ideal for smaller, urgent and time-sensitive shipments. Charges are calculated using chargeable weight, which may be different from the actual weight.</p>
+     <a href="#calculator" class="btn btn-primary">Calculate Air Freight Estimate</a>
+    </div>
+   </article>
+
+   <article class="rate-card" id="sea">
+    <img src="sea-freight.png" alt="Sea freight cargo ship" onerror="this.src='M&M Logistics Warehouse Operations.png'">
+    <div class="rate-content">
+     <h2>Sea Freight</h2>
+     <div class="rate-value">$130 / CBM</div>
+     <div class="rate-time">Estimated transit: 3–4 months</div>
+     <p>A cost-effective option for larger shipments, commercial stock and bulk purchases. Charges are based on the cubic volume of the cargo.</p>
+     <a href="consultation.html?service=logistics&method=sea" class="btn btn-primary">Discuss Sea Freight</a>
+    </div>
+   </article>
+  </div>
+
+  <div class="info-panel">
+   <h3>Which shipping method should you choose?</h3>
+   <p><strong>Air freight:</strong> Consider this option when delivery speed is important and your goods are suitable for air transport.</p>
+   <p style="margin-top:8px"><strong>Sea freight:</strong> Consider this option for larger or heavier shipments where a longer transit period is acceptable.</p>
+  </div>
+ </div>
+</section>
+
+<!-- AIR FREIGHT CALCULATOR -->
+<section class="section" id="calculator" style="background:var(--light)">
+ <div class="container">
+  <div class="heading"><span class="eyebrow">AIR FREIGHT CALCULATOR</span><h2>Estimate Your Air Freight Cost</h2><p>Enter the dimensions and actual weight of your shipment to estimate the chargeable weight and freight charge.</p></div>
+
+  <div class="calculator">
+   <h3 style="font-size:20px;margin-bottom:7px">Shipment Dimensions</h3>
+   <p style="font-size:13px;color:var(--text);margin-bottom:20px">Enter the total shipment dimensions in centimetres and the actual weight in kilograms.</p>
+
+   <div class="calculator-grid">
+    <div class="field"><label for="length">Length (cm)</label><input type="number" id="length" min="0" step="0.1" placeholder="e.g. 100"></div>
+    <div class="field"><label for="width">Width (cm)</label><input type="number" id="width" min="0" step="0.1" placeholder="e.g. 100"></div>
+    <div class="field"><label for="height">Height (cm)</label><input type="number" id="height" min="0" step="0.1" placeholder="e.g. 100"></div>
+    <div class="field"><label for="actualWeight">Actual Weight (kg)</label><input type="number" id="actualWeight" min="0" step="0.1" placeholder="e.g. 80"></div>
+   </div>
+
+   <div class="formula"><strong>Calculation formula</strong><br>Volumetric Weight = (Length × Width × Height in cm) ÷ 6,000<br>Equivalent to 1 CBM = 167 kg, using the rate information supplied.</div>
+
+   <button class="btn btn-primary" type="button" id="calculateButton">Calculate My Estimate</button>
+   <button class="btn btn-outline" type="button" id="resetButton" style="margin-left:7px">Reset</button>
+
+   <div class="calculator-result" id="calculatorResult" hidden>
+    <h3 style="font-size:18px;margin-bottom:10px">Your Estimated Air Freight</h3>
+    <div class="result-line"><span>Shipment volume</span><strong id="resultCbm">—</strong></div>
+    <div class="result-line"><span>Volumetric weight</span><strong id="resultVolumetric">—</strong></div>
+    <div class="result-line"><span>Actual weight</span><strong id="resultActual">—</strong></div>
+    <div class="result-line"><span>Chargeable weight</span><strong id="resultChargeable">—</strong></div>
+    <div class="result-line"><span>Air freight rate</span><strong>$15 / kg</strong></div>
+    <div class="result-total" id="resultCost">Estimated cost: $0.00</div>
+    <p style="font-size:11px;color:var(--text);margin-top:10px">This is an indicative calculation based on the entered dimensions and supplied rate. Final chargeable weight and charges are subject to carrier measurement and confirmation.</p>
+    <a href="consultation.html?service=logistics&method=air" class="btn btn-green" style="margin-top:15px">Discuss This Shipment</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- UNDERSTANDING VOLUMETRIC WEIGHT -->
+<section class="section">
+ <div class="container">
+  <div class="heading"><span class="eyebrow">UNDERSTANDING AIR FREIGHT</span><h2>How Chargeable Weight Works</h2><p>Air freight is charged using the greater of the actual weight and the volumetric weight.</p></div>
+
+  <div class="info-panel">
+   <h3>1. Actual Weight</h3>
+   <p>The actual weight is the physical weight of your shipment measured on a scale.</p>
+  </div>
+  <div class="info-panel">
+   <h3>2. Volumetric Weight</h3>
+   <p>Volumetric weight represents the space occupied by your shipment. A large but lightweight package can have a higher volumetric weight than its physical weight.</p>
+   <div class="formula"><strong>Volumetric weight (kg) = Length × Width × Height (cm) ÷ 6,000</strong><br>This is equivalent to approximately 167 kg per CBM.</div>
+  </div>
+  <div class="info-panel">
+   <h3>3. Chargeable Weight</h3>
+   <p>The greater of the actual weight and volumetric weight is used as the chargeable weight for the estimate.</p>
+  </div>
+
+  <div class="example-grid">
+   <div class="example"><strong>0.1 CBM</strong><span>Approximately 16.7 kg volumetric weight</span></div>
+   <div class="example"><strong>0.5 CBM</strong><span>Approximately 83.5 kg volumetric weight</span></div>
+   <div class="example"><strong>1 CBM</strong><span>Approximately 167 kg volumetric weight</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- SEA FREIGHT -->
+<section class="section" id="sea-details" style="background:var(--light)">
+ <div class="container">
+  <div class="heading"><span class="eyebrow">UNDERSTANDING SEA FREIGHT</span><h2>How Sea Freight Charges Are Calculated</h2><p>Sea freight charges are based on the cubic volume occupied by your shipment.</p></div>
+  <div class="info-panel">
+   <h3>What is CBM?</h3>
+   <p>CBM means cubic metre. It measures the three-dimensional space occupied by your cargo.</p>
+   <div class="formula"><strong>CBM = Length (m) × Width (m) × Height (m)</strong></div>
+   <h3>Example calculation</h3>
+   <p>Assume your shipment measures 2 metres long, 1 metre wide and 1 metre high.</p>
+   <p><strong>Volume = 2 × 1 × 1 = 2 CBM</strong></p>
+   <p><strong>Estimated freight = 2 × $130 = $260</strong></p>
+   <p style="margin-top:12px">This is an illustrative calculation using the displayed rate. Final measurements and applicable charges must be confirmed.</p>
+  </div>
+ </div>
+</section>
+
+<!-- IMPORTANT NOTES -->
+<section class="notes">
+ <div class="container">
+  <h2>Important Shipping Notes</h2>
+  <p>Rates are for shipping from our China warehouse to your destination port/airport, as stated in the supplied rate information.</p>
+  <p>Shipments below 0.1 CBM are charged per kg using the air-freight rate.</p>
+  <p>Prices may change due to fuel costs, carrier fees and operational conditions.</p>
+  <p>Customs duties, destination handling, local delivery and other third-party charges may be additional.</p>
+  <p>Contact M&amp;M Logistics for a final shipping quotation.</p>
+ </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+ <div class="container">
+  <span class="eyebrow">NEED HELP WITH YOUR SHIPMENT?</span>
+  <h2>Let's Discuss Your Shipping Requirements</h2>
+  <p>Speak with our team about your cargo dimensions, weight, destination and preferred shipping method.</p>
+  <a href="consultation.html?service=logistics" class="btn btn-green">Schedule a $10 Consultation</a>
+  <a href="https://wa.me/23230172868" target="_blank" rel="noopener" class="btn btn-outline" style="margin-left:8px">WhatsApp Our Team</a>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="container">
+  <p><strong>M&amp;M Logistics (SL) Ltd</strong></p>
+  <p>Address: 33 Jiangguong Avenue, Foshan City, Guangzhou, China</p>
+  <p>WhatsApp: +232 30 172 868 | China: +86 131 5627 1080 | +86 175 4399 5848</p>
+  <p style="margin-top:12px">© <span id="year"></span> M&amp;M Logistics (SL) Ltd. All rights reserved.</p>
+ </div>
+</footer>
+
+<script>
+/* THEME */
+function setTheme(t){
+ document.body.setAttribute("data-theme",t);
+ document.getElementById("themeIcon").textContent=t==="dark"?"☀️":"🌙";
+ document.getElementById("themeLabel").textContent=t==="dark"?"Light Mode":"Dark Mode";
+}
+let currentTheme="light";
+try{currentTheme=localStorage.getItem("mmHomeTheme")||"light"}catch(e){}
+setTheme(currentTheme);
+document.getElementById("themeToggle").addEventListener("click",()=>{
+ currentTheme=document.body.getAttribute("data-theme")==="dark"?"light":"dark";
+ setTheme(currentTheme);
+ try{localStorage.setItem("mmHomeTheme",currentTheme)}catch(e){}
+});
+
+/* AIR FREIGHT CALCULATOR */
+const byId=id=>document.getElementById(id);
+byId("calculateButton").addEventListener("click",()=>{
+ const l=Number(byId("length").value);
+ const w=Number(byId("width").value);
+ const h=Number(byId("height").value);
+ const actual=Number(byId("actualWeight").value);
+
+ if(!l||!w||!h||!actual||l<0||w<0||h<0||actual<0){
+  alert("Please enter valid dimensions and actual weight.");
+  return;
+ }
+
+ const cbm=(l*w*h)/1000000;
+ const volumetric=cbm*167;
+ const chargeable=Math.max(actual,volumetric);
+ const cost=chargeable*15;
+
+ byId("resultCbm").textContent=cbm.toFixed(3)+" CBM";
+ byId("resultVolumetric").textContent=volumetric.toFixed(2)+" kg";
+ byId("resultActual").textContent=actual.toFixed(2)+" kg";
+ byId("resultChargeable").textContent=chargeable.toFixed(2)+" kg";
+ byId("resultCost").textContent="Estimated cost: $"+cost.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+ byId("calculatorResult").hidden=false;
+ byId("calculatorResult").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+byId("resetButton").addEventListener("click",()=>{
+ ["length","width","height","actualWeight"].forEach(id=>byId(id).value="");
+ byId("calculatorResult").hidden=true;
+});
+byId("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

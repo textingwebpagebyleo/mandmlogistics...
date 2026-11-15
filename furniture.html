@@ -1,0 +1,3396 @@
+ <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Furniture Catalogue | M&M Logistics (SL) Ltd</title>
+
+
+
+<style>
+
+:root {
+
+    --primary: #395BA2;
+
+    --green: #12B94B;
+
+    --navy: #17243D;
+
+    --bg: #f5f7fb;
+
+    --surface: #ffffff;
+
+    --text: #253047;
+
+    --muted: #6b7280;
+
+    --border: #e5e9f1;
+
+    --shadow: 0 8px 25px rgba(23,36,61,.08);
+
+}
+
+
+
+body[data-theme="dark"] {
+
+    --bg: #101827;
+
+    --surface: #1b293d;
+
+    --text: #f1f5f9;
+
+    --muted: #b6c1d1;
+
+    --border: #34445c;
+
+    --navy: #0d1727;
+
+    --shadow: 0 8px 25px rgba(0,0,0,.2);
+
+}
+
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+
+html { scroll-behavior: smooth; }
+
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+    transition: background .25s, color .25s;
+
+}
+
+
+
+a { text-decoration: none; color: inherit; }
+
+button, input { font: inherit; }
+
+img { max-width: 100%; display: block; }
+
+
+
+.container {
+
+    width: min(1180px, 92%);
+
+    margin: auto;
+
+}
+
+
+
+/* HEADER */
+
+
+
+header {
+
+    background: var(--surface);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+
+}
+
+
+
+.navbar {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 22px;
+
+}
+
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.brand img {
+
+    width: 48px;
+
+    height: 48px;
+
+    object-fit: contain;
+
+}
+
+
+
+.brand strong {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+    line-height: 1.2;
+
+}
+
+
+
+.brand small {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+
+.nav-links a {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    transition: .2s;
+
+}
+
+
+
+.nav-links a:hover,
+
+.nav-links a.active {
+
+    color: var(--green);
+
+}
+
+
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+
+.theme-toggle,
+
+.profile-button,
+
+.signup-button {
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-radius: 8px;
+
+    padding: 9px 12px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+.signup-button {
+
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+}
+
+
+
+.profile-wrap { position: relative; }
+
+
+
+.profile-menu {
+
+    display: none;
+
+    position: absolute;
+
+    right: 0;
+
+    top: 48px;
+
+    width: 230px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow);
+
+    padding: 12px;
+
+    z-index: 1100;
+
+}
+
+
+
+.profile-menu.show { display: block; }
+
+
+
+.profile-menu .profile-name {
+
+    padding: 8px;
+
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 7px;
+
+    font-weight: 700;
+
+}
+
+
+
+.profile-menu a,
+
+.profile-menu button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 9px;
+
+    text-align: left;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+}
+
+
+
+.profile-menu a:hover,
+
+.profile-menu button:hover {
+
+    background: var(--bg);
+
+}
+
+
+
+.menu-toggle {
+
+    display: none;
+
+    background: none;
+
+    border: 0;
+
+    font-size: 25px;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+}
+
+
+
+/* HERO */
+
+
+
+.hero {
+
+    min-height: 490px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(90deg, rgba(12,24,45,.88), rgba(12,24,45,.35)),
+
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1900&q=85")
+
+        center/cover no-repeat;
+
+}
+
+
+
+.hero-content {
+
+    max-width: 650px;
+
+    padding: 80px 0;
+
+    color: white;
+
+}
+
+
+
+.hero-label {
+
+    color: #8ff0aa;
+
+    font-weight: 800;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: clamp(36px, 5vw, 58px);
+
+    line-height: 1.12;
+
+    margin: 17px 0;
+
+}
+
+
+
+.hero p {
+
+    max-width: 560px;
+
+    color: #e8edf5;
+
+    font-size: 16px;
+
+    margin-bottom: 27px;
+
+}
+
+
+
+.btn {
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    padding: 13px 21px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+
+.btn-primary {
+
+    background: var(--green);
+
+    color: white;
+
+}
+
+
+
+.btn-primary:hover { background: #0da33f; }
+
+
+
+.btn-outline {
+
+    border: 1px solid white;
+
+    color: white;
+
+    background: transparent;
+
+    margin-left: 8px;
+
+}
+
+
+
+.btn-outline:hover { background: white; color: var(--navy); }
+
+
+
+/* INTRO */
+
+
+
+.section {
+
+    padding: 75px 0;
+
+}
+
+
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 720px;
+
+    margin: 0 auto 38px;
+
+}
+
+
+
+.section-heading span {
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+
+.section-heading h2 {
+
+    color: var(--text);
+
+    font-size: clamp(27px, 3vw, 36px);
+
+    margin: 8px 0;
+
+}
+
+
+
+.section-heading p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+
+.intro-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+
+
+.intro-image img {
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+}
+
+
+
+.intro-text h2 {
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    margin: 10px 0 17px;
+
+}
+
+
+
+.intro-text p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+
+}
+
+
+
+.check-list {
+
+    list-style: none;
+
+    margin: 20px 0;
+
+}
+
+
+
+.check-list li {
+
+    margin: 9px 0;
+
+    font-size: 14px;
+
+}
+
+
+
+.check-list li::before {
+
+    content: "✓";
+
+    color: var(--green);
+
+    font-weight: 900;
+
+    margin-right: 10px;
+
+}
+
+
+
+/* BUYING COST TRANSPARENCY */
+
+.pricing-section {
+    background: var(--surface);
+}
+
+.pricing-heading {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.pricing-heading > span {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.pricing-heading h2 {
+    color: var(--text);
+    font-size: clamp(27px, 3vw, 36px);
+    margin: 8px 0 12px;
+}
+
+.pricing-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.upfront-fee {
+    max-width: 520px;
+    margin: 0 auto 25px;
+    padding: 25px;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #17243d, #395ba2);
+    color: white;
+    text-align: center;
+}
+
+.fee-label {
+    display: block;
+    color: #a9f2bd;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.upfront-fee h3 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 7px 0;
+}
+
+.upfront-fee p {
+    color: #e3eaf5;
+    font-size: 13px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.pricing-card {
+    padding: 25px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    text-align: center;
+}
+
+.pricing-card.featured {
+    border: 2px solid var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.pricing-range {
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.pricing-card h3 {
+    min-height: 52px;
+    display: grid;
+    place-items: center;
+    font-size: 17px;
+    margin: 10px 0 2px;
+}
+
+.pricing-rate {
+    color: var(--primary);
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.pricing-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.pricing-note {
+    margin-top: 22px;
+    padding: 16px 18px;
+    border-left: 4px solid var(--green);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.pricing-note strong {
+    color: var(--text);
+}
+
+/* CATEGORY CARDS */
+
+
+
+.category-section { background: var(--surface); }
+
+
+
+.category-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 17px;
+
+}
+
+
+
+.category-card {
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: var(--surface);
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    text-align: center;
+
+}
+
+
+
+.category-card:hover,
+
+.category-card.active {
+
+    border-color: var(--green);
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.category-card img {
+
+    width: 100%;
+
+    height: 145px;
+
+    object-fit: cover;
+
+}
+
+
+
+.category-card h3 {
+
+    font-size: 14px;
+
+    padding: 15px 8px;
+
+}
+
+
+
+/* CATALOGUE */
+
+
+
+.catalogue-section { padding-top: 70px; }
+
+
+
+.catalogue-controls {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+.filter-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+
+.filter-btn {
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-radius: 25px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+.filter-btn.active,
+
+.filter-btn:hover {
+
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+}
+
+
+
+.search-box {
+
+    min-width: 230px;
+
+    max-width: 100%;
+
+    padding: 11px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    outline: none;
+
+}
+
+
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+
+.product-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: .25s;
+
+}
+
+
+
+.product-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.product-image {
+
+    height: 210px;
+
+    background: #edf0f5;
+
+    overflow: hidden;
+
+}
+
+
+
+.product-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .4s;
+
+}
+
+
+
+.product-card:hover .product-image img {
+
+    transform: scale(1.05);
+
+}
+
+
+
+.product-content { padding: 17px; }
+
+
+
+.product-category {
+
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+}
+
+
+
+.product-content h3 {
+
+    font-size: 16px;
+
+    margin: 7px 0;
+
+}
+
+
+
+.product-content p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    min-height: 40px;
+
+}
+
+
+
+.product-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+}
+
+
+
+.small-btn {
+
+    flex: 1;
+
+    padding: 9px 7px;
+
+    border-radius: 6px;
+
+    border: 1px solid var(--primary);
+
+    color: var(--primary);
+
+    background: transparent;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+
+.small-btn.quote {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+
+.no-results {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: var(--muted);
+
+}
+
+
+
+/* WHY CHOOSE US */
+
+
+
+.why-section {
+
+    background: var(--navy);
+
+    color: white;
+
+}
+
+
+
+.why-section .section-heading h2 { color: white; }
+
+.why-section .section-heading p { color: #c7d1df; }
+
+
+
+.why-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 18px;
+
+}
+
+
+
+.why-card {
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    padding: 25px 20px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.05);
+
+}
+
+
+
+.why-icon {
+
+    font-size: 29px;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+.why-card h3 { font-size: 16px; margin-bottom: 8px; }
+
+.why-card p { color: #c7d1df; font-size: 12px; }
+
+
+
+/* CTA */
+
+
+
+.cta-section {
+
+    background: var(--surface);
+
+    text-align: center;
+
+}
+
+
+
+.cta-box {
+
+    padding: 50px 25px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(120deg, #17243d, #395ba2);
+
+    color: white;
+
+}
+
+
+
+.cta-box h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.cta-box p {
+
+    color: #e3eaf5;
+
+    margin-bottom: 22px;
+
+}
+
+
+
+/* FOOTER */
+
+
+
+footer {
+
+    background: #101b2e;
+
+    color: white;
+
+    padding: 55px 0 20px;
+
+}
+
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+    gap: 35px;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.footer-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.footer-brand img {
+
+    width: 48px;
+
+    height: 48px;
+
+    object-fit: contain;
+
+}
+
+
+
+.footer-brand strong { font-size: 17px; }
+
+
+
+.footer-grid p {
+
+    color: #c4cede;
+
+    font-size: 12px;
+
+    margin: 8px 0;
+
+}
+
+
+
+.footer-grid h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+
+}
+
+
+
+.footer-grid a {
+
+    display: block;
+
+    color: #c4cede;
+
+    font-size: 12px;
+
+    margin: 9px 0;
+
+}
+
+
+
+.footer-grid a:hover { color: #8ff0aa; }
+
+
+
+.footer-bottom {
+
+    text-align: center;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,.13);
+
+    color: #b7c1d0;
+
+    font-size: 11px;
+
+}
+
+
+
+/* PRODUCT MODAL */
+
+
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.7);
+
+    z-index: 2000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+
+.modal.show { display: flex; }
+
+
+
+.modal-content {
+
+    width: min(850px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-radius: 14px;
+
+    position: relative;
+
+    padding: 25px;
+
+}
+
+
+
+.modal-close {
+
+    position: absolute;
+
+    right: 16px;
+
+    top: 12px;
+
+    border: 0;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+
+.modal-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+}
+
+
+
+.modal-grid img {
+
+    width: 100%;
+
+    height: 310px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+}
+
+
+
+.modal-details h2 {
+
+    margin: 10px 0;
+
+    font-size: 25px;
+
+}
+
+
+
+.modal-details p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+
+}
+
+
+
+.modal-details ul {
+
+    padding-left: 20px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+
+}
+
+
+
+.modal-details li { margin: 7px 0; }
+
+
+
+/* MOBILE */
+
+
+
+.mobile-bottom-nav { display: none; }
+
+
+
+@media(max-width:1000px) {
+
+    .nav-links { gap: 12px; }
+
+    .nav-links a { font-size: 11px; }
+
+    .product-grid { grid-template-columns: repeat(3,1fr); }
+
+    .category-grid { grid-template-columns: repeat(3,1fr); }
+
+    .why-grid { grid-template-columns: repeat(2,1fr); }
+
+}
+
+
+
+@media(max-width:760px) {
+
+    .navbar { min-height: 72px; flex-wrap: wrap; }
+
+    .menu-toggle { display: block; margin-left: auto; }
+
+
+
+    .nav-links {
+
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 12px 0;
+
+        gap: 0;
+
+    }
+
+
+
+    .nav-links.show { display: flex; }
+
+
+
+    .nav-links a {
+
+        padding: 12px 5px;
+
+        border-top: 1px solid var(--border);
+
+        font-size: 13px;
+
+    }
+
+
+
+    .nav-actions {
+
+        width: 100%;
+
+        justify-content: flex-end;
+
+        padding-bottom: 12px;
+
+    }
+
+
+
+    .brand { margin-right: auto; }
+
+    .intro-grid { grid-template-columns: 1fr; gap: 25px; }
+
+    .intro-image img { height: 280px; }
+
+    .product-grid { grid-template-columns: repeat(2,1fr); }
+
+    .category-grid { grid-template-columns: repeat(2,1fr); }
+
+    .footer-grid { grid-template-columns: repeat(2,1fr); }
+
+    .modal-grid { grid-template-columns: 1fr; }
+
+    .modal-grid img { height: 230px; }
+
+    .hero { min-height: 420px; }
+
+    .hero-content { padding: 65px 0; }
+
+    .mobile-bottom-nav {
+
+        display: grid;
+
+        grid-template-columns: repeat(4,1fr);
+
+        position: fixed;
+
+        bottom: 0;
+
+        left: 0;
+
+        right: 0;
+
+        z-index: 999;
+
+        background: var(--surface);
+
+        box-shadow: 0 -3px 15px rgba(0,0,0,.1);
+
+        padding: 8px 4px;
+
+    }
+
+
+
+    .mobile-bottom-nav a {
+
+        text-align: center;
+
+        font-size: 10px;
+
+        color: var(--text);
+
+        font-weight: 700;
+
+    }
+
+
+
+    .mobile-bottom-nav span {
+
+        display: block;
+
+        font-size: 19px;
+
+    }
+
+
+
+    body { padding-bottom: 60px; }
+
+}
+
+
+
+@media(max-width:480px) {
+
+    .product-grid { grid-template-columns: 1fr; }
+
+    .category-grid { grid-template-columns: repeat(2,1fr); }
+
+    .why-grid { grid-template-columns: 1fr; }
+
+    .footer-grid { grid-template-columns: 1fr; }
+
+    .catalogue-controls { align-items: stretch; }
+
+    .search-box { width: 100%; }
+
+    .filter-buttons { gap: 6px; }
+
+    .hero-buttons { display: flex; flex-direction: column; gap: 10px; }
+
+    .btn-outline { margin-left: 0; }
+
+    .cta-box h2 { font-size: 25px; }
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- HEADER -->
+
+
+
+<header>
+
+    <div class="container navbar">
+
+
+
+        <a href="index.html" class="brand">
+
+            <img src="company logo.png.jpg" alt="M&M Logistics logo">
+
+            <div>
+
+                <strong>M&M LOGISTICS</strong>
+
+                <small>(SL) LIMITED</small>
+
+            </div>
+
+        </a>
+
+
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="index.html">Home</a>
+
+            <a href="services.html">Services</a>
+
+            <a href="automotive.html">Automotive</a>
+
+            <a href="electronics.html">Electronics</a>
+
+            <a href="furniture.html" class="active">Furniture</a>
+
+            <a href="industrial.html">Industrial</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+
+
+        <div class="nav-actions">
+
+            <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+
+
+
+            <div class="profile-wrap" id="profileWrap">
+
+                <button class="profile-button" id="profileButton" style="display:none;">
+
+                    My Account ▾
+
+                </button>
+
+
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-name" id="profileName">Customer</div>
+
+                    <a href="tracking.html">My Shipments</a>
+
+                    <a href="quotation.html">My Quotations</a>
+
+                    <a href="contact.html">Customer Support</a>
+
+                    <button id="signOutButton">Sign Out</button>
+
+                </div>
+
+            </div>
+
+
+
+            <a href="signup.html" class="signup-button" id="signupButton">Sign Up</a>
+
+        </div>
+
+
+
+    </div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+
+
+            <span class="hero-label">M&M LOGISTICS PRODUCT COLLECTION</span>
+
+
+
+            <h1>Furniture for Every Space and Purpose</h1>
+
+
+
+            <p>
+
+                Discover furniture sourced from China for homes,
+
+                offices, hotels and commercial environments.
+
+                We help coordinate product sourcing, purchasing
+
+                and international shipping to West Africa.
+
+            </p>
+
+
+
+            <div class="hero-buttons">
+
+                <a href="#catalogue" class="btn btn-primary">
+
+                    Explore Furniture
+
+                </a>
+
+
+
+                <a href="contact.html" class="btn btn-outline">
+
+                    Speak With Our Team
+
+                </a>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- BUYING COST TRANSPARENCY: SECOND SECTION -->
+
+<section class="section pricing-section" id="buying-charges">
+    <div class="container">
+        <div class="pricing-heading">
+            <span>TRANSPARENT BUYING CHARGES</span>
+            <h2>Know Your Buying Costs Before You Proceed</h2>
+            <p>
+                Every customer pays a one-time flat upfront processing fee,
+                plus a service percentage based on the total value of the
+                furniture or products purchased.
+            </p>
+        </div>
+
+        <div class="upfront-fee">
+            <div>
+                <span class="fee-label">FLAT UPFRONT PROCESSING FEE</span>
+                <h3>$50</h3>
+                <p>Payable by every customer before the purchasing process begins.</p>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <span class="pricing-range">PURCHASE VALUE</span>
+                <h3>$1,500 – Below $10,000</h3>
+                <div class="pricing-rate">10%</div>
+                <p>Service charge based on the total purchase value.</p>
+            </article>
+
+            <article class="pricing-card featured">
+                <span class="pricing-range">PURCHASE VALUE</span>
+                <h3>$10,000 – $50,000</h3>
+                <div class="pricing-rate">5%</div>
+                <p>Service charge based on the total purchase value.</p>
+            </article>
+
+            <article class="pricing-card">
+                <span class="pricing-range">PURCHASE VALUE</span>
+                <h3>Above $50,000</h3>
+                <div class="pricing-rate">3%</div>
+                <p>Service charge based on the total purchase value.</p>
+            </article>
+        </div>
+
+        <div class="pricing-note">
+            <strong>Please note:</strong>
+            The $50 upfront processing fee is additional to the applicable
+            percentage service charge. The percentage is calculated on the
+            total value of the furniture purchase. Shipping, customs duties,
+            taxes, inspection and other third-party charges are separate
+            unless expressly included in your written quotation.
+            Purchases below $1,500 are not covered by the percentage
+            schedule shown above; please contact our team for clarification.
+        </div>
+    </div>
+</section>
+
+
+<!-- CATEGORIES -->
+
+
+
+<section class="section category-section">
+
+    <div class="container">
+
+
+
+        <div class="section-heading">
+
+            <span>EXPLORE OUR COLLECTION</span>
+
+            <h2>Furniture Categories</h2>
+
+            <p>
+
+                Explore furniture options for different spaces,
+
+                needs and business environments.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="category-grid">
+
+
+
+            <div class="category-card" data-category="Living Room">
+
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80" alt="Living room furniture">
+
+                <h3>Living Room Furniture</h3>
+
+            </div>
+
+
+
+            <div class="category-card" data-category="Bedroom">
+
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="Bedroom furniture">
+
+                <h3>Bedroom Furniture</h3>
+
+            </div>
+
+
+
+            <div class="category-card" data-category="Office">
+
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80" alt="Office furniture">
+
+                <h3>Office Furniture</h3>
+
+            </div>
+
+
+
+            <div class="category-card" data-category="Dining">
+
+                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=700&q=80" alt="Dining room furniture">
+
+                <h3>Dining Furniture</h3>
+
+            </div>
+
+
+
+            <div class="category-card" data-category="Commercial">
+
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" alt="Hotel and commercial furniture">
+
+                <h3>Commercial & Hotel</h3>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PRODUCT CATALOGUE -->
+
+
+
+<section class="section catalogue-section" id="catalogue">
+
+    <div class="container">
+
+
+
+        <div class="section-heading">
+
+            <span>OUR FURNITURE COLLECTION</span>
+
+            <h2>Explore Available Furniture</h2>
+
+            <p>
+
+                Browse our product selection. Select a product
+
+                to view more information or request assistance
+
+                with sourcing and purchasing.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="catalogue-controls">
+
+
+
+            <div class="filter-buttons">
+
+                <button class="filter-btn active" data-filter="All">All Furniture</button>
+
+                <button class="filter-btn" data-filter="Living Room">Living Room</button>
+
+                <button class="filter-btn" data-filter="Bedroom">Bedroom</button>
+
+                <button class="filter-btn" data-filter="Office">Office</button>
+
+                <button class="filter-btn" data-filter="Dining">Dining</button>
+
+                <button class="filter-btn" data-filter="Commercial">Commercial</button>
+
+            </div>
+
+
+
+            <input
+
+                type="search"
+
+                id="productSearch"
+
+                class="search-box"
+
+                placeholder="Search furniture..."
+
+                aria-label="Search furniture"
+
+            >
+
+
+
+        </div>
+
+
+
+        <div class="product-grid" id="productGrid"></div>
+
+
+
+        <div class="no-results" id="noResults">
+
+            <h3>No matching furniture found.</h3>
+
+            <p>Try another product name or category.</p>
+
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+
+<!-- WHY CHOOSE US -->
+
+
+
+<section class="section why-section">
+
+    <div class="container">
+
+
+
+        <div class="section-heading">
+
+            <span>WHY WORK WITH US</span>
+
+            <h2>Furniture Sourcing Made Easier</h2>
+
+            <p>
+
+                We support customers throughout the sourcing
+
+                and international purchasing process.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="why-grid">
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">🔎</div>
+
+                <h3>Product Sourcing</h3>
+
+                <p>
+
+                    Assistance identifying furniture products
+
+                    and potential suppliers in China.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">🤝</div>
+
+                <h3>Purchasing Support</h3>
+
+                <p>
+
+                    Coordination of purchasing requirements
+
+                    and supplier communication.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">🚢</div>
+
+                <h3>Shipping Coordination</h3>
+
+                <p>
+
+                    Support with international shipping
+
+                    arrangements to West Africa.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">🌍</div>
+
+                <h3>West Africa Focus</h3>
+
+                <p>
+
+                    Logistics support for customers in Sierra Leone,
+
+                    Ghana and Nigeria.
+
+                </p>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+
+
+<section class="section cta-section">
+
+    <div class="container">
+
+
+
+        <div class="cta-box">
+
+            <h2>Looking for Furniture in China?</h2>
+
+
+
+            <p>
+
+                Tell us what you are looking for.
+
+                Let's schedule a quick 20-minute consultation
+
+                to discuss your furniture sourcing requirements.
+
+            </p>
+
+
+
+            <a href="contact.html#consultation" class="btn btn-primary">
+
+                Schedule a 20-Minute Call
+
+            </a>
+
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+
+
+<footer>
+
+    <div class="container">
+
+
+
+        <div class="footer-grid">
+
+
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <img src="company logo.png.jpg" alt="M&M Logistics logo">
+
+                    <strong>M&M LOGISTICS (SL) LTD</strong>
+
+                </div>
+
+
+
+                <p>
+
+                    Your sourcing and logistics partner,
+
+                    connecting China to West Africa.
+
+                </p>
+
+
+
+                <p>WhatsApp: +232 30 172 868</p>
+
+                <p>China: +86 131 5627 1080</p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="services.html">Our Services</a>
+
+                <a href="about.html">About Us</a>
+
+                <a href="contact.html">Contact Us</a>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>Product Categories</h3>
+
+                <a href="automotive.html">Automotive</a>
+
+                <a href="electronics.html">Electronics</a>
+
+                <a href="furniture.html">Furniture</a>
+
+                <a href="industrial.html">Industrial & Commercial</a>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>Customer Support</h3>
+
+                <a href="tracking.html">Track Your Shipment</a>
+
+                <a href="quotation.html">Request a Quotation</a>
+
+                <a href="contact.html">Customer Support</a>
+
+                <a href="signup.html">Create an Account</a>
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            © <span id="year"></span> M&M Logistics (SL) Ltd.
+
+            All Rights Reserved.
+
+        </div>
+
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- MOBILE NAVIGATION -->
+
+
+
+<div class="mobile-bottom-nav">
+
+    <a href="index.html"><span>⌂</span>Home</a>
+
+    <a href="services.html"><span>▤</span>Services</a>
+
+    <a href="tracking.html"><span>📦</span>Tracking</a>
+
+    <a href="contact.html"><span>☎</span>Contact</a>
+
+</div>
+
+
+
+<!-- PRODUCT DETAILS MODAL -->
+
+
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+
+
+        <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+
+
+
+        <div class="modal-grid">
+
+
+
+            <img id="modalImage" src="" alt="Furniture product">
+
+
+
+            <div class="modal-details">
+
+                <span class="product-category" id="modalCategory"></span>
+
+
+
+                <h2 id="modalName"></h2>
+
+
+
+                <p id="modalDescription"></p>
+
+
+
+                <h4>Product Highlights</h4>
+
+                <ul id="modalFeatures"></ul>
+
+
+
+                <button class="btn btn-primary" id="modalQuote">
+
+                    Request a Quotation
+
+                </button>
+
+
+
+                <button class="btn btn-outline" id="modalWhatsApp"
+
+                    style="background:#12B94B;border-color:#12B94B;color:white;margin:10px 0 0;">
+
+                    Enquire on WhatsApp
+
+                </button>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* PRODUCT DATA */
+
+
+
+const products = [
+
+
+
+    {
+
+        name: "Modern Living Room Sofa",
+
+        category: "Living Room",
+
+        description: "Contemporary sofa designs for modern residential and hospitality spaces.",
+
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Contemporary design options", "Multiple fabric and colour choices", "Different seating configurations"]
+
+    },
+
+
+
+    {
+
+        name: "Luxury Sectional Sofa",
+
+        category: "Living Room",
+
+        description: "Sectional sofa options suitable for spacious living rooms and lounges.",
+
+        image: "https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Sectional configurations", "Modern upholstery options", "Residential and hospitality use"]
+
+    },
+
+
+
+    {
+
+        name: "Modern Coffee Table",
+
+        category: "Living Room",
+
+        description: "Decorative and functional coffee tables for living room settings.",
+
+        image: "https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Modern designs", "Different finishes", "Multiple size options"]
+
+    },
+
+
+
+    {
+
+        name: "Living Room TV Stand",
+
+        category: "Living Room",
+
+        description: "TV consoles and entertainment units for modern living spaces.",
+
+        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Contemporary storage designs", "Different finishes", "Various dimensions"]
+
+    },
+
+
+
+    {
+
+        name: "Modern Bedroom Bed",
+
+        category: "Bedroom",
+
+        description: "Modern bed frames designed for residential and hospitality bedrooms.",
+
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Different bed sizes", "Upholstered and wooden styles", "Custom design options"]
+
+    },
+
+
+
+    {
+
+        name: "Bedroom Wardrobe",
+
+        category: "Bedroom",
+
+        description: "Storage wardrobes suitable for bedrooms, apartments and hotel rooms.",
+
+        image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Multiple storage configurations", "Different finishes", "Various dimensions"]
+
+    },
+
+
+
+    {
+
+        name: "Bedroom Dressing Table",
+
+        category: "Bedroom",
+
+        description: "Dressing tables and bedroom vanity furniture.",
+
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Modern designs", "Storage options", "Matching furniture options"]
+
+    },
+
+
+
+    {
+
+        name: "Bedside Cabinet",
+
+        category: "Bedroom",
+
+        description: "Bedside storage cabinets for residential and hotel bedrooms.",
+
+        image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Compact storage", "Matching bedroom styles", "Different finishes"]
+
+    },
+
+
+
+    {
+
+        name: "Executive Office Desk",
+
+        category: "Office",
+
+        description: "Executive desks for corporate offices and management spaces.",
+
+        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Executive desk designs", "Storage options", "Professional finishes"]
+
+    },
+
+
+
+    {
+
+        name: "Ergonomic Office Chair",
+
+        category: "Office",
+
+        description: "Office seating options for professional work environments.",
+
+        image: "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Different seating designs", "Adjustable options available", "Office and workstation use"]
+
+    },
+
+
+
+    {
+
+        name: "Office Workstation",
+
+        category: "Office",
+
+        description: "Workstation furniture for teams, offices and business environments.",
+
+        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Individual and team layouts", "Modular configurations", "Office space solutions"]
+
+    },
+
+
+
+    {
+
+        name: "Conference Room Table",
+
+        category: "Office",
+
+        description: "Conference tables for boardrooms, meeting rooms and corporate offices.",
+
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Multiple seating capacities", "Modern boardroom designs", "Different size options"]
+
+    },
+
+
+
+    {
+
+        name: "Modern Dining Table",
+
+        category: "Dining",
+
+        description: "Dining tables for residential and hospitality environments.",
+
+        image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Different table sizes", "Wood and contemporary finishes", "Matching chair options"]
+
+    },
+
+
+
+    {
+
+        name: "Dining Chair Set",
+
+        category: "Dining",
+
+        description: "Dining chairs in a range of styles and material options.",
+
+        image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Different styles", "Upholstered and non-upholstered options", "Residential and commercial use"]
+
+    },
+
+
+
+    {
+
+        name: "Dining Room Cabinet",
+
+        category: "Dining",
+
+        description: "Storage and display cabinets for dining rooms and hospitality spaces.",
+
+        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Storage and display designs", "Different finishes", "Multiple dimensions"]
+
+    },
+
+
+
+    {
+
+        name: "Hotel Bedroom Furniture Set",
+
+        category: "Commercial",
+
+        description: "Coordinated bedroom furniture options for hotels and guest accommodation.",
+
+        image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Coordinated furniture pieces", "Hospitality-focused options", "Bulk sourcing enquiries"]
+
+    },
+
+
+
+    {
+
+        name: "Restaurant Furniture Set",
+
+        category: "Commercial",
+
+        description: "Tables and seating options for restaurants, cafes and dining businesses.",
+
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Commercial dining designs", "Multiple table and chair options", "Bulk order enquiries"]
+
+    },
+
+
+
+    {
+
+        name: "Hotel Lobby Sofa",
+
+        category: "Commercial",
+
+        description: "Reception and lounge seating for hotels, offices and hospitality businesses.",
+
+        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85",
+
+        features: ["Reception and lounge designs", "Different upholstery options", "Hospitality applications"]
+
+    }
+
+
+
+];
+
+
+
+let activeProduct = null;
+
+let activeFilter = "All";
+
+
+
+/* DISPLAY PRODUCTS */
+
+
+
+const productGrid = document.getElementById("productGrid");
+
+const searchInput = document.getElementById("productSearch");
+
+const noResults = document.getElementById("noResults");
+
+
+
+function renderProducts() {
+
+
+
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+
+
+    const filtered = products.filter(product => {
+
+
+
+        const matchesCategory =
+
+            activeFilter === "All" ||
+
+            product.category === activeFilter;
+
+
+
+        const matchesSearch =
+
+            product.name.toLowerCase().includes(searchTerm) ||
+
+            product.category.toLowerCase().includes(searchTerm) ||
+
+            product.description.toLowerCase().includes(searchTerm);
+
+
+
+        return matchesCategory && matchesSearch;
+
+    });
+
+
+
+    productGrid.innerHTML = "";
+
+
+
+    noResults.style.display = filtered.length ? "none" : "block";
+
+
+
+    filtered.forEach((product) => {
+
+
+
+        const originalIndex = products.indexOf(product);
+
+
+
+        const card = document.createElement("article");
+
+        card.className = "product-card";
+
+
+
+        card.innerHTML = `
+
+            <div class="product-image">
+
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+
+            </div>
+
+
+
+            <div class="product-content">
+
+                <span class="product-category">${product.category}</span>
+
+
+
+                <h3>${product.name}</h3>
+
+
+
+                <p>${product.description}</p>
+
+
+
+                <div class="product-actions">
+
+                    <button class="small-btn"
+
+                        onclick="openProduct(${originalIndex})">
+
+                        View Details
+
+                    </button>
+
+
+
+                    <button class="small-btn quote"
+
+                        onclick="requestQuote(${originalIndex})">
+
+                        Request Quote
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+
+        productGrid.appendChild(card);
+
+    });
+
+}
+
+
+
+/* FILTER BUTTONS */
+
+
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+
+
+
+    button.addEventListener("click", () => {
+
+
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+
+        button.classList.add("active");
+
+
+
+        activeFilter = button.dataset.filter;
+
+
+
+        document.querySelectorAll(".category-card").forEach(card => {
+
+            card.classList.toggle(
+
+                "active",
+
+                card.dataset.category === activeFilter
+
+            );
+
+        });
+
+
+
+        renderProducts();
+
+
+
+        document.getElementById("catalogue").scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
+
+
+
+/* CATEGORY CARDS */
+
+
+
+document.querySelectorAll(".category-card").forEach(card => {
+
+
+
+    card.addEventListener("click", () => {
+
+
+
+        activeFilter = card.dataset.category;
+
+
+
+        document.querySelectorAll(".filter-btn").forEach(button => {
+
+            button.classList.toggle(
+
+                "active",
+
+                button.dataset.filter === activeFilter
+
+            );
+
+        });
+
+
+
+        document.querySelectorAll(".category-card").forEach(item => {
+
+            item.classList.toggle("active", item === card);
+
+        });
+
+
+
+        renderProducts();
+
+
+
+        document.getElementById("catalogue").scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
+
+
+
+/* SEARCH */
+
+
+
+searchInput.addEventListener("input", renderProducts);
+
+
+
+/* PRODUCT MODAL */
+
+
+
+const productModal = document.getElementById("productModal");
+
+
+
+function openProduct(index) {
+
+
+
+    const product = products[index];
+
+
+
+    activeProduct = product;
+
+
+
+    document.getElementById("modalImage").src = product.image;
+
+    document.getElementById("modalImage").alt = product.name;
+
+
+
+    document.getElementById("modalName").textContent = product.name;
+
+    document.getElementById("modalCategory").textContent = product.category;
+
+    document.getElementById("modalDescription").textContent = product.description;
+
+
+
+    const featureList = document.getElementById("modalFeatures");
+
+    featureList.innerHTML = "";
+
+
+
+    product.features.forEach(feature => {
+
+        const li = document.createElement("li");
+
+        li.textContent = feature;
+
+        featureList.appendChild(li);
+
+    });
+
+
+
+    productModal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+
+function closeModal() {
+
+    productModal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+}
+
+
+
+document.getElementById("modalClose").addEventListener("click", closeModal);
+
+
+
+productModal.addEventListener("click", event => {
+
+    if (event.target === productModal) closeModal();
+
+});
+
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") closeModal();
+
+});
+
+
+
+/* QUOTATION */
+
+
+
+function requestQuote(index) {
+
+
+
+    const product = products[index];
+
+
+
+    const params = new URLSearchParams({
+
+        product: product.name,
+
+        model: product.category,
+
+        image: product.image
+
+    });
+
+
+
+    window.location.href = "quotation.html?" + params.toString();
+
+}
+
+
+
+document.getElementById("modalQuote").addEventListener("click", () => {
+
+
+
+    if (!activeProduct) return;
+
+
+
+    const index = products.indexOf(activeProduct);
+
+
+
+    requestQuote(index);
+
+});
+
+
+
+/* WHATSAPP ENQUIRY */
+
+
+
+function openWhatsApp(product) {
+
+
+
+    const message =
+
+        "Hello M&M Logistics, I am interested in sourcing furniture from China.\n\n" +
+
+        "Product: " + product.name + "\n" +
+
+        "Category: " + product.category + "\n\n" +
+
+        "Please provide further information on sourcing and shipping.";
+
+
+
+    const url =
+
+        "https://wa.me/23230172868?text=" +
+
+        encodeURIComponent(message);
+
+
+
+    window.open(url, "_blank", "noopener,noreferrer");
+
+}
+
+
+
+document.getElementById("modalWhatsApp").addEventListener("click", () => {
+
+
+
+    if (activeProduct) openWhatsApp(activeProduct);
+
+});
+
+
+
+/* THEME */
+
+
+
+const themeToggle = document.getElementById("themeToggle");
+
+
+
+function applyTheme(theme) {
+
+
+
+    document.body.dataset.theme = theme;
+
+
+
+    themeToggle.textContent =
+
+        theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+}
+
+
+
+const savedTheme = localStorage.getItem("mmHomeTheme") || "light";
+
+
+
+applyTheme(savedTheme);
+
+
+
+themeToggle.addEventListener("click", () => {
+
+
+
+    const nextTheme =
+
+        document.body.dataset.theme === "dark" ? "light" : "dark";
+
+
+
+    localStorage.setItem("mmHomeTheme", nextTheme);
+
+
+
+    applyTheme(nextTheme);
+
+});
+
+
+
+/* CUSTOMER PROFILE */
+
+
+
+const currentCustomer = JSON.parse(
+
+    localStorage.getItem("mmCurrentCustomer") || "null"
+
+);
+
+
+
+const profileButton = document.getElementById("profileButton");
+
+const profileMenu = document.getElementById("profileMenu");
+
+const signupButton = document.getElementById("signupButton");
+
+
+
+if (currentCustomer) {
+
+
+
+    profileButton.style.display = "block";
+
+    signupButton.style.display = "none";
+
+
+
+    const customerName =
+
+        currentCustomer.fullName ||
+
+        currentCustomer.name ||
+
+        "My Account";
+
+
+
+    profileButton.textContent =
+
+        customerName.split(" ")[0] + " ▾";
+
+
+
+    document.getElementById("profileName").textContent =
+
+        customerName;
+
+
+
+} else {
+
+
+
+    profileButton.style.display = "none";
+
+    signupButton.style.display = "inline-block";
+
+}
+
+
+
+profileButton.addEventListener("click", () => {
+
+    profileMenu.classList.toggle("show");
+
+});
+
+
+
+document.addEventListener("click", event => {
+
+
+
+    const profileWrap = document.getElementById("profileWrap");
+
+
+
+    if (!profileWrap.contains(event.target)) {
+
+        profileMenu.classList.remove("show");
+
+    }
+
+});
+
+
+
+document.getElementById("signOutButton").addEventListener("click", () => {
+
+
+
+    localStorage.removeItem("mmCurrentCustomer");
+
+
+
+    window.location.href = "index.html";
+
+});
+
+
+
+/* MOBILE MENU */
+
+
+
+document.getElementById("menuToggle").addEventListener("click", () => {
+
+
+
+    const nav = document.getElementById("navLinks");
+
+
+
+    nav.classList.toggle("show");
+
+});
+
+
+
+/* FOOTER YEAR */
+
+
+
+document.getElementById("year").textContent =
+
+    new Date().getFullYear();
+
+
+
+/* INITIAL LOAD */
+
+
+
+renderProducts();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

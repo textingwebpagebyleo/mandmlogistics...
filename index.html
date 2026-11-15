@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="M&M Logistics (SL) Ltd - Product sourcing, procurement and international shipping from China to West Africa.">
-<title>M&M Logistics (SL) Ltd | China to West Africa</title>
+<meta name="description" content="M&M Logistics (SL) Ltd - Product sourcing, procurement, international shipping, China visa assistance and business travel support.">
+<title>M&M Logistics (SL) Ltd | Connecting China to West Africa</title>
 
 <style>
 :root {
@@ -25,13 +26,17 @@
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--dark);
     line-height: 1.6;
     background: var(--white);
+    transition: background .25s ease, color .25s ease;
 }
 
 a {
@@ -39,16 +44,23 @@ a {
     color: inherit;
 }
 
-img { max-width: 100%; }
+img {
+    max-width: 100%;
+    display: block;
+}
 
-button, input, textarea, select { font: inherit; }
+button, input, select, textarea {
+    font: inherit;
+}
 
 .container {
-    width: min(1160px,92%);
+    width: min(1160px, 92%);
     margin: auto;
 }
 
-.section { padding: 85px 0; }
+.section {
+    padding: 85px 0;
+}
 
 .section-heading {
     text-align: center;
@@ -63,13 +75,13 @@ button, input, textarea, select { font: inherit; }
 }
 
 .section-heading h2 {
-    font-size: clamp(27px,4vw,38px);
+    font-size: clamp(27px, 4vw, 38px);
     color: var(--dark);
     margin: 9px 0;
 }
 
 .section-heading p {
-    max-width: 650px;
+    max-width: 680px;
     margin: auto;
     color: var(--text);
 }
@@ -106,7 +118,17 @@ button, input, textarea, select { font: inherit; }
     color: var(--primary);
 }
 
-/* HEADER */
+.btn-secondary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* HEADER AND NAVIGATION */
 
 header {
     position: sticky;
@@ -121,7 +143,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
 }
 
 .brand-logo {
@@ -135,7 +157,6 @@ header {
     width: 78px;
     height: 68px;
     object-fit: contain;
-    display: block;
 }
 
 .brand-name {
@@ -144,43 +165,117 @@ header {
     font-weight: 800;
     line-height: 1.15;
     white-space: nowrap;
-    letter-spacing: -.4px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 23px;
 }
 
-.nav-links a {
+.nav-links > a,
+.nav-dropdown > button {
     font-size: 14px;
     font-weight: 700;
     color: #39445a;
     transition: .2s;
 }
 
-.nav-links a:hover { color: var(--green); }
+.nav-links > a:hover,
+.nav-dropdown > button:hover {
+    color: var(--green);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -15px;
+    min-width: 245px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    z-index: 1100;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.dropdown-menu a:hover {
+    background: var(--light);
+    color: var(--primary);
+}
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
 }
 
 .login-link {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.signup-btn {
-    padding: 10px 16px;
+    padding: 10px 15px;
     background: var(--primary);
     color: white;
     border-radius: 5px;
     font-size: 13px;
     font-weight: 700;
+    white-space: nowrap;
+}
+
+.login-link:hover {
+    background: var(--primary-dark);
+}
+
+/* THEME SWITCH */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    color: #26334b;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.theme-icon {
+    font-size: 16px;
 }
 
 .menu-toggle {
@@ -192,139 +287,11 @@ header {
     color: var(--primary);
 }
 
-/* THEME AND CUSTOMER ACCOUNT CONTROLS */
-
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 9px 11px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    background: var(--light);
-    color: var(--dark);
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.theme-toggle:hover { border-color: var(--primary); }
-
-.account-area {
-    display: flex;
-    align-items: center;
-}
-
-.guest-actions {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.profile-wrapper { position: relative; }
-
-.profile-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 6px 10px 6px 6px;
-    background: var(--light);
-    color: var(--dark);
-    cursor: pointer;
-    font-weight: 700;
-    max-width: 210px;
-}
-
-.profile-avatar {
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    font-weight: 800;
-}
-
-.profile-name {
-    max-width: 125px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 13px;
-}
-
-.profile-chevron { color: var(--text); }
-
-.profile-menu {
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    z-index: 1200;
-    width: 230px;
-    padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--white);
-    box-shadow: var(--shadow);
-}
-
-.profile-menu-heading {
-    padding: 10px 9px 13px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 6px;
-}
-
-.profile-menu-heading strong,
-.profile-menu-heading small {
-    display: block;
-    overflow-wrap: anywhere;
-}
-
-.profile-menu-heading strong {
-    color: var(--dark);
-    font-size: 14px;
-}
-
-.profile-menu-heading small {
-    color: var(--text);
-    font-size: 12px;
-    margin-top: 3px;
-}
-
-.profile-menu a,
-.profile-menu button {
-    display: block;
-    width: 100%;
-    padding: 10px 9px;
-    border: 0;
-    border-radius: 6px;
-    background: transparent;
-    color: var(--dark);
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.profile-menu a:hover,
-.profile-menu button:hover {
-    background: var(--light);
-    color: var(--primary);
-}
-
-[hidden] { display: none !important; }
-
-/* LANDING PAGE / HERO BACKGROUND IMAGE */
+/* HERO */
 
 .hero {
     position: relative;
-    min-height: 570px;
+    min-height: 590px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -337,7 +304,6 @@ header {
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
 }
 
 .hero-background img {
@@ -345,7 +311,6 @@ header {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    display: block;
 }
 
 .hero-background::after {
@@ -354,8 +319,8 @@ header {
     inset: 0;
     background: linear-gradient(
         90deg,
-        rgba(22,43,88,.78),
-        rgba(35,68,130,.42)
+        rgba(22,43,88,.88),
+        rgba(35,68,130,.48)
     );
 }
 
@@ -365,18 +330,18 @@ header {
 }
 
 .hero-content {
-    max-width: 700px;
-    padding: 90px 0;
+    max-width: 760px;
+    padding: 95px 0;
 }
 
 .hero h1 {
-    font-size: clamp(38px,6vw,62px);
+    font-size: clamp(38px, 6vw, 62px);
     line-height: 1.12;
     margin-bottom: 22px;
 }
 
 .hero p {
-    max-width: 590px;
+    max-width: 640px;
     font-size: 18px;
     color: #edf2ff;
     margin-bottom: 30px;
@@ -388,80 +353,112 @@ header {
     gap: 13px;
 }
 
-/* INTRODUCTION */
+/* CORE SERVICES */
 
-.intro-grid {
+.services {
+    background: var(--light);
+}
+
+.service-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 55px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.intro-image img {
-    width: 100%;
-    height: 390px;
-    object-fit: cover;
+.service-card {
+    background: white;
+    border: 1px solid var(--border);
     border-radius: 12px;
+    overflow: hidden;
     box-shadow: var(--shadow);
+    transition: .25s ease;
 }
 
-.intro-text h2 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin-bottom: 20px;
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--green);
 }
 
-.intro-text p {
-    color: var(--text);
-    margin-bottom: 17px;
+.service-card img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
 }
 
-.check-list {
-    list-style: none;
-    margin: 20px 0 25px;
+.service-card-content {
+    padding: 26px;
 }
 
-.check-list li {
-    margin: 12px 0;
-    font-weight: 600;
-}
-
-.check-list li::before {
-    content: "✓";
+.service-number {
+    display: inline-block;
     color: var(--green);
-    font-weight: 900;
-    margin-right: 10px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
-/* SHIPPING DESTINATIONS */
+.service-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
 
-.destinations { background: var(--light); }
+.service-card p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 17px;
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.text-link:hover {
+    color: var(--green);
+}
+
+.services-action,
+.products-action {
+    text-align: center;
+    margin-top: 38px;
+}
+
+/* DESTINATIONS */
+
+.destinations {
+    background: white;
+}
 
 .destination-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    max-width: 900px;
+    max-width: 950px;
     margin: auto;
 }
 
 .destination-card {
-    background: white;
+    background: var(--light);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 32px 20px;
     text-align: center;
-    box-shadow: var(--shadow);
     transition: .25s;
 }
 
-.destination-card:hover { transform: translateY(-5px); }
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
 
 .destination-card img {
-    width: 90px;
-    height: 65px;
+    width: 100px;
+    height: 75px;
     object-fit: contain;
-    margin-bottom: 14px;
+    margin: 0 auto 14px;
 }
 
 .destination-card h3 {
@@ -474,9 +471,12 @@ header {
 .partners {
     padding: 65px 0;
     overflow: hidden;
+    background: var(--light);
 }
 
-.partners .section-heading { margin-bottom: 30px; }
+.partners .section-heading {
+    margin-bottom: 30px;
+}
 
 .partner-marquee {
     overflow: hidden;
@@ -487,7 +487,7 @@ header {
     display: flex;
     align-items: center;
     width: max-content;
-    animation: partnerScroll 32s linear infinite;
+    animation: partnerScroll 35s linear infinite;
 }
 
 .partner-marquee:hover .partner-track {
@@ -521,57 +521,15 @@ header {
     to { transform: translateX(-50%); }
 }
 
-/* SERVICES */
+/* PRODUCTS */
 
-.services { background: var(--light); }
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 22px;
-}
-
-.service-card {
+.products {
     background: white;
-    padding: 30px 23px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    transition: .25s;
 }
-
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--green);
-}
-
-.service-icon {
-    width: 55px;
-    height: 55px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: #e8f8ee;
-    color: var(--green);
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.service-card p {
-    color: var(--text);
-    font-size: 14px;
-}
-
-/* PRODUCT CATEGORIES */
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -579,7 +537,7 @@ header {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    min-height: 230px;
+    min-height: 260px;
     background: var(--primary);
     color: white;
 }
@@ -593,234 +551,525 @@ header {
     transition: .4s;
 }
 
-.product-card:hover img { transform: scale(1.08); }
+.product-card:hover img {
+    transform: scale(1.08);
+}
 
 .product-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
         0deg,
-        rgba(12,25,53,.9),
-        rgba(12,25,53,.05)
+        rgba(12,25,53,.92),
+        rgba(12,25,53,.03)
     );
     display: flex;
     align-items: flex-end;
     padding: 22px;
 }
 
-.product-overlay h3 { font-size: 20px; }
-
-/* HOW IT WORKS */
-
-.steps { background: var(--light); }
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px 30px;
+.product-overlay h3 {
+    font-size: 20px;
 }
 
-.step-card {
-    text-align: left;
-    padding: 30px;
+.product-overlay p {
+    color: #e5ebf7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* PROCESS AND PRICING */
+
+.process-section {
+    background: var(--light);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.process-card {
     background: white;
     border: 1px solid var(--border);
     border-radius: 12px;
-    min-height: 220px;
-    transition: .25s ease;
-}
-
-.step-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary);
+    padding: 28px 24px;
     box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
 }
 
-.step-number {
-    width: 60px;
-    height: 60px;
+.process-card-top {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.process-card .division {
+    display: inline-block;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.process-card h3 {
+    font-size: 21px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.process-card-intro {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.process-list {
+    list-style: none;
+    margin-bottom: 22px;
+}
+
+.process-list li {
+    display: flex;
+    gap: 11px;
+    margin-bottom: 13px;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.process-list li span {
+    background: #e8f8ee;
+    color: var(--green);
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    border-radius: 50%;
     display: grid;
     place-items: center;
-    border-radius: 50%;
-    background: var(--primary);
-    color: white;
-    font-size: 22px;
+    font-size: 11px;
     font-weight: 800;
-    margin: 0 0 20px;
 }
 
-.step-card h3 {
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.step-card p {
-    color: var(--text);
-    font-size: 15px;
-}
-
-/* SHIPMENT TRACKING */
-
-.tracking {
-    background:
-        linear-gradient(
-            110deg,
-            rgba(30,58,111,.96),
-            rgba(57,91,162,.91)
-        ),
-        url("hero-logistics.png") center/cover;
-    color: white;
-}
-
-.tracking-content {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-}
-
-.tracking-content h2 {
-    font-size: 36px;
-    margin-bottom: 12px;
-}
-
-.tracking-content p {
-    color: #e4eafa;
-    margin-bottom: 25px;
-}
-
-.tracking-form {
-    display: flex;
-    gap: 10px;
-    background: white;
-    padding: 8px;
+.pricing-box {
+    background: var(--light);
     border-radius: 8px;
+    padding: 17px;
+    margin-top: auto;
 }
 
-.tracking-form input {
-    flex: 1;
-    min-width: 0;
-    border: none;
-    outline: none;
-    padding: 12px;
+.pricing-box h4 {
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.price-row:last-of-type {
+    border-bottom: none;
+}
+
+.price-row strong {
+    white-space: nowrap;
     color: var(--dark);
 }
 
-.tracking-result {
-    margin-top: 18px;
-    font-size: 14px;
-    color: white;
+.price-highlight {
+    color: var(--green) !important;
+    font-weight: 800;
 }
 
-/* ABOUT US */
+.pricing-note {
+    color: var(--text);
+    font-size: 11px;
+    margin-top: 12px;
+    line-height: 1.5;
+}
 
-.about-grid {
+.process-card .text-link {
+    margin-top: 22px;
+}
+
+/* CONSULTATION SECTION */
+
+.consultation-section {
+    padding: 85px 0;
+    background: #17243D;
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-section::before {
+    content: "";
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background: rgba(57,91,162,.2);
+    top: -180px;
+    right: -100px;
+}
+
+.consultation-container {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 45px;
     align-items: center;
 }
 
-.about-image img {
-    width: 100%;
-    height: 390px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.about-text h2 {
-    font-size: 35px;
-    margin-bottom: 18px;
-}
-
-.about-text p {
-    color: var(--text);
-    margin-bottom: 16px;
-}
-
-/* CALL TO ACTION */
-
-.cta {
-    background: var(--primary);
+.consultation-intro {
     color: white;
-    text-align: center;
-    padding: 65px 20px;
 }
 
-.cta h2 {
-    font-size: 34px;
-    margin-bottom: 12px;
-}
-
-.cta p {
-    color: #e7edff;
-    margin-bottom: 25px;
-}
-
-/* CONTACT */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 45px;
-}
-
-.contact-info h2 {
-    font-size: 34px;
+.consultation-label {
+    display: inline-block;
+    color: #42d875;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 12px;
     margin-bottom: 15px;
 }
 
-.contact-info p {
-    color: var(--text);
-    margin-bottom: 23px;
+.consultation-intro h2 {
+    font-size: clamp(32px, 4vw, 45px);
+    line-height: 1.15;
+    margin-bottom: 18px;
 }
 
-.contact-item { margin-bottom: 18px; }
+.consultation-intro > p {
+    color: #dce5f5;
+    font-size: 15px;
+    margin-bottom: 25px;
+    max-width: 500px;
+}
 
-.contact-item strong {
+.consultation-benefits {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.consultation-benefits li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: #e4ebf8;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.consultation-benefits li span {
+    color: #42d875;
+    font-weight: 900;
+}
+
+.consultation-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 22px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    background: rgba(255,255,255,.07);
+}
+
+.consultation-price strong {
+    color: white;
+    font-size: 35px;
+}
+
+.consultation-price small {
     display: block;
+    color: #dce5f5;
+    font-size: 12px;
+}
+
+/* BOOKING FORM */
+
+.booking-card {
+    background: white;
+    padding: 32px;
+    border-radius: 15px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.2);
+}
+
+.booking-card h3 {
+    color: #172033;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.booking-subtitle {
+    color: #586174;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.form-section-title {
+    font-size: 13px;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 3px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--border);
+    margin-top: 5px;
 }
 
-.contact-form {
-    background: var(--light);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
-.form-group { margin-bottom: 17px; }
-
-.form-group label {
-    display: block;
+.form-group label,
+.form-label {
     font-size: 13px;
     font-weight: 700;
-    margin-bottom: 7px;
+    color: #34415a;
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 13px;
+    padding: 12px 13px;
+    border: 1px solid #dce2ec;
+    border-radius: 7px;
     background: white;
     outline: none;
+    font-size: 13px;
+    color: #172033;
+    transition: .2s;
 }
 
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(57,91,162,.1);
 }
 
 .form-group textarea {
-    min-height: 120px;
+    min-height: 95px;
     resize: vertical;
 }
 
-.contact-form .btn { width: 100%; }
+.form-hint {
+    color: #778197;
+    font-size: 11px;
+}
+
+/* MULTI-SELECT */
+
+.multi-select {
+    position: relative;
+}
+
+.multi-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 13px;
+    border: 1px solid #dce2ec;
+    border-radius: 7px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    color: #172033;
+    font-size: 13px;
+}
+
+.multi-select-trigger:hover {
+    border-color: var(--primary);
+}
+
+.multi-select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 9px;
+}
+
+.multi-select-options.open {
+    display: block;
+}
+
+.service-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 9px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #172033;
+}
+
+.service-option:hover {
+    background: var(--light);
+}
+
+.service-option input {
+    accent-color: var(--green);
+    width: 16px;
+    height: 16px;
+}
+
+.selected-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 9px;
+}
+
+.service-chip {
+    background: #e9f8ee;
+    color: #16843c;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* TIME SLOTS */
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+}
+
+.time-slot {
+    position: relative;
+}
+
+.time-slot input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.time-slot label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 42px;
+    padding: 8px 5px;
+    border: 1px solid #dce2ec;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    color: #47536a;
+    transition: .2s;
+}
+
+.time-slot input:checked + label {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.time-slot label:hover {
+    border-color: var(--primary);
+}
+
+/* BOOKING SUMMARY */
+
+.booking-summary {
+    padding: 17px;
+    border-radius: 8px;
+    background: var(--light);
+    border: 1px solid var(--border);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #34415a;
+}
+
+.summary-row strong {
+    color: #172033;
+}
+
+.summary-total {
+    border-top: 1px solid #dce2ec;
+    margin-top: 8px;
+    padding-top: 13px;
+    font-size: 15px;
+}
+
+.summary-total strong {
+    color: var(--green);
+    font-size: 22px;
+}
+
+.booking-submit {
+    width: 100%;
+    border: none;
+    background: var(--green);
+    color: white;
+    padding: 15px;
+    border-radius: 7px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.booking-submit:hover {
+    background: #0d9c3d;
+    transform: translateY(-2px);
+}
+
+.booking-disclaimer {
+    font-size: 11px;
+    color: #778197;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.whatsapp-alternative {
+    text-align: center;
+    font-size: 12px;
+    color: #586174;
+}
+
+.whatsapp-alternative a {
+    color: var(--green);
+    font-weight: 800;
+}
 
 /* FOOTER */
 
@@ -847,7 +1096,6 @@ footer {
     width: 95px;
     height: 78px;
     object-fit: contain;
-    display: block;
 }
 
 .footer-about p {
@@ -864,11 +1112,19 @@ footer {
 .footer-column a {
     display: block;
     color: #b8c3d8;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 10px;
 }
 
-.footer-column a:hover { color: var(--green); }
+.footer-column a:hover {
+    color: var(--green);
+}
+
+.footer-contact {
+    color: #b8c3d8;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
 
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,.12);
@@ -883,38 +1139,161 @@ footer {
 
 /* MOBILE BOTTOM NAVIGATION */
 
-.mobile-bottom-nav { display: none; }
+.mobile-bottom-nav {
+    display: none;
+}
 
-/* RESPONSIVE DESIGN */
+/* DARK THEME */
 
-@media (max-width:1000px) {
-    .nav-links { gap: 14px; }
-    .nav-links a { font-size: 12px; }
+body[data-theme="dark"] {
+    --dark: #f1f4fa;
+    --text: #b7c1d2;
+    --light: #182338;
+    --white: #101a2b;
+    --border: #30405a;
+    --shadow: 0 12px 35px rgba(0,0,0,.22);
+    background: #101a2b;
+    color: #f1f4fa;
+}
+
+body[data-theme="dark"] header,
+body[data-theme="dark"] .nav-links,
+body[data-theme="dark"] .dropdown-menu,
+body[data-theme="dark"] .service-card,
+body[data-theme="dark"] .destination-card,
+body[data-theme="dark"] .process-card {
+    background: #182338;
+    color: #f1f4fa;
+}
+
+body[data-theme="dark"] .brand-name {
+    color: #8eafff;
+}
+
+body[data-theme="dark"] .nav-links > a,
+body[data-theme="dark"] .nav-dropdown > button,
+body[data-theme="dark"] .dropdown-menu a {
+    color: #e8eef9;
+}
+
+body[data-theme="dark"] .dropdown-menu a:hover {
+    background: #263650;
+}
+
+body[data-theme="dark"] .section-heading h2,
+body[data-theme="dark"] .service-card h3,
+body[data-theme="dark"] .destination-card h3,
+body[data-theme="dark"] .process-card h3 {
+    color: #f1f4fa;
+}
+
+body[data-theme="dark"] .service-card,
+body[data-theme="dark"] .process-card,
+body[data-theme="dark"] .destination-card {
+    border-color: #30405a;
+}
+
+body[data-theme="dark"] .pricing-box,
+body[data-theme="dark"] .booking-summary {
+    background: #22314a;
+    border-color: #40516d;
+}
+
+body[data-theme="dark"] .price-row strong {
+    color: #f1f4fa;
+}
+
+body[data-theme="dark"] .theme-toggle {
+    background: #263650;
+    border-color: #40516d;
+    color: white;
+}
+
+body[data-theme="dark"] .theme-toggle:hover {
+    border-color: #8eafff;
+}
+
+body[data-theme="dark"] .mobile-bottom-nav {
+    background: #182338;
+}
+
+body[data-theme="dark"] .mobile-bottom-nav a {
+    color: #e1e8f5;
+}
+
+body[data-theme="dark"] .consultation-section {
+    background: #0c1525;
+}
+
+body[data-theme="dark"] footer {
+    background: #080f1c;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links > a,
+    .nav-dropdown > button {
+        font-size: 12px;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
 
     .service-grid,
-    .product-grid,
-    .steps-grid {
-        grid-template-columns: repeat(2,1fr);
+    .process-grid {
+        gap: 16px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .consultation-container {
+        gap: 25px;
+    }
+
+    .booking-card {
+        padding: 25px;
     }
 }
 
-@media (max-width:760px) {
-    .navbar { min-height: 72px; }
+@media (max-width: 760px) {
 
-    .brand-logo img {
-        width: 68px;
-        height: 60px;
+    .navbar {
+        min-height: 72px;
     }
 
-    .brand-logo { gap: 8px; }
+    .brand-logo img {
+        width: 65px;
+        height: 58px;
+    }
 
-    .brand-name { font-size: 17px; }
+    .brand-logo {
+        gap: 8px;
+    }
 
-    .menu-toggle { display: block; }
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 
     .nav-links {
         display: none;
@@ -923,48 +1302,94 @@ footer {
         left: 0;
         right: 0;
         background: white;
-        padding: 20px 5%;
+        padding: 18px 5% 24px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         box-shadow: var(--shadow);
-        gap: 18px;
+        gap: 5px;
     }
 
-    .nav-links.active { display: flex; }
-    .nav-actions { display: none; }
+    .nav-links.active {
+        display: flex;
+    }
 
-    .hero { min-height: 510px; }
+    .nav-links > a,
+    .nav-dropdown > button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 11px 0;
+        font-size: 14px;
+    }
 
-    .hero-background img { object-position: center; }
+    .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid var(--green);
+        border-radius: 0;
+        margin: 0 0 8px 10px;
+        padding: 4px 10px;
+    }
 
-    .hero-content { padding: 75px 0; }
+    .nav-dropdown.open .dropdown-menu {
+        display: block;
+    }
 
-    .hero p { font-size: 16px; }
+    .nav-actions {
+        display: flex;
+        margin-left: auto;
+        gap: 6px;
+    }
 
-    .section { padding: 65px 0; }
+    .theme-toggle {
+        padding: 8px;
+        font-size: 11px;
+    }
 
-    .intro-grid,
-    .about-grid,
-    .contact-grid {
+    .login-link {
+        font-size: 11px;
+        padding: 9px 10px;
+    }
+
+    .hero {
+        min-height: 510px;
+    }
+
+    .hero-content {
+        padding: 75px 0;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .service-grid,
+    .process-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
 
-    .intro-image img,
-    .about-image img {
-        height: 280px;
+    .destination-grid {
+        gap: 12px;
     }
 
-    .destination-grid { gap: 12px; }
-
-    .destination-card { padding: 23px 10px; }
+    .destination-card {
+        padding: 23px 10px;
+    }
 
     .destination-card img {
         width: 65px;
         height: 50px;
     }
 
-    .destination-card h3 { font-size: 14px; }
+    .destination-card h3 {
+        font-size: 14px;
+    }
 
     .partner-group {
         gap: 35px;
@@ -976,20 +1401,21 @@ footer {
         height: 75px;
     }
 
-    .tracking-content h2,
-    .cta h2 {
-        font-size: 28px;
+    .consultation-section {
+        padding: 65px 0;
     }
 
-    .tracking-form {
-        flex-direction: column;
-        background: transparent;
-        padding: 0;
+    .consultation-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .tracking-form input {
-        border-radius: 6px;
-        padding: 15px;
+    .booking-card {
+        padding: 23px;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .footer-grid {
@@ -1006,7 +1432,7 @@ footer {
         background: white;
         box-shadow: 0 -3px 15px rgba(0,0,0,.09);
         display: grid;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(4, 1fr);
         padding: 9px 4px;
     }
 
@@ -1023,170 +1449,78 @@ footer {
         margin-bottom: 2px;
     }
 
-    body { padding-bottom: 65px; }
+    body {
+        padding-bottom: 65px;
+    }
 }
 
-@media (max-width:480px) {
-    .service-grid,
-    .product-grid,
-    .steps-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 480px) {
+
+    .nav-actions {
+        gap: 5px;
     }
 
-    .destination-grid {
-        grid-template-columns: repeat(3,1fr);
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        padding: 0;
     }
 
-    .footer-grid { grid-template-columns: 1fr; }
+    .theme-toggle .theme-text {
+        display: none;
+    }
+
+    .login-link {
+        font-size: 10px;
+        padding: 9px 8px;
+    }
 
     .hero-buttons {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .hero-buttons .btn { width: 100%; }
-
-    .contact-form { padding: 20px; }
-}
-
-/* DARK THEME */
-
-body[data-theme="dark"] {
-    --dark: #e8edf7;
-    --text: #b7c2d5;
-    --light: #172438;
-    --white: #111c2e;
-    --border: #2c3b52;
-    --shadow: 0 12px 35px rgba(0,0,0,.25);
-    background: #0d1727;
-    color: var(--dark);
-}
-
-body[data-theme="dark"] header {
-    background: #111c2e;
-}
-
-body[data-theme="dark"] .nav-links a {
-    color: #d6deeb;
-}
-
-body[data-theme="dark"] .nav-links {
-    background: #111c2e;
-}
-
-body[data-theme="dark"] .brand-name {
-    color: #8eafff;
-}
-
-body[data-theme="dark"] .destination-card,
-body[data-theme="dark"] .service-card,
-body[data-theme="dark"] .step-card {
-    background: #172438;
-    color: var(--dark);
-}
-
-body[data-theme="dark"] .destination-card h3,
-body[data-theme="dark"] .service-card h3,
-body[data-theme="dark"] .step-card h3,
-body[data-theme="dark"] .section-heading h2,
-body[data-theme="dark"] .intro-text h2,
-body[data-theme="dark"] .about-text h2,
-body[data-theme="dark"] .contact-info h2 {
-    color: var(--dark);
-}
-
-body[data-theme="dark"] .destinations,
-body[data-theme="dark"] .services,
-body[data-theme="dark"] .steps {
-    background: #121f32;
-}
-
-body[data-theme="dark"] .contact-form {
-    background: #172438;
-}
-
-body[data-theme="dark"] .form-group input,
-body[data-theme="dark"] .form-group textarea,
-body[data-theme="dark"] .form-group select {
-    background: #0f1b2d;
-    color: #e8edf7;
-    border-color: #35445b;
-}
-
-body[data-theme="dark"] .theme-toggle,
-body[data-theme="dark"] .profile-button {
-    background: #1c2b42;
-    color: #e8edf7;
-    border-color: #35445b;
-}
-
-body[data-theme="dark"] .profile-menu {
-    background: #172438;
-    border-color: #35445b;
-}
-
-body[data-theme="dark"] .profile-menu-heading strong,
-body[data-theme="dark"] .profile-menu a,
-body[data-theme="dark"] .profile-menu button {
-    color: #e8edf7;
-}
-
-body[data-theme="dark"] .profile-menu a:hover,
-body[data-theme="dark"] .profile-menu button:hover {
-    background: #243650;
-}
-
-body[data-theme="dark"] .mobile-bottom-nav {
-    background: #111c2e;
-}
-
-body[data-theme="dark"] .mobile-bottom-nav a {
-    color: #c5d0e2;
-}
-
-/* MOBILE HEADER CONTROLS */
-
-@media (max-width:760px) {
-    .nav-actions {
-        display: flex;
-        gap: 7px;
+    .hero-buttons .btn {
+        width: 100%;
     }
 
-    .theme-toggle {
-        padding: 8px;
-        font-size: 0;
-        min-width: 38px;
+    .destination-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .theme-toggle span:first-child {
-        font-size: 17px;
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 
-    .guest-actions { gap: 8px; }
-
-    .login-link { font-size: 12px; }
-
-    .signup-btn {
-        padding: 8px 10px;
-        font-size: 11px;
+    .product-card {
+        min-height: 230px;
     }
 
-    .profile-button {
-        padding: 4px;
-        gap: 5px;
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
 
-    .profile-name,
-    .profile-chevron {
-        display: none;
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .profile-avatar {
-        width: 32px;
-        height: 32px;
+    .booking-card {
+        padding: 19px;
     }
 
-    .profile-menu { right: -8px; }
+    .consultation-intro h2 {
+        font-size: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
 }
 </style>
 </head>
@@ -1199,10 +1533,7 @@ body[data-theme="dark"] .mobile-bottom-nav a {
     <div class="container navbar">
 
         <a href="index.html" class="brand-logo">
-            <img
-                src="company logo.png.jpg"
-                alt="M&M Logistics (SL) Ltd Logo"
-            >
+            <img src="company logo.png.jpg" alt="M&M Logistics Logo">
             <span class="brand-name">M&amp;M Logistics</span>
         </a>
 
@@ -1214,11 +1545,36 @@ body[data-theme="dark"] .mobile-bottom-nav a {
         >☰</button>
 
         <nav class="nav-links" id="navLinks">
+
             <a href="index.html">Home</a>
-            <a href="service.html">Services</a>
-            <a href="tracking.html">Track Shipping</a>
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact</a>
+
+            <div class="nav-dropdown">
+                <button type="button" class="dropdown-toggle">
+                    Services ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="service.html#logistics">Logistics &amp; Procurement</a>
+                    <a href="service.html#visa">China Visa Assistance</a>
+                    <a href="service.html#china-travel">China Business &amp; Travel Support</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button type="button" class="dropdown-toggle">
+                    Products ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="automotive.html">Automotive</a>
+                    <a href="electronics.html">Electronics</a>
+                    <a href="furniture.html">Furniture</a>
+                    <a href="industrial.html">Industrial, Commercial &amp; Furniture</a>
+                </div>
+            </div>
+
+            <a href="about.html">About Us</a>
+
         </nav>
 
         <div class="nav-actions">
@@ -1228,57 +1584,19 @@ body[data-theme="dark"] .mobile-bottom-nav a {
                 id="themeToggle"
                 type="button"
                 aria-label="Switch to dark theme"
-                title="Switch theme"
+                title="Change website theme"
             >
-                <span id="themeIcon">🌙</span>
-                <span id="themeLabel">Dark Mode</span>
+                <span class="theme-icon" id="themeIcon">🌙</span>
+                <span class="theme-text" id="themeText">Dark Mode</span>
             </button>
 
-            <div class="account-area" id="accountArea">
+            <a href="login.html" class="login-link">Login</a>
 
-                <!-- DISPLAYED WHEN CUSTOMER IS NOT LOGGED IN -->
-
-                <div class="guest-actions" id="guestActions">
-                    <a href="login.html" class="login-link">Login</a>
-                    <a href="signup.html" class="signup-btn">Sign up</a>
-                </div>
-
-                <!-- DISPLAYED WHEN CUSTOMER IS LOGGED IN -->
-
-                <div class="profile-wrapper" id="profileWrapper" hidden>
-
-                    <button
-                        class="profile-button"
-                        id="profileButton"
-                        type="button"
-                        aria-expanded="false"
-                    >
-                        <span class="profile-avatar" id="profileAvatar">C</span>
-                        <span class="profile-name" id="profileName">My Account</span>
-                        <span class="profile-chevron">▾</span>
-                    </button>
-
-                    <div class="profile-menu" id="profileMenu" hidden>
-
-                        <div class="profile-menu-heading">
-                            <strong id="profileMenuName">Customer</strong>
-                            <small id="profileMenuEmail"></small>
-                        </div>
-
-                        <a href="tracking.html">Customer Dashboard</a>
-                        <a href="tracking.html">My Shipments</a>
-
-                        <button type="button" id="signOutButton">
-                            Sign Out
-                        </button>
-
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
 </header>
+
 
 <!-- HERO -->
 
@@ -1287,24 +1605,29 @@ body[data-theme="dark"] .mobile-bottom-nav a {
     <div class="hero-background">
         <img
             src="hero-logistics.png"
-            alt="International logistics and shipping background"
+            alt="International logistics, cargo and shipping operations"
         >
     </div>
 
     <div class="container">
+
         <div class="hero-content">
 
-            <h1>Need to buy something in China?</h1>
+            <h1>
+                Connecting China to West Africa. Making Business Easier.
+            </h1>
 
             <p>
-                Tell us what you need. We’ll source it, purchase it
-                and ship it to Sierra Leone, Ghana or Nigeria.
+                From product sourcing and international shipping
+                to China visa assistance and business travel support,
+                we help individuals and businesses access opportunities
+                in China.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="#contact" class="btn btn-primary">
-                    Request a Quote
+                <a href="service.html" class="btn btn-primary">
+                    Explore Our Services
                 </a>
 
                 <a href="#products" class="btn btn-outline">
@@ -1314,64 +1637,138 @@ body[data-theme="dark"] .mobile-bottom-nav a {
             </div>
 
         </div>
+
     </div>
 
 </section>
 
-<!-- INTRODUCTION -->
 
-<section class="section">
-    <div class="container intro-grid">
+<!-- OUR CORE SERVICES -->
 
-        <div class="intro-image">
-            <img
-                src="M&M Logistics Warehouse Operations.png"
-                alt="International logistics and warehouse operations"
-            >
-        </div>
+<section class="section services" id="services">
 
-        <div class="intro-text">
-
-            <span style="color:var(--green);font-weight:800;">
-                YOUR LOGISTICS PARTNER
-            </span>
-
-            <h2>From China to your doorstep.</h2>
-
-            <p>
-                M&M Logistics (SL) Ltd helps individuals and businesses
-                source products, manage procurement and coordinate
-                international shipping from China to West Africa.
-            </p>
-
-            <p>
-                Whether you are purchasing one product or sourcing
-                commercial quantities, we help simplify the process
-                from supplier identification to delivery.
-            </p>
-
-            <ul class="check-list">
-                <li>Reliable product sourcing</li>
-                <li>Professional procurement support</li>
-                <li>International freight coordination</li>
-                <li>Shipping support across West Africa</li>
-            </ul>
-
-            <a href="#about" class="btn btn-primary">
-                Learn More About Us
-            </a>
-
-        </div>
-    </div>
-</section>
-
-<!-- SHIPPING DESTINATIONS -->
-
-<section class="section destinations">
     <div class="container">
 
         <div class="section-heading">
-            <h2>OUR SHIPPING DESTINATIONS</h2>
+            <span>WHAT WE OFFER</span>
+            <h2>Our Core Services</h2>
+            <p>
+                We provide practical solutions for businesses,
+                entrepreneurs and individuals looking to source products,
+                travel and establish business connections in China.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <article class="service-card">
+
+                <img
+                    src="M&M Logistics Warehouse Operations.png"
+                    alt="Product sourcing, procurement and logistics"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">DIVISION 01</span>
+
+                    <h3>Logistics &amp; Procurement Services</h3>
+
+                    <p>
+                        We help customers identify products and suppliers,
+                        coordinate purchases and arrange international
+                        shipping from China to West Africa through
+                        air freight and sea freight.
+                    </p>
+
+                    <a href="service.html#logistics" class="text-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <img
+                    src="hero-logistics.png"
+                    alt="China visa assistance"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">DIVISION 02</span>
+
+                    <h3>China Visa Assistance</h3>
+
+                    <p>
+                        We assist individuals preparing to travel
+                        to China with business and tourist visa
+                        application guidance and support.
+                    </p>
+
+                    <a href="service.html#visa" class="text-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <img
+                    src="flow.png"
+                    alt="China business travel and market support"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">DIVISION 03</span>
+
+                    <h3>China Business &amp; Travel Support</h3>
+
+                    <p>
+                        We help visitors organise airport pickup,
+                        hotel reservations and market guidance
+                        during their visit to China.
+                    </p>
+
+                    <a href="service.html#china-travel" class="text-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="services-action">
+            <a href="service.html" class="btn btn-secondary">
+                Explore All Our Services
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section class="section destinations" id="destinations">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <span>OUR SHIPPING NETWORK</span>
+            <h2>Our Shipment Destinations</h2>
+            <p>
+                We support the movement of goods from China
+                to selected West African destinations.
+            </p>
         </div>
 
         <div class="destination-grid">
@@ -1392,22 +1789,31 @@ body[data-theme="dark"] .mobile-bottom-nav a {
             </div>
 
         </div>
+
     </div>
+
 </section>
+
 
 <!-- PARTNERS -->
 
-<section class="partners">
+<section class="partners" id="partners">
+
     <div class="container">
 
         <div class="section-heading">
             <span>OUR NETWORK</span>
-            <h2>OUR PARTNERS</h2>
+            <h2>Our Partners</h2>
+            <p>
+                We value the relationships and collaborations
+                that support our business operations and services.
+            </p>
         </div>
 
     </div>
 
     <div class="partner-marquee">
+
         <div class="partner-track">
 
             <div class="partner-group">
@@ -1437,12 +1843,10 @@ body[data-theme="dark"] .mobile-bottom-nav a {
                 </div>
 
                 <div class="partner-logo">
-                    <img src="newpartner.png.jpeg" alt="New Partner">
+                    <img src="newpartner.png.jpeg" alt="Additional partner">
                 </div>
 
             </div>
-
-            <!-- DUPLICATED LOGOS FOR CONTINUOUS MARQUEE -->
 
             <div class="partner-group" aria-hidden="true">
 
@@ -1471,396 +1875,649 @@ body[data-theme="dark"] .mobile-bottom-nav a {
                 </div>
 
                 <div class="partner-logo">
-                    <img src="new-partner-logo.png" alt="">
+                    <img src="newpartner.png.jpeg" alt="">
                 </div>
 
             </div>
 
         </div>
+
     </div>
+
 </section>
 
-<!-- SERVICES -->
 
-<section class="section services" id="services">
-    <div class="container">
+<!-- PRODUCTS -->
 
-        <div class="section-heading">
-            <span>WHAT WE DO</span>
-            <h2>Our Services</h2>
-            <p>
-                We provide integrated sourcing, procurement and
-                international logistics solutions for individuals
-                and businesses.
-            </p>
-        </div>
+<section class="section products" id="products">
 
-        <div class="service-grid">
-
-            <div class="service-card">
-                <div class="service-icon">⌕</div>
-                <h3>Product Sourcing</h3>
-                <p>
-                    We help identify reliable suppliers and suitable
-                    products in China based on your requirements.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">▤</div>
-                <h3>Procurement</h3>
-                <p>
-                    We support purchasing, supplier communication
-                    and coordination of your orders.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🚢</div>
-                <h3>Sea Freight</h3>
-                <p>
-                    Cost-effective shipping solutions for commercial
-                    goods and larger consignments.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">✈</div>
-                <h3>Air Freight</h3>
-                <p>
-                    Air cargo coordination for shipments requiring
-                    faster international transportation.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- PRODUCT CATEGORIES -->
-
-<section class="section" id="products">
     <div class="container">
 
         <div class="section-heading">
             <span>EXPLORE OUR CATEGORIES</span>
             <h2>Products We Can Source</h2>
             <p>
-                Tell us what you are looking for and our team can
-                assist with sourcing and procurement.
+                From vehicles and electronics to furniture,
+                machinery and commercial supplies, we help
+                customers identify products and coordinate
+                sourcing from suppliers in China.
             </p>
         </div>
 
         <div class="product-grid">
 
-            <div class="product-card">
+            <a href="automotive.html" class="product-card">
+
                 <img src="Automotive.png" alt="Automotive products">
-                <div class="product-overlay">
-                    <h3>Automotive</h3>
-                </div>
-            </div>
 
-            <div class="product-card">
-                <img src="electronics.png" alt="Electronic products">
                 <div class="product-overlay">
-                    <h3>Electronics</h3>
+                    <div>
+                        <h3>Automotive</h3>
+                        <p>Cars, SUVs, trucks, commercial vehicles and spare parts.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card">
-                <img src="fashion.png" alt="Fashion and lifestyle products">
+            </a>
+
+            <a href="electronics.html" class="product-card">
+
+                <img src="electronics.png" alt="Electronics products">
+
                 <div class="product-overlay">
-                    <h3>Fashion &amp; Lifestyle</h3>
+                    <div>
+                        <h3>Electronics</h3>
+                        <p>Computers, smartphones and electronic equipment.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card">
+            </a>
+
+            <a href="furniture.html" class="product-card">
+
+                <img src="furniture.png" alt="Furniture products">
+
+                <div class="product-overlay">
+                    <div>
+                        <h3>Furniture</h3>
+                        <p>House and Office Furniture.</p>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="industrial.html" class="product-card">
+
                 <img src="commercial.png" alt="Industrial and commercial products">
+
                 <div class="product-overlay">
-                    <h3>Industrial &amp; Commercial</h3>
+                    <div>
+                        <h3>Industrial &amp; Commercial</h3>
+                        <p>Machinery, tools, equipment, furniture and commercial supplies.</p>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- HOW IT WORKS -->
-
-<section class="section steps" id="how-it-works">
-    <div class="container">
-
-        <div class="section-heading">
-            <span>OUR PROCESS</span>
-            <h2>How Our Services Work</h2>
-            <p>
-                From your initial enquiry to shipment coordination,
-                our process is organised around your requirements.
-            </p>
-        </div>
-
-        <div class="steps-grid">
-
-            <div class="step-card">
-                <div class="step-number">01</div>
-                <h3>Submit Your Request</h3>
-                <p>
-                    Tell us the product you want to source, purchase or ship.
-                </p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">02</div>
-                <h3>Receive a Quotation</h3>
-                <p>
-                    We review your requirements and provide relevant
-                    pricing and service information.
-                </p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">03</div>
-                <h3>Confirm Your Order</h3>
-                <p>
-                    Review and confirm the purchasing and shipping
-                    arrangements.
-                </p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">04</div>
-                <h3>Procurement</h3>
-                <p>
-                    The purchasing process is coordinated according
-                    to the confirmed order.
-                </p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">05</div>
-                <h3>Shipping Coordination</h3>
-                <p>
-                    Your goods are prepared and arranged for the
-                    selected freight method.
-                </p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">06</div>
-                <h3>Shipment Updates</h3>
-                <p>
-                    Follow up on your shipment through the available
-                    tracking arrangements.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- SHIPMENT TRACKING -->
-
-<section class="section tracking" id="tracking">
-    <div class="container">
-
-        <div class="tracking-content">
-
-            <h2>Track Your Shipment</h2>
-
-            <p>
-                Enter your shipment tracking number to check
-                the status of your delivery.
-            </p>
-
-            <form class="tracking-form" id="trackingForm">
-
-                <input
-                    type="text"
-                    id="trackingNumber"
-                    placeholder="Enter your tracking number"
-                    required
-                >
-
-                <button type="submit" class="btn btn-primary">
-                    Track Shipment
-                </button>
-
-            </form>
-
-            <div class="tracking-result" id="trackingResult"></div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT US -->
-
-<section class="section" id="about">
-    <div class="container about-grid">
-
-        <div class="about-text">
-
-            <span style="color:var(--green);font-weight:800;">
-                ABOUT M&amp;M LOGISTICS
-            </span>
-
-            <h2>
-                Connecting businesses through sourcing and logistics.
-            </h2>
-
-            <p>
-                M&amp;M Logistics (SL) Ltd is focused on simplifying
-                international sourcing, procurement and shipping
-                for customers across West Africa.
-            </p>
-
-            <p>
-                We understand the challenges individuals and
-                businesses face when purchasing products
-                internationally. Our goal is to make the process
-                more accessible, organised and convenient.
-            </p>
-
-            <p>
-                Through our sourcing and logistics network,
-                we aim to support customers in Sierra Leone,
-                Ghana and Nigeria.
-            </p>
-
-            <a href="#contact" class="btn btn-primary">
-                Contact Our Team
             </a>
 
         </div>
 
-        <div class="about-image">
-            <img src="flow.png" alt="Logistics and international shipping">
+        <div class="products-action">
+            <a href="service.html#logistics" class="btn btn-secondary">
+                Request Product Sourcing Assistance
+            </a>
         </div>
 
     </div>
+
 </section>
 
-<!-- CALL TO ACTION -->
 
-<section class="cta">
+<!-- HOW OUR SERVICES WORK -->
+
+<section class="section process-section" id="how-it-works">
+
     <div class="container">
 
-        <h2>Ready to Source Your Products from China?</h2>
+        <div class="section-heading">
+            <span>OUR PROCESS AND PRICING</span>
+            <h2>How Our Services Work</h2>
+            <p>
+                Each of our three service divisions follows
+                a different process and pricing structure.
+                Explore how we work and what charges apply.
+            </p>
+        </div>
 
-        <p>
-            Let us help you find, purchase and ship what you need.
-        </p>
+        <div class="process-grid">
 
-        <a href="#contact" class="btn btn-primary">
-            Request a Quote Today
-        </a>
+            <!-- LOGISTICS -->
+
+            <article class="process-card">
+
+                <div class="process-card-top">
+                    <span class="division">DIVISION 01</span>
+                    <h3>Logistics &amp; Procurement</h3>
+                    <p class="process-card-intro">
+                        From product sourcing and procurement
+                        to international air and sea freight.
+                    </p>
+                </div>
+
+                <ol class="process-list">
+                    <li><span>1</span>Customer submits product requirements and specifications.</li>
+                    <li><span>2</span>M&amp;M identifies suitable products and suppliers.</li>
+                    <li><span>3</span>Customer reviews and approves the quotation.</li>
+                    <li><span>4</span>Procurement and purchasing coordination begins.</li>
+                    <li><span>5</span>Goods are received and prepared for shipment.</li>
+                    <li><span>6</span>Air or sea freight is arranged and shipment updates are provided.</li>
+                </ol>
+
+                <div class="pricing-box">
+
+                    <h4>Procurement Service Charges</h4>
+
+                    <div class="price-row">
+                        <span>Minimum order value</span>
+                        <strong>$1,500</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Upfront processing fee</span>
+                        <strong>$50</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>$1,500 – $10,000</span>
+                        <strong class="price-highlight">10%</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Above $10,000 – $50,000</span>
+                        <strong class="price-highlight">5%</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Above $50,000</span>
+                        <strong class="price-highlight">3%</strong>
+                    </div>
+
+                    <p class="pricing-note">
+                        Orders below $1,500 are not accepted.
+                        The $50 upfront fee applies to every accepted
+                        order in addition to the applicable percentage
+                        service charge. Percentages are calculated
+                        on the full purchase value. Product costs,
+                        freight, customs duties and other applicable
+                        charges are separate.
+                    </p>
+
+                </div>
+
+                <a href="service.html#logistics" class="text-link">
+                    View Logistics Details →
+                </a>
+
+            </article>
+
+
+            <!-- VISA -->
+
+            <article class="process-card">
+
+                <div class="process-card-top">
+                    <span class="division">DIVISION 02</span>
+                    <h3>China Visa Assistance</h3>
+                    <p class="process-card-intro">
+                        Application assistance for individuals
+                        travelling to China for business or tourism.
+                    </p>
+                </div>
+
+                <ol class="process-list">
+                    <li><span>1</span>Customer selects Business Visa or Tourist Visa assistance.</li>
+                    <li><span>2</span>M&amp;M provides the relevant document requirements.</li>
+                    <li><span>3</span>Customer submits the required application documents.</li>
+                    <li><span>4</span>Application preparation and assistance are provided.</li>
+                    <li><span>5</span>Customer follows the relevant submission and appointment process.</li>
+                    <li><span>6</span>The application outcome is communicated by the relevant authorities.</li>
+                </ol>
+
+                <div class="pricing-box">
+
+                    <h4>Visa Assistance Charges</h4>
+
+                    <div class="price-row">
+                        <span>Initial assistance fee</span>
+                        <strong>$50</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Additional fee upon approval</span>
+                        <strong>$50</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Total M&amp;M fees upon approval</span>
+                        <strong class="price-highlight">$100</strong>
+                    </div>
+
+                    <p class="pricing-note">
+                        These charges cover M&amp;M's visa application
+                        assistance only. They do not include the official
+                        Chinese Embassy visa application fee or other
+                        applicable third-party charges. Visa approval
+                        is not guaranteed and remains subject to the
+                        decision of the relevant authorities.
+                    </p>
+
+                </div>
+
+                <a href="service.html#visa" class="text-link">
+                    View Visa Assistance Details →
+                </a>
+
+            </article>
+
+
+            <!-- TRAVEL SUPPORT -->
+
+            <article class="process-card">
+
+                <div class="process-card-top">
+                    <span class="division">DIVISION 03</span>
+                    <h3>China Business &amp; Travel Support</h3>
+                    <p class="process-card-intro">
+                        Practical travel arrangements and
+                        market guidance for visitors to China.
+                    </p>
+                </div>
+
+                <ol class="process-list">
+                    <li><span>1</span>Customer submits travel dates and visit requirements.</li>
+                    <li><span>2</span>M&amp;M discusses the support services required.</li>
+                    <li><span>3</span>Airport pickup and transportation arrangements are discussed.</li>
+                    <li><span>4</span>Suitable hotel accommodation is identified and arranged.</li>
+                    <li><span>5</span>Market guidance and visit arrangements are planned.</li>
+                    <li><span>6</span>Customer receives the agreed travel support.</li>
+                </ol>
+
+                <div class="pricing-box">
+
+                    <h4>Travel Support Charges</h4>
+
+                    <div class="price-row">
+                        <span>Initial arrangement fee</span>
+                        <strong>$50</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Airport pickup</span>
+                        <strong>By quotation</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Hotel reservation</span>
+                        <strong>By quotation</strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span>China market guide</span>
+                        <strong>By quotation</strong>
+                    </div>
+
+                    <p class="pricing-note">
+                        Additional charges depend on the services
+                        selected, travel locations, accommodation
+                        requirements and duration. A quotation
+                        will be provided before arrangements
+                        are confirmed.
+                    </p>
+
+                </div>
+
+                <a href="service.html#china-travel" class="text-link">
+                    View China Travel Details →
+                </a>
+
+            </article>
+
+        </div>
 
     </div>
+
 </section>
 
-<!-- CONTACT -->
 
-<section class="section" id="contact">
-    <div class="container contact-grid">
+<!-- PAID CONSULTATION BOOKING -->
 
-        <div class="contact-info">
+<section class="consultation-section" id="consultation">
 
-            <span style="color:var(--green);font-weight:800;">
-                GET IN TOUCH
+    <div class="container consultation-container">
+
+        <div class="consultation-intro">
+
+            <span class="consultation-label">
+                PERSONALIZED CONSULTATION
             </span>
 
-            <h2>Let's Talk About Your Next Shipment</h2>
+            <h2>Ready to Connect with China?</h2>
 
             <p>
-                Have a product in mind or need assistance with
-                procurement and shipping? Contact our team.
+                Have questions about sourcing products, shipping goods,
+                travelling to China or exploring business opportunities?
+                Book a one-on-one consultation with our team.
             </p>
 
-            <div class="contact-item">
-                <strong>WhatsApp / Sierra Leone</strong>
-                <a href="https://wa.me/23230172868">
-                    +232 30 172 868
-                </a>
-            </div>
+            <ul class="consultation-benefits">
 
-            <div class="contact-item">
-                <strong>China Contact</strong>
-                <p>+86 131 5627 1080</p>
-                <p>+86 175 4399 5848</p>
-            </div>
+                <li>
+                    <span>✓</span>
+                    Discuss your specific business or travel requirements.
+                </li>
 
-            <div class="contact-item">
-                <strong>Shipping Destinations</strong>
-                <p>Sierra Leone | Ghana | Nigeria</p>
+                <li>
+                    <span>✓</span>
+                    Get guidance on the services that best suit your needs.
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Ask questions directly during a dedicated session.
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Choose a date and preferred time that works for you.
+                </li>
+
+            </ul>
+
+            <div class="consultation-price">
+                <strong>$10</strong>
+                <div>
+                    <small>20-minute one-on-one call</small>
+                    <small>Consultation booking fee</small>
+                </div>
             </div>
 
         </div>
 
-        <form class="contact-form" id="contactForm">
 
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Enter your full name"
-                    required
+        <!-- BOOKING FORM -->
+
+        <div class="booking-card">
+
+            <h3>Book Your Consultation</h3>
+
+            <p class="booking-subtitle">
+                Complete the details below to request your appointment.
+            </p>
+
+            <form class="booking-form" id="consultationForm">
+
+                <div class="form-section-title">
+                    01. Personal Information
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="customerEmail">Email Address *</label>
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        name="customerEmail"
+                        placeholder="Enter your email address"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="customerWhatsApp">WhatsApp Number *</label>
+                    <input
+                        type="tel"
+                        id="customerWhatsApp"
+                        name="customerWhatsApp"
+                        placeholder="e.g. +232 30 172 868"
+                        required
+                    >
+                    <small class="form-hint">
+                        Include your country code so we can contact you.
+                    </small>
+                </div>
+
+
+                <div class="form-section-title">
+                    02. Areas of Focus
+                </div>
+
+                <div class="form-group">
+
+                    <label>Which services would you like to discuss? *</label>
+
+                    <div class="multi-select" id="serviceMultiSelect">
+
+                        <button
+                            type="button"
+                            class="multi-select-trigger"
+                            id="serviceDropdownButton"
+                            aria-expanded="false"
+                        >
+                            <span id="serviceDropdownText">
+                                Select your areas of focus
+                            </span>
+                            <span>⌄</span>
+                        </button>
+
+                        <div
+                            class="multi-select-options"
+                            id="serviceDropdownOptions"
+                        >
+
+                            <label class="service-option">
+                                <input
+                                    type="checkbox"
+                                    name="focus"
+                                    value="Logistics & Procurement"
+                                >
+                                <span>Logistics &amp; Procurement</span>
+                            </label>
+
+                            <label class="service-option">
+                                <input
+                                    type="checkbox"
+                                    name="focus"
+                                    value="China Visa Assistance"
+                                >
+                                <span>China Visa Assistance</span>
+                            </label>
+
+                            <label class="service-option">
+                                <input
+                                    type="checkbox"
+                                    name="focus"
+                                    value="China Business & Travel Support"
+                                >
+                                <span>China Business &amp; Travel Support</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="selected-services" id="selectedServices"></div>
+
+                    <small class="form-hint">
+                        Select one service, two services or all three services.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="discussionDetails">
+                        What would you like to discuss?
+                    </label>
+
+                    <textarea
+                        id="discussionDetails"
+                        name="discussionDetails"
+                        placeholder="Briefly describe your requirements, questions or business plans..."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-section-title">
+                    03. Schedule Your Consultation
+                </div>
+
+                <div class="form-group">
+                    <label for="consultationDate">Preferred Date *</label>
+
+                    <input
+                        type="date"
+                        id="consultationDate"
+                        name="consultationDate"
+                        required
+                    >
+
+                    <small class="form-hint">
+                        Select your preferred appointment date.
+                    </small>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Preferred Time Slot *</label>
+
+                    <div class="time-slots">
+
+                        <div class="time-slot">
+                            <input type="radio" id="time0900" name="consultationTime" value="9:00 AM" required>
+                            <label for="time0900">9:00 AM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time1000" name="consultationTime" value="10:00 AM">
+                            <label for="time1000">10:00 AM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time1100" name="consultationTime" value="11:00 AM">
+                            <label for="time1100">11:00 AM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time1400" name="consultationTime" value="2:00 PM">
+                            <label for="time1400">2:00 PM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time1500" name="consultationTime" value="3:00 PM">
+                            <label for="time1500">3:00 PM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time1600" name="consultationTime" value="4:00 PM">
+                            <label for="time1600">4:00 PM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time2000" name="consultationTime" value="8:00 PM">
+                            <label for="time2000">8:00 PM</label>
+                        </div>
+
+                        <div class="time-slot">
+                            <input type="radio" id="time2100" name="consultationTime" value="9:00 PM">
+                            <label for="time2100">9:00 PM</label>
+                        </div>
+
+                    </div>
+
+                    <small class="form-hint">
+                        All sessions are 20 minutes. Times are subject
+                        to availability and confirmation.
+                    </small>
+
+                </div>
+
+
+                <div class="form-section-title">
+                    04. Booking Summary
+                </div>
+
+                <div class="booking-summary">
+
+                    <div class="summary-row">
+                        <span>Consultation</span>
+                        <strong>20 minutes</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Selected services</span>
+                        <strong id="summaryServices">Not selected</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Booking type</span>
+                        <strong>One-on-one call</strong>
+                    </div>
+
+                    <div class="summary-row summary-total">
+                        <span>Consultation Fee</span>
+                        <strong>$10.00 USD</strong>
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="booking-submit"
+                    id="bookingSubmit"
                 >
-            </div>
+                    Continue to Payment – $10
+                </button>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
-            </div>
+                <p class="booking-disclaimer">
+                    Your appointment is not confirmed until payment
+                    has been completed and the selected time slot
+                    has been verified.
+                </p>
 
-            <div class="form-group">
-                <label for="destination">Shipping Destination</label>
-                <select id="destination" required>
-                    <option value="">Select destination</option>
-                    <option>Sierra Leone</option>
-                    <option>Ghana</option>
-                    <option>Nigeria</option>
-                </select>
-            </div>
+                <p class="whatsapp-alternative">
+                    Have a question first?
+                    <a
+                        href="https://wa.me/23230172868"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Chat with us on WhatsApp
+                    </a>
+                </p>
 
-            <div class="form-group">
-                <label for="service">Service Required</label>
-                <select id="service" required>
-                    <option value="">Select a service</option>
-                    <option>Product Sourcing</option>
-                    <option>Procurement</option>
-                    <option>Sea Freight</option>
-                    <option>Air Freight</option>
-                    <option>Other</option>
-                </select>
-            </div>
+            </form>
 
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea
-                    id="message"
-                    placeholder="Tell us what you need..."
-                    required
-                ></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Submit Enquiry
-            </button>
-
-        </form>
+        </div>
 
     </div>
+
 </section>
+
 
 <!-- FOOTER -->
 
 <footer>
+
     <div class="container">
 
         <div class="footer-grid">
@@ -1868,98 +2525,124 @@ body[data-theme="dark"] .mobile-bottom-nav a {
             <div class="footer-about">
 
                 <a href="index.html" class="footer-logo">
-                    <img
-                        src="company logo.png.jpg"
-                        alt="M&amp;M Logistics (SL) Ltd Logo"
-                    >
+                    <img src="company logo.png.jpg" alt="M&M Logistics Logo">
                 </a>
 
                 <p>
-                    M&amp;M Logistics (SL) Ltd provides product sourcing,
-                    procurement and international logistics solutions
-                    connecting China to West Africa.
+                    M&amp;M Logistics (SL) Ltd provides product
+                    sourcing, procurement, international logistics,
+                    China visa assistance and business travel
+                    support connecting China with West Africa.
                 </p>
 
             </div>
 
+
             <div class="footer-column">
+
                 <h3>Quick Links</h3>
+
                 <a href="index.html">Home</a>
-                <a href="services.html">Our Services</a>
-                <a href="tracking.html">Track Shipping</a>
+                <a href="service.html">Our Services</a>
                 <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
+                <a href="login.html">Customer Login</a>
+
             </div>
 
+
             <div class="footer-column">
+
                 <h3>Our Services</h3>
-                <a href="services.html#sourcing">Product Sourcing</a>
-                <a href="services.html#procurement">Procurement</a>
-                <a href="services.html#shipping">Sea Freight</a>
-                <a href="services.html#shipping">Air Freight</a>
+
+                <a href="service.html#logistics">Logistics &amp; Procurement</a>
+                <a href="service.html#visa">China Visa Assistance</a>
+                <a href="service.html#china-travel">China Business &amp; Travel Support</a>
+                <a href="tracking.html">Track Your Shipment</a>
+
             </div>
 
+
             <div class="footer-column">
-                <h3>Contact</h3>
-                <a href="https://wa.me/23230172868">
-                    WhatsApp: +232 30 172 868
+
+                <h3>Products &amp; Contact</h3>
+
+                <a href="automotive.html">Automotive</a>
+                <a href="electronics.html">Electronics</a>
+                <a href="furniture.html">Furniture</a>
+                <a href="industrial.html">Industrial, Commercial &amp; Furniture</a>
+
+                <div class="footer-contact">
+                    <strong>WhatsApp / Sierra Leone</strong><br>
+                    +232 30 172 868
+                </div>
+
+                <a
+                    href="https://wa.me/23230172868"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contact Us on WhatsApp
                 </a>
-                <a href="tel:+8613156271080">
-                    China: +86 131 5627 1080
-                </a>
-                <a href="tel:+8617543995848">
-                    China: +86 175 4399 5848
-                </a>
-                <a href="#contact">Send an Enquiry</a>
+
+                <div class="footer-contact">
+                    <strong>China Contacts</strong><br>
+                    +86 131 5627 1080<br>
+                    +86 175 4399 5848
+                </div>
+
             </div>
 
         </div>
 
+
         <div class="footer-bottom">
+
             <p>
                 © <span id="currentYear"></span>
                 M&amp;M Logistics (SL) Ltd. All rights reserved.
             </p>
 
-            <p>
-                Designed for international sourcing and logistics.
-            </p>
+            <p>Connecting China to West Africa.</p>
+
         </div>
 
     </div>
+
 </footer>
+
 
 <!-- MOBILE BOTTOM NAVIGATION -->
 
 <nav class="mobile-bottom-nav">
 
-    <a href="#home">
+    <a href="index.html">
         <span>⌂</span>
         Home
     </a>
 
-    <a href="#services">
+    <a href="service.html">
         <span>▦</span>
         Services
     </a>
 
-    <a href="#tracking">
-        <span>⌕</span>
-        Track
+    <a href="#products">
+        <span>▣</span>
+        Products
     </a>
 
-    <a href="login.html" id="mobileAccountLink">
-        <span id="mobileAccountIcon">♙</span>
-        <span id="mobileAccountLabel">Account</span>
+    <a href="login.html">
+        <span>♙</span>
+        Account
     </a>
 
 </nav>
+
 
 <!-- JAVASCRIPT -->
 
 <script>
 
-// MOBILE NAVIGATION
+/* MOBILE NAVIGATION */
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
@@ -1976,11 +2659,29 @@ menuToggle.addEventListener("click", function () {
 
 });
 
-// CLOSE MOBILE MENU AFTER SELECTING A LINK
 
-document.querySelectorAll("#navLinks a").forEach(function (link) {
+/* MOBILE DROPDOWN MENUS */
 
-    link.addEventListener("click", function () {
+document.querySelectorAll(".dropdown-toggle").forEach(function(button) {
+
+    button.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        const dropdown = button.closest(".nav-dropdown");
+
+        dropdown.classList.toggle("open");
+
+    });
+
+});
+
+
+/* CLOSE MOBILE MENU AFTER CLICKING A LINK */
+
+document.querySelectorAll("#navLinks a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
 
         navLinks.classList.remove("active");
 
@@ -1992,298 +2693,353 @@ document.querySelectorAll("#navLinks a").forEach(function (link) {
 
 });
 
-// AUTOMATICALLY UPDATE FOOTER YEAR
 
-document.getElementById("currentYear").textContent =
-    new Date().getFullYear();
+/* CLOSE MENU WHEN CLICKING OUTSIDE */
 
-// SHIPMENT TRACKING PREVIEW
+document.addEventListener("click", function(event) {
 
-document.getElementById("trackingForm").addEventListener(
-    "submit",
-    function (event) {
+    if (
+        !event.target.closest("#navLinks") &&
+        !event.target.closest("#menuToggle")
+    ) {
 
-        event.preventDefault();
+        navLinks.classList.remove("active");
 
-        const trackingNumber =
-            document.getElementById("trackingNumber").value.trim();
+        menuToggle.setAttribute("aria-expanded", "false");
 
-        document.getElementById("trackingResult").textContent =
-            "Tracking lookup for " + trackingNumber +
-            " is a preview only. Live tracking will be connected " +
-            "when the shipment management system is integrated.";
+        menuToggle.textContent = "☰";
 
-    }
-);
-
-// CONTACT FORM PREVIEW
-
-document.getElementById("contactForm").addEventListener(
-    "submit",
-    function (event) {
-
-        event.preventDefault();
-
-        alert(
-            "Thank you for your enquiry. This is a website preview. " +
-            "The contact form will be connected to the company email " +
-            "or database during development."
-        );
-
-        this.reset();
+        document.querySelectorAll(".nav-dropdown").forEach(function(dropdown) {
+            dropdown.classList.remove("open");
+        });
 
     }
-);
+
+});
 
 
-// LIGHT / DARK THEME
+/* THEME SWITCH */
 
-const HOME_THEME_KEY = "mmHomeTheme";
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeText = document.getElementById("themeText");
 
-function applyHomeTheme(theme) {
+function applyTheme(theme) {
 
-    const selectedTheme = theme === "dark" ? "dark" : "light";
+    document.body.setAttribute("data-theme", theme);
 
-    document.body.setAttribute("data-theme", selectedTheme);
+    if (theme === "dark") {
 
-    localStorage.setItem(HOME_THEME_KEY, selectedTheme);
+        themeIcon.textContent = "☀️";
+        themeText.textContent = "Light Mode";
 
-    const icon = document.getElementById("themeIcon");
-    const label = document.getElementById("themeLabel");
-    const button = document.getElementById("themeToggle");
-
-    if (selectedTheme === "dark") {
-
-        icon.textContent = "☀️";
-        label.textContent = "Light Mode";
-
-        button.setAttribute(
+        themeToggle.setAttribute(
             "aria-label",
             "Switch to light theme"
         );
 
-        button.title = "Switch to light theme";
+        themeToggle.setAttribute(
+            "title",
+            "Switch to light theme"
+        );
 
     } else {
 
-        icon.textContent = "🌙";
-        label.textContent = "Dark Mode";
+        themeIcon.textContent = "🌙";
+        themeText.textContent = "Dark Mode";
 
-        button.setAttribute(
+        themeToggle.setAttribute(
             "aria-label",
             "Switch to dark theme"
         );
 
-        button.title = "Switch to dark theme";
-
-    }
-}
-
-document.getElementById("themeToggle").addEventListener(
-    "click",
-    function () {
-
-        const current =
-            document.body.getAttribute("data-theme") || "light";
-
-        applyHomeTheme(
-            current === "dark" ? "light" : "dark"
+        themeToggle.setAttribute(
+            "title",
+            "Switch to dark theme"
         );
 
     }
-);
 
-// RESTORE THE LAST SELECTED THEME
+    localStorage.setItem("mmHomeTheme", theme);
 
-applyHomeTheme(
-    localStorage.getItem(HOME_THEME_KEY) || "light"
-);
-
-
-// CUSTOMER PROFILE / LOGIN STATUS
-
-function getCurrentCustomer() {
-
-    try {
-
-        const customer = JSON.parse(
-            localStorage.getItem("mmCurrentCustomer") || "null"
-        );
-
-        return customer && (customer.fullName || customer.email)
-            ? customer
-            : null;
-
-    } catch (error) {
-
-        return null;
-
-    }
 }
 
 
-function renderHomeAccount() {
+/* RESTORE SAVED THEME */
 
-    const customer = getCurrentCustomer();
+const savedTheme = localStorage.getItem("mmHomeTheme") || "light";
 
-    const guestActions =
-        document.getElementById("guestActions");
-
-    const profileWrapper =
-        document.getElementById("profileWrapper");
-
-    const mobileLink =
-        document.getElementById("mobileAccountLink");
+applyTheme(savedTheme);
 
 
-    if (customer) {
+/* CHANGE THEME WHEN BUTTON IS CLICKED */
 
-        const name = customer.fullName || "Customer";
+themeToggle.addEventListener("click", function() {
 
-        const email = customer.email || "";
+    const currentTheme =
+        document.body.getAttribute("data-theme");
 
-        const initials = name
-            .trim()
-            .split(/\s+/)
-            .slice(0, 2)
-            .map(part => part[0])
-            .join("")
-            .toUpperCase();
+    const newTheme =
+        currentTheme === "dark" ? "light" : "dark";
 
+    applyTheme(newTheme);
 
-        // Hide Login and Sign Up
-
-        guestActions.hidden = true;
-
-        // Show the customer's profile
-
-        profileWrapper.hidden = false;
-
-        document.getElementById("profileName").textContent = name;
-
-        document.getElementById("profileAvatar").textContent =
-            initials || "C";
-
-        document.getElementById("profileMenuName").textContent =
-            name;
-
-        document.getElementById("profileMenuEmail").textContent =
-            email;
+});
 
 
-        // Update mobile account link
+/* FOOTER YEAR */
 
-        mobileLink.href = "tracking.html";
-
-        document.getElementById("mobileAccountIcon").textContent = "♙";
-
-        document.getElementById("mobileAccountLabel").textContent =
-            "Profile";
-
-    } else {
-
-        // Show Login and Sign Up
-
-        guestActions.hidden = false;
-
-        // Hide the profile
-
-        profileWrapper.hidden = true;
-
-        document.getElementById("profileMenu").hidden = true;
-
-        document.getElementById("profileButton").setAttribute(
-            "aria-expanded",
-            "false"
-        );
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
 
 
-        // Update mobile account link
+/* CONSULTATION SERVICE MULTI-SELECT */
 
-        mobileLink.href = "login.html";
+const serviceDropdownButton =
+    document.getElementById("serviceDropdownButton");
 
-        document.getElementById("mobileAccountIcon").textContent = "♙";
+const serviceDropdownOptions =
+    document.getElementById("serviceDropdownOptions");
 
-        document.getElementById("mobileAccountLabel").textContent =
-            "Account";
+const serviceDropdownText =
+    document.getElementById("serviceDropdownText");
 
-    }
-}
+const selectedServicesContainer =
+    document.getElementById("selectedServices");
 
+const summaryServices =
+    document.getElementById("summaryServices");
 
-// OPEN AND CLOSE PROFILE MENU
-
-document.getElementById("profileButton").addEventListener(
-    "click",
-    function (event) {
-
-        event.stopPropagation();
-
-        const menu = document.getElementById("profileMenu");
-
-        menu.hidden = !menu.hidden;
-
-        this.setAttribute(
-            "aria-expanded",
-            String(!menu.hidden)
-        );
-
-    }
-);
+const serviceCheckboxes =
+    document.querySelectorAll('input[name="focus"]');
 
 
-// CLOSE PROFILE MENU WHEN CLICKING OUTSIDE
+serviceDropdownButton.addEventListener("click", function() {
 
-document.addEventListener("click", function (event) {
+    const isOpen = serviceDropdownOptions.classList.toggle("open");
 
-    const wrapper = document.getElementById("profileWrapper");
+    serviceDropdownButton.setAttribute("aria-expanded", isOpen);
 
-    if (!wrapper.contains(event.target)) {
+});
 
-        document.getElementById("profileMenu").hidden = true;
 
-        document.getElementById("profileButton").setAttribute(
-            "aria-expanded",
-            "false"
-        );
+document.addEventListener("click", function(event) {
+
+    if (!event.target.closest("#serviceMultiSelect")) {
+
+        serviceDropdownOptions.classList.remove("open");
+
+        serviceDropdownButton.setAttribute("aria-expanded", "false");
 
     }
 
 });
 
 
-// SIGN OUT
+function updateSelectedServices() {
 
-document.getElementById("signOutButton").addEventListener(
-    "click",
-    function () {
+    const selected = Array.from(serviceCheckboxes)
+        .filter(function(checkbox) {
+            return checkbox.checked;
+        })
+        .map(function(checkbox) {
+            return checkbox.value;
+        });
 
-        localStorage.removeItem("mmCurrentCustomer");
+    selectedServicesContainer.innerHTML = "";
 
-        renderHomeAccount();
+    if (selected.length === 0) {
 
-        document.getElementById("profileMenu").hidden = true;
+        serviceDropdownText.textContent =
+            "Select your areas of focus";
 
-    }
-);
+        summaryServices.textContent = "Not selected";
 
-
-// CHECK CUSTOMER LOGIN STATUS WHEN HOMEPAGE LOADS
-
-renderHomeAccount();
-
-
-// UPDATE PROFILE IF LOGIN STATUS CHANGES IN ANOTHER TAB
-
-window.addEventListener("storage", function (event) {
-
-    if (event.key === "mmCurrentCustomer") {
-
-        renderHomeAccount();
+        return;
 
     }
+
+    serviceDropdownText.textContent =
+        selected.length + " service(s) selected";
+
+    selected.forEach(function(service) {
+
+        const chip = document.createElement("span");
+
+        chip.className = "service-chip";
+
+        chip.textContent = service;
+
+        selectedServicesContainer.appendChild(chip);
+
+    });
+
+    summaryServices.textContent = selected.length + " selected";
+
+}
+
+
+serviceCheckboxes.forEach(function(checkbox) {
+
+    checkbox.addEventListener("change", updateSelectedServices);
 
 });
+
+
+/* PREVENT SELECTION OF PAST DATES */
+
+const consultationDate =
+    document.getElementById("consultationDate");
+
+function setMinimumDate() {
+
+    const today = new Date();
+
+    const localYear = today.getFullYear();
+
+    const localMonth = String(today.getMonth() + 1).padStart(2, "0");
+
+    const localDay = String(today.getDate()).padStart(2, "0");
+
+    const localDate =
+        localYear + "-" + localMonth + "-" + localDay;
+
+    consultationDate.min = localDate;
+
+}
+
+setMinimumDate();
+
+
+/* CONSULTATION BOOKING FORM */
+
+const consultationForm =
+    document.getElementById("consultationForm");
+
+consultationForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const email =
+        document.getElementById("customerEmail").value.trim();
+
+    const whatsapp =
+        document.getElementById("customerWhatsApp").value.trim();
+
+    const discussion =
+        document.getElementById("discussionDetails").value.trim();
+
+    const date =
+        consultationDate.value;
+
+    const selectedServices = Array.from(serviceCheckboxes)
+        .filter(function(checkbox) {
+            return checkbox.checked;
+        })
+        .map(function(checkbox) {
+            return checkbox.value;
+        });
+
+    const selectedTime =
+        document.querySelector(
+            'input[name="consultationTime"]:checked'
+        );
+
+
+    if (!name || !email || !whatsapp || !date) {
+
+        alert("Please complete all required personal and booking details.");
+
+        return;
+
+    }
+
+
+    if (selectedServices.length === 0) {
+
+        alert("Please select at least one service area.");
+
+        serviceDropdownOptions.classList.add("open");
+
+        return;
+
+    }
+
+
+    if (!selectedTime) {
+
+        alert("Please select your preferred consultation time.");
+
+        return;
+
+    }
+
+
+    const chosenDate = new Date(date + "T00:00:00");
+
+    const today = new Date();
+
+    today.setHours(0, 0, 0, 0);
+
+
+    if (chosenDate < today) {
+
+        alert("Please select today or a future date.");
+
+        return;
+
+    }
+
+
+    /*
+       PAYMENT AND BOOKING BACKEND STILL REQUIRED.
+
+       This form validates the customer's details and booking
+       preferences. It does not yet collect payment, reserve
+       a live appointment slot, send emails or confirm bookings.
+
+       A payment gateway and booking backend must be connected
+       before accepting real consultation payments.
+    */
+
+
+    const bookingDetails = {
+
+        customerName: name,
+
+        email: email,
+
+        whatsapp: whatsapp,
+
+        services: selectedServices,
+
+        discussion: discussion,
+
+        date: date,
+
+        time: selectedTime.value,
+
+        duration: "20 minutes",
+
+        consultationFee: "USD 10"
+
+    };
+
+
+    console.log("Consultation booking request:", bookingDetails);
+
+
+    alert(
+        "Your consultation details have been completed. " +
+        "The $10 payment and appointment confirmation system " +
+        "still needs to be connected before bookings can be finalised."
+    );
+
+});
+
 
 </script>
 

@@ -1,1 +1,540 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Schedule a 20-minute consultation with M&M Logistics for $10 USD.">
+<title>Book a Consultation | M&M Logistics</title>
+
+<style>
+:root{
+ --primary:#395BA2;
+ --primary-dark:#29477f;
+ --green:#12B94B;
+ --dark:#172033;
+ --text:#647086;
+ --light:#f4f7fb;
+ --white:#fff;
+ --border:#e3e8f0;
+ --card:#fff;
+ --header:rgba(255,255,255,.97);
+ --shadow:0 12px 35px rgba(20,40,75,.09);
+}
+body[data-theme="dark"]{
+ --dark:#f2f5fb;
+ --text:#b8c2d4;
+ --light:#111a2b;
+ --white:#172238;
+ --border:#2b3a54;
+ --card:#1c2a41;
+ --header:rgba(19,30,49,.97);
+ --shadow:0 12px 35px rgba(0,0,0,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--dark);line-height:1.6;transition:.25s}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+/* HEADER */
+.site-header{background:var(--header);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header-inner{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+.brand img{width:46px;height:46px;object-fit:contain}
+.header-actions{display:flex;align-items:center;gap:10px}
+.theme-toggle{padding:9px 12px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--dark);font-weight:700;font-size:12px;cursor:pointer}
+.home-link{font-size:13px;font-weight:700;color:var(--primary)}
+.guest-actions a{display:inline-block;background:var(--primary);color:#fff;padding:9px 14px;border-radius:6px;font-size:12px;font-weight:700}
+.profile-wrapper{position:relative}
+.profile-button{display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--card);color:var(--dark);padding:7px 11px 7px 7px;border-radius:30px;cursor:pointer;font-size:12px;font-weight:700}
+.profile-avatar{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:var(--primary);color:white}
+.profile-menu{position:absolute;right:0;top:calc(100% + 10px);width:220px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:120}
+.profile-menu[hidden],.profile-wrapper[hidden],.guest-actions[hidden]{display:none!important}
+.profile-info{padding:8px 9px 12px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.profile-info strong,.profile-info small{display:block}
+.profile-info small{font-size:11px;color:var(--text);overflow-wrap:anywhere}
+.profile-menu a,.profile-menu button{display:block;width:100%;text-align:left;padding:10px;border:0;background:none;color:var(--dark);font-size:13px;border-radius:6px;cursor:pointer}
+.profile-menu a:hover,.profile-menu button:hover{background:var(--light)}
+
+/* INTRO */
+.page-intro{text-align:center;padding:65px 0 38px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+.page-intro h1{font-size:clamp(30px,4.5vw,46px);line-height:1.15;margin:12px auto;max-width:800px}
+.page-intro p{max-width:700px;margin:auto;color:var(--text);font-size:15px}
+
+/* BOOKING LAYOUT */
+.booking-layout{display:grid;grid-template-columns:1fr 350px;gap:25px;align-items:start;padding-bottom:75px}
+.booking-card,.summary-card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+.booking-card{padding:30px}
+.summary-card{padding:25px;position:sticky;top:100px}
+.section-title{font-size:19px;margin-bottom:5px}
+.section-subtitle{font-size:13px;color:var(--text);margin-bottom:22px}
+.form-section{padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid var(--border)}
+.form-section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:15px}
+.form-group.full{grid-column:1/-1}
+.form-group label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{
+ width:100%;padding:12px 13px;border:1px solid var(--border);border-radius:7px;background:var(--white);color:var(--dark);outline:none;font-size:13px;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(57,91,162,.1)}
+.form-group textarea{min-height:90px;resize:vertical}
+
+/* SERVICE OPTIONS */
+.service-options{display:grid;grid-template-columns:1fr;gap:10px}
+.service-option{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--border);border-radius:9px;padding:14px;cursor:pointer;transition:.2s}
+.service-option:hover{border-color:var(--primary)}
+.service-option.selected{border-color:var(--primary);background:rgba(57,91,162,.06)}
+.service-option input{margin-top:4px;accent-color:var(--primary)}
+.service-option strong{display:block;font-size:13px}
+.service-option small{display:block;color:var(--text);font-size:12px;margin-top:3px}
+
+/* TIME SLOTS */
+.time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.time-slot input{display:none}
+.time-slot span{display:block;text-align:center;padding:11px 5px;border:1px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;color:var(--dark)}
+.time-slot input:checked+span{background:var(--primary);border-color:var(--primary);color:white}
+.time-slot span:hover{border-color:var(--primary)}
+.timezone-note{font-size:11px;color:var(--text);margin-top:12px}
+
+/* SUMMARY */
+.summary-card h2{font-size:19px;margin-bottom:17px}
+.summary-price{background:var(--light);border-radius:10px;padding:18px;margin-bottom:20px}
+.summary-price small{display:block;color:var(--text);font-size:11px;font-weight:800;letter-spacing:1px}
+.summary-price strong{display:block;font-size:35px;color:var(--green);line-height:1.35}
+.summary-price span{font-size:12px;color:var(--text)}
+.summary-line{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px}
+.summary-line span:first-child{color:var(--text)}
+.summary-line strong{text-align:right;max-width:60%;overflow-wrap:anywhere}
+.summary-total{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:15px;font-weight:800}
+.summary-total strong{font-size:22px;color:var(--primary)}
+.payment-button{width:100%;border:0;border-radius:7px;background:var(--green);color:white;padding:15px;font-weight:800;cursor:pointer}
+.payment-button:hover{filter:brightness(.94)}
+.summary-disclaimer{font-size:11px;color:var(--text);margin-top:14px}
+.secure-note{display:flex;gap:8px;align-items:center;margin-top:15px;color:var(--text);font-size:11px}
+.error-message{display:none;background:#fff0f0;border:1px solid #f3caca;color:#a52828;border-radius:7px;padding:12px;margin-bottom:15px;font-size:13px}
+.notice{background:rgba(18,185,75,.08);border-left:4px solid var(--green);padding:13px 15px;color:var(--text);font-size:12px;margin-top:18px;border-radius:0 7px 7px 0}
+
+/* FOOTER */
+.footer{background:#111c30;color:#fff;padding:28px 0;text-align:center}
+.footer p{color:#bdc7d7;font-size:12px}
+.footer a{color:white}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+ .booking-layout{grid-template-columns:1fr}
+ .summary-card{position:static;grid-row:1}
+}
+@media(max-width:560px){
+ .header-inner{min-height:65px}
+ .brand{font-size:15px}
+ .brand img{width:39px;height:39px}
+ .page-intro{padding:48px 0 28px}
+ .booking-card{padding:20px}
+ .form-grid{grid-template-columns:1fr}
+ .form-group.full{grid-column:auto}
+ .time-grid{grid-template-columns:repeat(2,1fr)}
+ .profile-name{display:none}
+ .theme-label{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+ <div class="container header-inner">
+  <a href="index.html" class="brand">
+   <img src="company logo.png.jpg" alt="M&M Logistics logo">
+   <span>M&amp;M Logistics</span>
+  </a>
+
+  <div class="header-actions">
+   <a href="index.html" class="home-link">← Back to Home</a>
+   <button type="button" class="theme-toggle" id="themeToggle"><span id="themeIcon">🌙</span> <span class="theme-label" id="themeLabel">Dark Mode</span></button>
+
+   <div class="guest-actions" id="guestActions">
+    <a href="signup.html">Sign Up</a>
+   </div>
+
+   <div class="profile-wrapper" id="profileWrapper" hidden>
+    <button class="profile-button" type="button" id="profileButton">
+     <span class="profile-avatar" id="profileAvatar">C</span>
+     <span class="profile-name" id="profileName">My Account</span>⌄
+    </button>
+    <div class="profile-menu" id="profileMenu" hidden>
+     <div class="profile-info">
+      <strong id="profileMenuName">Customer</strong>
+      <small id="profileMenuEmail"></small>
+     </div>
+     <a href="tracking.html">My Dashboard</a>
+     <a href="tracking.html">Track My Shipments</a>
+     <a href="quotation.html">My Quotations</a>
+     <a href="contact.html">Customer Support</a>
+     <button type="button" id="signOutButton">Sign Out</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<main>
+ <section class="page-intro">
+  <div class="container">
+   <span class="eyebrow">PERSONALISED BUSINESS CONSULTATION</span>
+   <h1>Let's Schedule a Quick 20-Minute Call</h1>
+   <p>Have a sourcing requirement, visa enquiry or business travel plan? Book a focused conversation with M&amp;M Logistics so we can understand your needs and discuss the next steps.</p>
+  </div>
+ </section>
+
+ <section class="container booking-layout">
+
+  <!-- BOOKING FORM -->
+  <form class="booking-card" id="bookingForm">
+   <div class="error-message" id="formError"></div>
+
+   <div class="form-section">
+    <h2 class="section-title">1. Your Contact Information</h2>
+    <p class="section-subtitle">Please provide your details so our team can reach you.</p>
+
+    <div class="form-grid">
+     <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" placeholder="Your full name" required>
+     </div>
+     <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" placeholder="Your email address" required>
+     </div>
+     <div class="form-group">
+      <label for="whatsapp">WhatsApp Number *</label>
+      <input type="tel" id="whatsapp" placeholder="+232..." required>
+     </div>
+     <div class="form-group">
+      <label for="country">Country of Residence *</label>
+      <select id="country" required>
+       <option value="">Select your country</option>
+       <option>Sierra Leone</option>
+       <option>Ghana</option>
+       <option>Nigeria</option>
+       <option>Malaysia</option>
+       <option>Other</option>
+      </select>
+     </div>
+    </div>
+   </div>
+
+   <div class="form-section">
+    <h2 class="section-title">2. What Would You Like to Discuss?</h2>
+    <p class="section-subtitle">Choose one, two or all three service areas.</p>
+
+    <div class="service-options">
+     <label class="service-option" id="optionLogistics">
+      <input type="checkbox" name="service" value="Logistics & Procurement">
+      <span>
+       <strong>Logistics &amp; Procurement</strong>
+       <small>Product sourcing, purchasing, supplier coordination and international shipping.</small>
+      </span>
+     </label>
+
+     <label class="service-option" id="optionVisa">
+      <input type="checkbox" name="service" value="China Visa Assistance">
+      <span>
+       <strong>China Visa Assistance</strong>
+       <small>Visa application guidance, documentation and travel preparation.</small>
+      </span>
+     </label>
+
+     <label class="service-option" id="optionBusiness">
+      <input type="checkbox" name="service" value="China Business & Travel Support">
+      <span>
+       <strong>China Business &amp; Travel Support</strong>
+       <small>Market visits, factory visits, supplier meetings and business travel planning.</small>
+      </span>
+     </label>
+    </div>
+
+    <div class="form-group" style="margin-top:18px">
+     <label for="details">Additional Information (Optional)</label>
+     <textarea id="details" placeholder="Briefly tell us what you would like to discuss..."></textarea>
+    </div>
+   </div>
+
+   <div class="form-section">
+    <h2 class="section-title">3. Choose Your Consultation Date</h2>
+    <p class="section-subtitle">Select your preferred date from the calendar.</p>
+
+    <div class="form-group">
+     <label for="consultationDate">Preferred Date *</label>
+     <input type="date" id="consultationDate" required>
+    </div>
+   </div>
+
+   <div class="form-section">
+    <h2 class="section-title">4. Select a Time Slot</h2>
+    <p class="section-subtitle">Choose your preferred consultation time.</p>
+
+    <div class="time-grid" id="timeGrid">
+     <label class="time-slot"><input type="radio" name="time" value="9:00 AM"><span>9:00 AM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="10:00 AM"><span>10:00 AM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="11:00 AM"><span>11:00 AM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="2:00 PM"><span>2:00 PM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="3:00 PM"><span>3:00 PM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="4:00 PM"><span>4:00 PM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="8:00 PM"><span>8:00 PM</span></label>
+     <label class="time-slot"><input type="radio" name="time" value="9:00 PM"><span>9:00 PM</span></label>
+    </div>
+
+    <p class="timezone-note">Please confirm the applicable time zone with our team. These slots are displayed as requested and are not yet connected to live availability.</p>
+   </div>
+
+   <div class="form-section">
+    <h2 class="section-title">5. Review Your Booking</h2>
+    <p class="section-subtitle">Check your information and consultation details before proceeding.</p>
+    <div class="notice">Your consultation is 20 minutes and costs a flat fee of $10 USD. Your selected date and time are preferences until payment and appointment confirmation are connected.</div>
+   </div>
+
+   <button type="submit" class="payment-button">Continue to Payment – $10 USD</button>
+  </form>
+
+  <!-- BOOKING SUMMARY -->
+  <aside class="summary-card">
+   <h2>Your Consultation Summary</h2>
+
+   <div class="summary-price">
+    <small>CONSULTATION FEE</small>
+    <strong>$10 USD</strong>
+    <span>20-minute consultation</span>
+   </div>
+
+   <div class="summary-line">
+    <span>Duration</span>
+    <strong>20 minutes</strong>
+   </div>
+   <div class="summary-line">
+    <span>Service areas</span>
+    <strong id="summaryServices">Not selected</strong>
+   </div>
+   <div class="summary-line">
+    <span>Preferred date</span>
+    <strong id="summaryDate">Not selected</strong>
+   </div>
+   <div class="summary-line">
+    <span>Preferred time</span>
+    <strong id="summaryTime">Not selected</strong>
+   </div>
+
+   <div class="summary-total">
+    <span>Total</span>
+    <strong>$10.00</strong>
+   </div>
+
+   <button type="button" class="payment-button" id="reviewButton">Review Booking Details</button>
+
+   <p class="summary-disclaimer">The $10 consultation fee is separate from any subsequent procurement, shipping, visa or travel service fees.</p>
+   <div class="secure-note">🔒 Payment integration will be enabled once the payment provider is configured.</div>
+  </aside>
+
+ </section>
+</main>
+
+<footer class="footer">
+ <div class="container">
+  <p>© <span id="year"></span> M&amp;M Logistics (SL) Ltd. All rights reserved.</p>
+  <p style="margin-top:7px">WhatsApp: <a href="https://wa.me/23230172868">+232 30 172 868</a></p>
+ </div>
+</footer>
+
+<script>
+/* THEME */
+function applyTheme(theme){
+ document.body.setAttribute("data-theme",theme);
+ document.getElementById("themeIcon").textContent=theme==="dark"?"☀️":"🌙";
+ document.getElementById("themeLabel").textContent=theme==="dark"?"Light Mode":"Dark Mode";
+}
+let savedTheme="light";
+try{savedTheme=localStorage.getItem("mmHomeTheme")||"light"}catch(e){}
+applyTheme(savedTheme);
+document.getElementById("themeToggle").addEventListener("click",()=>{
+ const next=document.body.getAttribute("data-theme")==="dark"?"light":"dark";
+ applyTheme(next);
+ try{localStorage.setItem("mmHomeTheme",next)}catch(e){}
+});
+
+/* CUSTOMER PROFILE */
+function getCustomer(){
+ try{
+  const raw=localStorage.getItem("mmCurrentCustomer");
+  return raw?JSON.parse(raw):null;
+ }catch(e){return null}
+}
+const customer=getCustomer();
+if(customer){
+ document.getElementById("guestActions").hidden=true;
+ document.getElementById("profileWrapper").hidden=false;
+ const name=customer.fullName||customer.name||customer.firstName||"My Account";
+ const initials=name.trim().split(/\s+/).map(x=>x[0]).join("").slice(0,2).toUpperCase();
+ document.getElementById("profileAvatar").textContent=initials||"C";
+ document.getElementById("profileName").textContent=name.split(" ")[0];
+ document.getElementById("profileMenuName").textContent=name;
+ document.getElementById("profileMenuEmail").textContent=customer.email||"";
+}
+const profileButton=document.getElementById("profileButton");
+const profileMenu=document.getElementById("profileMenu");
+profileButton.addEventListener("click",e=>{
+ e.stopPropagation();
+ profileMenu.hidden=!profileMenu.hidden;
+});
+document.addEventListener("click",e=>{
+ if(!document.getElementById("profileWrapper").contains(e.target))profileMenu.hidden=true;
+});
+document.getElementById("signOutButton").addEventListener("click",()=>{
+ try{localStorage.removeItem("mmCurrentCustomer")}catch(e){}
+ window.location.href="index.html";
+});
+
+/* DATE MINIMUM */
+const dateInput=document.getElementById("consultationDate");
+const today=new Date();
+const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split("T")[0];
+dateInput.min=localToday;
+
+/* URL PRESELECTION */
+const params=new URLSearchParams(window.location.search);
+const requestedService=params.get("service");
+const serviceMap={
+ logistics:"Logistics & Procurement",
+ visa:"China Visa Assistance",
+ "business-travel":"China Business & Travel Support"
+};
+if(requestedService&&serviceMap[requestedService]){
+ document.querySelectorAll('input[name="service"]').forEach(input=>{
+  if(input.value===serviceMap[requestedService])input.checked=true;
+ });
+}
+
+/* PRE-FILL LOGGED-IN CUSTOMER */
+if(customer){
+ document.getElementById("fullName").value=customer.fullName||customer.name||"";
+ document.getElementById("email").value=customer.email||"";
+ document.getElementById("whatsapp").value=customer.phone||customer.whatsapp||"";
+}
+
+/* SERVICE OPTION STYLING */
+function getSelectedServices(){
+ return Array.from(document.querySelectorAll('input[name="service"]:checked')).map(x=>x.value);
+}
+function updateServiceStyles(){
+ document.querySelectorAll(".service-option").forEach(label=>{
+  label.classList.toggle("selected",label.querySelector("input").checked);
+ });
+}
+document.querySelectorAll('input[name="service"]').forEach(input=>{
+ input.addEventListener("change",()=>{
+  updateServiceStyles();
+  updateSummary();
+ });
+});
+
+/* SUMMARY */
+function updateSummary(){
+ const services=getSelectedServices();
+ const date=dateInput.value;
+ const time=document.querySelector('input[name="time"]:checked')?.value||"";
+
+ document.getElementById("summaryServices").textContent=services.length?services.join(", "):"Not selected";
+ document.getElementById("summaryDate").textContent=date||"Not selected";
+ document.getElementById("summaryTime").textContent=time||"Not selected";
+}
+dateInput.addEventListener("change",updateSummary);
+document.querySelectorAll('input[name="time"]').forEach(input=>input.addEventListener("change",updateSummary));
+updateServiceStyles();
+updateSummary();
+
+/* VALIDATION AND BOOKING REVIEW */
+function getBookingData(){
+ return {
+  name:document.getElementById("fullName").value.trim(),
+  email:document.getElementById("email").value.trim(),
+  whatsapp:document.getElementById("whatsapp").value.trim(),
+  country:document.getElementById("country").value,
+  services:getSelectedServices(),
+  details:document.getElementById("details").value.trim(),
+  date:dateInput.value,
+  time:document.querySelector('input[name="time"]:checked')?.value||""
+ };
+}
+function validateBooking(data){
+ if(!data.name||!data.email||!data.whatsapp||!data.country){
+  return "Please complete all required contact information.";
+ }
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
+  return "Please enter a valid email address.";
+ }
+ if(data.services.length===0){
+  return "Please select at least one service area.";
+ }
+ if(!data.date){
+  return "Please select your preferred consultation date.";
+ }
+ if(data.date<localToday){
+  return "Please select a future date.";
+ }
+ if(!data.time){
+  return "Please select a consultation time.";
+ }
+ return "";
+}
+function showError(message){
+ const box=document.getElementById("formError");
+ box.textContent=message;
+ box.style.display="block";
+ box.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("bookingForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ const data=getBookingData();
+ const error=validateBooking(data);
+ if(error){
+  showError(error);
+  return;
+ }
+
+ /*
+  PAYMENT INTEGRATION PLACEHOLDER:
+  Connect this validated booking data to a secure backend and payment
+  provider before accepting real customer payments or confirming appointments.
+ */
+ const message=
+  "The booking details are complete, but online payment and appointment confirmation are not yet connected. Please contact M&M Logistics to complete your booking.";
+
+ alert(message);
+});
+document.getElementById("reviewButton").addEventListener("click",()=>{
+ updateSummary();
+ const data=getBookingData();
+ const error=validateBooking(data);
+ if(error){
+  showError(error);
+  return;
+ }
+ document.getElementById("formError").style.display="none";
+ alert(
+  "Booking details reviewed.\\n\\n"+
+  "Name: "+data.name+"\\n"+
+  "Services: "+data.services.join(", ")+"\\n"+
+  "Date: "+data.date+"\\n"+
+  "Time: "+data.time+"\\n"+
+  "Consultation fee: $10 USD\\n\\n"+
+  "Payment and final appointment confirmation are not yet connected."
+ );
+});
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
+

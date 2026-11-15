@@ -1,672 +1,128 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Discover M&M Logistics (SL) Ltd, our product sourcing, procurement and international shipping services connecting China to West Africa.">
-<title>About Us | M&amp;M Logistics (SL) Ltd</title>
-
-<style>
-:root {
-    --primary: #395BA2;
-    --primary-dark: #24447f;
-    --green: #12B94B;
-    --dark: #17243D;
-    --text: #586174;
-    --light: #f5f7fb;
-    --white: #ffffff;
-    --border: #e3e8f1;
-    --shadow: 0 12px 35px rgba(25,45,85,.08);
+rid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.shipping-card {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: 11px;
+    background: rgba(255,255,255,.07);
 }
 
-html {
-    scroll-behavior: smooth;
+.shipping-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--dark);
-    background: white;
-    line-height: 1.6;
+.shipping-card p {
+    color: #D8E1F2;
+    font-size: 14px;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
+.shipping-card strong {
     display: block;
+    color: #63E58F;
+    font-size: 23px;
+    margin-top: 14px;
 }
 
-button {
-    font: inherit;
-}
-
-.container {
-    width: min(1160px,92%);
-    margin: auto;
-}
-
-.section {
-    padding: 85px 0;
-}
-
-.section-heading {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 45px;
-}
-
-.section-heading span {
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    font-size: clamp(28px,4vw,38px);
-    line-height: 1.2;
-    margin: 10px 0;
-}
-
-.section-heading p {
-    color: var(--text);
-    font-size: 15px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 23px;
-    border-radius: 6px;
-    font-weight: 700;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: .25s ease;
-}
-
-.btn-primary {
-    background: var(--green);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #0d9c3d;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    border-color: white;
-    color: white;
-}
-
-.btn-outline:hover {
-    background: white;
-    color: var(--primary);
-}
-
-/* HEADER */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: white;
-    box-shadow: 0 3px 15px rgba(0,0,0,.06);
-}
-
-.navbar {
-    min-height: 82px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.brand-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-.brand-logo img {
-    width: 78px;
-    height: 68px;
-    object-fit: contain;
-}
-
-.brand-name {
-    color: var(--primary);
-    font-size: 21px;
-    font-weight: 800;
-    line-height: 1.15;
-    white-space: nowrap;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 23px;
-}
-
-.nav-links a {
-    font-size: 14px;
-    font-weight: 700;
-    color: #39445a;
-    transition: .2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--green);
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.login-link {
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.signup-btn {
-    background: var(--primary);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 5px;
+.shipping-disclaimer {
+    margin-top: 23px;
+    padding: 18px;
+    border-left: 4px solid var(--green);
+    background: rgba(255,255,255,.08);
+    color: #E2E9F8;
     font-size: 13px;
-    font-weight: 700;
 }
 
-.signup-btn:hover {
-    background: var(--primary-dark);
-}
+/* REGIONAL REACH */
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.about-hero {
-    position: relative;
-    min-height: 440px;
-    display: flex;
-    align-items: center;
-    color: white;
-    background:
-        linear-gradient(
-            100deg,
-            rgba(18,32,61,.94),
-            rgba(57,91,162,.78)
-        ),
-        url("hero-logistics.png") center/cover no-repeat;
-}
-
-.about-hero-content {
-    max-width: 760px;
-    padding: 85px 0;
-}
-
-.about-hero h1 {
-    font-size: clamp(38px,6vw,58px);
-    line-height: 1.12;
-    margin: 15px 0 20px;
-}
-
-.about-hero p {
-    max-width: 650px;
-    color: #e7edff;
-    font-size: 17px;
-    margin-bottom: 28px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-/* COMPANY INTRODUCTION */
-
-.intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 55px;
-}
-
-.intro-image img {
-    width: 100%;
-    height: 410px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-}
-
-.intro-text .small-label {
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.intro-text h2 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin: 12px 0 20px;
-}
-
-.intro-text p {
-    color: var(--text);
-    margin-bottom: 17px;
-    font-size: 15px;
-}
-
-.check-list {
-    list-style: none;
-    margin: 20px 0 25px;
-}
-
-.check-list li {
-    margin: 12px 0;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.check-list li::before {
-    content: "✓";
-    color: var(--green);
-    font-weight: 900;
-    margin-right: 10px;
-}
-
-/* MISSION AND VISION */
-
-.mission-section {
-    background: var(--light);
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 25px;
-}
-
-.mission-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 35px;
-    transition: .25s;
-}
-
-.mission-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-}
-
-.mission-icon {
-    width: 55px;
-    height: 55px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: #e8f8ee;
-    color: var(--green);
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.mission-card h3 {
-    font-size: 21px;
-    margin-bottom: 12px;
-}
-
-.mission-card p {
-    color: var(--text);
-    font-size: 15px;
-}
-
-/* COMPANY REACH */
-
-.reach-section {
-    background:
-        linear-gradient(
-            110deg,
-            rgba(23,36,61,.97),
-            rgba(57,91,162,.94)
-        );
-    color: white;
-}
-
-.reach-section .section-heading h2 {
-    color: white;
-}
-
-.reach-section .section-heading p {
-    color: #dce6ff;
-}
-
-.reach-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    align-items: center;
-}
-
-.reach-text h3 {
-    font-size: 27px;
-    margin-bottom: 15px;
-}
-
-.reach-text p {
-    color: #dce6ff;
-    font-size: 15px;
-    margin-bottom: 17px;
-}
-
-.reach-image img {
-    width: 100%;
-    height: 340px;
-    object-fit: cover;
-    border-radius: 12px;
-}
+.reach-section { background: var(--light); }
 
 .country-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-    margin-top: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .country-card {
-    background: rgba(255,255,255,.09);
-    border: 1px solid rgba(255,255,255,.2);
+    padding: 28px 18px;
+    border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 25px 15px;
+    background: white;
     text-align: center;
-    transition: .25s;
-}
-
-.country-card:hover {
-    background: rgba(255,255,255,.16);
-    transform: translateY(-4px);
-}
-
-.country-card img {
-    width: 75px;
-    height: 55px;
-    object-fit: contain;
-    margin: 0 auto 13px;
 }
 
 .country-card h3 {
-    font-size: 17px;
-    margin-bottom: 5px;
+    color: var(--blue);
+    font-size: 19px;
+    margin-bottom: 7px;
 }
 
 .country-card p {
-    font-size: 12px;
-    color: #dce6ff;
-}
-
-/* COMPANY STATISTICS */
-
-.stats-section {
-    padding: 75px 0;
-    background: white;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
-}
-
-.stat-card {
-    padding: 30px 15px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    text-align: center;
-    background: white;
-    box-shadow: var(--shadow);
-    transition: .25s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--green);
-}
-
-.stat-card strong {
-    display: block;
-    color: var(--primary);
-    font-size: 35px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 9px;
-}
-
-.stat-card h3 {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.stat-card p {
-    font-size: 12px;
     color: var(--text);
-}
-
-.stats-disclaimer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--text);
-    margin-top: 20px;
-}
-
-/* PRODUCT CATEGORIES */
-
-.categories-section {
-    background: var(--light);
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
-}
-
-.category-card {
-    position: relative;
-    display: block;
-    min-height: 280px;
-    overflow: hidden;
-    border-radius: 11px;
-    background: var(--primary);
-    color: white;
-}
-
-.category-card img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .4s;
-}
-
-.category-card:hover img {
-    transform: scale(1.08);
-}
-
-.category-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 22px;
-    background: linear-gradient(
-        0deg,
-        rgba(12,25,53,.92),
-        rgba(12,25,53,.02)
-    );
-}
-
-.category-overlay h3 {
-    font-size: 19px;
-    margin-bottom: 5px;
-}
-
-.category-overlay p {
-    color: #e4eaff;
     font-size: 13px;
 }
 
 /* HOW WE WORK */
 
-.workflow-section {
-    background: white;
-}
-
 .workflow-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .workflow-card {
     padding: 25px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    transition: .25s;
-}
-
-.workflow-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
+    background: white;
 }
 
 .workflow-number {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
-    background: var(--primary);
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--blue);
     color: white;
     font-weight: 800;
-    margin-bottom: 15px;
 }
 
 .workflow-card h3 {
     font-size: 17px;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
 .workflow-card p {
     color: var(--text);
-    font-size: 14px;
-}
-
-/* VIDEO SHOWCASE */
-
-.video-section {
-    background: var(--light);
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 23px;
-}
-
-.video-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    overflow: hidden;
-    transition: .25s;
-}
-
-.video-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-}
-
-.video-embed {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #17243D;
-    overflow: hidden;
-}
-
-.video-embed iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
+    font-size: 13px;
 }
 
 /* VALUES */
 
+.values-section { background: var(--light); }
+
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
 }
 
 .value-card {
-    text-align: center;
-    padding: 25px 18px;
+    padding: 24px 17px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    transition: .25s;
-}
-
-.value-card:hover {
-    border-color: var(--green);
-    transform: translateY(-4px);
-}
-
-.value-icon {
-    width: 52px;
-    height: 52px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 15px;
-    background: #e8f8ee;
-    color: var(--green);
-    border-radius: 10px;
-    font-size: 23px;
+    background: white;
+    text-align: center;
 }
 
 .value-card h3 {
-    font-size: 17px;
-    margin-bottom: 9px;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .value-card p {
@@ -674,197 +130,106 @@ header {
     font-size: 13px;
 }
 
-/* CUSTOMER EXPERIENCE */
-
-.customer-feedback-section {
-    background: var(--light);
-}
-
-.customer-video-grid {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 24px;
-}
-
-.customer-video-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: .25s ease;
-}
-
-.customer-video-card:hover {
-    transform: translateY(-4px);
-}
-
-.customer-video-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #17243d;
-    overflow: hidden;
-}
-
-.customer-video-frame iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.customer-video-info {
-    padding: 20px;
-}
-
-.customer-video-info h3 {
-    font-size: 18px;
-    margin-bottom: 6px;
-}
-
-.customer-video-info p {
-    color: var(--text);
-    font-size: 13px;
-}
-
-.video-details {
-    padding: 20px;
-}
-
-.video-details h3 {
-    font-size: 17px;
-    margin-bottom: 7px;
-}
-
-.video-details p {
-    font-size: 13px;
-    color: var(--text);
-}
-
 /* CTA */
 
 .cta {
-    background: var(--primary);
-    color: white;
     padding: 70px 20px;
+    background: linear-gradient(110deg, #17243D, #395BA2);
+    color: white;
     text-align: center;
 }
 
 .cta h2 {
-    font-size: clamp(27px,4vw,35px);
+    font-size: clamp(27px, 4vw, 36px);
     margin-bottom: 12px;
 }
 
 .cta p {
-    color: #e7edff;
-    margin-bottom: 25px;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #E2E9F8;
+    font-size: 15px;
 }
 
 /* FOOTER */
 
 footer {
-    background: #101b32;
+    padding: 55px 0 20px;
+    background: #101B32;
     color: white;
-    padding: 60px 0 20px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 35px;
-    margin-bottom: 40px;
-}
-
-.footer-logo {
-    display: inline-flex;
-    margin-bottom: 15px;
+    gap: 30px;
+    margin-bottom: 35px;
 }
 
 .footer-logo img {
     width: 95px;
-    height: 78px;
+    height: 75px;
     object-fit: contain;
+    margin-bottom: 12px;
 }
 
 .footer-about p {
-    color: #b8c3d8;
-    font-size: 14px;
     max-width: 280px;
+    color: #B8C3D8;
+    font-size: 13px;
 }
 
 .footer-column h3 {
-    font-size: 16px;
-    margin-bottom: 18px;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
 .footer-column a {
     display: block;
-    color: #b8c3d8;
-    font-size: 14px;
-    margin-bottom: 10px;
+    color: #B8C3D8;
+    font-size: 13px;
+    margin-bottom: 9px;
 }
 
-.footer-column a:hover {
-    color: var(--green);
-}
+.footer-column a:hover { color: var(--green); }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.12);
-    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
-    color: #aeb9ce;
-    font-size: 13px;
+    gap: 10px;
+    padding-top: 19px;
+    border-top: 1px solid rgba(255,255,255,.13);
+    color: #AEB9CE;
+    font-size: 12px;
 }
 
-/* MOBILE BOTTOM NAV */
+/* MOBILE NAV */
 
-.mobile-bottom-nav {
-    display: none;
-}
+.mobile-bottom-nav { display: none; }
 
 /* RESPONSIVE */
 
-@media(max-width:1050px) {
-    .nav-links {
-        gap: 13px;
-    }
+@media(max-width: 1050px) {
+    .nav-links { gap: 13px; }
+    .nav-links a { font-size: 12px; }
 
-    .nav-links a {
-        font-size: 12px;
-    }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .category-grid,
-    .values-grid,
-    .stats-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media(max-width:760px) {
-    .navbar {
-        min-height: 72px;
-    }
+@media(max-width: 760px) {
+    .navbar { min-height: 72px; }
 
     .brand-logo img {
-        width: 68px;
-        height: 60px;
+        width: 65px;
+        height: 58px;
     }
 
-    .brand-name {
-        font-size: 17px;
-    }
+    .brand-name { font-size: 17px; }
 
-    .menu-toggle {
-        display: block;
-    }
+    .menu-toggle { display: block; }
 
     .nav-links {
         display: none;
@@ -872,78 +237,48 @@ footer {
         top: 72px;
         left: 0;
         right: 0;
-        background: white;
         padding: 20px 5%;
+        background: white;
         flex-direction: column;
         align-items: flex-start;
         box-shadow: var(--shadow);
-        gap: 18px;
+        gap: 17px;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
+    .nav-links.active { display: flex; }
+    .nav-links a { font-size: 15px; }
+    .nav-actions { display: none; }
 
-    .nav-links a {
-        font-size: 15px;
-    }
+    .hero { min-height: 410px; }
+    .hero-content { padding: 65px 0; }
 
-    .nav-actions {
-        display: none;
-    }
-
-    .about-hero {
-        min-height: 400px;
-    }
-
-    .section {
-        padding: 65px 0;
-    }
+    .section { padding: 60px 0; }
 
     .intro-grid,
-    .reach-grid {
+    .detail-card {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
 
-    .intro-image img {
-        height: 290px;
-    }
+    .intro-image img { height: 290px; }
 
-    .reach-image img {
-        height: 270px;
-    }
-
-    .mission-grid {
+    .mission-grid,
+    .service-grid,
+    .fee-grid,
+    .other-fees,
+    .shipping-grid {
         grid-template-columns: 1fr;
     }
 
-    .country-grid {
-        grid-template-columns: repeat(3,1fr);
-        gap: 10px;
-    }
+    .detail-card:nth-child(even) .detail-copy { order: initial; }
 
-    .country-card {
-        padding: 20px 8px;
-    }
+    .country-grid { grid-template-columns: 1fr; }
 
-    .country-card img {
-        width: 55px;
-        height: 43px;
-    }
+    .workflow-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .country-card h3 {
-        font-size: 14px;
-    }
+    .processing-banner { padding: 24px 15px; }
 
-    .video-grid,
-    .workflow-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .customer-video-grid {
-        grid-template-columns: 1fr;
-    }
+    .processing-banner strong { font-size: 37px; }
 
     .mobile-bottom-nav {
         position: fixed;
@@ -951,75 +286,47 @@ footer {
         left: 0;
         right: 0;
         z-index: 999;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 9px 4px;
         background: white;
         box-shadow: 0 -3px 15px rgba(0,0,0,.09);
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        padding: 9px 4px;
     }
 
     .mobile-bottom-nav a {
         text-align: center;
+        color: var(--text);
         font-size: 11px;
         font-weight: 700;
-        color: var(--text);
     }
 
-    .mobile-bottom-nav a span {
+    .mobile-bottom-nav span {
         display: block;
         font-size: 19px;
-        margin-bottom: 2px;
     }
 
-    body {
-        padding-bottom: 65px;
-    }
+    body { padding-bottom: 65px; }
 }
 
-@media(max-width:480px) {
-    .category-grid,
-    .values-grid,
-    .stats-grid,
-    .video-grid,
-    .workflow-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .customer-video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .country-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .country-card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .country-card img {
-        margin: 0;
-    }
-
-    .intro-text h2 {
-        font-size: 29px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
+@media(max-width: 480px) {
     .hero-buttons {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .hero-buttons .btn {
-        width: 100%;
+    .hero-buttons .btn { width: 100%; }
+
+    .workflow-grid,
+    .values-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
+
+    .detail-card { padding: 21px; }
+
+    .fee-card { padding: 25px 18px; }
+
+    .footer-bottom { flex-direction: column; }
 }
 </style>
 </head>
@@ -1027,12 +334,13 @@ footer {
 <body>
 
 <!-- HEADER -->
+
 <header>
     <div class="container navbar">
 
         <a href="index.html" class="brand-logo">
             <img src="company logo.png.jpg" alt="M&M Logistics Logo">
-            <span class="brand-name">M&amp;M Logistics</span>
+            <span class="brand-name">M&M Logistics</span>
         </a>
 
         <button class="menu-toggle" id="menuToggle"
@@ -1056,16 +364,19 @@ footer {
 </header>
 
 <!-- HERO -->
-<section class="about-hero">
-    <div class="container">
-        <div class="about-hero-content">
 
-            <h1>Connecting China to West Africa Through Logistics.</h1>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+
+            <span class="eyebrow">ABOUT M&M LOGISTICS (SL) LTD</span>
+
+            <h1>Connecting China to West Africa. Making Business Easier.</h1>
 
             <p>
                 We help individuals and businesses source products,
-                coordinate procurement and manage international
-                shipping from China to Sierra Leone, Ghana and Nigeria.
+                coordinate procurement, arrange international shipping
+                and access China-related business support.
             </p>
 
             <div class="hero-buttons">
@@ -1073,8 +384,8 @@ footer {
                     Request a Quotation
                 </a>
 
-                <a href="#our-story" class="btn btn-outline">
-                    Discover Our Company
+                <a href="#our-services" class="btn btn-outline">
+                    Explore Our Services
                 </a>
             </div>
 
@@ -1082,7 +393,18 @@ footer {
     </div>
 </section>
 
-<!-- COMPANY INTRODUCTION -->
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+    <div class="container">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        About Us
+    </div>
+</div>
+
+<!-- WHO WE ARE -->
+
 <section class="section" id="our-story">
     <div class="container intro-grid">
 
@@ -1093,40 +415,39 @@ footer {
 
         <div class="intro-text">
 
-            <span class="small-label">WHO WE ARE</span>
+            <span class="eyebrow">WHO WE ARE</span>
 
             <h2>Your Partner in Sourcing, Procurement and International Logistics</h2>
 
             <p>
-                M&amp;M Logistics (SL) Ltd is a sourcing, procurement
-                and logistics company focused on helping individuals
-                and businesses access products from China and coordinate
+                M&M Logistics (SL) Ltd is a sourcing, procurement and
+                logistics company focused on helping individuals and
+                businesses access products from China and coordinate
                 their movement to West African markets.
             </p>
 
             <p>
-                We recognise that purchasing products internationally
-                can involve challenges such as identifying suitable
-                suppliers, communicating with manufacturers, coordinating
-                purchases, arranging transportation and following up
-                on shipments.
+                International purchasing can involve identifying
+                reliable suppliers, communicating with manufacturers,
+                arranging payments, coordinating purchases, preparing
+                goods for shipment and managing transportation.
             </p>
 
             <p>
-                Our role is to make these processes more organised
-                by supporting customers from their initial product
-                enquiry through procurement and shipping coordination.
+                We help make these processes more organised by
+                supporting customers from their initial enquiry
+                through procurement and shipping coordination.
             </p>
 
             <ul class="check-list">
                 <li>Product sourcing and supplier identification</li>
                 <li>Purchasing and procurement coordination</li>
-                <li>Warehouse and shipment preparation coordination</li>
-                <li>Sea freight, air freight and courier arrangements</li>
-                <li>Shipment updates and customer support</li>
+                <li>Shipping and freight arrangements</li>
+                <li>China visa assistance</li>
+                <li>China business and travel support</li>
             </ul>
 
-            <a href="contact.html" class="btn btn-primary">
+            <a href="contact.html" class="btn btn-blue">
                 Talk to Our Team
             </a>
 
@@ -1135,6 +456,7 @@ footer {
 </section>
 
 <!-- MISSION AND VISION -->
+
 <section class="section mission-section">
     <div class="container">
 
@@ -1142,633 +464,957 @@ footer {
             <span>OUR DIRECTION</span>
             <h2>Our Mission and Vision</h2>
             <p>
-                Our focus is to make international sourcing and
-                logistics more accessible, organised and convenient
-                for customers across West Africa.
+                Our focus is to make international sourcing,
+                procurement and logistics more accessible,
+                organised and convenient for customers.
             </p>
         </div>
 
         <div class="mission-grid">
 
-            <div class="mission-card">
+            <article class="mission-card">
                 <div class="mission-icon">◎</div>
                 <h3>Our Mission</h3>
                 <p>
-                    To simplify product sourcing, procurement and
-                    international shipping by connecting customers
-                    with suitable suppliers and coordinating the
-                    movement of goods from China to West Africa.
+                    To simplify international sourcing, procurement
+                    and shipping by connecting customers with suppliers
+                    and coordinating the movement of goods from China
+                    to West Africa.
                 </p>
-            </div>
+            </article>
 
-            <div class="mission-card">
+            <article class="mission-card">
                 <div class="mission-icon">◇</div>
                 <h3>Our Vision</h3>
                 <p>
                     To become a trusted sourcing and logistics partner
                     for individuals and businesses across West Africa,
-                    recognised for dependable coordination, customer
-                    service and accessible international trade solutions.
+                    recognised for dependable coordination and
+                    customer-focused international trade solutions.
                 </p>
-            </div>
+            </article>
 
         </div>
     </div>
 </section>
 
-<!-- WHERE WE SHIP -->
+<!-- OUR SERVICES OVERVIEW -->
+
+<section class="section services-section" id="our-services">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>WHAT WE DO</span>
+            <h2>Our Services</h2>
+            <p>
+                From finding products in China to arranging shipping
+                and supporting business travel, we provide practical
+                services to help customers manage their requirements.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <article class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>Product Sourcing & Procurement</h3>
+                <p>
+                    We help customers identify products, communicate
+                    with suppliers and coordinate purchases from China.
+                </p>
+                <ul>
+                    <li>Supplier identification</li>
+                    <li>Product and price enquiries</li>
+                    <li>Purchase coordination</li>
+                    <li>Supplier communication</li>
+                </ul>
+                <a class="service-link" href="#procurement">
+                    View service and charges →
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">🚢</div>
+                <h3>International Shipping & Logistics</h3>
+                <p>
+                    We coordinate the movement of purchased goods
+                    from China to selected West African destinations.
+                </p>
+                <ul>
+                    <li>Sea freight arrangements</li>
+                    <li>Air freight arrangements</li>
+                    <li>Shipment coordination</li>
+                    <li>Shipping updates</li>
+                </ul>
+                <a class="service-link" href="#shipping">
+                    View service and charges →
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">🛂</div>
+                <h3>China Visa Assistance</h3>
+                <p>
+                    Assistance for customers preparing for China-related
+                    travel and visa application processes.
+                </p>
+                <ul>
+                    <li>Application guidance</li>
+                    <li>Documentation guidance</li>
+                    <li>Travel preparation support</li>
+                </ul>
+                <a class="service-link" href="#visa">
+                    View service and charges →
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">🌏</div>
+                <h3>China Business & Travel Support</h3>
+                <p>
+                    Support for customers planning business-related
+                    activities and visits to China.
+                </p>
+                <ul>
+                    <li>Business trip planning support</li>
+                    <li>Supplier visit coordination</li>
+                    <li>Travel-related assistance</li>
+                </ul>
+                <a class="service-link" href="#business-travel">
+                    View service and charges →
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>Consultation & Advisory</h3>
+                <p>
+                    Discuss your sourcing, procurement or logistics
+                    requirements with our team before proceeding.
+                </p>
+                <ul>
+                    <li>20-minute consultation</li>
+                    <li>Initial needs assessment</li>
+                    <li>Service and process guidance</li>
+                </ul>
+                <a class="service-link" href="#consultation">
+                    View consultation fee →
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Product Categories</h3>
+                <p>
+                    We support sourcing enquiries across different
+                    product categories for personal and business use.
+                </p>
+                <ul>
+                    <li>Automotive products</li>
+                    <li>Electronics</li>
+                    <li>Furniture</li>
+                    <li>Industrial and commercial products</li>
+                </ul>
+                <a class="service-link" href="index.html#products">
+                    Explore product categories →
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- DETAILED SERVICE EXPLANATIONS -->
+
+<section class="section detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>HOW OUR SERVICES WORK</span>
+            <h2>What Each Service Includes</h2>
+            <p>
+                We want customers to understand what they are
+                requesting, what our team coordinates and which
+                costs may apply before committing to a service.
+            </p>
+        </div>
+
+        <div class="detail-list">
+
+            <!-- PROCUREMENT -->
+
+            <article class="detail-card" id="procurement">
+
+                <div class="detail-copy">
+                    <span class="eyebrow">SERVICE 01</span>
+                    <h3>Product Sourcing and Procurement</h3>
+
+                    <p>
+                        This service is for customers who want to
+                        purchase products from China but need support
+                        identifying suppliers, obtaining product
+                        information and coordinating the purchase.
+                    </p>
+
+                    <ul>
+                        <li>Understanding your product requirements</li>
+                        <li>Identifying potential suppliers</li>
+                        <li>Requesting product specifications and prices</li>
+                        <li>Communicating with suppliers</li>
+                        <li>Coordinating the purchasing process</li>
+                        <li>Supporting shipment preparation arrangements</li>
+                    </ul>
+
+                    <p>
+                        The product purchase price is separate from
+                        M&M Logistics' service fee.
+                    </p>
+
+                    <a href="quotation.html" class="btn btn-blue">
+                        Request Procurement Quotation
+                    </a>
+                </div>
+
+                <div class="detail-visual">
+                    <div class="visual-icon">🛒</div>
+                    <h4>Source. Purchase. Coordinate.</h4>
+                    <p>
+                        Get support with sourcing products and
+                        coordinating purchases from China.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- SHIPPING -->
+
+            <article class="detail-card" id="shipping">
+
+                <div class="detail-copy">
+                    <span class="eyebrow">SERVICE 02</span>
+                    <h3>International Shipping and Logistics</h3>
+
+                    <p>
+                        Once goods have been purchased, we help
+                        coordinate the shipping arrangements from
+                        China to the selected destination.
+                    </p>
+
+                    <ul>
+                        <li>Sea freight arrangements</li>
+                        <li>Air freight arrangements</li>
+                        <li>Shipment coordination</li>
+                        <li>Shipping progress communication</li>
+                        <li>Coordination of applicable documentation</li>
+                    </ul>
+
+                    <p>
+                        Shipping costs depend on factors such as
+                        cargo size, weight, product type, shipping
+                        method and destination.
+                    </p>
+
+                    <a href="contact.html" class="btn btn-blue">
+                        Enquire About Shipping
+                    </a>
+                </div>
+
+                <div class="detail-visual">
+                    <div class="visual-icon">🚢</div>
+                    <h4>Moving Goods Across Borders</h4>
+                    <p>
+                        Shipping arrangements are assessed according
+                        to the shipment details and destination.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- VISA -->
+
+            <article class="detail-card" id="visa">
+
+                <div class="detail-copy">
+                    <span class="eyebrow">SERVICE 03</span>
+                    <h3>China Visa Assistance</h3>
+
+                    <p>
+                        We provide assistance to customers preparing
+                        for travel to China by helping them understand
+                        the visa application process and the
+                        documentation requirements relevant to their
+                        intended trip.
+                    </p>
+
+                    <ul>
+                        <li>Initial discussion of travel purpose</li>
+                        <li>Guidance on application preparation</li>
+                        <li>Documentation guidance</li>
+                        <li>Support with understanding the process</li>
+                    </ul>
+
+                    <p>
+                        Visa decisions are made by the relevant
+                        authorities. Our assistance does not guarantee
+                        visa approval.
+                    </p>
+
+                    <a href="contact.html" class="btn btn-blue">
+                        Enquire About Visa Assistance
+                    </a>
+                </div>
+
+                <div class="detail-visual">
+                    <div class="visual-icon">🛂</div>
+                    <h4>Prepare for Your China Trip</h4>
+                    <p>
+                        Get guidance on preparing for the relevant
+                        visa application process.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- BUSINESS TRAVEL -->
+
+            <article class="detail-card" id="business-travel">
+
+                <div class="detail-copy">
+                    <span class="eyebrow">SERVICE 04</span>
+                    <h3>China Business and Travel Support</h3>
+
+                    <p>
+                        For customers planning to visit China for
+                        business-related purposes, we provide
+                        coordination support based on the customer's
+                        requirements and proposed activities.
+                    </p>
+
+                    <ul>
+                        <li>Initial business travel consultation</li>
+                        <li>Supplier visit coordination enquiries</li>
+                        <li>Support with planning business activities</li>
+                        <li>Travel-related coordination enquiries</li>
+                    </ul>
+
+                    <p>
+                        The scope of support will depend on the
+                        customer's travel plans, duration and
+                        requested arrangements.
+                    </p>
+
+                    <a href="contact.html" class="btn btn-blue">
+                        Discuss Your Business Trip
+                    </a>
+                </div>
+
+                <div class="detail-visual">
+                    <div class="visual-icon">🌏</div>
+                    <h4>Plan Your Business Visit</h4>
+                    <p>
+                        Discuss your intended activities and the
+                        support you require for a China visit.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- CONSULTATION -->
+
+            <article class="detail-card" id="consultation">
+
+                <div class="detail-copy">
+                    <span class="eyebrow">SERVICE 05</span>
+                    <h3>Consultation and Advisory</h3>
+
+                    <p>
+                        Customers who want to discuss their requirements
+                        before proceeding can book an initial
+                        20-minute consultation with our team.
+                    </p>
+
+                    <ul>
+                        <li>Discuss your product or service requirements</li>
+                        <li>Understand the relevant process</li>
+                        <li>Discuss possible sourcing or logistics needs</li>
+                        <li>Identify the next steps for your enquiry</li>
+                    </ul>
+
+                    <p>
+                        The consultation is an initial discussion.
+                        Any additional work or services will be
+                        explained separately.
+                    </p>
+
+                    <a href="contact.html#consultation" class="btn btn-blue">
+                        Schedule a Consultation
+                    </a>
+                </div>
+
+                <div class="detail-visual">
+                    <div class="visual-icon">💬</div>
+                    <h4>20-Minute Consultation</h4>
+                    <p>
+                        <strong style="color:#63E58F;font-size:30px;">$10</strong>
+                        <br>
+                        Flat consultation fee for the 20-minute session.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROCUREMENT PRICING -->
+
+<section class="section pricing-section" id="charges">
+
+    <div class="container">
+
+        <div class="pricing-intro">
+            <span class="eyebrow">CLEAR AND TRANSPARENT PRICING</span>
+            <h2 style="font-size:clamp(28px,4vw,38px);margin-top:10px;">
+                Understanding Our Product Sourcing Charges
+            </h2>
+            <p>
+                For product sourcing and procurement orders, the
+                M&M Logistics service fee is calculated using the
+                total product purchase value. A flat processing
+                fee also applies.
+            </p>
+        </div>
+
+        <!-- UPFRONT PROCESSING FEE -->
+
+        <div class="processing-banner">
+            <small>Upfront Processing Fee</small>
+            <strong>$50</strong>
+            <p>
+                A flat processing fee payable for each customer
+                procurement order, in addition to the applicable
+                percentage service fee.
+            </p>
+        </div>
+
+        <!-- PERCENTAGE FEE TIERS -->
+
+        <div class="fee-grid">
+
+            <article class="fee-card">
+                <span class="purchase-label">PURCHASE VALUE</span>
+                <strong>10%</strong>
+                <h3>Standard Procurement Tier</h3>
+                <p>
+                    Applies to qualifying product purchases
+                    from $1,500 up to below $10,000.
+                </p>
+                <span class="range">$1,500 – Below $10,000</span>
+            </article>
+
+            <article class="fee-card featured">
+                <span class="purchase-label">PURCHASE VALUE</span>
+                <strong>5%</strong>
+                <h3>Mid-Value Procurement Tier</h3>
+                <p>
+                    Applies to product purchases of $10,000
+                    up to and including $50,000.
+                </p>
+                <span class="range">$10,000 – $50,000</span>
+            </article>
+
+            <article class="fee-card">
+                <span class="purchase-label">PURCHASE VALUE</span>
+                <strong>3%</strong>
+                <h3>High-Value Procurement Tier</h3>
+                <p>
+                    Applies to product purchases above $50,000.
+                </p>
+                <span class="range">Above $50,000</span>
+            </article>
+
+        </div>
+
+        <!-- IMPORTANT PRICING NOTES -->
+
+        <div class="pricing-note">
+            <strong>Important information about procurement charges</strong>
+
+            <ul>
+                <li>
+                    The $50 upfront processing fee applies to each
+                    customer procurement order and is additional
+                    to the percentage service fee.
+                </li>
+                <li>
+                    The percentage is determined by the total
+                    product purchase value and the applicable tier.
+                </li>
+                <li>
+                    Purchases below $1,500 are not covered by
+                    the percentage schedule. Contact us for
+                    clarification before proceeding.
+                </li>
+                <li>
+                    The procurement service fee is separate from
+                    the supplier's product price and shipping costs.
+                </li>
+            </ul>
+        </div>
+
+        <!-- EXAMPLE -->
+
+        <div class="example-box">
+            <h3>Example: How the charges are calculated</h3>
+
+            <p>
+                If the product purchase value is <strong>$8,000</strong>:
+            </p>
+
+            <p>Product purchase value: <strong>$8,000</strong></p>
+            <p>Procurement service fee at 10%: <strong>$800</strong></p>
+            <p>Upfront processing fee: <strong>$50</strong></p>
+            <p>
+                <strong>
+                    M&M Logistics fees in this example: $850
+                </strong>
+            </p>
+
+            <p>
+                The product purchase price remains $8,000.
+                Shipping, customs, taxes and other applicable
+                third-party charges are not included in the
+                $850 service-fee calculation.
+            </p>
+        </div>
+
+        <!-- OTHER CHARGES -->
+
+        <div class="section-heading" style="margin-top:55px;">
+            <span>OTHER COSTS TO CONSIDER</span>
+            <h2>What Is Not Included in the Service Fee?</h2>
+            <p>
+                Some costs are charged by suppliers, freight
+                providers, authorities or other third parties.
+                These are separate from M&M Logistics' service fees.
+            </p>
+        </div>
+
+        <div class="other-fees">
+
+            <article class="other-fee-card">
+                <h3>Product Purchase Cost</h3>
+                <p>
+                    The amount payable to the supplier for the
+                    products you intend to purchase.
+                </p>
+                <span class="fee-status">Supplier Cost</span>
+            </article>
+
+            <article class="other-fee-card">
+                <h3>Shipping and Freight</h3>
+                <p>
+                    Transportation charges based on the shipment
+                    method, cargo details and destination.
+                </p>
+                <span class="fee-status">Separately Quoted</span>
+            </article>
+
+            <article class="other-fee-card">
+                <h3>Customs Duties and Taxes</h3>
+                <p>
+                    Applicable import duties, taxes and government
+                    charges at the destination.
+                </p>
+                <span class="fee-status">Third-Party / Government Cost</span>
+            </article>
+
+            <article class="other-fee-card">
+                <h3>Inspection and Documentation</h3>
+                <p>
+                    Any applicable inspection, certification,
+                    documentation or processing costs.
+                </p>
+                <span class="fee-status">Where Applicable</span>
+            </article>
+
+            <article class="other-fee-card">
+                <h3>Destination Handling</h3>
+                <p>
+                    Port, terminal, warehouse or other destination
+                    handling costs where applicable.
+                </p>
+                <span class="fee-status">Where Applicable</span>
+            </article>
+
+            <article class="other-fee-card">
+                <h3>Visa and Travel Expenses</h3>
+                <p>
+                    Relevant visa application, travel, accommodation
+                    and other trip-related expenses.
+                </p>
+                <span class="fee-status">Separately Assessed</span>
+            </article>
+
+        </div>
+
+        <div class="pricing-note">
+            <strong>Our quotation approach:</strong>
+            Before you proceed, your quotation should identify
+            the applicable M&M Logistics fees and the estimated
+            third-party costs relevant to your order. Costs that
+            depend on product details, shipment arrangements or
+            destination requirements will be confirmed separately.
+        </div>
+
+    </div>
+</section>
+
+<!-- SHIPPING TIMELINES -->
+
+<section class="section shipping-section" id="shipping-times">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <span>SHIPPING OPTIONS</span>
+            <h2>Choosing the Right Shipping Method</h2>
+            <p>
+                The appropriate shipping method depends on your
+                cargo, budget, destination and delivery requirements.
+            </p>
+        </div>
+
+        <div class="shipping-grid">
+
+            <article class="shipping-card">
+                <h3>Sea Freight</h3>
+                <p>
+                    Suitable for larger, heavier or bulk shipments
+                    where customers can accommodate a longer
+                    transportation period.
+                </p>
+                <strong>3–4 Months</strong>
+                <p>Indicative shipping duration.</p>
+            </article>
+
+            <article class="shipping-card">
+                <h3>Air Freight</h3>
+                <p>
+                    An option for customers who need a faster
+                    transportation method, subject to cargo
+                    acceptance and shipment arrangements.
+                </p>
+                <strong>7–15 Days</strong>
+                <p>Indicative shipping duration.</p>
+            </article>
+
+        </div>
+
+        <div class="shipping-disclaimer">
+            Shipping durations are estimates and may vary due to
+            customs procedures, carrier schedules, cargo handling,
+            destination requirements and other circumstances.
+            Actual freight charges are provided separately in
+            the shipment quotation.
+        </div>
+
+    </div>
+</section>
+
+<!-- REGIONAL REACH -->
+
 <section class="section reach-section">
+
     <div class="container">
 
         <div class="section-heading">
             <span>OUR REGIONAL REACH</span>
-            <h2>From China to West Africa</h2>
+            <h2>Connecting China to West Africa</h2>
             <p>
-                Our sourcing operations connect customers with
-                products and suppliers in China, with shipping
-                destinations across selected West African markets.
+                We support customers with sourcing and logistics
+                requirements connected to selected West African markets.
             </p>
-        </div>
-
-        <div class="reach-grid">
-
-            <div class="reach-text">
-                <h3>Connecting Markets. Moving Businesses Forward.</h3>
-
-                <p>
-                    China is an important sourcing origin for our
-                    procurement and logistics activities. We support
-                    customers seeking products from Chinese suppliers
-                    and coordinate the associated purchasing and
-                    shipping arrangements.
-                </p>
-
-                <p>
-                    Our current destination focus includes Sierra Leone,
-                    Ghana and Nigeria, supporting individuals, traders
-                    and businesses with different sourcing requirements.
-                </p>
-
-                <p>
-                    Depending on the nature of the shipment, available
-                    arrangements may include sea freight, air freight
-                    and courier services.
-                </p>
-
-                <a href="services.html" class="btn btn-primary">
-                    Explore Our Services
-                </a>
-            </div>
-
-            <div class="reach-image">
-                <img src="flow.png"
-                     alt="International logistics and shipping operations">
-            </div>
-
         </div>
 
         <div class="country-grid">
 
-            <div class="country-card">
-                <img src="sierra-leone.png" alt="Sierra Leone flag">
+            <article class="country-card">
                 <h3>Sierra Leone</h3>
-                <p>Shipping destination</p>
-            </div>
+                <p>Procurement and shipping support.</p>
+            </article>
 
-            <div class="country-card">
-                <img src="ghana.png" alt="Ghana flag">
+            <article class="country-card">
                 <h3>Ghana</h3>
-                <p>Shipping destination</p>
-            </div>
+                <p>Procurement and shipping support.</p>
+            </article>
 
-            <div class="country-card">
-                <img src="nigeria.png" alt="Nigeria flag">
+            <article class="country-card">
                 <h3>Nigeria</h3>
-                <p>Shipping destination</p>
-            </div>
+                <p>Procurement and shipping support.</p>
+            </article>
 
         </div>
-    </div>
-</section>
-
-<!-- COMPANY PERFORMANCE -->
-<section class="stats-section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span>OUR PERFORMANCE</span>
-            <h2>Our Journey in Numbers</h2>
-            <p>
-                A snapshot of our operational reach and the
-                customers and shipments we support.
-            </p>
-        </div>
-
-        <div class="stats-grid">
-
-            <div class="stat-card">
-                <strong>835+</strong>
-                <h3>Shipments Completed</h3>
-                <p>Shipments coordinated for customers</p>
-            </div>
-
-            <div class="stat-card">
-                <strong>500+</strong>
-                <h3>Customers Served</h3>
-                <p>Individuals, traders and businesses</p>
-            </div>
-
-            <div class="stat-card">
-                <strong>3</strong>
-                <h3>Shipping Destinations</h3>
-                <p>Sierra Leone, Ghana and Nigeria</p>
-            </div>
-
-            <div class="stat-card">
-                <strong>4</strong>
-                <h3>Product Categories</h3>
-                <p>Automotive, electronics, fashion and industrial</p>
-            </div>
-
-        </div>
-
-        <p class="stats-disclaimer">
-            Company performance figures should be checked against
-            internal shipment and customer records before publication.
-        </p>
 
     </div>
 </section>
 
-<!-- PRODUCT CATEGORIES -->
-<section class="section categories-section">
+<!-- HOW WE WORK -->
+
+<section class="section">
     <div class="container">
 
         <div class="section-heading">
-            <span>OUR SOURCING CATEGORIES</span>
-            <h2>Products and Categories We Support</h2>
+            <span>OUR PROCESS</span>
+            <h2>How It Works</h2>
             <p>
-                We support customers looking to source a range of
-                products from China for personal, commercial and
-                business requirements.
-            </p>
-        </div>
-
-        <div class="category-grid">
-
-            <a href="automotive.html" class="category-card">
-                <img src="Automotive.png" alt="Automotive products">
-                <div class="category-overlay">
-                    <h3>Automotive</h3>
-                    <p>Vehicles, trucks, spare parts and accessories</p>
-                </div>
-            </a>
-
-            <a href="electronics.html" class="category-card">
-                <img src="electronics.png" alt="Electronics">
-                <div class="category-overlay">
-                    <h3>Electronics</h3>
-                    <p>Electronic products and equipment</p>
-                </div>
-            </a>
-
-            <a href="fashion.html" class="category-card">
-                <img src="fashion.png" alt="Fashion and lifestyle">
-                <div class="category-overlay">
-                    <h3>Fashion &amp; Lifestyle</h3>
-                    <p>Fashion, bags, clothing and lifestyle products</p>
-                </div>
-            </a>
-
-            <a href="industrial.html" class="category-card">
-                <img src="commercial.png" alt="Industrial and commercial products">
-                <div class="category-overlay">
-                    <h3>Industrial &amp; Commercial</h3>
-                    <p>Machinery, equipment and commercial products</p>
-                </div>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-<!-- OUR PROCESS -->
-<section class="section workflow-section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span>HOW WE WORK</span>
-            <h2>From Enquiry to Shipment Updates</h2>
-            <p>
-                Our process is structured around the customer's
-                requirements, from the initial request to shipping
-                coordination and updates.
+                A straightforward process designed to help customers
+                understand each stage of their order.
             </p>
         </div>
 
         <div class="workflow-grid">
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">01</div>
-                <h3>Submit Your Request</h3>
-                <p>Tell us the product you want to source, purchase or ship.</p>
-            </div>
+                <h3>Submit Your Enquiry</h3>
+                <p>
+                    Tell us what you want to purchase, ship or
+                    discuss with our team.
+                </p>
+            </article>
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">02</div>
-                <h3>Receive a Quotation</h3>
-                <p>We review your requirements and provide relevant pricing and service information.</p>
-            </div>
+                <h3>Review Requirements</h3>
+                <p>
+                    We review your requirements and identify
+                    the relevant service and information needed.
+                </p>
+            </article>
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">03</div>
-                <h3>Confirm Your Order</h3>
-                <p>Review and confirm the purchasing and shipping arrangements.</p>
-            </div>
+                <h3>Receive a Quotation</h3>
+                <p>
+                    We provide the applicable service charges
+                    and other identifiable costs for your enquiry.
+                </p>
+            </article>
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">04</div>
-                <h3>Procurement</h3>
-                <p>The purchasing process is coordinated according to the confirmed order.</p>
-            </div>
+                <h3>Confirm and Proceed</h3>
+                <p>
+                    Once the requirements and payment arrangements
+                    are agreed, the process can proceed.
+                </p>
+            </article>
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">05</div>
-                <h3>Shipping Coordination</h3>
-                <p>Your goods are prepared and arranged for the selected freight method.</p>
-            </div>
+                <h3>Coordinate the Service</h3>
+                <p>
+                    We coordinate the agreed sourcing, procurement,
+                    shipping or support activities.
+                </p>
+            </article>
 
-            <div class="workflow-card">
+            <article class="workflow-card">
                 <div class="workflow-number">06</div>
-                <h3>Shipment Updates</h3>
-                <p>Follow up on your shipment through the available tracking arrangements.</p>
-            </div>
+                <h3>Receive Updates</h3>
+                <p>
+                    Customers can contact our team for updates
+                    and information relating to their service.
+                </p>
+            </article>
 
         </div>
+
     </div>
 </section>
 
-<!-- BEHIND THE SCENES AT M&M LOGISTICS -->
-<section class="section video-section" id="our-videos">
-    <div class="container">
+<!-- COMPANY VALUES -->
 
-        <div class="section-heading">
-            <span>SEE OUR OPERATIONS</span>
-            <h2>Behind the Scenes at M&amp;M Logistics</h2>
-            <p>
-                Explore our sourcing activities, procurement,
-                warehouse operations, shipping arrangements
-                and product delivery.
-            </p>
-        </div>
+<section class="section values-section">
 
-        <div class="video-grid">
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="y9tyXL87l1A"></div>
-                <div class="video-details">
-                    <h3>Product Sourcing in China</h3>
-                    <p>See how we identify products and coordinate with suppliers.</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="yMdRdviOYPE"></div>
-                <div class="video-details">
-                    <h3>Product Inspection &amp; Checking</h3>
-                    <p>View product checking and order preparation activities.</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="y9tyXL87l1A"></div>
-                <div class="video-details">
-                    <h3>Warehouse Operations</h3>
-                    <p>See how goods are received, handled and prepared.</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="yMdRdviOYPE"></div>
-                <div class="video-details">
-                    <h3>Shipment &amp; Cargo Preparation</h3>
-                    <p>View packing, consolidation and shipment arrangements.</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="y9tyXL87l1A"></div>
-                <div class="video-details">
-                    <h3>Shipment Arrival &amp; Delivery</h3>
-                    <p>See how shipments arrive and are delivered to customers.</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-embed" data-video-id="yMdRdviOYPE"></div>
-                <div class="video-details">
-                    <h3>Our Logistics Operations</h3>
-                    <p>Explore more of our international logistics activities.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- OUR VALUES -->
-<section class="section">
     <div class="container">
 
         <div class="section-heading">
             <span>WHAT GUIDES US</span>
-            <h2>Our Commitment to Customers</h2>
+            <h2>Our Values</h2>
             <p>
-                We aim to make every stage of the sourcing
-                and shipping process clear, organised and
-                customer-focused.
+                The principles that guide how we work with
+                customers and coordinate their requirements.
             </p>
         </div>
 
         <div class="values-grid">
 
-            <div class="value-card">
-                <div class="value-icon">✓</div>
-                <h3>Reliability</h3>
-                <p>We focus on organised coordination and dependable customer support.</p>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">◇</div>
+            <article class="value-card">
                 <h3>Transparency</h3>
-                <p>We aim to provide clear information about sourcing and shipping arrangements.</p>
-            </div>
+                <p>
+                    Clear communication about services, fees
+                    and applicable costs.
+                </p>
+            </article>
 
-            <div class="value-card">
-                <div class="value-icon">↗</div>
-                <h3>Efficiency</h3>
-                <p>We coordinate the different stages of procurement and logistics.</p>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">♡</div>
+            <article class="value-card">
                 <h3>Customer Focus</h3>
-                <p>We consider customer requirements throughout the service process.</p>
-            </div>
+                <p>
+                    Understanding customer requirements and
+                    providing relevant support.
+                </p>
+            </article>
+
+            <article class="value-card">
+                <h3>Coordination</h3>
+                <p>
+                    Organising the different stages involved
+                    in sourcing and logistics.
+                </p>
+            </article>
+
+            <article class="value-card">
+                <h3>Accountability</h3>
+                <p>
+                    Communicating clearly about agreed services
+                    and customer requirements.
+                </p>
+            </article>
 
         </div>
+
     </div>
 </section>
 
-<!-- CUSTOMER EXPERIENCE & FEEDBACK -->
-<section class="section customer-feedback-section" id="customer-feedback">
-    <div class="container">
+<!-- FINAL CTA -->
 
-        <div class="section-heading">
-            <span>HEAR FROM OUR CUSTOMERS</span>
-            <h2>Customer Experience &amp; Feedback</h2>
-            <p>
-                Hear directly from customers about their experiences
-                with M&amp;M Logistics, from product sourcing and procurement
-                to shipping and delivery.
-            </p>
-        </div>
-
-        <div class="customer-video-grid">
-
-            <article class="customer-video-card">
-                <div class="customer-video-frame" data-video-id="yMdRdviOYPE"></div>
-                <div class="customer-video-info">
-                    <h3>Customer Experience 01</h3>
-                    <p>Customer feedback on working with M&amp;M Logistics.</p>
-                </div>
-            </article>
-
-            <article class="customer-video-card">
-                <div class="customer-video-frame" data-video-id="y9tyXL87l1A"></div>
-                <div class="customer-video-info">
-                    <h3>Customer Experience 02</h3>
-                    <p>Customer feedback on product sourcing and procurement.</p>
-                </div>
-            </article>
-
-            <article class="customer-video-card">
-                <div class="customer-video-frame" data-video-id="yMdRdviOYPE"></div>
-                <div class="customer-video-info">
-                    <h3>Customer Experience 03</h3>
-                    <p>Customer feedback on shipping coordination and updates.</p>
-                </div>
-            </article>
-
-            <article class="customer-video-card">
-                <div class="customer-video-frame" data-video-id="y9tyXL87l1A"></div>
-                <div class="customer-video-info">
-                    <h3>Customer Experience 04</h3>
-                    <p>Customer feedback on the overall service experience.</p>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<!-- CALL TO ACTION -->
 <section class="cta">
     <div class="container">
 
-        <h2>Let's Move Your Business Forward</h2>
+        <span class="eyebrow">LET'S WORK TOGETHER</span>
+
+        <h2>Ready to Source or Ship from China?</h2>
 
         <p>
-            Have a product to source or a shipment to arrange?
-            Let M&amp;M Logistics assist you.
+            Tell us what you need. Our team can help you understand
+            the process, identify the relevant service and obtain
+            a quotation for your requirements.
         </p>
 
         <a href="quotation.html" class="btn btn-primary">
             Request a Quotation
         </a>
 
-        <a href="contact.html" class="btn btn-outline"
-           style="margin-left:8px;">
-            Contact Our Team
+        <a href="https://wa.me/23230172868"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-outline">
+            Chat With Us on WhatsApp
         </a>
 
     </div>
 </section>
 
 <!-- FOOTER -->
+
 <footer>
     <div class="container">
 
         <div class="footer-grid">
 
             <div class="footer-about">
-                <a href="index.html" class="footer-logo">
+                <div class="footer-logo">
                     <img src="company logo.png.jpg"
                          alt="M&M Logistics Logo">
-                </a>
+                </div>
 
                 <p>
-                    M&amp;M Logistics (SL) Ltd provides product sourcing,
-                    procurement and international logistics solutions
-                    connecting China to West Africa.
+                    M&M Logistics (SL) Ltd provides sourcing,
+                    procurement and international logistics
+                    solutions connecting China with West Africa.
                 </p>
             </div>
 
             <div class="footer-column">
-                <h3>Quick Links</h3>
+                <h3>Company</h3>
                 <a href="index.html">Home</a>
-                <a href="services.html">Our Services</a>
-                <a href="automotive.html">Products</a>
-                <a href="tracking.html">Track Shipping</a>
                 <a href="about.html">About Us</a>
+                <a href="services.html">Our Services</a>
                 <a href="contact.html">Contact</a>
             </div>
 
             <div class="footer-column">
-                <h3>Our Services</h3>
-                <a href="services.html">Product Sourcing</a>
-                <a href="services.html">Procurement</a>
-                <a href="services.html">Sea Freight</a>
-                <a href="services.html">Air Freight</a>
-                <a href="quotation.html">Request a Quotation</a>
+                <h3>Product Categories</h3>
+                <a href="automotive.html">Automotive</a>
+                <a href="electronics.html">Electronics</a>
+                <a href="furniture.html">Furniture</a>
+                <a href="industrial.html">Industrial & Commercial</a>
             </div>
 
             <div class="footer-column">
-                <h3>Customer Account</h3>
-                <a href="login.html">Customer Login</a>
+                <h3>Customer Support</h3>
+                <a href="tracking.html">Track Shipping</a>
+                <a href="quotation.html">Request a Quotation</a>
                 <a href="signup.html">Create an Account</a>
-                <a href="tracking.html">Shipment Dashboard</a>
-
-                <h3 style="margin-top:22px;">Contact</h3>
-
                 <a href="https://wa.me/23230172868"
-                   target="_blank" rel="noopener">
-                    WhatsApp: +232 30 172 868
-                </a>
-
-                <a href="tel:+8613156271080">
-                    China: +86 131 5627 1080
-                </a>
-
-                <a href="tel:+8617543995848">
-                    China: +86 175 4399 5848
-                </a>
+                   target="_blank"
+                   rel="noopener noreferrer">WhatsApp Support</a>
             </div>
 
         </div>
 
         <div class="footer-bottom">
-            <p>
-                © <span id="currentYear"></span>
-                M&amp;M Logistics (SL) Ltd. All rights reserved.
-            </p>
-
-            <p>
-                Designed for international sourcing and logistics.
-            </p>
+            <span>
+                © <span id="year"></span> M&M Logistics (SL) Ltd.
+                All Rights Reserved.
+            </span>
+            <span>Connecting China to West Africa.</span>
         </div>
 
     </div>
 </footer>
 
-<!-- MOBILE BOTTOM NAVIGATION -->
-<nav class="mobile-bottom-nav">
+<!-- MOBILE NAVIGATION -->
 
-    <a href="index.html">
-        <span>⌂</span>
-        Home
-    </a>
-
-    <a href="services.html">
-        <span>▦</span>
-        Services
-    </a>
-
-    <a href="tracking.html">
-        <span>⌕</span>
-        Track
-    </a>
-
-    <a href="login.html">
-        <span>♙</span>
-        Account
-    </a>
-
-</nav>
+<div class="mobile-bottom-nav">
+    <a href="index.html"><span>⌂</span>Home</a>
+    <a href="services.html"><span>▤</span>Services</a>
+    <a href="tracking.html"><span>📦</span>Tracking</a>
+    <a href="contact.html"><span>☎</span>Contact</a>
+</div>
 
 <script>
-
-// MOBILE NAVIGATION
-
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", function() {
-
+menuToggle.addEventListener("click", function () {
     navLinks.classList.toggle("active");
 
     const isOpen = navLinks.classList.contains("active");
 
     menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
 
-    menuToggle.textContent = isOpen ? "×" : "☰";
-
+    menuToggle.textContent = isOpen ? "✕" : "☰";
 });
 
-// CLOSE MOBILE MENU AFTER CLICKING A LINK
-
-document.querySelectorAll("#navLinks a").forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
         navLinks.classList.remove("active");
-
         menuToggle.setAttribute("aria-expanded", "false");
-
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
         menuToggle.textContent = "☰";
-
     });
-
 });
 
-// AUTOMATIC YOUTUBE VIDEO EMBEDDING
-
-document.querySelectorAll("[data-video-id]").forEach(function(container) {
-
-    const videoId = container.getAttribute("data-video-id").trim();
-
-    if (!videoId) {
-        return;
-    }
-
-    const iframe = document.createElement("iframe");
-
-    iframe.src =
-        "https://www.youtube-nocookie.com/embed/" +
-        encodeURIComponent(videoId);
-
-    iframe.title = "M&M Logistics Video";
-
-    iframe.loading = "lazy";
-
-    iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-
-    iframe.referrerPolicy = "strict-origin-when-cross-origin";
-
-    iframe.allowFullscreen = true;
-
-    container.innerHTML = "";
-
-    container.appendChild(iframe);
-
-});
-
-// AUTOMATIC FOOTER YEAR
-
-document.getElementById("currentYear").textContent =
+document.getElementById("year").textContent =
     new Date().getFullYear();
-
 </script>
 
 </body>

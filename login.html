@@ -4,1136 +4,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Customer Login | M&M Logistics (SL) Ltd</title>
-
+<meta name="description" content="M&M Logistics account access for customers and administrators.">
+<title>Login | M&M Logistics (SL) Ltd.</title>
 <style>
-:root {
-    --blue: #395BA2;
-    --navy: #17243D;
-    --green: #12B94B;
-    --text: #172033;
-    --muted: #778197;
-    --border: #e5eaf2;
-    --light: #f5f7fb;
-    --white: #ffffff;
-    --form-bg: #ffffff;
-    --input-bg: #fbfcfe;
-    --input-text: #172033;
-    --heading: #17243D;
-    --soft-bg: #f7f9fc;
-    --message-error-bg: #fff0f0;
-    --message-error-text: #a52c2c;
-    --message-success-bg: #eaf8ef;
-    --message-success-text: #16733a;
-}
-
-body[data-theme="dark"] {
-    --text: #e9edf5;
-    --muted: #a6b0c2;
-    --border: #35425a;
-    --light: #101827;
-    --white: #17243D;
-    --form-bg: #17243D;
-    --input-bg: #202e46;
-    --input-text: #f2f5fa;
-    --heading: #ffffff;
-    --soft-bg: #202e46;
-    --message-error-bg: #442b35;
-    --message-error-text: #ffb5bd;
-    --message-success-bg: #193e30;
-    --message-success-text: #8ce8a9;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--light);
-    color: var(--text);
-    min-height: 100vh;
-    transition: background .25s, color .25s;
-}
-
-button, input {
-    font: inherit;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* TOP ACTIONS */
-
-.top-actions {
-    position: fixed;
-    top: 22px;
-    right: 30px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.top-action {
-    min-height: 40px;
-    padding: 0 15px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 7px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.home-button {
-    background: var(--green);
-    color: white;
-    border: 1px solid var(--green);
-}
-
-.home-button:hover {
-    background: #0da640;
-    border-color: #0da640;
-    transform: translateY(-1px);
-}
-
-.theme-button {
-    background: var(--form-bg);
-    color: var(--text);
-    border: 1px solid var(--border);
-}
-
-.theme-button:hover {
-    border-color: var(--blue);
-    transform: translateY(-1px);
-}
-
-.top-action .action-icon {
-    font-size: 15px;
-}
-
-/* MAIN LAYOUT */
-
-.page {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: .95fr 1.05fr;
-}
-
-/* LEFT BRANDING PANEL */
-
-.brand-panel {
-    position: relative;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(17, 32, 60, .97),
-            rgba(35, 73, 137, .90)
-        ),
-        url("hero-logistics.png") center/cover;
-    color: white;
-    padding: 42px 8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-}
-
-.brand-panel::before {
-    content: "";
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 50%;
-    right: -180px;
-    top: 18%;
-}
-
-.brand-panel::after {
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 50%;
-    right: -100px;
-    top: 28%;
-}
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    z-index: 2;
-}
-
-.brand-logo img {
-    width: 75px;
-    height: 65px;
-    object-fit: contain;
-    background: white;
-    border-radius: 8px;
-    padding: 4px;
-}
-
-.brand-logo strong {
-    font-size: 17px;
-    line-height: 1.3;
-}
-
-.brand-logo small {
-    display: block;
-    font-size: 10px;
-    color: #cbd8f0;
-    letter-spacing: 1px;
-    margin-top: 4px;
-}
-
-.brand-content {
-    position: relative;
-    z-index: 2;
-    max-width: 490px;
-    margin: 55px 0;
-}
-
-.brand-tag {
-    display: inline-block;
-    background: rgba(18,185,75,.15);
-    border: 1px solid rgba(18,185,75,.45);
-    color: #68e88d;
-    padding: 8px 13px;
-    border-radius: 30px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 24px;
-}
-
-.brand-content h1 {
-    font-size: clamp(35px, 4.2vw, 57px);
-    line-height: 1.12;
-    margin-bottom: 20px;
-}
-
-.brand-content h1 span {
-    color: #69df8c;
-}
-
-.brand-content p {
-    color: #d4deef;
-    font-size: 15px;
-    line-height: 1.8;
-    max-width: 430px;
-}
-
-.brand-points {
-    display: grid;
-    gap: 15px;
-    margin-top: 32px;
-}
-
-.brand-point {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    font-size: 13px;
-    color: #e8edf8;
-}
-
-.point-icon {
-    width: 35px;
-    height: 35px;
-    display: grid;
-    place-items: center;
-    border-radius: 9px;
-    background: rgba(255,255,255,.12);
-    font-size: 16px;
-}
-
-.brand-footer {
-    position: relative;
-    z-index: 2;
-    color: #c4cee1;
-    font-size: 11px;
-}
-
-/* RIGHT LOGIN PANEL */
-
-.form-panel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 85px 6% 35px;
-    background: var(--form-bg);
-    transition: background .25s;
-}
-
-.form-container {
-    width: 100%;
-    max-width: 440px;
-}
-
-.mobile-logo {
-    display: none;
-    margin-bottom: 35px;
-}
-
-.form-heading {
-    margin-bottom: 30px;
-}
-
-.form-heading .welcome {
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-}
-
-.form-heading h2 {
-    font-size: 33px;
-    color: var(--heading);
-    margin-bottom: 9px;
-}
-
-.form-heading p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-}
-
-/* FORM FIELDS */
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-}
-
-.input-wrap {
-    position: relative;
-}
-
-.input-wrap input {
-    width: 100%;
-    height: 51px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--input-bg);
-    padding: 0 15px;
-    outline: none;
-    font-size: 13px;
-    color: var(--input-text);
-    transition: .2s;
-}
-
-.input-wrap input:focus {
-    border-color: var(--blue);
-    background: var(--form-bg);
-    box-shadow: 0 0 0 3px rgba(57,91,162,.09);
-}
-
-.input-wrap input::placeholder {
-    color: var(--muted);
-}
-
-.password-input {
-    padding-right: 60px !important;
-}
-
-.toggle-password {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 0;
-    background: transparent;
-    color: #6e91d0;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-/* REMEMBER AND FORGOT */
-
-.options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 5px 0 25px;
-}
-
-.remember {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.remember input {
-    accent-color: var(--green);
-}
-
-.forgot-link {
-    color: #6e91d0;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-/* LOGIN BUTTON */
-
-.submit-btn {
-    width: 100%;
-    height: 52px;
-    border: none;
-    border-radius: 8px;
-    background: var(--green);
-    color: white;
-    font-weight: 800;
-    cursor: pointer;
-    transition: .25s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.submit-btn:hover {
-    background: #0da640;
-    transform: translateY(-1px);
-    box-shadow: 0 7px 18px rgba(18,185,75,.2);
-}
-
-.submit-btn:disabled {
-    opacity: .65;
-    cursor: wait;
-    transform: none;
-}
-
-/* FEEDBACK */
-
-.form-message {
-    display: none;
-    padding: 13px;
-    border-radius: 7px;
-    font-size: 12px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-.form-message.error {
-    display: block;
-    background: var(--message-error-bg);
-    color: var(--message-error-text);
-    border: 1px solid rgba(200,70,70,.25);
-}
-
-.form-message.success {
-    display: block;
-    background: var(--message-success-bg);
-    color: var(--message-success-text);
-    border: 1px solid rgba(18,185,75,.25);
-}
-
-/* DIVIDER */
-
-.divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 28px 0;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-    height: 1px;
-    background: var(--border);
-    flex: 1;
-}
-
-/* SIGNUP LINK */
-
-.signup-link {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-}
-
-.signup-link a {
-    color: #6e91d0;
-    font-weight: 800;
-}
-
-.back-home {
-    display: block;
-    text-align: center;
-    margin-top: 26px;
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.back-home:hover {
-    color: var(--green);
-}
-
-/* SECURITY NOTE */
-
-.security-note {
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
-    background: var(--soft-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 13px;
-    margin-top: 28px;
-    color: var(--muted);
-    font-size: 10px;
-    line-height: 1.6;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px) {
-    .page {
-        grid-template-columns: .8fr 1.2fr;
-    }
-
-    .brand-panel {
-        padding: 32px 7%;
-    }
-
-    .form-panel {
-        padding: 85px 5% 30px;
-    }
-
-    .brand-content h1 {
-        font-size: 39px;
-    }
-
-    .top-actions {
-        right: 20px;
-    }
-}
-
-@media(max-width:700px) {
-    .page {
-        display: block;
-    }
-
-    .brand-panel {
-        display: none;
-    }
-
-    .form-panel {
-        min-height: 100vh;
-        padding: 100px 7% 38px;
-    }
-
-    .mobile-logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .mobile-logo img {
-        width: 65px;
-        height: 55px;
-        object-fit: contain;
-    }
-
-    .mobile-logo strong {
-        color: var(--heading);
-        font-size: 15px;
-    }
-
-    .top-actions {
-        top: 15px;
-        right: 15px;
-        gap: 7px;
-    }
-
-    .top-action {
-        min-height: 37px;
-        padding: 0 11px;
-        font-size: 10px;
-    }
-}
-
-@media(max-width:430px) {
-    .form-heading h2 {
-        font-size: 28px;
-    }
-
-    .options {
-        align-items: flex-start;
-    }
-
-    .top-actions {
-        left: 15px;
-        right: 15px;
-        justify-content: flex-end;
-    }
-}
+:root{
+  --blue:#395BA2;--green:#12B94B;--navy:#17243D;--ink:#1c2940;
+  --muted:#69758a;--line:#e5eaf1;--bg:#f4f7fb;--white:#fff;
+  --shadow:0 22px 65px rgba(23,36,61,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+button,input{font:inherit}
+a{color:inherit}
+.page{min-height:100vh;display:flex;flex-direction:column}
+.topbar{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,6vw,90px)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;color:var(--navy);font-size:19px}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#233e79);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;letter-spacing:-1px}
+.top-links{display:flex;gap:22px;align-items:center;font-size:13px;color:var(--muted)}
+.top-links a{text-decoration:none}.top-links a:hover{color:var(--blue)}
+main{flex:1;display:grid;place-items:center;padding:48px 18px}
+.shell{width:min(1040px,100%);display:grid;grid-template-columns:.92fr 1.08fr;background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);min-height:600px}
+.visual{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(23,36,61,.97),rgba(57,91,162,.93));color:#fff;padding:48px 42px;display:flex;flex-direction:column;justify-content:space-between}
+.visual:before,.visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:50%;width:380px;height:380px;right:-190px;top:80px}
+.visual:after{width:270px;height:270px;right:-135px;top:135px}
+.visual-content,.visual-foot{position:relative;z-index:1}
+.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9c4ff;font-weight:800}
+.visual h1{font-size:clamp(30px,4vw,43px);line-height:1.12;margin:18px 0 16px;letter-spacing:-1.5px}
+.visual p{color:#dbe5f7;line-height:1.75;font-size:14px;max-width:360px}
+.visual-points{display:grid;gap:15px;margin-top:34px}
+.point{display:flex;gap:12px;align-items:center;color:#eef3ff;font-size:13px}
+.point-icon{width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.13);display:grid;place-items:center;color:#8ff0ad;font-weight:800}
+.visual-foot{font-size:11px;color:#c6d3eb;line-height:1.7}
+.content{padding:48px clamp(25px,5vw,58px);display:flex;flex-direction:column;justify-content:center}
+.content-head{margin-bottom:27px}
+.content-head .eyebrow{color:var(--blue)}
+.content h2{font-size:27px;margin:10px 0 8px;color:var(--navy);letter-spacing:-.6px}
+.subtext{color:var(--muted);font-size:13px;line-height:1.65;margin:0}
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.role-card{border:1px solid var(--line);border-radius:16px;padding:21px 18px;text-align:left;background:#fff;cursor:pointer;transition:.2s;min-height:185px;display:flex;flex-direction:column;align-items:flex-start}
+.role-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 28px rgba(57,91,162,.10)}
+.role-card.admin:hover{border-color:var(--green)}
+.role-icon{width:44px;height:44px;border-radius:13px;background:#edf2ff;color:var(--blue);display:grid;place-items:center;font-size:21px;margin-bottom:17px}
+.admin .role-icon{background:#eaf9ef;color:#159c42}
+.role-card strong{font-size:15px;color:var(--navy);margin-bottom:7px}
+.role-card span:last-child{font-size:12px;line-height:1.55;color:var(--muted)}
+.role-arrow{margin-top:auto;padding-top:13px;color:var(--blue);font-size:12px;font-weight:800}
+.admin .role-arrow{color:#159c42}
+.form-panel{display:none}
+.form-panel.active{display:block;animation:appear .25s ease}
+@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.back{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:800;padding:0;margin:0 0 24px;cursor:pointer}
+.form-title{margin-bottom:23px}
+.form-title h2{margin:0 0 8px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:750;color:#34435c;margin-bottom:8px}
+.input-wrap{position:relative}
+.field input{width:100%;height:48px;border:1px solid #dce3ed;border-radius:10px;padding:0 14px;color:var(--ink);outline:none;background:#fff;font-size:13px}
+.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(57,91,162,.10)}
+.password-input{padding-right:70px!important}
+.show-password{position:absolute;right:12px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--blue);font-size:11px;font-weight:800;cursor:pointer}
+.form-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 20px;font-size:11px;color:var(--muted)}
+.remember{display:flex;align-items:center;gap:7px}.remember input{accent-color:var(--blue)}
+.text-link{color:var(--blue);font-weight:750;text-decoration:none}
+.submit{height:49px;width:100%;border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 8px 18px rgba(57,91,162,.2)}
+.submit:hover{background:#2e4e90}
+.message{display:none;margin:0 0 15px;padding:11px 13px;border-radius:9px;font-size:12px;line-height:1.5}
+.message.show{display:block}.message.error{background:#fff0f0;color:#a52c2c;border:1px solid #f4cccc}
+.admin-notice{padding:14px;border:1px solid #d9f0e1;background:#f2fbf5;border-radius:10px;font-size:12px;line-height:1.6;color:#386448;margin-bottom:18px}
+.admin-btn{background:#159c42;box-shadow:0 8px 18px rgba(18,185,75,.16)}
+.admin-btn:hover{background:#108538}
+.form-note{font-size:11px;line-height:1.6;color:var(--muted);margin:17px 0 0;text-align:center}
+.footer{text-align:center;padding:17px 15px 22px;color:#8792a4;font-size:11px}
+.footer a{color:var(--blue);text-decoration:none}
+@media(max-width:760px){
+ .topbar{height:66px;padding:0 18px}.top-links{gap:13px;font-size:11px}
+ main{padding:24px 13px}.shell{grid-template-columns:1fr;max-width:520px}
+ .visual{padding:28px 27px;min-height:255px}.visual h1{font-size:29px;margin:12px 0}
+ .visual p{font-size:12px;margin:0}.visual-points{display:none}.visual-foot{margin-top:22px}
+ .content{padding:31px 25px 35px}.content h2{font-size:24px}
+}
+@media(max-width:390px){.role-grid{grid-template-columns:1fr}.role-card{min-height:150px}.top-links a:first-child{display:none}}
 </style>
 </head>
-
 <body>
-
-<!-- TOP HOME AND THEME OPTIONS -->
-
-<div class="top-actions">
-
-    <a href="index.html" class="top-action home-button">
-        <span class="action-icon">⌂</span>
-        Home
-    </a>
-
-    <button
-        type="button"
-        class="top-action theme-button"
-        id="themeToggle"
-        aria-label="Switch colour theme"
-    >
-        <span class="action-icon" id="themeIcon">☀</span>
-        <span id="themeText">Light Mode</span>
-    </button>
-
-</div>
-
 <div class="page">
-
-    <!-- LEFT BRANDING PANEL -->
-
-    <section class="brand-panel">
-
-        <a href="index.html" class="brand-logo">
-
-            <img src="company logo.png.jpg" alt="M&M Logistics Logo">
-
-            <strong>
-                M&amp;M Logistics (SL) Ltd
-                <small>GLOBAL SOURCING · PROCUREMENT · LOGISTICS</small>
-            </strong>
-
-        </a>
-
-        <div class="brand-content">
-
-            <span class="brand-tag">CUSTOMER PORTAL</span>
-
-            <h1>
-                Welcome back to
-                <span>seamless logistics.</span>
-            </h1>
-
-            <p>
-                Your shipments, quotations and logistics information
-                are all within reach. Sign in to continue managing
-                your business with M&amp;M Logistics.
-            </p>
-
-            <div class="brand-points">
-
-                <div class="brand-point">
-                    <span class="point-icon">📦</span>
-                    Access your shipment information
-                </div>
-
-                <div class="brand-point">
-                    <span class="point-icon">🌍</span>
-                    Stay connected with our logistics team
-                </div>
-
-                <div class="brand-point">
-                    <span class="point-icon">📄</span>
-                    Manage your quotations and documents
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="brand-footer">
-            © 2026 M&amp;M Logistics (SL) Ltd. All rights reserved.
-        </div>
-
-    </section>
-
-    <!-- RIGHT LOGIN PANEL -->
-
-    <section class="form-panel">
-
-        <div class="form-container">
-
-            <!-- MOBILE LOGO -->
-
-            <a href="index.html" class="mobile-logo">
-
-                <img src="company logo.png.jpg" alt="M&M Logistics Logo">
-
-                <strong>M&amp;M Logistics (SL) Ltd</strong>
-
-            </a>
-
-            <div id="loginArea">
-
-                <div class="form-heading">
-
-                    <div class="welcome">
-                        CUSTOMER ACCOUNT ACCESS
-                    </div>
-
-                    <h2>Welcome back!</h2>
-
-                    <p>
-                        Enter your login details below to access
-                        your M&amp;M Logistics customer dashboard.
-                    </p>
-
-                </div>
-
-                <div
-                    id="formMessage"
-                    class="form-message"
-                    role="alert"
-                    aria-live="polite"
-                ></div>
-
-                <form id="loginForm" novalidate>
-
-                    <!-- EMAIL -->
-
-                    <div class="form-group">
-
-                        <label for="email">Email Address</label>
-
-                        <div class="input-wrap">
-
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="Enter your registered email"
-                                autocomplete="username"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-                    <!-- PASSWORD -->
-
-                    <div class="form-group">
-
-                        <label for="password">Password</label>
-
-                        <div class="input-wrap">
-
-                            <input
-                                type="password"
-                                id="password"
-                                class="password-input"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            >
-
-                            <button
-                                type="button"
-                                class="toggle-password"
-                                id="togglePassword"
-                            >
-                                Show
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <!-- OPTIONS -->
-
-                    <div class="options">
-
-                        <label class="remember">
-
-                            <input
-                                type="checkbox"
-                                id="rememberMe"
-                            >
-
-                            Remember my email
-
-                        </label>
-
-                        <a href="forgot-password.html" class="forgot-link">
-                            Forgot password?
-                        </a>
-
-                    </div>
-
-                    <!-- SUBMIT -->
-
-                    <button
-                        type="submit"
-                        class="submit-btn"
-                        id="submitBtn"
-                    >
-                        Sign In to Your Account
-                        <span>→</span>
-                    </button>
-
-                </form>
-
-                <div class="divider">
-                    NEW TO M&amp;M LOGISTICS?
-                </div>
-
-                <div class="signup-link">
-
-                    Don't have an account?
-
-                    <a href="signup.html">Create an account</a>
-
-                </div>
-
-                <a href="index.html" class="back-home">
-                    ← Back to M&amp;M Logistics website
-                </a>
-
-                <div class="security-note">
-
-                    <span>🔒</span>
-
-                    <span>
-                        Your customer account is intended to provide
-                        access to your personal shipment and logistics
-                        information. Always sign out when using a
-                        shared device.
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
+<header class="topbar">
+<a class="brand" href="index.html" aria-label="M&M Logistics home">
+<span class="brand-mark">M&amp;M</span><span>M&amp;M Logistics</span>
+</a>
+<nav class="top-links" aria-label="Main links">
+<a href="index.html">Home</a><a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main>
+<section class="shell" aria-label="M&M Logistics account access">
+<aside class="visual">
+<div class="visual-content">
+<div class="eyebrow">Your logistics, connected</div>
+<h1>Welcome to<br>M&amp;M Logistics.</h1>
+<p>Access your account to manage shipments, follow quotations and stay connected with our team across China and West Africa.</p>
+<div class="visual-points">
+<div class="point"><span class="point-icon">✓</span> Shipment and delivery updates</div>
+<div class="point"><span class="point-icon">✓</span> Quotations and customer support</div>
+<div class="point"><span class="point-icon">✓</span> Business operations management</div>
+</div>
+</div>
+<div class="visual-foot">Connecting China to West Africa.<br>© <span id="year"></span> M&amp;M Logistics (SL) Ltd.</div>
+</aside>
+
+<div class="content">
+<section id="roleScreen">
+<div class="content-head">
+<div class="eyebrow">Account access</div>
+<h2>Choose your login</h2>
+<p class="subtext">Select the account type you want to access.</p>
+</div>
+<div class="role-grid">
+<button class="role-card" type="button" id="customerChoice">
+<span class="role-icon">♙</span>
+<strong>Customer Login</strong>
+<span>Access your customer profile, quotations, documents and shipment tracking.</span>
+<span class="role-arrow">Continue as customer →</span>
+</button>
+<button class="role-card admin" type="button" id="adminChoice">
+<span class="role-icon">▣</span>
+<strong>Administrator Login</strong>
+<span>Access the M&amp;M Logistics administration and business management dashboard.</span>
+<span class="role-arrow">Continue as administrator →</span>
+</button>
+</div>
+<p class="form-note">New to M&amp;M Logistics? <a class="text-link" href="signup.html">Create a customer account</a>.</p>
+</section>
+
+<section class="form-panel" id="customerPanel">
+<button class="back" type="button" data-back>← Back to account options</button>
+<div class="form-title">
+<div class="eyebrow">Customer access</div>
+<h2>Sign in to your account</h2>
+<p class="subtext">Enter the email address and password you used when registering.</p>
+</div>
+<div class="message error" id="customerMessage" role="alert"></div>
+<form id="customerLoginForm">
+<div class="field">
+<label for="customerEmail">Email address</label>
+<input id="customerEmail" name="email" type="email" placeholder="you@example.com" autocomplete="username" required>
+</div>
+<div class="field">
+<label for="customerPassword">Password</label>
+<div class="input-wrap">
+<input class="password-input" id="customerPassword" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+<button class="show-password" type="button" data-toggle="customerPassword">Show</button>
+</div>
+</div>
+<div class="form-row">
+<label class="remember"><input type="checkbox" id="rememberEmail"> Remember email</label>
+<a class="text-link" href="#" id="forgotLink">Forgot password?</a>
+</div>
+<button class="submit" type="submit">Login to Customer Portal</button>
+</form>
+<p class="form-note">Don't have an account? <a class="text-link" href="signup.html">Create an account</a>.</p>
+</section>
+
+<section class="form-panel" id="adminPanel">
+<button class="back" type="button" data-back>← Back to account options</button>
+<div class="form-title">
+<div class="eyebrow">Administrator access</div>
+<h2>Administrator login</h2>
+<p class="subtext">Continue to the administration area.</p>
+</div>
+<div class="admin-notice"><strong>Admin area:</strong> You will be taken to the administrator login page and dashboard.</div>
+<button class="submit admin-btn" type="button" id="openAdmin">Continue to Admin Login →</button>
+<p class="form-note">Administrator access is intended for authorised M&amp;M Logistics staff only.</p>
+</section>
+</div>
+</section>
+</main>
+
+<footer class="footer">M&amp;M Logistics (SL) Ltd. &nbsp;|&nbsp; <a href="index.html">Return to homepage</a></footer>
 </div>
 
 <script>
+"use strict";
 
-/* =====================================
-   DARK AND LIGHT THEME
-===================================== */
+const CUSTOMER_LIST_KEY = "mmLogisticsCustomers";
+const CURRENT_CUSTOMER_KEY = "mmCurrentCustomer";
+const REMEMBER_EMAIL_KEY = "mmRememberCustomer";
 
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-const themeText = document.getElementById("themeText");
+const roleScreen = document.getElementById("roleScreen");
+const customerPanel = document.getElementById("customerPanel");
+const adminPanel = document.getElementById("adminPanel");
+const customerMessage = document.getElementById("customerMessage");
 
-/* LOAD SAVED THEME */
+document.getElementById("year").textContent = new Date().getFullYear();
 
-let savedTheme = localStorage.getItem("mmLoginTheme") || "light";
-
-function applyTheme(theme) {
-
-    document.body.setAttribute("data-theme", theme);
-
-    if (theme === "dark") {
-
-        themeIcon.textContent = "☾";
-        themeText.textContent = "Dark Mode";
-
-    } else {
-
-        themeIcon.textContent = "☀";
-        themeText.textContent = "Light Mode";
-
-    }
-
-    localStorage.setItem("mmLoginTheme", theme);
-
+function showPanel(panel) {
+  roleScreen.style.display = "none";
+  customerPanel.classList.remove("active");
+  adminPanel.classList.remove("active");
+  panel.classList.add("active");
 }
 
-/* APPLY THEME ON PAGE LOAD */
+function showRoleScreen() {
+  customerPanel.classList.remove("active");
+  adminPanel.classList.remove("active");
+  roleScreen.style.display = "block";
+  customerMessage.className = "message error";
+  customerMessage.textContent = "";
+}
 
-applyTheme(savedTheme);
-
-/* SWITCH THEME */
-
-themeToggle.addEventListener("click", function() {
-
-    const currentTheme = document.body.getAttribute("data-theme");
-
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-    applyTheme(newTheme);
-
+document.getElementById("customerChoice").addEventListener("click", () => {
+  showPanel(customerPanel);
+  document.getElementById("customerEmail").focus();
 });
 
+document.getElementById("adminChoice").addEventListener("click", () => {
+  showPanel(adminPanel);
+});
 
-/* =====================================
-   LOGIN FUNCTIONALITY
-===================================== */
+document.querySelectorAll("[data-back]").forEach(button => {
+  button.addEventListener("click", showRoleScreen);
+});
 
-const loginForm = document.getElementById("loginForm");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const rememberMe = document.getElementById("rememberMe");
-const formMessage = document.getElementById("formMessage");
-const submitBtn = document.getElementById("submitBtn");
+document.getElementById("openAdmin").addEventListener("click", () => {
+  window.location.href = "admin.html";
+});
 
+document.querySelectorAll("[data-toggle]").forEach(button => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.toggle);
+    const reveal = input.type === "password";
+    input.type = reveal ? "text" : "password";
+    button.textContent = reveal ? "Hide" : "Show";
+  });
+});
 
-/* CHECK FOR EXISTING SESSION */
-
-try {
-
-    const currentCustomer = JSON.parse(
-        localStorage.getItem("mmCurrentCustomer") || "null"
-    );
-
-    if (currentCustomer && currentCustomer.id) {
-
-        window.location.replace("tracking.html");
-
-    }
-
-} catch (error) {
-
-    localStorage.removeItem("mmCurrentCustomer");
-
+function readCustomers() {
+  try {
+    const data = JSON.parse(localStorage.getItem(CUSTOMER_LIST_KEY) || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    return [];
+  }
 }
 
+function showCustomerError(message) {
+  customerMessage.textContent = message;
+  customerMessage.className = "message error show";
+}
 
-/* LOAD REMEMBERED EMAIL */
-
-const rememberedEmail = localStorage.getItem("mmRememberCustomer");
-
+const rememberedEmail = localStorage.getItem(REMEMBER_EMAIL_KEY);
 if (rememberedEmail) {
-
-    emailInput.value = rememberedEmail;
-    rememberMe.checked = true;
-
+  document.getElementById("customerEmail").value = rememberedEmail;
+  document.getElementById("rememberEmail").checked = true;
 }
 
+document.getElementById("customerLoginForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-/* SHOW / HIDE PASSWORD */
+  const email = document.getElementById("customerEmail").value.trim().toLowerCase();
+  const password = document.getElementById("customerPassword").value;
+  const customers = readCustomers();
 
-document.getElementById("togglePassword").addEventListener("click", function() {
+  const customer = customers.find(item =>
+    String(item.email || "").trim().toLowerCase() === email &&
+    String(item.password || "") === password
+  );
 
-    if (passwordInput.type === "password") {
+  if (!customer) {
+    showCustomerError("The email address or password is incorrect. Please check your details or create an account if you have not registered.");
+    return;
+  }
 
-        passwordInput.type = "text";
-        this.textContent = "Hide";
+  if (document.getElementById("rememberEmail").checked) {
+    localStorage.setItem(REMEMBER_EMAIL_KEY, email);
+  } else {
+    localStorage.removeItem(REMEMBER_EMAIL_KEY);
+  }
 
-    } else {
+  const signedInCustomer = {
+    ...customer,
+    fullName: customer.fullName || customer.name || "Customer",
+    email: customer.email || email
+  };
 
-        passwordInput.type = "password";
-        this.textContent = "Show";
-
-    }
-
+  localStorage.setItem(CURRENT_CUSTOMER_KEY, JSON.stringify(signedInCustomer));
+  window.location.href = "tracking.html";
 });
 
-
-/* DISPLAY FORM MESSAGE */
-
-function showMessage(message, type = "error") {
-
-    formMessage.className = "form-message " + type;
-    formMessage.textContent = message;
-
-}
-
-function clearMessage() {
-
-    formMessage.className = "form-message";
-    formMessage.textContent = "";
-
-}
-
-
-/* LOGIN SUBMISSION */
-
-loginForm.addEventListener("submit", function(e) {
-
-    e.preventDefault();
-
-    clearMessage();
-
-    const email = emailInput.value.trim().toLowerCase();
-
-    const password = passwordInput.value;
-
-    /* CHECK REQUIRED FIELDS */
-
-    if (!email || !password) {
-
-        showMessage(
-            "Please enter your email address and password."
-        );
-
-        return;
-
-    }
-
-    /* CHECK EMAIL FORMAT */
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailPattern.test(email)) {
-
-        showMessage(
-            "Please enter a valid email address."
-        );
-
-        return;
-
-    }
-
-    /* GET REGISTERED CUSTOMERS */
-
-    let customers = [];
-
-    try {
-
-        customers = JSON.parse(
-            localStorage.getItem("mmLogisticsCustomers") || "[]"
-        );
-
-        if (!Array.isArray(customers)) {
-            customers = [];
-        }
-
-    } catch (error) {
-
-        showMessage(
-            "We could not retrieve your account information. Please try again."
-        );
-
-        return;
-
-    }
-
-    /* FIND CUSTOMER ACCOUNT */
-
-    const customer = customers.find(item => {
-
-        return item.email &&
-            item.email.toLowerCase() === email &&
-            item.password === password;
-
-    });
-
-    /* INVALID LOGIN */
-
-    if (!customer) {
-
-        showMessage(
-            "The email address or password you entered is incorrect. Please check your details and try again."
-        );
-
-        passwordInput.value = "";
-        passwordInput.focus();
-
-        return;
-
-    }
-
-    /* REMEMBER EMAIL OPTION */
-
-    if (rememberMe.checked) {
-
-        localStorage.setItem(
-            "mmRememberCustomer",
-            email
-        );
-
-    } else {
-
-        localStorage.removeItem("mmRememberCustomer");
-
-    }
-
-    /* CREATE CUSTOMER SESSION */
-
-    const currentCustomer = {
-
-        id: customer.id,
-
-        fullName: customer.fullName,
-
-        email: customer.email,
-
-        phone: customer.phone,
-
-        country: customer.country,
-
-        loggedInAt: new Date().toISOString()
-
-    };
-
-    try {
-
-        localStorage.setItem(
-            "mmCurrentCustomer",
-            JSON.stringify(currentCustomer)
-        );
-
-    } catch (error) {
-
-        showMessage(
-            "We could not start your customer session. Please check your browser settings and try again."
-        );
-
-        return;
-
-    }
-
-    /* SUCCESS MESSAGE */
-
-    showMessage(
-        "Login successful! Redirecting you to your customer dashboard...",
-        "success"
-    );
-
-    submitBtn.disabled = true;
-
-    submitBtn.innerHTML = "Signing In...";
-
-    /* REDIRECT */
-
-    setTimeout(() => {
-
-        window.location.href = "tracking.html";
-
-    }, 900);
-
+document.getElementById("forgotLink").addEventListener("click", event => {
+  event.preventDefault();
+  showCustomerError("Password recovery is not connected in this front-end preview. Please contact M&M Logistics for assistance.");
 });
-
 </script>
-
 </body>
 </html>

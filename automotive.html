@@ -1,12 +1,11 @@
+ <!DOCTYPE html>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Explore vehicles, commercial trucks and automotive spare parts sourced through M&M Logistics.">
-<title>Automotive Products | M&M Logistics (SL) Ltd</title>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Explore vehicles, commercial trucks and automotive spare parts sourced through M&amp;M Logistics." name="description"/>
+<title>Automotive Products | M&amp;M Logistics (SL) Ltd</title>
 <style>
 :root {
     --blue: #395BA2;
@@ -314,6 +313,123 @@ header {
     color: var(--green);
     font-weight: 900;
     margin-right: 10px;
+}
+
+
+/* BUYING COST TRANSPARENCY */
+
+.pricing-intro {
+    background: var(--light);
+    padding: 68px 0;
+}
+
+.pricing-heading {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.pricing-heading h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.2;
+    margin: 9px 0 12px;
+}
+
+.pricing-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.upfront-fee {
+    max-width: 850px;
+    margin: 0 auto 25px;
+    padding: 20px 24px;
+    border: 1px solid #cfe9d7;
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    background: #f0fbf3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.upfront-fee strong {
+    display: block;
+    color: #172033;
+    font-size: 16px;
+}
+
+.upfront-fee p {
+    color: #536174;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.upfront-amount {
+    color: var(--green);
+    font-size: 30px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 25px 22px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.pricing-card h3 {
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.pricing-card .range {
+    color: var(--muted);
+    font-size: 13px;
+    min-height: 40px;
+}
+
+.pricing-card .rate {
+    color: var(--blue);
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 12px 0 5px;
+}
+
+.pricing-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.pricing-note {
+    max-width: 850px;
+    margin: 22px auto 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+@media(max-width: 760px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .upfront-fee { align-items: flex-start; }
+}
+
+@media(max-width: 480px) {
+    .upfront-fee { flex-direction: column; }
 }
 
 /* PRODUCT CATEGORIES */
@@ -840,258 +956,307 @@ footer {
     }
 }
 </style>
+
+<style>
+/* Shared transparent buying-charges design */
+.pricing-intro {
+  background:#fff;
+  padding:44px 0 22px;
+}
+.pricing-intro .container { width:min(88%,1475px); max-width:1475px; }
+.pricing-intro .upfront-fee {
+  width:min(650px,100%);
+  max-width:650px;
+  min-height:191px;
+  margin:0 auto 32px;
+  padding:26px 24px;
+  border:0;
+  border-radius:15px;
+  background:linear-gradient(110deg,#192742 0%,#395ba2 100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  text-align:center;
+  color:#fff;
+}
+.pricing-intro .fee-label {
+  color:#9dffb5;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
+.pricing-intro .upfront-amount {
+  color:#fff;
+  font-size:52px;
+  line-height:1.15;
+  font-weight:900;
+}
+.pricing-intro .upfront-fee p {
+  color:#fff;
+  font-size:15px;
+  margin:4px 0 0;
+}
+.pricing-intro .pricing-grid {
+  width:100%;
+  max-width:none;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+  margin:0 auto;
+}
+.pricing-intro .pricing-card {
+  min-height:276px;
+  padding:38px 24px 30px;
+  border:1px solid #dfe5ef;
+  border-radius:16px;
+  background:#f3f6fb;
+  box-shadow:none;
+  text-align:center;
+}
+.pricing-intro .pricing-card.featured {
+  border:2px solid #395fb4;
+  padding:37px 23px 29px;
+  box-shadow:0 12px 28px rgba(23,36,61,.08);
+}
+.pricing-intro .purchase-label {
+  color:#00b943;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.7px;
+  margin-bottom:35px;
+}
+.pricing-intro .pricing-card h3 {
+  color:#17243d;
+  font-size:20px;
+  font-weight:750;
+  margin:0 0 24px;
+}
+.pricing-intro .pricing-card .rate {
+  color:#395ba2;
+  font-size:56px;
+  font-weight:900;
+  line-height:1.05;
+  margin:0 0 12px;
+}
+.pricing-intro .pricing-card p {
+  color:#68778f;
+  font-size:14px;
+  margin:0;
+}
+.pricing-intro .pricing-note {
+  width:100%;
+  max-width:none;
+  margin:27px auto 0;
+  padding:19px 23px;
+  border-left:5px solid #12b94b;
+  border-radius:7px;
+  background:#f3f6fb;
+  color:#65748c;
+  font-size:14px;
+  line-height:1.7;
+  text-align:left;
+}
+.pricing-intro .pricing-note strong { color:#17243d; }
+@media(max-width:900px) {
+  .pricing-intro .container { width:min(92%,1475px); }
+  .pricing-intro .pricing-grid { gap:14px; }
+  .pricing-intro .pricing-card { padding:30px 16px; }
+  .pricing-intro .pricing-card h3 { font-size:17px; }
+}
+@media(max-width:680px) {
+  .pricing-intro { padding:30px 0 18px; }
+  .pricing-intro .upfront-fee { min-height:175px; margin-bottom:22px; }
+  .pricing-intro .pricing-grid { grid-template-columns:1fr; }
+  .pricing-intro .pricing-card,
+  .pricing-intro .pricing-card.featured { min-height:230px; padding:28px 20px; }
+  .pricing-intro .purchase-label { margin-bottom:20px; }
+  .pricing-intro .pricing-card h3 { margin-bottom:16px; }
+  .pricing-intro .pricing-note { padding:16px; font-size:13px; }
+}
+</style>
 </head>
-
 <body>
-
 <!-- HEADER -->
-
 <header>
-    <div class="container navbar">
-
-        <a class="brand" href="index.html">
-            <img src="company logo.png.jpg" alt="M&M Logistics logo">
-            <strong>M&amp;M Logistics</strong>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Open menu" aria-expanded="false">
+<div class="container navbar">
+<a class="brand" href="index.html">
+<img alt="M&amp;M Logistics logo" src="company logo.png.jpg"/>
+<strong>M&amp;M Logistics</strong>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle">
             ☰
         </button>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="service.html">Services</a>
-            <a href="tracking.html">Track Shipping</a>
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <div class="nav-actions">
-            <a class="login" href="login.html">Login</a>
-            <a class="signup" href="signup.html">Sign up</a>
-        </div>
-
-    </div>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="tracking.html">Track Shipping</a>
+<a href="about.html">About us</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="nav-actions">
+<a class="login" href="login.html">Login</a>
+<a class="signup" href="signup.html">Sign up</a>
+</div>
+</div>
 </header>
-
 <!-- HERO -->
-
 <section class="hero">
-    <div class="container hero-inner">
-
-        <h1>Vehicles &amp; Automotive Products</h1>
-
-        <p>
+<div class="container hero-inner">
+<h1>Vehicles &amp; Automotive Products</h1>
+<p>
             Explore SUVs, passenger cars, heavy-duty trucks,
             commercial vehicles and spare parts available for
             sourcing through M&amp;M Logistics.
         </p>
-
-        <div class="hero-actions">
-            <a class="btn btn-primary" href="#suvs-cars">
+<div class="hero-actions">
+<a class="btn btn-primary" href="#suvs-cars">
                 Browse Vehicles
             </a>
-
-            <a class="btn btn-outline" href="#spare-parts">
+<a class="btn btn-outline" href="#spare-parts">
                 Explore Spare Parts
             </a>
-        </div>
-
-    </div>
-</section>
-
-<!-- CATEGORY NAVIGATION -->
-
-<div class="category-nav-wrap">
-    <nav class="container category-nav">
-        <a href="#suvs-cars">SUVs &amp; Cars</a>
-        <a href="#heavy-trucks">Heavy Trucks</a>
-        <a href="#commercial-vehicles">Commercial Vehicles</a>
-        <a href="#spare-parts">Spare Parts</a>
-    </nav>
 </div>
-
-<!-- INTRODUCTION -->
-
-<section class="intro">
-    <div class="container intro-grid">
-
-        <div>
-            <span class="eyebrow">SOURCE FROM CHINA</span>
-
-            <h2>Find the Right Vehicle for Your Needs</h2>
-
-            <p>
-                Whether you are purchasing a personal vehicle,
-                expanding a transport fleet or sourcing replacement
-                parts, our automotive catalogue gives you a starting
-                point for your enquiry.
-            </p>
-
-            <p>
-                Select a product to review its key features and contact
-                our team for a current supplier quotation, availability
-                and shipping options.
-            </p>
-        </div>
-
-        <div class="intro-panel">
-            <h3>What You Can Request</h3>
-
-            <ul class="check-list">
-                <li>New vehicles and selected models</li>
-                <li>Commercial and heavy-duty trucks</li>
-                <li>Vehicle configurations and specifications</li>
-                <li>Genuine and compatible spare parts</li>
-                <li>Supplier pricing and shipping quotations</li>
-            </ul>
-        </div>
-
-    </div>
+</div>
 </section>
-
+<!-- CATEGORY NAVIGATION -->
+<div class="category-nav-wrap">
+<nav class="container category-nav">
+<a href="#suvs-cars">SUVs &amp; Cars</a>
+<a href="#heavy-trucks">Heavy Trucks</a>
+<a href="#commercial-vehicles">Commercial Vehicles</a>
+<a href="#spare-parts">Spare Parts</a>
+</nav>
+</div>
+<!-- BUYING COST TRANSPARENCY: SECOND SECTION -->
+<section class="pricing-intro" id="buying-fees">
+<div class="container">
+<div class="upfront-fee">
+<div class="fee-label">FLAT UPFRONT PROCESSING FEE</div>
+<div class="upfront-amount">$50</div>
+<p>Payable by every customer before the purchasing process begins.</p>
+</div>
+<div class="pricing-grid">
+<article class="pricing-card">
+<div class="purchase-label">PURCHASE VALUE</div>
+<h3>$1,500 – Below $10,000</h3>
+<div class="rate">10%</div>
+<p>Service charge based on the total purchase value.</p>
+</article>
+<article class="pricing-card featured">
+<div class="purchase-label">PURCHASE VALUE</div>
+<h3>$10,000 – $50,000</h3>
+<div class="rate">5%</div>
+<p>Service charge based on the total purchase value.</p>
+</article>
+<article class="pricing-card">
+<div class="purchase-label">PURCHASE VALUE</div>
+<h3>Above $50,000</h3>
+<div class="rate">3%</div>
+<p>Service charge based on the total purchase value.</p>
+</article>
+</div>
+<p class="pricing-note"><strong>Please note:</strong> The $50 upfront processing fee is additional to the applicable percentage service charge. The percentage is calculated on the total value of the vehicle purchase. Shipping, customs duties, taxes, inspection and other third-party charges are separate unless expressly included in your written quotation. Purchases below $1,500 are not covered by the percentage schedule shown above; please contact our team for clarification.</p>
+</div>
+</section>
 <!-- PRODUCTS ARE GENERATED HERE -->
-
 <main id="catalogue"></main>
-
 <!-- KEY FEATURES MODAL -->
-
-<div class="modal-overlay" id="featuresModal"
-     role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-
-    <div class="features-modal">
-
-        <div class="modal-header">
-            <div>
-                <h2 id="modalTitle">Product Key Features</h2>
-                <p id="modalSubtitle">Product specifications</p>
-            </div>
-
-            <button class="modal-close" id="closeModal"
-                    aria-label="Close key features">&times;</button>
-        </div>
-
-        <div class="modal-content">
-
-            <div class="modal-image-wrap">
-                <img id="modalImage" class="modal-product-image"
-                     src="" alt="Product image">
-            </div>
-
-            <h3>Key Specifications</h3>
-
-            <div class="feature-grid" id="featureGrid"></div>
-
-            <div class="modal-actions">
-                <a href="#" class="btn btn-primary" id="modalQuote">
+<div aria-labelledby="modalTitle" aria-modal="true" class="modal-overlay" id="featuresModal" role="dialog">
+<div class="features-modal">
+<div class="modal-header">
+<div>
+<h2 id="modalTitle">Product Key Features</h2>
+<p id="modalSubtitle">Product specifications</p>
+</div>
+<button aria-label="Close key features" class="modal-close" id="closeModal">×</button>
+</div>
+<div class="modal-content">
+<div class="modal-image-wrap">
+<img alt="Product image" class="modal-product-image" id="modalImage" src=""/>
+</div>
+<h3>Key Specifications</h3>
+<div class="feature-grid" id="featureGrid"></div>
+<div class="modal-actions">
+<a class="btn btn-primary" href="#" id="modalQuote">
                     Request for Quotation
                 </a>
-
-                <button type="button" class="btn btn-outline"
-                        id="modalCloseBottom">
+<button class="btn btn-outline" id="modalCloseBottom" type="button">
                     Close
                 </button>
-            </div>
-
-        </div>
-
-    </div>
 </div>
-
+</div>
+</div>
+</div>
 <!-- FINAL CALL TO ACTION -->
-
 <section class="cta" id="quote">
-    <div class="container">
-
-        <h2>Looking for a Specific Vehicle or Part?</h2>
-
-        <p>
+<div class="container">
+<h2>Looking for a Specific Vehicle or Part?</h2>
+<p>
             Let M&amp;M Logistics help you source the right automotive
             products from China. Contact our team for product
             availability, supplier pricing and shipping arrangements
             to Sierra Leone, Ghana and Nigeria.
         </p>
-
-        <a class="btn btn-primary"
-           href="https://wa.me/23230172868?text=Hello%20M%26M%20Logistics%2C%20I%20would%20like%20to%20enquire%20about%20automotive%20products."
-           target="_blank" rel="noopener">
+<a class="btn btn-primary" href="https://wa.me/23230172868?text=Hello%20M%26M%20Logistics%2C%20I%20would%20like%20to%20enquire%20about%20automotive%20products." rel="noopener" target="_blank">
             Contact Us on WhatsApp
         </a>
-
-    </div>
+</div>
 </section>
-
 <!-- FOOTER -->
-
 <footer>
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="company logo.png.jpg"
-                         alt="M&M Logistics logo">
-                </div>
-
-                <p>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-logo">
+<img alt="M&amp;M Logistics logo" src="company logo.png.jpg"/>
+</div>
+<p>
                     M&amp;M Logistics (SL) Ltd provides sourcing,
                     procurement and international logistics solutions
                     connecting China with West Africa.
                 </p>
-            </div>
-
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="service.html">Services</a>
-                <a href="tracking.html">Track Shipping</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-            </div>
-
-            <div class="footer-col">
-                <h3>Product Categories</h3>
-                <a href="#suvs-cars">SUVs &amp; Cars</a>
-                <a href="#heavy-trucks">Heavy Trucks</a>
-                <a href="#commercial-vehicles">Commercial Vehicles</a>
-                <a href="#spare-parts">Spare Parts</a>
-            </div>
-
-            <div class="footer-col">
-                <h3>Contact</h3>
-
-                <a href="https://wa.me/23230172868"
-                   target="_blank" rel="noopener">
+</div>
+<div class="footer-col">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="tracking.html">Track Shipping</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="footer-col">
+<h3>Product Categories</h3>
+<a href="#suvs-cars">SUVs &amp; Cars</a>
+<a href="#heavy-trucks">Heavy Trucks</a>
+<a href="#commercial-vehicles">Commercial Vehicles</a>
+<a href="#spare-parts">Spare Parts</a>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<a href="https://wa.me/23230172868" rel="noopener" target="_blank">
                     WhatsApp: +232 30 172 868
                 </a>
-
-                <a href="tel:+8613156271080">
+<a href="tel:+8613156271080">
                     China: +86 131 5627 1080
                 </a>
-
-                <a href="tel:+8617543995848">
+<a href="tel:+8617543995848">
                     China: +86 175 4399 5848
                 </a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>
+</div>
+</div>
+<div class="footer-bottom">
+<span>
                 © <span id="currentYear"></span>
                 M&amp;M Logistics (SL) Ltd. All Rights Reserved.
             </span>
-
-            <span>
+<span>
                 Connecting China to West Africa.
             </span>
-        </div>
-
-    </div>
+</div>
+</div>
 </footer>
-
 <script>
 
 /* =========================================
@@ -1986,6 +2151,5 @@ document.addEventListener("keydown", function(event) {
 });
 
 </script>
-
 </body>
 </html>
